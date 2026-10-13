@@ -1,0 +1,69 @@
+{
+  "titulo": "Teste: sinais vitais no adulto",
+  "data": "2026-10-13",
+  "resumo": "Valores de referência e interpretação básica dos sinais vitais.",
+  "curso": "sinais-vitais-e-interpretacao",
+  "nivel": "Iniciante",
+  "aprovacao": 60,
+  "imagem": "",
+  "perguntas": [
+    {
+      "pergunta": "Qual é a frequência respiratória normal de um adulto em repouso?",
+      "opcoes": [
+        "4 a 8 rpm",
+        "12 a 20 rpm",
+        "25 a 35 rpm",
+        "40 a 50 rpm"
+      ],
+      "correta": 2,
+      "explicacao": "Em repouso, o adulto respira cerca de 12 a 20 vezes por minuto."
+    },
+    {
+      "pergunta": "Qual é a frequência cardíaca normal de um adulto em repouso?",
+      "opcoes": [
+        "30 a 50 bpm",
+        "60 a 100 bpm",
+        "110 a 140 bpm",
+        "150 a 180 bpm"
+      ],
+      "correta": 2,
+      "explicacao": "A referência habitual é 60 a 100 batimentos por minuto."
+    },
+    {
+      "pergunta": "Uma saturação periférica persistentemente abaixo de 90% em ar ambiente sugere:",
+      "opcoes": [
+        "Valor normal",
+        "Hipoxemia que exige avaliação urgente",
+        "Hipertensão",
+        "Desidratação ligeira"
+      ],
+      "correta": 2,
+      "explicacao": "Valores baixos de SpO₂ sugerem oxigenação insuficiente e devem ser avaliados de imediato."
+    },
+    {
+      "pergunta": "Temperatura axilar de 38,5 °C num adulto corresponde a:",
+      "opcoes": [
+        "Hipotermia",
+        "Normotermia",
+        "Febre",
+        "Hipotensão"
+      ],
+      "correta": 3,
+      "explicacao": "Valores acima de cerca de 37,5–38 °C são considerados febre."
+    },
+    {
+      "pergunta": "Uma tensão arterial de 90/60 mmHg num doente com tonturas e pele fria deve levar a:",
+      "opcoes": [
+        "Ignorar, é normal",
+        "Alertar a equipa e reavaliar de imediato",
+        "Dar uma refeição pesada",
+        "Medir apenas no dia seguinte"
+      ],
+      "correta": 2,
+      "explicacao": "Hipotensão com sintomas pode indicar choque: alerte e reavalie."
+    }
+  ],
+  "etiquetas": [],
+  "corpo": "",
+  "publicado": true
+}

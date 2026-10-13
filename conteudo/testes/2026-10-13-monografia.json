@@ -1,0 +1,69 @@
+{
+  "titulo": "Teste: noções de monografia",
+  "data": "2026-10-13",
+  "resumo": "Estrutura e conceitos básicos de um trabalho de fim de curso.",
+  "curso": "elaboracao-de-monografias",
+  "nivel": "Iniciante",
+  "aprovacao": 60,
+  "imagem": "",
+  "perguntas": [
+    {
+      "pergunta": "Qual a parte da monografia que apresenta o problema e os objectivos?",
+      "opcoes": [
+        "Resumo apenas",
+        "Introdução",
+        "Anexos",
+        "Agradecimentos"
+      ],
+      "correta": 2,
+      "explicacao": "A introdução contextualiza o tema, o problema e os objectivos."
+    },
+    {
+      "pergunta": "Uma revisão bibliográfica baseia-se em:",
+      "opcoes": [
+        "Opinião pessoal",
+        "Fontes científicas já publicadas",
+        "Apenas entrevistas",
+        "Imagens"
+      ],
+      "correta": 2,
+      "explicacao": "Reúne e sintetiza literatura científica existente."
+    },
+    {
+      "pergunta": "O estudo de caso caracteriza-se por:",
+      "opcoes": [
+        "Analisar em profundidade um ou poucos casos",
+        "Inquirir milhares de pessoas",
+        "Não ter método",
+        "Dispensar ética"
+      ],
+      "correta": 1,
+      "explicacao": "Foca-se no aprofundamento de um caso ou poucos casos."
+    },
+    {
+      "pergunta": "Num estudo de campo, os dados são recolhidos:",
+      "opcoes": [
+        "Só em bibliotecas",
+        "No contexto real, com instrumentos como questionários",
+        "Só por dedução",
+        "Sem consentimento"
+      ],
+      "correta": 2,
+      "explicacao": "Recolha no terreno, com instrumentos definidos e consentimento informado."
+    },
+    {
+      "pergunta": "As referências bibliográficas servem para:",
+      "opcoes": [
+        "Enfeitar o trabalho",
+        "Identificar as fontes citadas",
+        "Aumentar páginas",
+        "Substituir a conclusão"
+      ],
+      "correta": 2,
+      "explicacao": "Permitem identificar e verificar as fontes usadas."
+    }
+  ],
+  "etiquetas": [],
+  "corpo": "",
+  "publicado": true
+}

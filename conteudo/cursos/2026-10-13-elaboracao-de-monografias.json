@@ -1,0 +1,55 @@
+{
+  "titulo": "Elaboração de monografias em enfermagem",
+  "data": "2026-10-13",
+  "resumo": "Do projecto de pesquisa à defesa: estrutura, formatação, estudos de caso, estudos de campo e revisões bibliográficas.",
+  "imagem": "",
+  "nivel": "Intermédio",
+  "area": "Investigação",
+  "duracao": "8 horas",
+  "instrutor": "Equipa Enfermeiro Competente",
+  "preco": "",
+  "link_inscricao": "",
+  "corpo": "## Programa\n\n1. **Projecto de pesquisa:** tema, problema, objectivos, justificativa e metodologia\n2. **Estrutura da monografia:** elementos pré-textuais, introdução, desenvolvimento, conclusão e referências\n3. **Formatação:** normas de apresentação, citações e referências bibliográficas\n4. **Estudo de caso:** como escolher, descrever e analisar um caso clínico\n5. **Estudo de campo:** amostra, instrumentos de recolha, ética e análise de dados\n6. **Revisão bibliográfica:** pesquisa em bases de dados, critérios de selecção e síntese\n7. **Preparar a defesa**\n\nAs aulas em vídeo são publicadas à medida que ficam prontas.",
+  "aulas": [
+    {
+      "titulo": "Projecto de pesquisa",
+      "youtube": "",
+      "duracao": "",
+      "resumo": ""
+    },
+    {
+      "titulo": "Estrutura da monografia",
+      "youtube": "",
+      "duracao": "",
+      "resumo": ""
+    },
+    {
+      "titulo": "Formatação e referências",
+      "youtube": "",
+      "duracao": "",
+      "resumo": ""
+    },
+    {
+      "titulo": "Estudo de caso",
+      "youtube": "",
+      "duracao": "",
+      "resumo": ""
+    },
+    {
+      "titulo": "Estudo de campo",
+      "youtube": "",
+      "duracao": "",
+      "resumo": ""
+    },
+    {
+      "titulo": "Revisão bibliográfica",
+      "youtube": "",
+      "duracao": "",
+      "resumo": ""
+    }
+  ],
+  "etiquetas": [
+    "Investigação"
+  ],
+  "publicado": true
+}

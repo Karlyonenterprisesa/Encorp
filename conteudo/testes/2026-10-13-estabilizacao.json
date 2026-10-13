@@ -1,0 +1,69 @@
+{
+  "titulo": "Teste: avaliação ABCDE",
+  "data": "2026-10-13",
+  "resumo": "Sequência e prioridades da avaliação primária.",
+  "curso": "estabilizacao-de-pacientes",
+  "nivel": "Iniciante",
+  "aprovacao": 60,
+  "imagem": "",
+  "perguntas": [
+    {
+      "pergunta": "O que significa a letra A no ABCDE?",
+      "opcoes": [
+        "Analgesia",
+        "Via aérea (Airway)",
+        "Arritmia",
+        "Antibiótico"
+      ],
+      "correta": 2,
+      "explicacao": "A = Airway, a via aérea, com controlo da coluna cervical se houver suspeita de trauma."
+    },
+    {
+      "pergunta": "Qual a ordem correcta?",
+      "opcoes": [
+        "A, B, C, D, E",
+        "C, A, B, E, D",
+        "E, D, C, B, A",
+        "B, A, D, C, E"
+      ],
+      "correta": 1,
+      "explicacao": "Avalia-se e trata-se por ordem: A, B, C, D, E."
+    },
+    {
+      "pergunta": "A letra D refere-se a:",
+      "opcoes": [
+        "Dieta",
+        "Défice neurológico (estado de consciência)",
+        "Diurese",
+        "Dor apenas"
+      ],
+      "correta": 2,
+      "explicacao": "D = Disability: avaliação neurológica, por exemplo com AVDS ou Glasgow."
+    },
+    {
+      "pergunta": "Se encontrar um problema na via aérea durante a avaliação, deve:",
+      "opcoes": [
+        "Continuar para o C e voltar depois",
+        "Tratá-lo antes de avançar",
+        "Ignorá-lo",
+        "Esperar pelo médico sem agir"
+      ],
+      "correta": 2,
+      "explicacao": "Resolve-se cada problema antes de passar à letra seguinte."
+    },
+    {
+      "pergunta": "A escala NEWS2 serve para:",
+      "opcoes": [
+        "Medir a dor",
+        "Detectar deterioração clínica",
+        "Calcular doses",
+        "Avaliar o risco de queda"
+      ],
+      "correta": 2,
+      "explicacao": "O NEWS2 pontua parâmetros fisiológicos para alertar sobre deterioração."
+    }
+  ],
+  "etiquetas": [],
+  "corpo": "",
+  "publicado": true
+}

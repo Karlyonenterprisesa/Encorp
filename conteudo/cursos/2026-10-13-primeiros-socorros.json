@@ -1,0 +1,49 @@
+{
+  "titulo": "Primeiros socorros",
+  "data": "2026-10-13",
+  "resumo": "Reconhecer emergências e prestar os primeiros cuidados até à chegada de ajuda diferenciada.",
+  "imagem": "",
+  "nivel": "Iniciante",
+  "area": "Urgência",
+  "duracao": "5 horas",
+  "instrutor": "Equipa Enfermeiro Competente",
+  "preco": "",
+  "link_inscricao": "",
+  "corpo": "## Programa\n\n1. Avaliar a cena e garantir a segurança\n2. Pedir ajuda e activar o socorro\n3. Reanimação cardiopulmonar básica e obstrução da via aérea\n4. Hemorragias, feridas e queimaduras\n5. Fracturas, entorses e imobilização\n6. Convulsões, desmaio, hipoglicemia e AVC\n7. Intoxicações e picadas\n\nConsulte também as páginas de [Urgência e emergência](/urgencias/).",
+  "aulas": [
+    {
+      "titulo": "Avaliar a cena e pedir ajuda",
+      "youtube": "",
+      "duracao": "",
+      "resumo": ""
+    },
+    {
+      "titulo": "Suporte básico de vida",
+      "youtube": "",
+      "duracao": "",
+      "resumo": ""
+    },
+    {
+      "titulo": "Hemorragias, feridas e queimaduras",
+      "youtube": "",
+      "duracao": "",
+      "resumo": ""
+    },
+    {
+      "titulo": "Fracturas e imobilização",
+      "youtube": "",
+      "duracao": "",
+      "resumo": ""
+    },
+    {
+      "titulo": "Convulsões, desmaio e hipoglicemia",
+      "youtube": "",
+      "duracao": "",
+      "resumo": ""
+    }
+  ],
+  "etiquetas": [
+    "Urgência"
+  ],
+  "publicado": true
+}
