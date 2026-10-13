@@ -1,0 +1,1527 @@
+{
+  "framework": null,
+  "buildCommand": "node build.mjs",
+  "outputDirectory": ".",
+  "redirects": [
+    {
+      "source": "/diagnosticos/dominio/:slug([^/.]+)",
+      "destination": "/diagnosticos/:slug.html",
+      "permanent": true
+    },
+    {
+      "source": "/diagnosticos/dominio/:slug([^/.]+)/",
+      "destination": "/diagnosticos/:slug.html",
+      "permanent": true
+    },
+    {
+      "source": "/diagnosticos/:slug([^/.]+)",
+      "destination": "/diagnosticos/:slug.html",
+      "permanent": true
+    },
+    {
+      "source": "/diagnosticos/:slug([^/.]+)/",
+      "destination": "/diagnosticos/:slug.html",
+      "permanent": true
+    },
+    {
+      "source": "/acidente-vascular-cerebral-avc.html",
+      "destination": "/urgencias/acidente-vascular-cerebral-avc.html",
+      "permanent": true
+    },
+    {
+      "source": "/acidente-vascular-cerebral-avc",
+      "destination": "/urgencias/acidente-vascular-cerebral-avc.html",
+      "permanent": true
+    },
+    {
+      "source": "/acido-acetilsalicilico.html",
+      "destination": "/medicamentos/acido-acetilsalicilico.html",
+      "permanent": true
+    },
+    {
+      "source": "/acido-acetilsalicilico",
+      "destination": "/medicamentos/acido-acetilsalicilico.html",
+      "permanent": true
+    },
+    {
+      "source": "/acido-folico.html",
+      "destination": "/medicamentos/acido-folico.html",
+      "permanent": true
+    },
+    {
+      "source": "/acido-folico",
+      "destination": "/medicamentos/acido-folico.html",
+      "permanent": true
+    },
+    {
+      "source": "/administracao-de-medicamentos.html",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/administracao-de-medicamentos.html",
+      "permanent": true
+    },
+    {
+      "source": "/administracao-de-medicamentos",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/administracao-de-medicamentos.html",
+      "permanent": true
+    },
+    {
+      "source": "/agua-destilada-soro-fisiologico-0-9.html",
+      "destination": "/medicamentos/agua-destilada-soro-fisiologico-0-9.html",
+      "permanent": true
+    },
+    {
+      "source": "/agua-destilada-soro-fisiologico-0-9",
+      "destination": "/medicamentos/agua-destilada-soro-fisiologico-0-9.html",
+      "permanent": true
+    },
+    {
+      "source": "/alcool-etilico-70.html",
+      "destination": "/medicamentos/alcool-etilico-70.html",
+      "permanent": true
+    },
+    {
+      "source": "/alcool-etilico-70",
+      "destination": "/medicamentos/alcool-etilico-70.html",
+      "permanent": true
+    },
+    {
+      "source": "/algaliacao-sondagem-vesical.html",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/algaliacao-sondagem-vesical.html",
+      "permanent": true
+    },
+    {
+      "source": "/algaliacao-sondagem-vesical",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/algaliacao-sondagem-vesical.html",
+      "permanent": true
+    },
+    {
+      "source": "/amoxicilina-acido-clavulanico.html",
+      "destination": "/medicamentos/amoxicilina-acido-clavulanico.html",
+      "permanent": true
+    },
+    {
+      "source": "/amoxicilina-acido-clavulanico",
+      "destination": "/medicamentos/amoxicilina-acido-clavulanico.html",
+      "permanent": true
+    },
+    {
+      "source": "/amoxicilina.html",
+      "destination": "/medicamentos/amoxicilina.html",
+      "permanent": true
+    },
+    {
+      "source": "/amoxicilina",
+      "destination": "/medicamentos/amoxicilina.html",
+      "permanent": true
+    },
+    {
+      "source": "/artigos.html",
+      "destination": "/dicas/",
+      "permanent": true
+    },
+    {
+      "source": "/artigos",
+      "destination": "/dicas/",
+      "permanent": true
+    },
+    {
+      "source": "/aspiracao-de-secrecoes.html",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/aspiracao-de-secrecoes.html",
+      "permanent": true
+    },
+    {
+      "source": "/aspiracao-de-secrecoes",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/aspiracao-de-secrecoes.html",
+      "permanent": true
+    },
+    {
+      "source": "/atenolol.html",
+      "destination": "/medicamentos/atenolol.html",
+      "permanent": true
+    },
+    {
+      "source": "/atenolol",
+      "destination": "/medicamentos/atenolol.html",
+      "permanent": true
+    },
+    {
+      "source": "/avaliacao-primaria-abcde.html",
+      "destination": "/avaliacao/avaliacao-primaria-abcde.html",
+      "permanent": true
+    },
+    {
+      "source": "/avaliacao-primaria-abcde",
+      "destination": "/avaliacao/avaliacao-primaria-abcde.html",
+      "permanent": true
+    },
+    {
+      "source": "/avaliacao.html",
+      "destination": "/avaliacao/",
+      "permanent": true
+    },
+    {
+      "source": "/avaliacao",
+      "destination": "/avaliacao/",
+      "permanent": true
+    },
+    {
+      "source": "/azitromicina.html",
+      "destination": "/medicamentos/azitromicina.html",
+      "permanent": true
+    },
+    {
+      "source": "/azitromicina",
+      "destination": "/medicamentos/azitromicina.html",
+      "permanent": true
+    },
+    {
+      "source": "/balanco-hidrico.html",
+      "destination": "/ferramentas/calculadoras/infusoes/balanco-hidrico.html",
+      "permanent": true
+    },
+    {
+      "source": "/balanco-hidrico",
+      "destination": "/ferramentas/calculadoras/infusoes/balanco-hidrico.html",
+      "permanent": true
+    },
+    {
+      "source": "/benzilpenicilina-procaina.html",
+      "destination": "/medicamentos/benzilpenicilina-procaina.html",
+      "permanent": true
+    },
+    {
+      "source": "/benzilpenicilina-procaina",
+      "destination": "/medicamentos/benzilpenicilina-procaina.html",
+      "permanent": true
+    },
+    {
+      "source": "/bioquimica-serica.html",
+      "destination": "/ferramentas/exames/bioquimica-serica.html",
+      "permanent": true
+    },
+    {
+      "source": "/bioquimica-serica",
+      "destination": "/ferramentas/exames/bioquimica-serica.html",
+      "permanent": true
+    },
+    {
+      "source": "/c001-enfarte-agudo-do-miocardio-com-supra-st.html",
+      "destination": "/aprender/casos-clinicos/c001-enfarte-agudo-do-miocardio-com-supra-st.html",
+      "permanent": true
+    },
+    {
+      "source": "/c001-enfarte-agudo-do-miocardio-com-supra-st",
+      "destination": "/aprender/casos-clinicos/c001-enfarte-agudo-do-miocardio-com-supra-st.html",
+      "permanent": true
+    },
+    {
+      "source": "/c002-avc-isquemico-hemiplegia-a-direita.html",
+      "destination": "/aprender/casos-clinicos/c002-avc-isquemico-hemiplegia-a-direita.html",
+      "permanent": true
+    },
+    {
+      "source": "/c002-avc-isquemico-hemiplegia-a-direita",
+      "destination": "/aprender/casos-clinicos/c002-avc-isquemico-hemiplegia-a-direita.html",
+      "permanent": true
+    },
+    {
+      "source": "/c003-asma-aguda-moderada.html",
+      "destination": "/aprender/casos-clinicos/c003-asma-aguda-moderada.html",
+      "permanent": true
+    },
+    {
+      "source": "/c003-asma-aguda-moderada",
+      "destination": "/aprender/casos-clinicos/c003-asma-aguda-moderada.html",
+      "permanent": true
+    },
+    {
+      "source": "/c004-insuficiencia-renal-aguda-kdigo-3.html",
+      "destination": "/aprender/casos-clinicos/c004-insuficiencia-renal-aguda-kdigo-3.html",
+      "permanent": true
+    },
+    {
+      "source": "/c004-insuficiencia-renal-aguda-kdigo-3",
+      "destination": "/aprender/casos-clinicos/c004-insuficiencia-renal-aguda-kdigo-3.html",
+      "permanent": true
+    },
+    {
+      "source": "/c005-cetoacidose-diabetica.html",
+      "destination": "/aprender/casos-clinicos/c005-cetoacidose-diabetica.html",
+      "permanent": true
+    },
+    {
+      "source": "/c005-cetoacidose-diabetica",
+      "destination": "/aprender/casos-clinicos/c005-cetoacidose-diabetica.html",
+      "permanent": true
+    },
+    {
+      "source": "/c006-pneumonia-associada-a-ventilacao-vap.html",
+      "destination": "/aprender/casos-clinicos/c006-pneumonia-associada-a-ventilacao-vap.html",
+      "permanent": true
+    },
+    {
+      "source": "/c006-pneumonia-associada-a-ventilacao-vap",
+      "destination": "/aprender/casos-clinicos/c006-pneumonia-associada-a-ventilacao-vap.html",
+      "permanent": true
+    },
+    {
+      "source": "/c007-cirrose-hepatica-encefalopatia-hepatica.html",
+      "destination": "/aprender/casos-clinicos/c007-cirrose-hepatica-encefalopatia-hepatica.html",
+      "permanent": true
+    },
+    {
+      "source": "/c007-cirrose-hepatica-encefalopatia-hepatica",
+      "destination": "/aprender/casos-clinicos/c007-cirrose-hepatica-encefalopatia-hepatica.html",
+      "permanent": true
+    },
+    {
+      "source": "/c008-fratura-do-femur-em-idosa.html",
+      "destination": "/aprender/casos-clinicos/c008-fratura-do-femur-em-idosa.html",
+      "permanent": true
+    },
+    {
+      "source": "/c008-fratura-do-femur-em-idosa",
+      "destination": "/aprender/casos-clinicos/c008-fratura-do-femur-em-idosa.html",
+      "permanent": true
+    },
+    {
+      "source": "/c009-tromboembolismo-pulmonar-agudo.html",
+      "destination": "/aprender/casos-clinicos/c009-tromboembolismo-pulmonar-agudo.html",
+      "permanent": true
+    },
+    {
+      "source": "/c009-tromboembolismo-pulmonar-agudo",
+      "destination": "/aprender/casos-clinicos/c009-tromboembolismo-pulmonar-agudo.html",
+      "permanent": true
+    },
+    {
+      "source": "/c010-sepsis-de-origem-urinaria.html",
+      "destination": "/aprender/casos-clinicos/c010-sepsis-de-origem-urinaria.html",
+      "permanent": true
+    },
+    {
+      "source": "/c010-sepsis-de-origem-urinaria",
+      "destination": "/aprender/casos-clinicos/c010-sepsis-de-origem-urinaria.html",
+      "permanent": true
+    },
+    {
+      "source": "/c011-pancreatite-aguda-severa.html",
+      "destination": "/aprender/casos-clinicos/c011-pancreatite-aguda-severa.html",
+      "permanent": true
+    },
+    {
+      "source": "/c011-pancreatite-aguda-severa",
+      "destination": "/aprender/casos-clinicos/c011-pancreatite-aguda-severa.html",
+      "permanent": true
+    },
+    {
+      "source": "/c012-hemorragia-digestiva-alta-varicosa.html",
+      "destination": "/aprender/casos-clinicos/c012-hemorragia-digestiva-alta-varicosa.html",
+      "permanent": true
+    },
+    {
+      "source": "/c012-hemorragia-digestiva-alta-varicosa",
+      "destination": "/aprender/casos-clinicos/c012-hemorragia-digestiva-alta-varicosa.html",
+      "permanent": true
+    },
+    {
+      "source": "/c013-queimadura-de-2-grau-extensa-20-scq.html",
+      "destination": "/aprender/casos-clinicos/c013-queimadura-de-2-grau-extensa-20-scq.html",
+      "permanent": true
+    },
+    {
+      "source": "/c013-queimadura-de-2-grau-extensa-20-scq",
+      "destination": "/aprender/casos-clinicos/c013-queimadura-de-2-grau-extensa-20-scq.html",
+      "permanent": true
+    },
+    {
+      "source": "/c014-status-asmaticus-asma-refractaria.html",
+      "destination": "/aprender/casos-clinicos/c014-status-asmaticus-asma-refractaria.html",
+      "permanent": true
+    },
+    {
+      "source": "/c014-status-asmaticus-asma-refractaria",
+      "destination": "/aprender/casos-clinicos/c014-status-asmaticus-asma-refractaria.html",
+      "permanent": true
+    },
+    {
+      "source": "/c015-avc-hemorragico-com-edema-cerebral.html",
+      "destination": "/aprender/casos-clinicos/c015-avc-hemorragico-com-edema-cerebral.html",
+      "permanent": true
+    },
+    {
+      "source": "/c015-avc-hemorragico-com-edema-cerebral",
+      "destination": "/aprender/casos-clinicos/c015-avc-hemorragico-com-edema-cerebral.html",
+      "permanent": true
+    },
+    {
+      "source": "/c016-insuficiencia-cardiaca-aguda-descompensada.html",
+      "destination": "/aprender/casos-clinicos/c016-insuficiencia-cardiaca-aguda-descompensada.html",
+      "permanent": true
+    },
+    {
+      "source": "/c016-insuficiencia-cardiaca-aguda-descompensada",
+      "destination": "/aprender/casos-clinicos/c016-insuficiencia-cardiaca-aguda-descompensada.html",
+      "permanent": true
+    },
+    {
+      "source": "/c017-meningite-bacteriana.html",
+      "destination": "/aprender/casos-clinicos/c017-meningite-bacteriana.html",
+      "permanent": true
+    },
+    {
+      "source": "/c017-meningite-bacteriana",
+      "destination": "/aprender/casos-clinicos/c017-meningite-bacteriana.html",
+      "permanent": true
+    },
+    {
+      "source": "/c018-intoxicacao-por-benzodiazepinas.html",
+      "destination": "/aprender/casos-clinicos/c018-intoxicacao-por-benzodiazepinas.html",
+      "permanent": true
+    },
+    {
+      "source": "/c018-intoxicacao-por-benzodiazepinas",
+      "destination": "/aprender/casos-clinicos/c018-intoxicacao-por-benzodiazepinas.html",
+      "permanent": true
+    },
+    {
+      "source": "/c019-carcinoma-pulmonar-avancado-cuidados-paliativos.html",
+      "destination": "/aprender/casos-clinicos/c019-carcinoma-pulmonar-avancado-cuidados-paliativos.html",
+      "permanent": true
+    },
+    {
+      "source": "/c019-carcinoma-pulmonar-avancado-cuidados-paliativos",
+      "destination": "/aprender/casos-clinicos/c019-carcinoma-pulmonar-avancado-cuidados-paliativos.html",
+      "permanent": true
+    },
+    {
+      "source": "/c020-transtorno-bipolar-tipo-i-episodio-maniaco-severo.html",
+      "destination": "/aprender/casos-clinicos/c020-transtorno-bipolar-tipo-i-episodio-maniaco-severo.html",
+      "permanent": true
+    },
+    {
+      "source": "/c020-transtorno-bipolar-tipo-i-episodio-maniaco-severo",
+      "destination": "/aprender/casos-clinicos/c020-transtorno-bipolar-tipo-i-episodio-maniaco-severo.html",
+      "permanent": true
+    },
+    {
+      "source": "/calculadoras.html",
+      "destination": "/ferramentas/calculadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/calculadoras",
+      "destination": "/ferramentas/calculadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/calculo-de-gotejamento.html",
+      "destination": "/ferramentas/calculadoras/infusoes/calculo-de-gotejamento.html",
+      "permanent": true
+    },
+    {
+      "source": "/calculo-de-gotejamento",
+      "destination": "/ferramentas/calculadoras/infusoes/calculo-de-gotejamento.html",
+      "permanent": true
+    },
+    {
+      "source": "/calculo-de-medicamentos.html",
+      "destination": "/ferramentas/calculadoras/doses/calculo-de-medicamentos.html",
+      "permanent": true
+    },
+    {
+      "source": "/calculo-de-medicamentos",
+      "destination": "/ferramentas/calculadoras/doses/calculo-de-medicamentos.html",
+      "permanent": true
+    },
+    {
+      "source": "/casos-clinicos.html",
+      "destination": "/aprender/casos-clinicos/",
+      "permanent": true
+    },
+    {
+      "source": "/casos-clinicos",
+      "destination": "/aprender/casos-clinicos/",
+      "permanent": true
+    },
+    {
+      "source": "/cateterizacao-venosa-periferica.html",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/cateterizacao-venosa-periferica.html",
+      "permanent": true
+    },
+    {
+      "source": "/cateterizacao-venosa-periferica",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/cateterizacao-venosa-periferica.html",
+      "permanent": true
+    },
+    {
+      "source": "/cefixima.html",
+      "destination": "/medicamentos/cefixima.html",
+      "permanent": true
+    },
+    {
+      "source": "/cefixima",
+      "destination": "/medicamentos/cefixima.html",
+      "permanent": true
+    },
+    {
+      "source": "/ceftriaxona.html",
+      "destination": "/medicamentos/ceftriaxona.html",
+      "permanent": true
+    },
+    {
+      "source": "/ceftriaxona",
+      "destination": "/medicamentos/ceftriaxona.html",
+      "permanent": true
+    },
+    {
+      "source": "/choque-anafilatico.html",
+      "destination": "/urgencias/choque-anafilatico.html",
+      "permanent": true
+    },
+    {
+      "source": "/choque-anafilatico",
+      "destination": "/urgencias/choque-anafilatico.html",
+      "permanent": true
+    },
+    {
+      "source": "/choque-hipovolemico-e-septico.html",
+      "destination": "/urgencias/choque-hipovolemico-e-septico.html",
+      "permanent": true
+    },
+    {
+      "source": "/choque-hipovolemico-e-septico",
+      "destination": "/urgencias/choque-hipovolemico-e-septico.html",
+      "permanent": true
+    },
+    {
+      "source": "/ciprofloxacina.html",
+      "destination": "/medicamentos/ciprofloxacina.html",
+      "permanent": true
+    },
+    {
+      "source": "/ciprofloxacina",
+      "destination": "/medicamentos/ciprofloxacina.html",
+      "permanent": true
+    },
+    {
+      "source": "/cloreto-de-potassio-kcl.html",
+      "destination": "/medicamentos/cloreto-de-potassio-kcl.html",
+      "permanent": true
+    },
+    {
+      "source": "/cloreto-de-potassio-kcl",
+      "destination": "/medicamentos/cloreto-de-potassio-kcl.html",
+      "permanent": true
+    },
+    {
+      "source": "/clorexidina-0-5.html",
+      "destination": "/medicamentos/clorexidina-0-5.html",
+      "permanent": true
+    },
+    {
+      "source": "/clorexidina-0-5",
+      "destination": "/medicamentos/clorexidina-0-5.html",
+      "permanent": true
+    },
+    {
+      "source": "/colheita-de-dados-anamnese.html",
+      "destination": "/avaliacao/colheita-de-dados-anamnese.html",
+      "permanent": true
+    },
+    {
+      "source": "/colheita-de-dados-anamnese",
+      "destination": "/avaliacao/colheita-de-dados-anamnese.html",
+      "permanent": true
+    },
+    {
+      "source": "/colheita-de-sangue-venoso.html",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/colheita-de-sangue-venoso.html",
+      "permanent": true
+    },
+    {
+      "source": "/colheita-de-sangue-venoso",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/colheita-de-sangue-venoso.html",
+      "permanent": true
+    },
+    {
+      "source": "/conversao-massa.html",
+      "destination": "/ferramentas/calculadoras/conversoes/conversao-massa.html",
+      "permanent": true
+    },
+    {
+      "source": "/conversao-massa",
+      "destination": "/ferramentas/calculadoras/conversoes/conversao-massa.html",
+      "permanent": true
+    },
+    {
+      "source": "/conversao-peso-kg-lb.html",
+      "destination": "/ferramentas/calculadoras/conversoes/conversao-peso-kg-lb.html",
+      "permanent": true
+    },
+    {
+      "source": "/conversao-peso-kg-lb",
+      "destination": "/ferramentas/calculadoras/conversoes/conversao-peso-kg-lb.html",
+      "permanent": true
+    },
+    {
+      "source": "/conversao-temperatura.html",
+      "destination": "/ferramentas/calculadoras/conversoes/conversao-temperatura.html",
+      "permanent": true
+    },
+    {
+      "source": "/conversao-temperatura",
+      "destination": "/ferramentas/calculadoras/conversoes/conversao-temperatura.html",
+      "permanent": true
+    },
+    {
+      "source": "/conversao-volume-gotas.html",
+      "destination": "/ferramentas/calculadoras/conversoes/conversao-volume-gotas.html",
+      "permanent": true
+    },
+    {
+      "source": "/conversao-volume-gotas",
+      "destination": "/ferramentas/calculadoras/conversoes/conversao-volume-gotas.html",
+      "permanent": true
+    },
+    {
+      "source": "/convulsoes.html",
+      "destination": "/urgencias/convulsoes.html",
+      "permanent": true
+    },
+    {
+      "source": "/convulsoes",
+      "destination": "/urgencias/convulsoes.html",
+      "permanent": true
+    },
+    {
+      "source": "/curativo-de-feridas.html",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/curativo-de-feridas.html",
+      "permanent": true
+    },
+    {
+      "source": "/curativo-de-feridas",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/curativo-de-feridas.html",
+      "permanent": true
+    },
+    {
+      "source": "/curiosidades.html",
+      "destination": "/dicas/",
+      "permanent": true
+    },
+    {
+      "source": "/curiosidades",
+      "destination": "/dicas/",
+      "permanent": true
+    },
+    {
+      "source": "/cursos.html",
+      "destination": "/cursos/",
+      "permanent": true
+    },
+    {
+      "source": "/cursos",
+      "destination": "/cursos/",
+      "permanent": true
+    },
+    {
+      "source": "/dados-subjectivos-vs-objectivos.html",
+      "destination": "/avaliacao/dados-subjectivos-vs-objectivos.html",
+      "permanent": true
+    },
+    {
+      "source": "/dados-subjectivos-vs-objectivos",
+      "destination": "/avaliacao/dados-subjectivos-vs-objectivos.html",
+      "permanent": true
+    },
+    {
+      "source": "/diclofenac.html",
+      "destination": "/medicamentos/diclofenac.html",
+      "permanent": true
+    },
+    {
+      "source": "/diclofenac",
+      "destination": "/medicamentos/diclofenac.html",
+      "permanent": true
+    },
+    {
+      "source": "/digoxina.html",
+      "destination": "/medicamentos/digoxina.html",
+      "permanent": true
+    },
+    {
+      "source": "/digoxina",
+      "destination": "/medicamentos/digoxina.html",
+      "permanent": true
+    },
+    {
+      "source": "/diluicao-de-medicamento.html",
+      "destination": "/ferramentas/calculadoras/medicamentos/diluicao-de-medicamento.html",
+      "permanent": true
+    },
+    {
+      "source": "/diluicao-de-medicamento",
+      "destination": "/ferramentas/calculadoras/medicamentos/diluicao-de-medicamento.html",
+      "permanent": true
+    },
+    {
+      "source": "/documentos.html",
+      "destination": "/biblioteca/",
+      "permanent": true
+    },
+    {
+      "source": "/documentos",
+      "destination": "/biblioteca/",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-1-fisiologico-basico.html",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-1-fisiologico-basico.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-1-fisiologico-basico",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-1-fisiologico-basico.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-1-saude-funcional.html",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-1-saude-funcional.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-1-saude-funcional",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-1-saude-funcional.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-2-fisiologico-complexo.html",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-2-fisiologico-complexo.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-2-fisiologico-complexo",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-2-fisiologico-complexo.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-2-saude-fisiologica.html",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-2-saude-fisiologica.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-2-saude-fisiologica",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-2-saude-fisiologica.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-3-comportamental.html",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-3-comportamental.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-3-comportamental",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-3-comportamental.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-3-saude-psicossocial.html",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-3-saude-psicossocial.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-3-saude-psicossocial",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-3-saude-psicossocial.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-4-conhecimento-de-saude-e-comportamento.html",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-4-conhecimento-de-saude-e-comportamento.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-4-conhecimento-de-saude-e-comportamento",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-4-conhecimento-de-saude-e-comportamento.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-4-seguranca.html",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-4-seguranca.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-4-seguranca",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-4-seguranca.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-5-familia.html",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-5-familia.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-5-familia",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-5-familia.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-5-saude-percecionada.html",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-5-saude-percecionada.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-5-saude-percecionada",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-5-saude-percecionada.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-6-saude-familiar.html",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-6-saude-familiar.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-6-saude-familiar",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-6-saude-familiar.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-6-sistema-de-saude.html",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-6-sistema-de-saude.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-6-sistema-de-saude",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-6-sistema-de-saude.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-7-comunidade.html",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-7-comunidade.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-7-comunidade",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/dominio-7-comunidade.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-7-saude-comunitaria.html",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-7-saude-comunitaria.html",
+      "permanent": true
+    },
+    {
+      "source": "/dominio-7-saude-comunitaria",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/dominio-7-saude-comunitaria.html",
+      "permanent": true
+    },
+    {
+      "source": "/dose-por-peso.html",
+      "destination": "/ferramentas/calculadoras/doses/dose-por-peso.html",
+      "permanent": true
+    },
+    {
+      "source": "/dose-por-peso",
+      "destination": "/ferramentas/calculadoras/doses/dose-por-peso.html",
+      "permanent": true
+    },
+    {
+      "source": "/enalapril.html",
+      "destination": "/medicamentos/enalapril.html",
+      "permanent": true
+    },
+    {
+      "source": "/enalapril",
+      "destination": "/medicamentos/enalapril.html",
+      "permanent": true
+    },
+    {
+      "source": "/equivalencia-de-solucoes.html",
+      "destination": "/ferramentas/calculadoras/medicamentos/equivalencia-de-solucoes.html",
+      "permanent": true
+    },
+    {
+      "source": "/equivalencia-de-solucoes",
+      "destination": "/ferramentas/calculadoras/medicamentos/equivalencia-de-solucoes.html",
+      "permanent": true
+    },
+    {
+      "source": "/eritromicina.html",
+      "destination": "/medicamentos/eritromicina.html",
+      "permanent": true
+    },
+    {
+      "source": "/eritromicina",
+      "destination": "/medicamentos/eritromicina.html",
+      "permanent": true
+    },
+    {
+      "source": "/escala-de-braden.html",
+      "destination": "/escalas/escala-de-braden.html",
+      "permanent": true
+    },
+    {
+      "source": "/escala-de-braden",
+      "destination": "/escalas/escala-de-braden.html",
+      "permanent": true
+    },
+    {
+      "source": "/escala-de-coma-de-glasgow-ecg.html",
+      "destination": "/escalas/escala-de-coma-de-glasgow-ecg.html",
+      "permanent": true
+    },
+    {
+      "source": "/escala-de-coma-de-glasgow-ecg",
+      "destination": "/escalas/escala-de-coma-de-glasgow-ecg.html",
+      "permanent": true
+    },
+    {
+      "source": "/escala-de-glasgow.html",
+      "destination": "/escalas/escala-de-coma-de-glasgow-ecg.html",
+      "permanent": true
+    },
+    {
+      "source": "/escala-de-glasgow",
+      "destination": "/escalas/escala-de-coma-de-glasgow-ecg.html",
+      "permanent": true
+    },
+    {
+      "source": "/escala-de-morse.html",
+      "destination": "/escalas/escala-de-morse.html",
+      "permanent": true
+    },
+    {
+      "source": "/escala-de-morse",
+      "destination": "/escalas/escala-de-morse.html",
+      "permanent": true
+    },
+    {
+      "source": "/escala-visual-analogica-da-dor-eva.html",
+      "destination": "/escalas/escala-visual-analogica-da-dor-eva.html",
+      "permanent": true
+    },
+    {
+      "source": "/escala-visual-analogica-da-dor-eva",
+      "destination": "/escalas/escala-visual-analogica-da-dor-eva.html",
+      "permanent": true
+    },
+    {
+      "source": "/escalas.html",
+      "destination": "/escalas/",
+      "permanent": true
+    },
+    {
+      "source": "/escalas",
+      "destination": "/escalas/",
+      "permanent": true
+    },
+    {
+      "source": "/estudo-da-coagulacao.html",
+      "destination": "/ferramentas/exames/estudo-da-coagulacao.html",
+      "permanent": true
+    },
+    {
+      "source": "/estudo-da-coagulacao",
+      "destination": "/ferramentas/exames/estudo-da-coagulacao.html",
+      "permanent": true
+    },
+    {
+      "source": "/exame-de-urina-tipo-ii-eas.html",
+      "destination": "/ferramentas/exames/exame-de-urina-tipo-ii-eas.html",
+      "permanent": true
+    },
+    {
+      "source": "/exame-de-urina-tipo-ii-eas",
+      "destination": "/ferramentas/exames/exame-de-urina-tipo-ii-eas.html",
+      "permanent": true
+    },
+    {
+      "source": "/exame-fisico-geral.html",
+      "destination": "/avaliacao/exame-fisico-geral.html",
+      "permanent": true
+    },
+    {
+      "source": "/exame-fisico-geral",
+      "destination": "/avaliacao/exame-fisico-geral.html",
+      "permanent": true
+    },
+    {
+      "source": "/exame-fisico-por-sistemas.html",
+      "destination": "/avaliacao/exame-fisico-por-sistemas.html",
+      "permanent": true
+    },
+    {
+      "source": "/exame-fisico-por-sistemas",
+      "destination": "/avaliacao/exame-fisico-por-sistemas.html",
+      "permanent": true
+    },
+    {
+      "source": "/exames.html",
+      "destination": "/ferramentas/exames/",
+      "permanent": true
+    },
+    {
+      "source": "/exames",
+      "destination": "/ferramentas/exames/",
+      "permanent": true
+    },
+    {
+      "source": "/funcao-hepatica.html",
+      "destination": "/ferramentas/exames/funcao-hepatica.html",
+      "permanent": true
+    },
+    {
+      "source": "/funcao-hepatica",
+      "destination": "/ferramentas/exames/funcao-hepatica.html",
+      "permanent": true
+    },
+    {
+      "source": "/furosemida.html",
+      "destination": "/medicamentos/furosemida.html",
+      "permanent": true
+    },
+    {
+      "source": "/furosemida",
+      "destination": "/medicamentos/furosemida.html",
+      "permanent": true
+    },
+    {
+      "source": "/gasometria-arterial.html",
+      "destination": "/ferramentas/exames/gasometria-arterial.html",
+      "permanent": true
+    },
+    {
+      "source": "/gasometria-arterial",
+      "destination": "/ferramentas/exames/gasometria-arterial.html",
+      "permanent": true
+    },
+    {
+      "source": "/glossario.html",
+      "destination": "/aprender/glossario/",
+      "permanent": true
+    },
+    {
+      "source": "/glossario",
+      "destination": "/aprender/glossario/",
+      "permanent": true
+    },
+    {
+      "source": "/guias.html",
+      "destination": "/aprender/",
+      "permanent": true
+    },
+    {
+      "source": "/guias",
+      "destination": "/aprender/",
+      "permanent": true
+    },
+    {
+      "source": "/hemograma-completo.html",
+      "destination": "/ferramentas/exames/hemograma-completo.html",
+      "permanent": true
+    },
+    {
+      "source": "/hemograma-completo",
+      "destination": "/ferramentas/exames/hemograma-completo.html",
+      "permanent": true
+    },
+    {
+      "source": "/hipoglicemia-e-hiperglicemia.html",
+      "destination": "/urgencias/hipoglicemia-e-hiperglicemia.html",
+      "permanent": true
+    },
+    {
+      "source": "/hipoglicemia-e-hiperglicemia",
+      "destination": "/urgencias/hipoglicemia-e-hiperglicemia.html",
+      "permanent": true
+    },
+    {
+      "source": "/ibuprofeno.html",
+      "destination": "/medicamentos/ibuprofeno.html",
+      "permanent": true
+    },
+    {
+      "source": "/ibuprofeno",
+      "destination": "/medicamentos/ibuprofeno.html",
+      "permanent": true
+    },
+    {
+      "source": "/imc.html",
+      "destination": "/ferramentas/calculadoras/outras/imc.html",
+      "permanent": true
+    },
+    {
+      "source": "/imc",
+      "destination": "/ferramentas/calculadoras/outras/imc.html",
+      "permanent": true
+    },
+    {
+      "source": "/indice-de-apgar.html",
+      "destination": "/escalas/indice-de-apgar.html",
+      "permanent": true
+    },
+    {
+      "source": "/indice-de-apgar",
+      "destination": "/escalas/indice-de-apgar.html",
+      "permanent": true
+    },
+    {
+      "source": "/indice-de-barthel.html",
+      "destination": "/escalas/indice-de-barthel.html",
+      "permanent": true
+    },
+    {
+      "source": "/indice-de-barthel",
+      "destination": "/escalas/indice-de-barthel.html",
+      "permanent": true
+    },
+    {
+      "source": "/intervencoes-nic.html",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/",
+      "permanent": true
+    },
+    {
+      "source": "/intervencoes-nic",
+      "destination": "/processo-enfermagem/planeamento/intervencoes-nic/",
+      "permanent": true
+    },
+    {
+      "source": "/lamivudina-3tc.html",
+      "destination": "/medicamentos/lamivudina-3tc.html",
+      "permanent": true
+    },
+    {
+      "source": "/lamivudina-3tc",
+      "destination": "/medicamentos/lamivudina-3tc.html",
+      "permanent": true
+    },
+    {
+      "source": "/lisinopril.html",
+      "destination": "/medicamentos/lisinopril.html",
+      "permanent": true
+    },
+    {
+      "source": "/lisinopril",
+      "destination": "/medicamentos/lisinopril.html",
+      "permanent": true
+    },
+    {
+      "source": "/medicamentos.html",
+      "destination": "/medicamentos/",
+      "permanent": true
+    },
+    {
+      "source": "/medicamentos",
+      "destination": "/medicamentos/",
+      "permanent": true
+    },
+    {
+      "source": "/news2-national-early-warning-score.html",
+      "destination": "/escalas/news2-national-early-warning-score.html",
+      "permanent": true
+    },
+    {
+      "source": "/news2-national-early-warning-score",
+      "destination": "/escalas/news2-national-early-warning-score.html",
+      "permanent": true
+    },
+    {
+      "source": "/nifedipina.html",
+      "destination": "/medicamentos/nifedipina.html",
+      "permanent": true
+    },
+    {
+      "source": "/nifedipina",
+      "destination": "/medicamentos/nifedipina.html",
+      "permanent": true
+    },
+    {
+      "source": "/noticias.html",
+      "destination": "/dicas/",
+      "permanent": true
+    },
+    {
+      "source": "/noticias",
+      "destination": "/dicas/",
+      "permanent": true
+    },
+    {
+      "source": "/obstrucao-da-via-aerea-por-corpo-estranho-ovace.html",
+      "destination": "/urgencias/obstrucao-da-via-aerea-por-corpo-estranho-ovace.html",
+      "permanent": true
+    },
+    {
+      "source": "/obstrucao-da-via-aerea-por-corpo-estranho-ovace",
+      "destination": "/urgencias/obstrucao-da-via-aerea-por-corpo-estranho-ovace.html",
+      "permanent": true
+    },
+    {
+      "source": "/oxigenoterapia.html",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/oxigenoterapia.html",
+      "permanent": true
+    },
+    {
+      "source": "/oxigenoterapia",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/oxigenoterapia.html",
+      "permanent": true
+    },
+    {
+      "source": "/paracetamol.html",
+      "destination": "/medicamentos/paracetamol.html",
+      "permanent": true
+    },
+    {
+      "source": "/paracetamol",
+      "destination": "/medicamentos/paracetamol.html",
+      "permanent": true
+    },
+    {
+      "source": "/perfil-lipidico.html",
+      "destination": "/ferramentas/exames/perfil-lipidico.html",
+      "permanent": true
+    },
+    {
+      "source": "/perfil-lipidico",
+      "destination": "/ferramentas/exames/perfil-lipidico.html",
+      "permanent": true
+    },
+    {
+      "source": "/prefixos-e-sufixos-medicos.html",
+      "destination": "/aprender/glossario/prefixos-e-sufixos-medicos.html",
+      "permanent": true
+    },
+    {
+      "source": "/prefixos-e-sufixos-medicos",
+      "destination": "/aprender/glossario/prefixos-e-sufixos-medicos.html",
+      "permanent": true
+    },
+    {
+      "source": "/procedimentos.html",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/",
+      "permanent": true
+    },
+    {
+      "source": "/procedimentos",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/",
+      "permanent": true
+    },
+    {
+      "source": "/protocolo-de-triagem-de-manchester.html",
+      "destination": "/escalas/protocolo-de-triagem-de-manchester.html",
+      "permanent": true
+    },
+    {
+      "source": "/protocolo-de-triagem-de-manchester",
+      "destination": "/escalas/protocolo-de-triagem-de-manchester.html",
+      "permanent": true
+    },
+    {
+      "source": "/queimaduras.html",
+      "destination": "/urgencias/queimaduras.html",
+      "permanent": true
+    },
+    {
+      "source": "/queimaduras",
+      "destination": "/urgencias/queimaduras.html",
+      "permanent": true
+    },
+    {
+      "source": "/resultados-noc.html",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/",
+      "permanent": true
+    },
+    {
+      "source": "/resultados-noc",
+      "destination": "/processo-enfermagem/avaliacao-final/resultados-noc/",
+      "permanent": true
+    },
+    {
+      "source": "/siglas-e-abreviaturas-de-sinais-vitais.html",
+      "destination": "/aprender/glossario/siglas-e-abreviaturas-de-sinais-vitais.html",
+      "permanent": true
+    },
+    {
+      "source": "/siglas-e-abreviaturas-de-sinais-vitais",
+      "destination": "/aprender/glossario/siglas-e-abreviaturas-de-sinais-vitais.html",
+      "permanent": true
+    },
+    {
+      "source": "/sinais-vitais-valores-de-referencia-adulto.html",
+      "destination": "/avaliacao/sinais-vitais-valores-de-referencia-adulto.html",
+      "permanent": true
+    },
+    {
+      "source": "/sinais-vitais-valores-de-referencia-adulto",
+      "destination": "/avaliacao/sinais-vitais-valores-de-referencia-adulto.html",
+      "permanent": true
+    },
+    {
+      "source": "/sindrome-coronaria-aguda-sca-eam.html",
+      "destination": "/urgencias/sindrome-coronaria-aguda-sca-eam.html",
+      "permanent": true
+    },
+    {
+      "source": "/sindrome-coronaria-aguda-sca-eam",
+      "destination": "/urgencias/sindrome-coronaria-aguda-sca-eam.html",
+      "permanent": true
+    },
+    {
+      "source": "/sondagem-nasogastrica-sng.html",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/sondagem-nasogastrica-sng.html",
+      "permanent": true
+    },
+    {
+      "source": "/sondagem-nasogastrica-sng",
+      "destination": "/processo-enfermagem/implementacao/procedimentos/sondagem-nasogastrica-sng.html",
+      "permanent": true
+    },
+    {
+      "source": "/sulfato-de-ferro.html",
+      "destination": "/medicamentos/sulfato-de-ferro.html",
+      "permanent": true
+    },
+    {
+      "source": "/sulfato-de-ferro",
+      "destination": "/medicamentos/sulfato-de-ferro.html",
+      "permanent": true
+    },
+    {
+      "source": "/superficie-corporal.html",
+      "destination": "/ferramentas/calculadoras/outras/superficie-corporal.html",
+      "permanent": true
+    },
+    {
+      "source": "/superficie-corporal",
+      "destination": "/ferramentas/calculadoras/outras/superficie-corporal.html",
+      "permanent": true
+    },
+    {
+      "source": "/suporte-basico-de-vida-sbv-adulto.html",
+      "destination": "/urgencias/suporte-basico-de-vida-sbv-adulto.html",
+      "permanent": true
+    },
+    {
+      "source": "/suporte-basico-de-vida-sbv-adulto",
+      "destination": "/urgencias/suporte-basico-de-vida-sbv-adulto.html",
+      "permanent": true
+    },
+    {
+      "source": "/termos-clinicos-frequentes.html",
+      "destination": "/aprender/glossario/termos-clinicos-frequentes.html",
+      "permanent": true
+    },
+    {
+      "source": "/termos-clinicos-frequentes",
+      "destination": "/aprender/glossario/termos-clinicos-frequentes.html",
+      "permanent": true
+    },
+    {
+      "source": "/termos-do-processo-de-enfermagem.html",
+      "destination": "/aprender/glossario/termos-do-processo-de-enfermagem.html",
+      "permanent": true
+    },
+    {
+      "source": "/termos-do-processo-de-enfermagem",
+      "destination": "/aprender/glossario/termos-do-processo-de-enfermagem.html",
+      "permanent": true
+    },
+    {
+      "source": "/testes.html",
+      "destination": "/cursos/testes/",
+      "permanent": true
+    },
+    {
+      "source": "/testes",
+      "destination": "/cursos/testes/",
+      "permanent": true
+    },
+    {
+      "source": "/trimetoprim-sulfametoxazol-tmp-smx.html",
+      "destination": "/medicamentos/trimetoprim-sulfametoxazol-tmp-smx.html",
+      "permanent": true
+    },
+    {
+      "source": "/trimetoprim-sulfametoxazol-tmp-smx",
+      "destination": "/medicamentos/trimetoprim-sulfametoxazol-tmp-smx.html",
+      "permanent": true
+    },
+    {
+      "source": "/urgencia.html",
+      "destination": "/urgencias/",
+      "permanent": true
+    },
+    {
+      "source": "/urgencia",
+      "destination": "/urgencias/",
+      "permanent": true
+    },
+    {
+      "source": "/vias-de-administracao-e-prescricao.html",
+      "destination": "/aprender/glossario/vias-de-administracao-e-prescricao.html",
+      "permanent": true
+    },
+    {
+      "source": "/vias-de-administracao-e-prescricao",
+      "destination": "/aprender/glossario/vias-de-administracao-e-prescricao.html",
+      "permanent": true
+    },
+    {
+      "source": "/videoaulas.html",
+      "destination": "/cursos/aulas/",
+      "permanent": true
+    },
+    {
+      "source": "/videoaulas",
+      "destination": "/cursos/aulas/",
+      "permanent": true
+    },
+    {
+      "source": "/videos.html",
+      "destination": "/cursos/",
+      "permanent": true
+    },
+    {
+      "source": "/videos",
+      "destination": "/cursos/",
+      "permanent": true
+    },
+    {
+      "source": "/vitamina-a.html",
+      "destination": "/medicamentos/vitamina-a.html",
+      "permanent": true
+    },
+    {
+      "source": "/vitamina-a",
+      "destination": "/medicamentos/vitamina-a.html",
+      "permanent": true
+    },
+    {
+      "source": "/zidovudina-azt.html",
+      "destination": "/medicamentos/zidovudina-azt.html",
+      "permanent": true
+    },
+    {
+      "source": "/zidovudina-azt",
+      "destination": "/medicamentos/zidovudina-azt.html",
+      "permanent": true
+    },
+    {
+      "source": "/diagnosticos.html",
+      "destination": "/diagnosticos/",
+      "permanent": true
+    },
+    {
+      "source": "/site.js",
+      "destination": "/js/site/site.js",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(search-index.json|conteudo.json|feed.xml)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/ads.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/vendor/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+    {
+      "source": "/pdf/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(js/(.*)|css/(.*))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(favicon.ico|favicon-16x16.png|favicon-32x32.png|apple-touch-icon.png|android-chrome-192x192.png|android-chrome-512x512.png|icon-192.png|icon-512.png|og-image.jpg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ],
+  "cleanUrls": false
+}
