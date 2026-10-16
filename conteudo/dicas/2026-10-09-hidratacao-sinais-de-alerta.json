@@ -1,15 +1,24 @@
 {
-  "titulo": "Hidratação: sinais de desidratação",
-  "data": "2026-10-09",
-  "categoria": "Dica",
-  "resumo": "Sede, urina escura e boca seca podem indicar desidratação. Saiba quando pedir ajuda.",
-  "imagem": "",
   "autor": "Equipa Enfermeiro Corporativo",
-  "corpo": "Beba água ao longo do dia, sobretudo com calor, febre, vómitos ou diarreia.\n\n## Sinais de desidratação\n\n- Sede intensa e boca seca\n- Urina escura e em pouca quantidade\n- Tonturas e cansaço\n\nEm crianças e idosos, vómitos ou diarreia que não param, sonolência ou recusa de líquidos exigem avaliação urgente numa unidade de saúde.",
-  "fonte": "",
-  "fonte_url": "",
+  "publicado": true,
+  "corpo": "A desidratação ocorre quando o organismo perde mais água e sais minerais do que consegue repor, comprometendo o funcionamento normal do corpo. Pode surgir em situações de calor intenso, transpiração excessiva, febre, vómitos, diarreia ou ingestão insuficiente de líquidos.\n\nEmbora possa afectar qualquer pessoa, as crianças pequenas, os idosos e as pessoas com doenças crónicas apresentam maior risco de complicações.\n\n## 1. Principais sinais e sintomas\n\nOs sinais variam consoante a quantidade de líquidos perdida e a gravidade da situação.\n\n* Sede intensa e sensação de boca seca;\n* Urina escura, em menor quantidade ou com menor frequência;\n* Cansaço, fraqueza e dores de cabeça;\n* Tonturas, sobretudo ao levantar-se;\n* Pele e mucosas secas;\n* Aumento da frequência cardíaca nos casos mais graves.\n\n**Sinais de alarme:** confusão mental, desmaio, sonolência anormal, incapacidade de beber, redução acentuada da produção de urina ou agravamento rápido do estado geral exigem avaliação médica urgente.\n\nNas crianças, deve prestar-se especial atenção à ausência de lágrimas, à diminuição das fraldas molhadas, aos olhos encovados, à irritabilidade ou à sonolência invulgar.\n\n## 2. Como prevenir a desidratação\n\nA prevenção depende da reposição adequada de líquidos e da redução das perdas excessivas.\n\n1. **Beba água regularmente:** não espere necessariamente pela sede, sobretudo durante períodos de calor.\n2. **Aumente a atenção em dias quentes:** reduza a exposição solar nas horas de maior calor e procure locais frescos.\n3. **Reponha os líquidos perdidos:** durante episódios de vómitos ou diarreia, utilize uma solução de reidratação oral, preparada de acordo com as instruções da embalagem.\n4. **Mantenha uma alimentação adequada:** sopas, frutas e outros alimentos ricos em água podem contribuir para a hidratação.\n5. **Vigie as pessoas vulneráveis:** crianças, idosos e pessoas dependentes podem necessitar de ajuda para beber regularmente.\n\nAs necessidades de líquidos variam conforme a idade, a actividade física, a temperatura ambiente e o estado de saúde. Pessoas com insuficiência cardíaca ou doença renal podem precisar de restrições individualizadas, devendo seguir as orientações clínicas recebidas.\n\n## 3. O que fazer perante uma possível desidratação?\n\nSe a pessoa estiver consciente e conseguir engolir com segurança, ofereça líquidos em pequenas quantidades e com frequência. Perante vómitos ou diarreia, a solução de reidratação oral é geralmente preferível à utilização exclusiva de água para repor também os electrólitos perdidos.\n\nNão force líquidos a uma pessoa inconsciente, muito sonolenta ou com dificuldade em engolir, devido ao risco de aspiração. Procure assistência médica urgente.\n\nNão administre medicamentos por iniciativa própria para tratar a desidratação e não adie a avaliação clínica quando existirem sinais de gravidade.\n\n## 4. Quando procurar uma unidade de saúde?\n\nProcure assistência médica urgente se houver confusão, perda de consciência, dificuldade em despertar, incapacidade de ingerir líquidos, sinais de choque ou deterioração rápida.\n\nNas crianças pequenas e nos idosos, a avaliação deve ser particularmente célere quando existem vómitos ou diarreia persistentes, redução importante da urina ou alterações do comportamento.\n\nA desidratação pode ser prevenida em muitas situações através de uma hidratação adequada e da identificação precoce dos sinais de alerta. Em caso de dúvida, sobretudo quando estão em causa crianças, idosos ou pessoas com doenças crónicas, procure orientação de um profissional de saúde.",
+  "fonte_url": "https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease",
+  "data": "2026-10-09",
+  "imagem": "https://www.cm-estremoz.pt/img/upload//desidratacao_2023.jpg",
+  "categoria": "Dica",
+  "fonte": "Organização Mundial da Saúde (OMS)",
+  "resumo": "Saiba reconhecer os sinais de desidratação, prevenir a perda excessiva de líquidos e identificar situações que exigem assistência médica urgente.",
+  "titulo": "Desidratação: sinais de alerta, prevenção e quando procurar assistência médica",
   "etiquetas": [
-    "saúde"
-  ],
-  "publicado": true
+    "desidratação",
+    "hidratação",
+    "saúde",
+    "prevenção",
+    "diarreia",
+    "vómitos",
+    "calor",
+    "saúde infantil",
+    "saúde do idoso",
+    "primeiros socorros"
+  ]
 }
