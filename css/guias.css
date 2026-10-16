@@ -1,0 +1,3 @@
+/* Folha de estilos auxiliar das páginas de guias (diagnósticos, medicamentos, etc.).
+   Os estilos principais de cada página já vão no próprio HTML; este ficheiro existe para
+   que o endereço /css/guias.css não devolva 404. Acrescente aqui estilos comuns, se precisar. */
