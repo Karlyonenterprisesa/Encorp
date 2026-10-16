@@ -1,5 +1,5 @@
 /*EC:CFG*/window.EC_CFG={"adsenseClient":"ca-pub-5846610296337932","gaId":""};/*/EC:CFG*/
-/* O Enfermeiro CP — consentimento de cookies (Google Consent Mode v2) + partilha. Sem dependências. */
+/* Enfermeiro Corporativo — consentimento de cookies (Google Consent Mode v2) + partilha. Sem dependências. */
 (function () {
   var KEY = 'ec_consent';
   function gt() { window.dataLayer = window.dataLayer || []; window.dataLayer.push(arguments); }

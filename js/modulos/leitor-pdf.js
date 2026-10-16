@@ -1,4 +1,4 @@
-/* Enfermeiro Competente — leitor integrado: PDF (pdf.js), zoom, imprimir, baixar, partilhar,
+/* Enfermeiro Corporativo — leitor integrado: PDF (pdf.js), zoom, imprimir, baixar, partilhar,
    lupa de imagens e impressão da secção atual. Funciona online e na versão offline (ficheiro único).
    Impressão: usa o diálogo do próprio telemóvel/Chrome (window.print). Em app Android (WebView)
    usa a ponte opcional window.ECAndroid.print(titulo) — ver docs/ANDROID.md. */

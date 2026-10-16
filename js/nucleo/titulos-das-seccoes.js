@@ -5,7 +5,7 @@
   if(typeof orig!=='function')return;
   window.showView=function(n){
     var r=orig.apply(this,arguments);
-    try{document.title=T[n]?T[n]+' | Enfermeiro Competente':base;}catch(e){}
+    try{document.title=T[n]?T[n]+' | Enfermeiro Corporativo':base;}catch(e){}
     return r;
   };
 })();

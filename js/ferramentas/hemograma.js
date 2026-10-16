@@ -1,4 +1,4 @@
-/* Enfermeiro Competente — interpretação do hemograma completo (ferramenta educativa).
+/* Enfermeiro Corporativo — interpretação do hemograma completo (ferramenta educativa).
    Usada na página /ferramentas/exames/hemograma-completo.html e na vista «hemograma» da app.
    Valores de referência indicativos: variam com o laboratório, o método, a idade e a altitude.
    Uso: ECHemograma.mount(document.getElementById('ec-hemograma')) */
