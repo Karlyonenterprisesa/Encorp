@@ -1,4 +1,4 @@
-# Enfermeiro Competente
+# Enfermeiro Corporativo
 
 Aplicação/site estático (PWA) de apoio à enfermagem. Site: https://encorp.vercel.app · Repositório: https://github.com/karlyonenterprisesa/encorp. Alojado na Vercel; o `build.mjs` corre em cada publicação.
 
