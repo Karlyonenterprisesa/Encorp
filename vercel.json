@@ -4,6 +4,11 @@
   "outputDirectory": ".",
   "redirects": [
     {
+      "source": "/admin",
+      "destination": "/admin/",
+      "permanent": false
+    },
+    {
       "source": "/diagnosticos/dominio/:slug([^/.]+)",
       "destination": "/diagnosticos/:slug.html",
       "permanent": true
