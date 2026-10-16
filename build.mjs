@@ -1,4 +1,4 @@
-/* Enfermeiro Competente — build (corre na Vercel em cada publicação:  node build.mjs).
+/* Enfermeiro Corporativo — build (corre na Vercel em cada publicação:  node build.mjs).
    Lê conteudo/<tipo>/*.json (gravado pelo Decap CMS) e gera: páginas de dicas, biblioteca, cursos, aulas e testes,
    hubs de navegação, a zona «Dicas e Actualidades» da página inicial, pesquisa, conteudo.json, feed.xml e sitemap.xml.
    Sem dependências. Node 18+. */
@@ -140,13 +140,13 @@ const HEADER = read('templates/header.html');
 const FOOTER = read('templates/footer.html');
 
 function head({ titulo, desc, path, img, tipoOg = 'website', ld, extraCss = '', robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1' }) {
-  const url = SITE + path, t = `${titulo} | Enfermeiro Competente`, im = img || SITE + '/og-image.jpg';
-  return `<!DOCTYPE html><html lang="pt-MZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>${esc(t)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${robots}"><link rel="canonical" href="${esc(url)}"><meta property="og:site_name" content="Enfermeiro Competente"><meta property="og:locale" content="pt_MZ"><meta property="og:type" content="${tipoOg}"><meta property="og:title" content="${esc(t)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${esc(url)}"><meta property="og:image" content="${esc(im)}"><meta property="og:image:alt" content="${esc(titulo)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(t)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${esc(im)}"><meta name="theme-color" content="#0b1a33"><meta name="color-scheme" content="light"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.json"><link rel="alternate" type="application/rss+xml" title="Enfermeiro Competente" href="/feed.xml">${ld ? `<script type="application/ld+json">${jsonSafe(ld)}</script>` : ''}<style>${CSS}${extraCss}</style></head>`;
+  const url = SITE + path, t = `${titulo} | Enfermeiro Corporativo`, im = img || SITE + '/og-image.jpg';
+  return `<!DOCTYPE html><html lang="pt-MZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>${esc(t)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${robots}"><link rel="canonical" href="${esc(url)}"><meta property="og:site_name" content="Enfermeiro Corporativo"><meta property="og:locale" content="pt_MZ"><meta property="og:type" content="${tipoOg}"><meta property="og:title" content="${esc(t)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${esc(url)}"><meta property="og:image" content="${esc(im)}"><meta property="og:image:alt" content="${esc(titulo)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(t)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${esc(im)}"><meta name="theme-color" content="#0b1a33"><meta name="color-scheme" content="light"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.json"><link rel="alternate" type="application/rss+xml" title="Enfermeiro Corporativo" href="/feed.xml">${ld ? `<script type="application/ld+json">${jsonSafe(ld)}</script>` : ''}<style>${CSS}${extraCss}</style></head>`;
 }
 const page = (h, main) => `${h}<body>${HEADER}<main>${main}</main>${FOOTER}<script src="/js/site/site.js" defer></script></body></html>`;
 const share = (url, titulo) => `<div class="ec-share" aria-label="Partilhar"><button type="button" data-share data-title="${esc(titulo)}" data-url="${esc(url)}">Partilhar</button><a class="wa" href="https://wa.me/?text=${enc(titulo + ' ' + url)}" target="_blank" rel="noopener">WhatsApp</a><a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=${enc(url)}" target="_blank" rel="noopener">Facebook</a><a class="tg" href="https://t.me/share/url?url=${enc(url)}&text=${enc(titulo)}" target="_blank" rel="noopener">Telegram</a><a href="https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(titulo)}" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=${enc(titulo)}&body=${enc(url)}">Email</a><button type="button" data-copy data-url="${esc(url)}">Copiar link</button></div>`;
 
-const hero = `<div class="hero"><img src="/og-image.jpg" alt="Enfermeiro Competente — Mais conhecimento, melhor cuidado" width="1200" height="630" decoding="async"></div>`;
+const hero = `<div class="hero"><img src="/og-image.jpg" alt="Enfermeiro Corporativo — Mais conhecimento, melhor cuidado" width="1200" height="630" decoding="async"></div>`;
 const EDU_CSS = read('templates/educacao.css');
 function paginaEducacao(it, url) {
   const T = TIPOS[it.tipo], c = cursoDe.get(it);
@@ -154,7 +154,7 @@ function paginaEducacao(it, url) {
   const tags = it.etiquetas.length ? `<p>${it.etiquetas.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</p>` : '';
   const capa = it.imagem && !it.youtube && !it.video ? `<p><img src="${esc(it.imagem)}" alt="${esc(it.titulo)}" loading="lazy" decoding="async"></p>` : '';
   const cta = `<div class="cta"><b>Quer continuar a aprender?</b><br><a class="btn" href="/cursos/">Ver cursos, aulas e testes</a><a class="btn alt" href="/">Abrir a app</a></div>`;
-  const ldBase = { '@context': 'https://schema.org', inLanguage: 'pt-MZ', url, ...(it.og ? { image: it.og } : {}), provider: { '@type': 'Organization', name: 'Enfermeiro Competente', url: SITE + '/' } };
+  const ldBase = { '@context': 'https://schema.org', inLanguage: 'pt-MZ', url, ...(it.og ? { image: it.og } : {}), provider: { '@type': 'Organization', name: 'Enfermeiro Corporativo', url: SITE + '/' } };
   let main = '', ld, extraCss = EDU_CSS, extraJs = '';
   if (it.tipo === 'cursos') {
     const aulas = aulasDe(it), testes = testesDe(it);
@@ -196,10 +196,10 @@ for (const it of itens) {
   let main, ld;
   if (it.tipo === 'biblioteca') {
     main = `<p class="meta"><a href="/biblioteca/">Biblioteca</a>${it.categoria ? ' · ' + esc(it.categoria) : ''} · ${fmtData(it.data)}</p><h1>${esc(it.titulo)}</h1><p class="lead">${esc(it.resumo)}</p>${share(url, it.titulo)}<p><a class="btn" href="${esc(it.ficheiro)}" target="_blank" rel="noopener">Abrir PDF</a> <a class="btn alt" href="${esc(it.ficheiro)}" download>Descarregar</a></p>${capa}<article>${md(it.corpo)}</article>${tagsDe(it)}`;
-    ld = { '@context': 'https://schema.org', '@type': 'DigitalDocument', name: it.titulo, description: it.resumo, datePublished: it.data, inLanguage: 'pt-MZ', url, encodingFormat: 'application/pdf', ...(it.ficheiro ? { contentUrl: abs(it.ficheiro) } : {}), publisher: { '@type': 'Organization', name: 'Enfermeiro Competente', url: SITE + '/' } };
+    ld = { '@context': 'https://schema.org', '@type': 'DigitalDocument', name: it.titulo, description: it.resumo, datePublished: it.data, inLanguage: 'pt-MZ', url, encodingFormat: 'application/pdf', ...(it.ficheiro ? { contentUrl: abs(it.ficheiro) } : {}), publisher: { '@type': 'Organization', name: 'Enfermeiro Corporativo', url: SITE + '/' } };
   } else {
-    main = `<p class="meta"><a href="/dicas/">Dicas e Actualidades</a> · ${esc(it.categoria || 'Dica')} · ${fmtData(it.data)} · ${esc(it.autor || 'Enfermeiro Competente')}</p><h1>${esc(it.titulo)}</h1><p class="lead">${esc(it.resumo)}</p>${share(url, it.titulo)}${capa}<article>${md(it.corpo)}</article>${fonte}${tagsDe(it)}${AVISO}`;
-    ld = { '@context': 'https://schema.org', '@type': it.categoria === 'Notícia' ? 'NewsArticle' : 'Article', headline: it.titulo, description: it.resumo, datePublished: it.data, dateModified: it.data, inLanguage: 'pt-MZ', mainEntityOfPage: url, ...(it.og ? { image: it.og } : {}), author: { '@type': 'Organization', name: it.autor || 'Enfermeiro Competente' }, publisher: { '@type': 'Organization', name: 'Enfermeiro Competente', url: SITE + '/' } };
+    main = `<p class="meta"><a href="/dicas/">Dicas e Actualidades</a> · ${esc(it.categoria || 'Dica')} · ${fmtData(it.data)} · ${esc(it.autor || 'Enfermeiro Corporativo')}</p><h1>${esc(it.titulo)}</h1><p class="lead">${esc(it.resumo)}</p>${share(url, it.titulo)}${capa}<article>${md(it.corpo)}</article>${fonte}${tagsDe(it)}${AVISO}`;
+    ld = { '@context': 'https://schema.org', '@type': it.categoria === 'Notícia' ? 'NewsArticle' : 'Article', headline: it.titulo, description: it.resumo, datePublished: it.data, dateModified: it.data, inLanguage: 'pt-MZ', mainEntityOfPage: url, ...(it.og ? { image: it.og } : {}), author: { '@type': 'Organization', name: it.autor || 'Enfermeiro Corporativo' }, publisher: { '@type': 'Organization', name: 'Enfermeiro Corporativo', url: SITE + '/' } };
   }
   write(it.url.slice(1), page(head({ titulo: it.titulo, desc: it.resumo || T.lead, path: it.url, img: it.og, tipoOg: 'article', ld }), main));
 }
@@ -270,7 +270,7 @@ ETAPA('avaliacao-final', '5. Avaliação final', 'Quinta etapa: comparar o estad
 hub({ path: '/aprender/', titulo: 'Aprender enfermagem', crumbs: [], desc: 'Processo de enfermagem, avaliação, casos clínicos, termos médicos, biblioteca de PDFs, dicas de saúde e cursos.',
   body: AVISO + [C('/processo-enfermagem/', 'Processo de enfermagem', 'As cinco etapas, por ordem.'), C('/avaliacao/', 'Avaliação e exame físico', 'Anamnese, exame físico e sinais vitais.'), C('/aprender/casos-clinicos/', 'Casos clínicos', '20 casos para estudar.'), C('/aprender/glossario/', 'Termos médicos', 'Siglas, abreviaturas, prefixos e sufixos.'), C('/biblioteca/', 'Biblioteca', 'Manuais, listas de medicamentos e fichas em PDF.'), C('/dicas/', 'Dicas e Actualidades de Saúde', 'Dicas, artigos e notícias.'), C('/cursos/', 'Cursos', 'Cursos, video-aulas e testes.')].join('') });
 
-hub({ path: '/ajuda.html', titulo: 'Ajuda', desc: 'Como usar o Enfermeiro Competente e como falar connosco.',
+hub({ path: '/ajuda.html', titulo: 'Ajuda', desc: 'Como usar o Enfermeiro Corporativo e como falar connosco.',
   body: '<p>Use a pesquisa para localizar conteúdos. Abra cada domínio e classe para consultar diagnósticos. Ao seleccionar um diagnóstico verá domínio, classe, código NANDA-I e sugestões de NIC e NOC. Este sistema não substitui protocolos institucionais nem julgamento clínico.</p><h2>Contactos</h2><p>E-mail: <a href="mailto:digitalcartel@gmail.com">digitalcartel@gmail.com</a><br>Telefone: 82 130 0088</p><p><a href="/contacto.html">Página de contactos</a> · <a href="/pesquisa.html">Pesquisar no site</a></p>' });
 
 /* listagens: dicas, biblioteca, aulas, testes */
@@ -351,7 +351,7 @@ const unesc = unescH;
     const de = s.match(/<meta name="description" content="([^"]*)"/);
     const cr = s.match(/<p class="meta crumbs"[^>]*>([\s\S]*?)<\/p>/) || s.match(/<p class="meta">([\s\S]*?)<\/p>/);
     const as = cr ? [...cr[1].matchAll(/<a [^>]*>([^<]*)<\/a>/g)].map((m) => unesc(m[1])).filter((x) => x !== 'Início') : [];
-    idx.push({ t: unesc(ti[1]).replace(/\s*[|—-]\s*Enfermeiro Competente\s*$/, '').trim() || 'Enfermeiro Competente', d: unesc(de ? de[1] : '').slice(0, 220), u: url, s: as.length ? as[as.length - 1] : '' });
+    idx.push({ t: unesc(ti[1]).replace(/\s*[|—-]\s*Enfermeiro Corporativo\s*$/, '').trim() || 'Enfermeiro Corporativo', d: unesc(de ? de[1] : '').slice(0, 220), u: url, s: as.length ? as[as.length - 1] : '' });
   };
   add('index.html', '/');
   for (const f of PAGINAS) if (f !== 'pesquisa.html') add(f, urlDe(f));
@@ -367,7 +367,7 @@ write('conteudo.json', JSON.stringify({ atualizado: new Date().toISOString(), it
 
 /* ---------- feed.xml (dicas e actualidades) ---------- */
 const x = (s) => esc(s).replace(/'/g, '&apos;');
-write('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Enfermeiro Competente — Dicas e Actualidades de Saúde</title><link>${SITE}/</link><description>Dicas, artigos e notícias de saúde.</description><language>pt-MZ</language><atom:link href="${SITE}/feed.xml" rel="self" type="application/rss+xml"/>\n${itens.filter((i) => i.tipo === 'dicas').slice(0, 30).map((i) => `<item><title>${x(i.titulo)}</title><link>${SITE}${i.url}</link><guid isPermaLink="true">${SITE}${i.url}</guid><pubDate>${new Date(i.data + 'T12:00:00Z').toUTCString()}</pubDate><description>${x(i.resumo)}</description></item>`).join('\n')}\n</channel></rss>\n`);
+write('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Enfermeiro Corporativo — Dicas e Actualidades de Saúde</title><link>${SITE}/</link><description>Dicas, artigos e notícias de saúde.</description><language>pt-MZ</language><atom:link href="${SITE}/feed.xml" rel="self" type="application/rss+xml"/>\n${itens.filter((i) => i.tipo === 'dicas').slice(0, 30).map((i) => `<item><title>${x(i.titulo)}</title><link>${SITE}${i.url}</link><guid isPermaLink="true">${SITE}${i.url}</guid><pubDate>${new Date(i.data + 'T12:00:00Z').toUTCString()}</pubDate><description>${x(i.resumo)}</description></item>`).join('\n')}\n</channel></rss>\n`);
 
 /* ---------- sitemap.xml: regenerado de raiz; só páginas indexáveis, com o endereço canónico de cada uma ---------- */
 {
