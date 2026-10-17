@@ -1,49 +1,60 @@
 {
-  "titulo": "Primeiros socorros",
-  "data": "2026-10-13",
-  "resumo": "Reconhecer emergências e prestar os primeiros cuidados até à chegada de ajuda diferenciada.",
-  "imagem": "",
-  "nivel": "Iniciante",
-  "area": "Urgência",
-  "duracao": "5 horas",
-  "instrutor": "Equipa Enfermeiro Corporativo",
-  "preco": "",
   "link_inscricao": "",
-  "corpo": "## Programa\n\n1. Avaliar a cena e garantir a segurança\n2. Pedir ajuda e activar o socorro\n3. Reanimação cardiopulmonar básica e obstrução da via aérea\n4. Hemorragias, feridas e queimaduras\n5. Fracturas, entorses e imobilização\n6. Convulsões, desmaio, hipoglicemia e AVC\n7. Intoxicações e picadas\n\nConsulte também as páginas de [Urgência e emergência](/urgencias/).",
+  "nivel": "Iniciante",
+  "publicado": true,
+  "corpo": "## Apresentação\n\nO curso de Primeiros Socorros destina-se a principiantes que pretendem aprender a reconhecer situações de emergência, avaliar riscos e prestar os primeiros cuidados à vítima até à chegada de ajuda diferenciada.\n\nA formação aborda a segurança da cena, o pedido de ajuda, o suporte básico de vida, a obstrução da via aérea, as hemorragias, as feridas, as queimaduras, as lesões traumáticas e o reconhecimento de sinais de alarme em situações clínicas urgentes.\n\n## Objectivos de aprendizagem\n\nNo final do curso, o participante deverá ser capaz de:\n\n* Identificar perigos e garantir a segurança da cena.\n* Activar os serviços de emergência e comunicar informações essenciais.\n* Reconhecer uma pessoa inconsciente que não respira normalmente e compreender os princípios da reanimação cardiopulmonar.\n* Reconhecer a obstrução da via aérea e conhecer as medidas de primeiros socorros adequadas.\n* Prestar cuidados iniciais em hemorragias, feridas e queimaduras.\n* Reconhecer possíveis fracturas, entorses e outras lesões traumáticas.\n* Identificar sinais de alarme em convulsões, desmaios, hipoglicemia, AVC, intoxicações e picadas.\n\n## Programa do curso\n\n### Módulo 1 — Avaliar a cena e pedir ajuda\n\n* Segurança do socorrista, da vítima e das pessoas presentes.\n* Identificação de perigos e prevenção de novos acidentes.\n* Avaliação inicial da vítima e reconhecimento de sinais de gravidade.\n* Activação do socorro e comunicação clara da localização e da situação.\n\n### Módulo 2 — Suporte básico de vida\n\n* Reconhecimento da inconsciência e da respiração anormal.\n* Activação da emergência e pedido de um desfibrilhador automático externo, quando disponível.\n* Princípios da reanimação cardiopulmonar (RCP).\n* Utilização do desfibrilhador automático externo (DAE).\n* Reconhecimento da obstrução da via aérea e medidas de primeiros socorros.\n* Posição lateral de segurança quando indicada.\n\n### Módulo 3 — Hemorragias, feridas e queimaduras\n\n* Reconhecimento dos diferentes tipos de hemorragia.\n* Aplicação de pressão directa para controlar hemorragias externas.\n* Cuidados iniciais com feridas e prevenção da contaminação.\n* Primeiros socorros nas queimaduras térmicas.\n* Situações que exigem assistência médica urgente.\n\n### Módulo 4 — Fracturas e imobilização\n\n* Reconhecimento de sinais sugestivos de fractura e entorse.\n* Protecção da região lesionada e limitação dos movimentos.\n* Princípios básicos de imobilização.\n* Cuidados perante suspeita de lesão da coluna vertebral.\n* Identificação de sinais de compromisso circulatório ou neurológico.\n\n### Módulo 5 — Convulsões, desmaio e hipoglicemia\n\n* Reconhecimento de convulsões e protecção da vítima durante a crise.\n* Primeiros cuidados perante desmaio e alteração do estado de consciência.\n* Reconhecimento de possíveis sinais de hipoglicemia.\n* Identificação de sinais de alerta de acidente vascular cerebral (AVC).\n* Reconhecimento de possíveis intoxicações e reacções a picadas.\n* Situações em que se deve activar imediatamente a emergência.\n\n## Metodologia\n\nA formação pode incluir exposição dos conteúdos, demonstrações, cenários simulados, perguntas de revisão e exercícios de reconhecimento de sinais de gravidade.\n\n## Nota de segurança\n\nEste curso tem finalidade educativa e não substitui formação prática certificada. As intervenções devem respeitar as orientações de primeiros socorros aplicáveis, os protocolos locais e as competências do socorrista. Em situações graves, deve ser activado o serviço de emergência. Não se deve provocar o vómito em caso de suspeita de intoxicação nem administrar alimentos ou líquidos a uma pessoa com alteração do estado de consciência.",
   "aulas": [
     {
       "titulo": "Avaliar a cena e pedir ajuda",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "duracao": "60 Minutos",
+      "resumo": "1. Avaliar a cena e pedir ajuda\n\nAprenda a identificar perigos, proteger o socorrista e a vítima, reconhecer sinais de gravidade e activar os serviços de emergência. Saiba que informações comunicar para facilitar uma resposta rápida e adequada."
     },
     {
       "titulo": "Suporte básico de vida",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "duracao": "60 Minutos",
+      "resumo": "2. Suporte básico de vida\n\nConheça os princípios do reconhecimento da paragem cardiorrespiratória, da reanimação cardiopulmonar, da utilização do desfibrilhador automático externo e dos primeiros socorros perante obstrução da via aérea."
     },
     {
       "titulo": "Hemorragias, feridas e queimaduras",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "duracao": "60 Minutos",
+      "resumo": "3. Hemorragias, feridas e queimaduras\n\nAprenda os cuidados iniciais para controlar hemorragias externas, proteger feridas e actuar perante queimaduras. Identifique sinais de gravidade que exigem assistência médica urgente."
     },
     {
       "titulo": "Fracturas e imobilização",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "duracao": "60 Minutos",
+      "resumo": "4. Fracturas e imobilização\n\nReconheça sinais sugestivos de fracturas e entorses, conheça os princípios de protecção e imobilização da região lesionada e compreenda os cuidados perante suspeita de lesões graves."
     },
     {
       "titulo": "Convulsões, desmaio e hipoglicemia",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "duracao": "60 Minutos",
+      "resumo": "5. Convulsões, desmaio e hipoglicemia\n\nAprenda a reconhecer sinais de convulsões, desmaio, hipoglicemia e AVC, bem como os cuidados iniciais seguros. Conheça também os sinais de alarme associados a intoxicações e picadas."
     }
   ],
+  "data": "2026-10-13",
+  "area": "Urgência e Emergência",
+  "instrutor": "Equipa Enfermeiro Corporativo",
+  "preco": "375MZN",
+  "duracao": "5 horas",
+  "imagem": "",
+  "resumo": "Aprenda os princípios dos primeiros socorros, suporte básico de vida e actuação inicial perante emergências, lesões e situações clínicas graves.",
+  "titulo": "Primeiros socorros",
   "etiquetas": [
-    "Urgência"
-  ],
-  "publicado": true
+    "Primeiros Socorros",
+    "Enfermagem",
+    "Urgência",
+    "Emergência",
+    "Suporte Básico de Vida",
+    "RCP",
+    "Hemorragias",
+    "Queimaduras",
+    "Traumatismos",
+    "Hipoglicemia",
+    "AVC",
+    "Segurança da Vítima"
+  ]
 }
