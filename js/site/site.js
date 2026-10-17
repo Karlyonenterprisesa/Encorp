@@ -19,7 +19,7 @@
     load(v);
   }
 
-  var css = '#ec-ck{position:fixed;left:10px;right:10px;bottom:10px;z-index:2147483000;max-width:560px;margin:0 auto;background:#fff;color:#0f2547;border:1px solid #ffd9a8;border-top:4px solid #e8a317;border-radius:14px;padding:14px 16px;box-shadow:0 10px 30px rgba(11,26,51,.35);font:13.5px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}' +
+  var css = '#ec-ck{position:fixed;left:10px;right:10px;bottom:10px;z-index:2147483000;max-width:560px;margin:0 auto;background:#fff;color:#0f2547;border:1px solid #ffd9a8;border-top:4px solid #e8a317;border-radius:14px;padding:14px 16px;box-shadow:none;font:13.5px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}' +
     '#ec-ck b{color:#0b1a33;font-size:14.5px}#ec-ck p{margin:6px 0 10px}#ec-ck a{color:#c76a00}' +
     '#ec-ck .r{display:flex;gap:8px;flex-wrap:wrap}#ec-ck button{flex:1 1 140px;border:0;border-radius:10px;padding:10px 12px;font:700 13.5px system-ui,sans-serif;cursor:pointer}' +
     '#ec-ck .y{background:#c76a00;color:#fff}#ec-ck .n{background:#eef3fb;color:#0b1a33;border:1px solid #ffd9a8}' +

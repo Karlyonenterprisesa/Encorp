@@ -26,7 +26,7 @@
   border: 1px solid var(--borda);
   border-radius: 12px;
   padding: 10px 14px;
-  box-shadow: 0 3px 8px rgba(11,26,51,.14), 0 1px 2px rgba(11,26,51,.10), inset 0 1px 0 #fff;
+  box-shadow: none;
 }
 .a-title { font-weight: 800; }
 .word-viewer-area {

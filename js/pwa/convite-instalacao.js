@@ -33,7 +33,7 @@
 
   /* ---------- aspecto ---------- */
   var css = '#ecInstall{position:fixed;left:12px;right:12px;bottom:calc(var(--ec-install-bottom,16px) + env(safe-area-inset-bottom,0px));z-index:140;max-width:420px;margin:0 auto;' +
-    'background:#fff;color:#0b1a33;border:1px solid #dfe6f0;border-left:4px solid #e8a317;border-radius:16px;box-shadow:0 10px 30px rgba(11,26,51,.28);padding:12px 12px 14px;font:14px/1.35 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;' +
+    'background:#fff;color:#0b1a33;border:1px solid #dfe6f0;border-left:4px solid #e8a317;border-radius:16px;box-shadow:none;padding:12px 12px 14px;font:14px/1.35 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;' +
     'transform:translateY(24px);opacity:0;transition:transform .25s ease,opacity .25s ease;overflow:hidden}' +
     '#ecInstall.on{transform:none;opacity:1}' +
     '#ecInstall .r{display:flex;align-items:center;gap:10px}' +
