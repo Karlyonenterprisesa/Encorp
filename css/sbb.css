@@ -14,8 +14,8 @@ html,body{background:#fff}
 body > header{display:block!important;background:#fff!important;border:0!important;padding:0!important;text-align:center}
 body > header .sbb-logo{display:block;padding:20px 16px}
 body > header .sbb-logo img{display:block;height:62px;width:auto;margin:0 auto;background:transparent;border:0;border-radius:0}
-body > header nav{display:flex;justify-content:center;flex-wrap:wrap;gap:0;flex-basis:auto;background:var(--sbb-navy);padding:0 8px}
-body > header nav a{background:none!important;color:#fff!important;border-radius:0!important;padding:16px 16px!important;font-size:13px!important;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+body > header nav{display:flex;justify-content:safe center;flex-wrap:nowrap;gap:0;flex-basis:auto;background:var(--sbb-navy);padding:0 8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}body > header nav::-webkit-scrollbar{display:none}
+body > header nav a{flex:0 0 auto;white-space:nowrap;background:none!important;color:#fff!important;border-radius:0!important;padding:16px .8em!important;font-size:var(--nvf,13px)!important;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
 body > header nav a:hover{background:var(--sbb-navy2)!important}
 main{max-width:var(--sbb-w)!important}
 main h1,main h2{background:none!important;border:0!important;border-radius:0!important;text-align:left!important;color:var(--sbb-navy)!important;text-transform:uppercase;letter-spacing:.3px!important;font-weight:800;padding:0!important;margin:34px 0 14px!important;font-size:clamp(20px,3vw,28px)!important;line-height:1.2}
@@ -54,8 +54,8 @@ body > footer{border-top:48px solid var(--sbb-navy);margin-top:40px;padding:0!im
 .sbb-logo-img{height:56px;width:auto;max-width:100%;object-fit:contain;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important}
 .sbb-logo-row .head-right{position:absolute;right:14px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:8px}
 .sbb-nav{background:var(--sbb-navy)}
-.sbb-nav-in{max-width:var(--sbb-w);margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
-.sbb-nav button{background:none;border:0;color:#fff;font-family:inherit;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;padding:16px 15px;cursor:pointer}
+.sbb-nav-in{max-width:none;margin:0 auto;display:flex;justify-content:center;flex-wrap:nowrap}
+.sbb-nav button{flex:0 1 auto;white-space:nowrap;background:none;border:0;color:#fff;font-family:inherit;font-size:var(--nvf,13px);font-weight:600;text-transform:uppercase;letter-spacing:.2px;padding:16px .8em;cursor:pointer}
 .sbb-nav button:hover{background:var(--sbb-navy2)}
 #app .menu-btn{background:var(--sbb-navy)!important;border-radius:4px!important}
 @media(min-width:900px){#app .menu-btn{display:none!important}.sbb-logo-row{padding:18px 120px}.sbb-logo-img{height:64px}}
@@ -142,3 +142,11 @@ body > footer{border-top:48px solid var(--sbb-navy);margin-top:40px;padding:0!im
 
 /* divisores decorativos com estrelas: removidos */
 .star-divider{display:none!important}
+
+/* menu numa só linha: tamanho ajustado ao zoom aplicado em ecrãs largos */
+:root{--nvf:13px}
+@media(min-width:900px){:root{--nvf:calc(1vw*.98)}}
+@media(min-width:1200px){:root{--nvf:calc(1vw*.86)}}
+@media(min-width:1600px){:root{--nvf:calc(1vw*.8)}}
+@media(min-width:1500px){:root{--nvf:12.5px}}
+@media(min-width:1600px){:root{--nvf:13px}}
