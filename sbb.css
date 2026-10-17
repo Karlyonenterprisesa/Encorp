@@ -1,0 +1,151 @@
+/* Enfermeiro Corporativo — layout plano inspirado no Stroke Beyond Borders.
+   Cores: mantém o azul do Encorp. Sem sombras, relevo, degradés nem 3D. Carregar por último. */
+:root{--sbb-navy:#0b1a33;--sbb-navy2:#0a1850;--sbb-blue:#0148E0;--sbb-text:#0f2547;--sbb-muted:#5b6b85;--sbb-line:#dfe6f0;--sbb-field:#efefef;--sbb-soft:#eef3fb;--sbb-w:1140px}
+html,body{background:#fff}
+*,*::before,*::after{box-shadow:none!important;text-shadow:none!important}
+
+/* ---------- botões planos (maiúsculas, negrito, cantos quase rectos) ---------- */
+.sbb-btn,.btn,.ec-news-more a,.cta .btn{display:inline-block;background:var(--sbb-blue)!important;color:#fff!important;border:0!important;border-radius:3px!important;padding:14px 24px!important;font-weight:800!important;font-size:14px!important;letter-spacing:.2px;text-transform:uppercase;text-decoration:none!important;cursor:pointer;transition:background .15s ease}
+.sbb-btn:hover,.btn:hover,.ec-news-more a:hover{background:var(--sbb-navy2)!important}
+.btn.alt{background:#fff!important;color:var(--sbb-navy)!important;border:1px solid var(--sbb-navy)!important}
+.sbb-btn.on-dark{background:#fff!important;color:var(--sbb-navy)!important}
+
+/* ======================= PÁGINAS ESTÁTICAS (templates/header.html + footer.html) ======================= */
+body > header{display:block!important;background:#fff!important;border:0!important;padding:0!important;text-align:center}
+body > header .sbb-logo{display:block;padding:20px 16px}
+body > header .sbb-logo img{display:block;height:62px;width:auto;margin:0 auto;background:transparent;border:0;border-radius:0}
+body > header nav{display:flex;justify-content:safe center;flex-wrap:nowrap;gap:0;flex-basis:auto;background:var(--sbb-navy);padding:0 8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}body > header nav::-webkit-scrollbar{display:none}
+body > header nav a{flex:0 0 auto;white-space:nowrap;background:none!important;color:#fff!important;border-radius:0!important;padding:16px .8em!important;font-size:var(--nvf,13px)!important;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+body > header nav a:hover{background:var(--sbb-navy2)!important}
+main{max-width:var(--sbb-w)!important}
+main h1,main h2{background:none!important;border:0!important;border-radius:0!important;text-align:center!important;color:var(--sbb-navy)!important;text-transform:uppercase;letter-spacing:.3px!important;font-weight:800;padding:0!important;margin:34px 0 14px!important;font-size:clamp(20px,3vw,28px)!important;line-height:1.2}
+main h1{margin-top:22px!important;font-size:clamp(24px,4vw,36px)!important}
+main h3{color:var(--sbb-navy)}
+.card{background:#fff!important;border:1px solid var(--sbb-line)!important;border-left:1px solid var(--sbb-line)!important;border-radius:6px!important;transition:border-color .15s ease}
+.card:hover{transform:none!important;border-color:var(--sbb-blue)!important}
+.hero img{border:0!important;border-radius:6px!important}
+.cta,.pdf,.vid,.calc-box{background:#fff;border:1px solid var(--sbb-line);border-radius:6px}
+.notice,.info-box,.alert-box{border-radius:4px}
+hr{border:0!important;height:1px!important;background:var(--sbb-line)!important;margin:30px 0}
+.tag,.chip{border-radius:3px!important}
+
+/* rodapé em colunas (estáticas) */
+body > footer{border-top:48px solid var(--sbb-navy);margin-top:40px;padding:0!important;text-align:left;background:#fff;color:var(--sbb-text)}
+.sbb-ft{max-width:var(--sbb-w);margin:0 auto;padding:36px 20px 8px}
+.sbb-ft-logo{text-align:center;margin-bottom:26px}
+.sbb-ft-logo img{height:64px;width:auto}
+.sbb-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 32px}
+.sbb-cols h4{margin:0 0 12px;font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--sbb-navy)}
+.sbb-cols a{display:block;padding:4px 0;font-size:14px;line-height:1.35;color:#222;text-decoration:none;background:none;border:0;text-align:left;cursor:pointer;font-family:inherit}
+.sbb-cols a::before{content:"// ";color:var(--sbb-muted)}
+.sbb-cols a:hover{color:var(--sbb-blue)}
+.sbb-ft-note{max-width:var(--sbb-w);margin:0 auto;padding:12px 20px 30px;text-align:center;font-size:12.5px;color:var(--sbb-muted);line-height:1.7;border-top:1px solid var(--sbb-line)}
+.sbb-ft-note p{margin:4px 0}
+.sbb-ft-note a{color:var(--sbb-navy)}
+@media(max-width:899px){.sbb-cols{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.sbb-cols{grid-template-columns:1fr}}
+
+/* ======================= APLICAÇÃO (index.html) ======================= */
+#app{max-width:none!important;background:#fff!important}
+#app .top-fixed{max-width:none!important;left:0;right:0;background:#fff!important;border:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+#app .top-fixed header.sbb-hd{background:#fff!important;padding:0!important;border:0!important}
+.sbb-logo-row{position:relative;display:flex;align-items:center;justify-content:center;padding:14px 64px}
+.sbb-logo{display:block;line-height:0}
+.sbb-logo-img{height:56px;width:auto;max-width:100%;object-fit:contain;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important}
+.sbb-logo-row .head-right{position:absolute;right:14px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:8px}
+.sbb-nav{background:var(--sbb-navy)}
+.sbb-nav-in{max-width:none;margin:0 auto;display:flex;justify-content:center;flex-wrap:nowrap}
+.sbb-nav button{flex:0 1 auto;white-space:nowrap;background:none;border:0;color:#fff;font-family:inherit;font-size:var(--nvf,13px);font-weight:600;text-transform:uppercase;letter-spacing:.2px;padding:16px .8em;cursor:pointer}
+.sbb-nav button:hover{background:var(--sbb-navy2)}
+#app .menu-btn{background:var(--sbb-navy)!important;border-radius:4px!important}
+@media(min-width:900px){#app .menu-btn{display:none!important}.sbb-logo-row{padding:18px 120px}.sbb-logo-img{height:64px}}
+@media(max-width:899px){.sbb-nav{display:none}.sbb-logo-img{height:46px}.sbb-logo-row{padding:10px 112px 10px 14px;justify-content:flex-start}}
+
+/* contentor central (as faixas coloridas ocupam a largura toda) */
+#app .view{padding-left:0!important;padding-right:0!important;background:#fff!important}
+#app .view > *:not(.sbb-band):not(.sbb-footer):not(.view){max-width:var(--sbb-w);margin-left:auto!important;margin-right:auto!important;padding-left:20px;padding-right:20px;box-sizing:border-box;width:100%}
+#app .view > .section-title,#app .view > .section-title-center{width:100%}
+
+/* títulos de secção: texto simples, maiúsculas */
+#app .section-title,#app .section-title-center{background:none!important;border:0!important;border-radius:0!important;margin-top:40px!important;margin-bottom:14px!important;text-align:center!important;color:var(--sbb-navy)!important;font-size:clamp(22px,3.2vw,30px)!important;font-weight:800!important;letter-spacing:.3px!important;text-transform:uppercase;padding-left:20px!important;padding-right:20px!important}
+#app .section-title::before,#app .section-title::after{display:none!important}
+
+/* pesquisa */
+#app .searchbar{margin-top:30px!important;margin-bottom:10px!important}
+#app .searchbar input{height:64px!important;background:var(--sbb-field)!important;border:0!important;border-radius:4px!important;font-size:16px!important;padding:0 70px 0 20px!important;color:#333}
+#app .searchbar input::placeholder{color:#8a8a8a}
+#app .searchbar .clear{right:60px!important}
+.sbb-search-btn{position:absolute;right:0;top:0;height:100%;width:64px;background:none;border:0;color:var(--sbb-blue);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.sbb-search-btn svg{width:24px;height:24px}
+
+/* áreas de estudo (cartões grandes) */
+#app .quick-strip{display:grid!important;grid-template-columns:repeat(3,1fr);gap:20px;max-width:var(--sbb-w)!important;overflow:visible}
+@media(min-width:900px){#app .quick-strip{grid-template-columns:repeat(6,1fr)}}
+#app .proc-img-card{background:transparent!important;border:0!important;padding:0!important}
+#app .proc-img-card img{border-radius:8px}
+#app .proc-img-list{gap:16px}
+
+/* cartões da lista de ferramentas */
+#app .home-card,#app .tool-card{background:#fff!important;border:1px solid var(--sbb-line)!important;border-radius:6px!important}
+#app .home-card:hover,#app .tool-card:hover{border-color:var(--sbb-blue)!important}
+#app .home-card:active{transform:none}
+#app .home-list{max-width:var(--sbb-w);margin:0 auto}
+
+/* notícias: 3 colunas, imagem em cima, "Leia mais…" */
+#app .ec-news{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:28px!important}
+@media(max-width:899px){#app .ec-news{grid-template-columns:1fr!important}}
+#app .ec-nc{flex-direction:column!important;background:transparent!important;border:0!important;border-radius:0!important;min-height:0!important}
+#app .ec-nc-im{flex:none!important;width:100%;aspect-ratio:16/9;background:var(--sbb-soft)!important;border-radius:0!important}
+#app .ec-nc-im img{width:100%;height:100%;object-fit:cover;border-radius:0!important}
+#app .ec-nc-b{padding:14px 0 0!important}
+#app .ec-nc-t{font-size:18px!important;font-weight:700!important;line-height:1.3!important;-webkit-line-clamp:4!important;color:var(--sbb-navy)!important}
+#app .ec-nc-s,#app .ec-nc-k,#app .ec-nc-m{display:none!important}
+#app .ec-nc-b::after{content:"Leia mais…";color:var(--sbb-blue);text-decoration:underline;font-size:15px;margin-top:8px}
+#app .ec-news-more{text-align:center;margin:30px auto!important}
+
+/* faixa azul-marinho (missão) */
+#app .view > .sbb-band{max-width:none;width:100%;background:var(--sbb-navy);color:#fff;padding:64px 20px;margin:56px 0 0!important}
+.sbb-band-in{max-width:960px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:44px;align-items:center}
+.sbb-band-in img{width:100%;height:auto;background:#fff;border-radius:8px;padding:14px}
+.sbb-band h2{margin:0 0 14px;font-size:clamp(22px,3vw,32px);font-weight:500;line-height:1.3;color:#fff}
+.sbb-band h2 b{font-weight:800}
+.sbb-band p{margin:0 0 24px;font-size:17px;line-height:1.6;color:#dbe4f5}
+@media(max-width:699px){.sbb-band-in{grid-template-columns:1fr;text-align:center}.sbb-band-in img{max-width:160px;margin:0 auto}}
+
+/* programa de educação continuada */
+.sbb-edu-lead{font-size:18px;color:var(--sbb-text);margin:0 0 20px}
+.sbb-courses{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:899px){.sbb-courses{grid-template-columns:1fr}}
+.sbb-course{display:flex;flex-direction:column;justify-content:flex-end;gap:8px;min-height:190px;padding:24px;background:var(--sbb-navy);color:#fff;border-radius:0;text-decoration:none}
+.sbb-course:nth-child(2){background:var(--sbb-blue)}
+.sbb-course:nth-child(3){background:var(--sbb-navy2)}
+.sbb-course small{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#bcd0f5}
+.sbb-course b{font-size:21px;line-height:1.25}
+.sbb-course span{font-size:13.5px;color:#dbe4f5}
+.sbb-edu-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin:34px 0 10px}
+
+/* rodapé da app */
+#app .brand-footer{background:transparent!important;border:0!important;border-radius:0!important;margin:30px 0 10px!important}
+#app .view > .sbb-footer{max-width:none;width:100%;margin:64px 0 0;padding:0}
+.sbb-footer-bar{height:48px;background:var(--sbb-navy)}
+.sbb-footer-in{max-width:var(--sbb-w);margin:0 auto;padding:36px 20px 10px}
+.sbb-footer .sbb-ft-logo img{height:64px}
+.sbb-footer .bf-socials{margin:0 0 30px}
+.sbb-footer .bf-socials a{background:transparent!important;color:var(--sbb-navy)}
+.sbb-footer .sbb-cols a{background:none}
+.sbb-footer-note{max-width:var(--sbb-w);margin:0 auto;padding:12px 20px 34px;text-align:center;font-size:12.5px;color:var(--sbb-muted);border-top:1px solid var(--sbb-line)}
+.sbb-footer-note b{color:var(--sbb-navy)}
+
+/* gaveta lateral e fixos: planos */
+#app .drawer,#app .drawer-overlay *{border-radius:0}
+.lang-switch{border-radius:4px!important}
+
+/* divisores decorativos com estrelas: removidos */
+.star-divider{display:none!important}
+
+/* menu numa só linha: tamanho ajustado ao zoom aplicado em ecrãs largos */
+:root{--nvf:13px}
+@media(min-width:900px){:root{--nvf:calc(1vw*.98)}}
+@media(min-width:1200px){:root{--nvf:calc(1vw*.86)}}
+@media(min-width:1600px){:root{--nvf:calc(1vw*.8)}}
+@media(min-width:1500px){:root{--nvf:12.5px}}
