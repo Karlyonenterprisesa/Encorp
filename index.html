@@ -5,10 +5,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Enfermeiro Corporativo">
 <meta name="mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap">
 <style>
-/* fonte: usa a fonte do sistema (sem pedidos externos) */
+/* fonte: Outfit (Google Fonts) com fallback para a fonte do sistema */
 :root{/* ===== Identidade Alcartel Digital Vision — Azul · Branco · Preto ===== */
-    --azul-escuro:#0b1a33;--azul:#f28c1c;--azul-claro:#f7a23b;--vermelho:#c8202f;--vermelho-esc:#9e1a26;--dourado:#e8a317;--dourado-esc:#0b1a33;--dourado-suave:#e7ecf4;--verde-saude:#0b1a33;--verde-saude-esc:#0b1a33;--verde-saude-suave:#e7ecf4;--preto:#0b1a33;--bg:#fbfaf7;--card:#ffffff;--texto:#0f2547;--texto-suave:#5b6b85;--borda:#dfe6f0;--fonte-titulo:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--fonte-texto:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;}
+    --azul-escuro:#0b1a33;--azul:#f28c1c;--azul-claro:#f7a23b;--vermelho:#c8202f;--vermelho-esc:#9e1a26;--dourado:#e8a317;--dourado-esc:#0b1a33;--dourado-suave:#e7ecf4;--verde-saude:#0b1a33;--verde-saude-esc:#0b1a33;--verde-saude-suave:#e7ecf4;--preto:#0b1a33;--bg:#fbfaf7;--card:#ffffff;--texto:#0f2547;--texto-suave:#5b6b85;--borda:#dfe6f0;--fonte-titulo:'Outfit',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--fonte-texto:'Outfit',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html, body{margin:0;padding:0;background:var(--bg);font-family:var(--fonte-texto);color:var(--texto);font-size:15px;line-height:1.5;}
 .brand h1{font-family:var(--fonte-titulo);font-weight:700;}
@@ -356,11 +357,11 @@ footer b{color:var(--azul-escuro);}
 .study-pane{display:none;padding:6px 10px 10px;}
 .study-pane.active{display:block;}
 .flash-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.flash-card{perspective:1000px;height:120px;cursor:pointer;}
-.flash-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;}
-.flash-card.flip .flash-inner{transform:rotateY(180deg);}
-.flash-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-size:12.5px;font-weight:700;}
-.flash-back{transform:rotateY(180deg);font-weight:500;font-size:11.5px;line-height:1.4;}
+.flash-card{height:120px;cursor:pointer;}
+.flash-inner{position:relative;width:100%;height:100%;transition:transform .5s;}
+.flash-card.flip .flash-inner{transform:;}
+.flash-face{position:absolute;inset:0;border-radius:14px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-size:12.5px;font-weight:700;}
+.flash-back{transform:;font-weight:500;font-size:11.5px;line-height:1.4;}
 .quiz-q{background:var(--card);border:1px solid var(--borda);border-radius:14px;padding:14px;margin:0 0 12px;}
 .quiz-q .qn{font-size:12.5px;font-weight:800;color:var(--azul-escuro);margin-bottom:8px;}
 .quiz-opt{display:block;padding:9px 12px;border:1px solid var(--borda);border-radius:10px;margin-bottom:6px;font-size:12.5px;cursor:pointer;}
@@ -481,7 +482,7 @@ footer b{color:var(--azul-escuro);}
 /* ===== Adaptação a todas as telas (tablet e desktop) ===== */
 @media (min-width:701px){
 #app{max-width:800px;}
-.top-fixed, .bottom-fixed{max-width:800px;box-shadow:0 0 0 1px var(--borda);}
+.top-fixed, .bottom-fixed{max-width:800px;box-shadow:none;}
 .founder-splash-overlay{max-width:800px;}
 .quick-grid{grid-template-columns:repeat(3,1fr);}
 .tool-grid{grid-template-columns:repeat(3,1fr);}
@@ -508,11 +509,11 @@ main{padding-left:24px;padding-right:24px;}
 .section-title{background:#f28c1c;color:#fff;border:1px solid rgba(255,255,255,.16);}
 /* ===== Topo (título + banner) e barra de pesquisa — mesmo azul, com relevo ===== */
 header{background:transparent;}
-.brand img{box-shadow:0 0 0 2px rgba(255,255,255,.35),0 3px 6px rgba(0,0,0,.30);}
+.brand img{box-shadow:none;}
 .banner-wrap{background:transparent;}
 /* ===== Cabeçalho: logótipo (do footer) à esquerda, título e subtítulo fixos e centrados, menu à direita ===== */
 .brand{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;}
-.brand img.brand-icon-img{justify-self:start;width:auto;height:32px;max-width:100%;object-fit:contain;background:#fff;border:none;border-radius:10px;padding:3px 6px;box-shadow:0 3px 6px rgba(0,0,0,.28),inset 0 1px 0 #fff;}
+.brand img.brand-icon-img{justify-self:start;width:auto;height:32px;max-width:100%;object-fit:contain;background:#fff;border:none;border-radius:10px;padding:3px 6px;box-shadow:none;}
 .brand > div{text-align:center;min-width:0;}
 .brand h1{font-size:12.5px;letter-spacing:.2px;}
 .brand span{display:block;font-size:9.5px;letter-spacing:.4px;}
@@ -532,11 +533,11 @@ header{background:transparent;}
 :root{--lb:#FFFFFF;--lb2:#FFFFFF;--bg:#FFFFFF;--card:#FFFFFF;--lb-borda:#AEBBD3;--lb-acc:#f7a23b;--lb-sombra:0 2px 6px rgba(11,26,51,.10);--borda:#AEBBD3;}
 /* Topo */
 .top-fixed, .bottom-fixed{background:var(--lb);border-color:var(--lb-borda);}
-.top-fixed{border-bottom:1px solid var(--lb-borda);box-shadow:0 4px 10px rgba(11,26,51,.16),inset 0 1px 0 #fff;}
+.top-fixed{border-bottom:1px solid var(--lb-borda);box-shadow:none;}
 .brand h1{color:var(--azul-escuro);text-shadow:none;}
 .brand span{color:var(--dourado-esc);text-shadow:none;}
 .brand img, .brand img.brand-icon-img{background:transparent;border:none;outline:none;box-shadow:none;padding:0;border-radius:0;}
-.menu-btn{background:linear-gradient(135deg,var(--azul-escuro),var(--azul));border:none;box-shadow:0 3px 6px rgba(11,26,51,.35),inset 0 1px 0 rgba(255,255,255,.28);}
+.menu-btn{background:var(--azul-escuro);border:none;box-shadow:none;}
 .menu-btn:active{background:var(--azul-escuro);}
 .banner-pad img{border:2px solid var(--lb-borda);}
 .banner-toggle{background:#FFFFFF;color:var(--azul-escuro);border:1px solid var(--lb-borda);border-top:none;}
@@ -644,7 +645,7 @@ header{background:transparent;}
 .gallery-item img{border-style:solid;border-width:5px;border-radius:14px;}
 .gallery-item .img-caption{margin-top:9px;padding:6px 10px;font-size:11px;font-weight:800;color:var(--azul-escuro);background:#F0F6FE;border:1px solid #C6CFE1;border-radius:10px;}
 /* ===== Barra de navegação inferior: mesmo azul do cabeçalho ===== */
-.bottom-fixed{background:var(--lbg);border-top:1px solid #AEBBD3;box-shadow:0 -4px 10px rgba(11,26,51,.16),inset 0 1px 0 #fff;}
+.bottom-fixed{background:var(--lbg);border-top:1px solid #AEBBD3;box-shadow:none;}
 .bottom-nav{background:transparent;}
 .global-footer{background:transparent;}
 /* ===== Relevo 3D: cards de acesso rápido (Avaliação, Diagnósticos, Medicamentos, Urgência, Escalas, Biblioteca) ===== */
@@ -684,7 +685,7 @@ header{background:transparent;}
 .drawer-links li button:active{background:#D8E6FB;}
 /* --- Barra de navegação: separador activo em relevo --- */
 .nav-btn{border-radius:12px;margin:4px 3px;transition:background .15s ease,box-shadow .15s ease;}
-.nav-btn.active{background:linear-gradient(180deg,#FFFFFF,#FFE3BD);box-shadow:0 3px 6px rgba(11,26,51,.20),inset 0 1px 0 #fff,inset 0 -2px 3px rgba(199,106,0,.12);}
+.nav-btn.active{background:#FFE3BD;box-shadow:none;}
 /* --- Botões inline (PDF/Word/Gastrite/LNME/Formulário): mesma paleta, sem verde e sem cinzento solto --- */
 button[onclick^="openLibraryPdf("],button[onclick^="openLibraryWord("],button[onclick^="openGastriteViewer"],button[onclick^="showView('proc-form')"]{background:#f28c1c !important;color:#fff !important;border:1px solid rgba(255,255,255,.16) !important;}
 button[onclick^="downloadLibraryPdf("],button[onclick^="downloadLibraryWord("],button[onclick^="downloadGastrite"]{background:#000000 !important;color:#fff !important;border:1px solid rgba(255,255,255,.14) !important;}
@@ -709,7 +710,7 @@ body :not(.top-fixed):not(.top-fixed *):not(.bottom-fixed):not(.bottom-fixed *){
 .head-right{justify-self:end;display:flex;align-items:center;gap:6px;}
 .lang-switch{display:inline-flex;border:1px solid var(--lb-borda,#AEBBD3);border-radius:999px;overflow:hidden;background:#fff;flex-shrink:0;}
 .lang-switch button{border:none;background:transparent;color:var(--azul-escuro,#0b1a33);font:700 11px/1 inherit;font-family:inherit;padding:7px 8px;cursor:pointer;min-width:30px;}
-.lang-switch button.active{background:linear-gradient(135deg,var(--azul-escuro,#0b1a33),var(--azul,#f28c1c));color:#fff;}
+.lang-switch button.active{background:var(--azul-escuro,#0b1a33);color:#fff;}
 .lang-switch button:focus-visible{outline:2px solid var(--dourado,#d4a017);outline-offset:-2px;}
 .drawer-lang{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--borda,#AEBBD3);font-weight:700;}
 </style>
@@ -736,77 +737,77 @@ body :not(.top-fixed):not(.top-fixed *):not(.bottom-fixed):not(.bottom-fixed *){
 }
 html,body{background:var(--premium-bg);}
 body{letter-spacing:.01em;}
-#app{max-width:560px;background:linear-gradient(180deg,#F5F6FA 0%,#F2F5FA 100%);box-shadow:0 0 40px rgba(8,18,38,.08);}
-.top-fixed{max-width:560px;background:rgba(255,255,255,.94);box-shadow:0 4px 22px rgba(8,18,38,.10);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
+#app{max-width:560px;background:#F5F6FA;box-shadow:none;}
+.top-fixed{max-width:560px;background:rgba(255,255,255,.94);box-shadow:none;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
 header{padding:9px 12px 8px;}
 .brand{gap:10px;}
-.brand img.brand-icon-img{height:38px;max-width:44px;border-radius:12px;padding:3px;box-shadow:0 5px 14px rgba(8,18,38,.22);}
+.brand img.brand-icon-img{height:38px;max-width:44px;border-radius:12px;padding:3px;box-shadow:none;}
 .brand > div{text-align:left;}
 .brand h1{font-size:13px!important;letter-spacing:.45px;color:var(--premium-navy);}
 .brand span{font-size:9px!important;color:#60708A;letter-spacing:.75px;}
-.menu-btn{width:40px;height:40px;border-radius:13px;background:var(--premium-navy);box-shadow:0 6px 14px rgba(8,18,38,.20);}
+.menu-btn{width:40px;height:40px;border-radius:13px;background:var(--premium-navy);box-shadow:none;}
 .menu-btn svg{width:20px;height:20px;}
-.banner-wrap{background:linear-gradient(135deg,#F7F8FB,#e7ecf4);border-top:1px solid rgba(216,169,58,.20);}
+.banner-wrap{background:#F7F8FB;border-top:1px solid rgba(216,169,58,.20);}
 .banner-pad{padding:7px 12px 9px;}
-.banner-pad img{height:70px;border-radius:15px;box-shadow:0 5px 18px rgba(8,18,38,.08);}
-.banner-toggle{background:#fff;border:1px solid var(--premium-line);box-shadow:0 4px 10px rgba(8,18,38,.10);}
+.banner-pad img{height:70px;border-radius:15px;box-shadow:none;}
+.banner-toggle{background:#fff;border:1px solid var(--premium-line);box-shadow:none;}
 .view{padding-top:var(--top-h,170px);padding-bottom:100px;}
 .searchbar{margin:14px 14px 8px;}
-.searchbar input{height:48px;padding:12px 44px 12px 17px;border:1px solid #DCE4F0!important;border-radius:16px!important;background:#fff;box-shadow:var(--premium-shadow);color:var(--premium-navy);font-weight:500;}
+.searchbar input{height:48px;padding:12px 44px 12px 17px;border:1px solid #DCE4F0!important;border-radius:16px!important;background:#fff;box-shadow:none;color:var(--premium-navy);font-weight:500;}
 .searchbar input::placeholder{color:#8290A7;}
-.searchbar input:focus{border-color:#8EB2FF!important;box-shadow:0 0 0 4px rgba(20,99,255,.10),var(--premium-shadow);}
+.searchbar input:focus{border-color:#8EB2FF!important;box-shadow:none;}
 .searchbar .clear{background:#EEF3FB;color:#53627A;}
 .section-title{margin:22px 16px 10px;color:var(--premium-navy);font-size:13px;letter-spacing:1px;position:relative;padding-left:12px;}
-.section-title:before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:3px;border-radius:4px;background:linear-gradient(180deg,var(--premium-blue),var(--premium-gold));}
+.section-title:before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:3px;border-radius:4px;background:var(--premium-blue);}
 .home-list{padding:12px 10px 6px;}
-.home-card,#view-processo .home-card,.tool-card{background:rgba(255,255,255,.98)!important;border:1px solid var(--premium-line)!important;border-left:4px solid var(--premium-blue)!important;border-radius:18px!important;padding:15px!important;margin:0 4px 12px!important;box-shadow:var(--premium-shadow);}
-.home-card:hover,.tool-card:hover{border-color:#C9D8F4!important;border-left-color:var(--premium-blue)!important;box-shadow:var(--premium-shadow-lg);}
+.home-card,#view-processo .home-card,.tool-card{background:rgba(255,255,255,.98)!important;border:1px solid var(--premium-line)!important;border-left:4px solid var(--premium-blue)!important;border-radius:18px!important;padding:15px!important;margin:0 4px 12px!important;box-shadow:none;}
+.home-card:hover,.tool-card:hover{border-color:#C9D8F4!important;border-left-color:var(--premium-blue)!important;box-shadow:none;}
 .home-card:active,.quick-item:active{transform:scale(.985);}
-.home-card .icon-box{width:50px!important;height:50px!important;border-radius:15px!important;box-shadow:inset 0 0 0 1px rgba(20,99,255,.08);}
+.home-card .icon-box{width:50px!important;height:50px!important;border-radius:15px!important;box-shadow:none;}
 .home-card .info h2,.tool-card h2{font-size:15px!important;color:var(--premium-navy)!important;}
 .home-card .info p,.tool-card p{font-size:12px!important;color:#69778D!important;}
 .home-card .chev-r{background:#F0F4FB;color:var(--premium-blue);font-weight:800;}
 .quick-grid{gap:11px;padding:12px 12px 8px;}
-.quick-item{background:#fff;border:1px solid var(--premium-line);border-radius:18px;padding:9px 8px 11px;box-shadow:var(--premium-shadow);}
+.quick-item{background:#fff;border:1px solid var(--premium-line);border-radius:18px;padding:9px 8px 11px;box-shadow:none;}
 .quick-item span:last-child{font-size:11.5px;color:var(--premium-navy);}
 .qi-icon{border-radius:13px!important;}
 .quick-strip{gap:10px;max-width:420px;padding:12px 14px 8px;}
-.quick-strip .proc-img-card{background:#fff;border:1px solid var(--premium-line)!important;border-radius:17px!important;overflow:hidden;box-shadow:var(--premium-shadow);}
+.quick-strip .proc-img-card{background:#fff;border:1px solid var(--premium-line)!important;border-radius:17px!important;overflow:hidden;box-shadow:none;}
 .quick-strip .proc-img-card img{border-radius:16px;padding:3px;}
 .edition-tabs{gap:8px;margin:14px 14px 0;}
-.edition-tab{border:1px solid var(--premium-line);background:#fff;border-radius:13px;padding:10px 8px;box-shadow:0 3px 10px rgba(8,18,38,.04);}
-.edition-tab.active{background:linear-gradient(135deg,var(--premium-navy),var(--premium-blue));box-shadow:0 6px 14px rgba(20,99,255,.22);}
-.domain{border:1px solid var(--premium-line);border-radius:17px;box-shadow:var(--premium-shadow);}
+.edition-tab{border:1px solid var(--premium-line);background:#fff;border-radius:13px;padding:10px 8px;box-shadow:none;}
+.edition-tab.active{background:var(--premium-navy);box-shadow:none;}
+.domain{border:1px solid var(--premium-line);border-radius:17px;box-shadow:none;}
 .domain-head{background:#fff;border-left:4px solid var(--premium-blue);}
-.process-trail{background:rgba(255,255,255,.65);border:1px solid var(--premium-line);box-shadow:var(--premium-shadow);}
-.pt-step{border:1px solid #D7E1F0;background:#fff;box-shadow:0 4px 10px rgba(8,18,38,.05);}
-.pt-num{background:linear-gradient(135deg,var(--premium-navy),var(--premium-blue));}
+.process-trail{background:rgba(255,255,255,.65);border:1px solid var(--premium-line);box-shadow:none;}
+.pt-step{border:1px solid #D7E1F0;background:#fff;box-shadow:none;}
+.pt-num{background:var(--premium-navy);}
 .card-overlay{background:rgba(4,14,35,.70);backdrop-filter:blur(5px);}
-.diag-card{border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,.24);}
-.card-head{background:linear-gradient(135deg,var(--premium-navy),var(--premium-blue));}
+.diag-card{border-radius:22px;box-shadow:none;}
+.card-head{background:var(--premium-navy);}
 .back-btn{background:#EAF0FB!important;color:var(--premium-navy)!important;border:1px solid #DCE5F2!important;border-radius:12px!important;}
-.banner-cta,.calc-btn,.save-btn{background:linear-gradient(135deg,var(--premium-navy),var(--premium-blue))!important;box-shadow:0 7px 16px rgba(20,99,255,.20);}
+.banner-cta,.calc-btn,.save-btn{background:var(--premium-navy)!important;box-shadow:none;}
 .global-footer{color:#8290A7;}
 .global-footer b{color:var(--premium-navy);}
 .bottom-fixed{max-width:560px;}
-.bottom-nav{background:rgba(255,255,255,.96);border-top:1px solid var(--premium-line);box-shadow:0 -8px 26px rgba(8,18,38,.10);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
+.bottom-nav{background:rgba(255,255,255,.96);border-top:1px solid var(--premium-line);box-shadow:none;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
 .nav-btn{color:#78869A;padding:9px 2px 8px;}
 .nav-btn.active{color:var(--premium-blue);font-weight:800;}
 .nav-btn.active svg{stroke:var(--premium-blue);}
 .drawer-overlay{background:rgba(3,12,30,.58);backdrop-filter:blur(4px);}
-.drawer{width:82%;max-width:340px;background:linear-gradient(180deg,#FFFFFF 0%,#F5F6FA 100%);box-shadow:-16px 0 40px rgba(0,0,0,.18);}
+.drawer{width:82%;max-width:340px;background:#F5F6FA;box-shadow:none;}
 .drawer-head{padding:8px 18px 18px;border-bottom:1px solid var(--premium-line);}
 .drawer-head b{font-size:16px;color:var(--premium-navy);}
 .drawer-close{background:#EDF2FA;}
 .drawer-links li button{padding:13px 18px;border-radius:12px;margin:2px 10px;}
 .drawer-links li button:hover{background:#e7ecf4;}
-.drawer-links .dot-marker{background:linear-gradient(180deg,var(--premium-blue),var(--premium-gold));}
+.drawer-links .dot-marker{background:var(--premium-blue);}
 /* Inputs, tables and content cards */
 input,textarea,select{border-color:#D9E2EF!important;border-radius:12px!important;}
 button{font-family:inherit;}
 .info-box,.enunciado-box,.card-band{border-radius:13px;}
 /* Pequeno brilho premium no topo */
-.top-fixed:after{content:"";display:block;height:2px;background:linear-gradient(90deg,transparent,var(--premium-gold),var(--premium-blue),transparent);opacity:.75;}
+.top-fixed:after{content:"";display:block;height:2px;background:#c6cfe1;opacity:.75;}
 @media(max-width:380px){
   .brand h1{font-size:11.5px!important;}
   .home-card{gap:11px!important;padding:13px!important;}
@@ -814,11 +815,11 @@ button{font-family:inherit;}
 }
 
 /* ===== Ícones oficiais das redes e logos Alcartel ===== */
-.bf-socials a{background:#fff!important;box-shadow:0 2px 8px rgba(8,18,38,.18);border:none;}
+.bf-socials a{background:#fff!important;box-shadow:none;border:none;}
 .bf-socials svg{width:28px;height:28px;}
 .bf-socials a:active{transform:scale(.92);}
-.alcartel-logo{border:none!important;outline:none!important;background:transparent!important;padding:0!important;border-radius:0!important;box-shadow:none!important;image-rendering:-webkit-optimizeContrast;filter:url(#ec-sharpen) contrast(1.06) saturate(1.12) drop-shadow(0 1px 1px rgba(255,255,255,.75)) drop-shadow(0 3px 5px rgba(8,18,38,.35));}
-.yt-open{display:inline-block;font-size:12.5px;font-weight:700;color:var(--azul,#f28c1c);text-decoration:none;padding:8px 16px;border-radius:999px;background:#fff;box-shadow:0 2px 8px rgba(8,18,38,.14);}
+.alcartel-logo{border:none!important;outline:none!important;background:transparent!important;padding:0!important;border-radius:0!important;box-shadow:none!important;image-rendering:-webkit-optimizeContrast;filter:url(#ec-sharpen) contrast(1.06) saturate(1.12);}
+.yt-open{display:inline-block;font-size:12.5px;font-weight:700;color:var(--azul,#f28c1c);text-decoration:none;padding:8px 16px;border-radius:999px;background:#fff;box-shadow:none;}
 
 /* ===== Ajustes de tamanho e encaixe (cabeçalho, grelhas, rodapé) ===== */
 .top-fixed header{padding:8px 12px 6px;}
@@ -885,11 +886,11 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
 <style id="ec-fixes-v1">
 /* ===== Divisores com estrelas ===== */
 .star-divider{display:flex;align-items:center;justify-content:center;gap:9px;margin:20px 26px 14px;pointer-events:none;}
-.star-divider i{flex:1;height:1.5px;border-radius:2px;background:linear-gradient(90deg,rgba(232,163,23,0),rgba(232,163,23,.85));}
-.star-divider i:last-child{background:linear-gradient(270deg,rgba(232,163,23,0),rgba(232,163,23,.85));}
+.star-divider i{flex:1;height:1.5px;border-radius:2px;background:#c6cfe1;}
+.star-divider i:last-child{background:#c6cfe1;}
 .star-divider svg{flex:none;display:block;}
 .star-divider .sp{width:13px;height:13px;fill:var(--azul-claro);opacity:.9;}
-.star-divider .st{width:25px;height:25px;fill:var(--dourado);filter:drop-shadow(0 1px 3px rgba(168,116,10,.45));}
+.star-divider .st{width:25px;height:25px;fill:var(--dourado);filter:none;}
 .star-divider .sm{width:7px;height:7px;fill:var(--dourado);opacity:.8;}
 /* ===== Resultados da pesquisa global ===== */
 .gs-results{margin:6px 12px 10px;display:flex;flex-direction:column;gap:6px;}
@@ -921,25 +922,25 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
 <style id="relevo">
 /* ===== Relevo: cartões em 3D suave, títulos de secção em destaque, divisores ricos ===== */
 :root{--rel-sombra:0 1px 0 rgba(255,255,255,.9) inset,0 -2px 0 rgba(11,26,51,.06) inset,0 2px 3px rgba(11,26,51,.10),0 8px 18px -6px rgba(11,26,51,.22);--rel-sombra-alta:0 1px 0 rgba(255,255,255,.95) inset,0 4px 6px rgba(11,26,51,.12),0 14px 26px -8px rgba(11,26,51,.30);--rel-press:0 2px 5px rgba(11,26,51,.22) inset,0 1px 0 rgba(255,255,255,.7)}
-.section-title{position:relative;background:linear-gradient(180deg,#ffffff 0%,#EAF2FF 100%);border:1px solid #C6CFE1;border-bottom-width:3px;border-bottom-color:var(--dourado);border-radius:14px;box-shadow:var(--rel-sombra);text-shadow:0 1px 0 #fff;letter-spacing:.6px}
+.section-title{position:relative;background:#EAF2FF;border:1px solid #C6CFE1;border-bottom-width:3px;border-bottom-color:var(--dourado);border-radius:14px;box-shadow:none;text-shadow:none;letter-spacing:.6px}
 /* sem ornamentos (losangos dourados) nos títulos das secções */
 .section-title::before,.section-title::after{content:none!important;display:none!important}
-.home-card,.tool-card,#view-processo .home-card,.acc,.info-box,.med-card,.calc-panel,.proc-section,.quick-item,.proc-img-card,.gallery-item img,.cl-card{box-shadow:var(--rel-sombra);transition:transform .16s ease,box-shadow .16s ease}
-.home-card:hover,.tool-card:hover,.acc:hover,.quick-item:hover,.proc-img-card:hover,.cl-card:hover{transform:translateY(-2px);box-shadow:var(--rel-sombra-alta)}
-.home-card:active,.tool-card:active,.quick-item:active,.proc-img-card:active,.back-btn:active{transform:translateY(1px);box-shadow:var(--rel-press)}
-.acc{border-radius:16px}.acc.open{box-shadow:var(--rel-sombra-alta);border-color:#9fbbe8}
-.acc-head{background:linear-gradient(180deg,#fff,#e7ecf4)}
-.a-icon{box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 3px 6px rgba(11,26,51,.18);border-radius:12px}
-.back-btn,.searchbar input,.search-mini input,button.calc-btn,.calc-actions button{box-shadow:var(--rel-sombra)}
-.bottom-fixed{box-shadow:0 -6px 18px -6px rgba(11,26,51,.28)}
-.nav-btn.active{text-shadow:0 1px 0 #fff}
-.star-divider{filter:drop-shadow(0 2px 2px rgba(168,116,10,.30))}
+.home-card,.tool-card,#view-processo .home-card,.acc,.info-box,.med-card,.calc-panel,.proc-section,.quick-item,.proc-img-card,.gallery-item img,.cl-card{box-shadow:none;transition:transform .16s ease,box-shadow .16s ease}
+.home-card:hover,.tool-card:hover,.acc:hover,.quick-item:hover,.proc-img-card:hover,.cl-card:hover{transform:translateY(-2px);box-shadow:none}
+.home-card:active,.tool-card:active,.quick-item:active,.proc-img-card:active,.back-btn:active{transform:translateY(1px);box-shadow:none}
+.acc{border-radius:16px}.acc.open{box-shadow:none;border-color:#9fbbe8}
+.acc-head{background:#e7ecf4}
+.a-icon{box-shadow:none;border-radius:12px}
+.back-btn,.searchbar input,.search-mini input,button.calc-btn,.calc-actions button{box-shadow:none}
+.bottom-fixed{box-shadow:none}
+.nav-btn.active{text-shadow:none}
+.star-divider{filter:none}
 .star-divider{position:relative}
-.star-divider i{height:3px!important;border-radius:3px;background:linear-gradient(90deg,transparent,#e8a317 30%,#fff2c4 50%,#e8a317 70%,transparent)!important;box-shadow:0 1px 0 rgba(255,255,255,.9),0 -1px 0 rgba(168,116,10,.35)}
-.star-divider .st{filter:drop-shadow(0 2px 3px rgba(168,116,10,.55))}
+.star-divider i{height:3px!important;border-radius:3px;background:#c6cfe1!important;box-shadow:none}
+.star-divider .st{filter:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
-<style id="ec-lista-css">.ec-lista-intro{margin:0 14px 8px;font-size:13px;color:var(--texto-suave)}</style></head>
+<style id="ec-lista-css">.ec-lista-intro{margin:0 14px 8px;font-size:13px;color:var(--texto-suave)}</style><link rel="stylesheet" href="/css/sbb.css"></head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
 <radialGradient id="ec-ig-grad" cx="0.3" cy="1.07" r="1.25"><stop offset="0" stop-color="#FFDD55"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient>
@@ -949,17 +950,11 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
 <div id="app">
 
 <div class="top-fixed">
-  <header>
-    <div class="brand">
-      <img class="brand-icon-img alcartel-logo" src="img/c6e9e7a901.webp" alt="Enfermeiro Corporativo">
-      <div>
-        <h1>ENFERMEIRO COMPETENTE</h1>
-        <span>Estudo · Prática · Excelência</span>
-      </div>
-      <div class="head-right"><div class="lang-switch" role="group" aria-label="Idioma / Language"><button type="button" data-lang="pt" aria-pressed="true" onclick="setLang('pt')">PT</button><button type="button" data-lang="en" aria-pressed="false" onclick="setLang('en')">EN</button></div><button class="menu-btn" id="menuBtn" aria-label="Menu" onclick="openMenu()">
+  <header class="sbb-hd">
+    <div class="sbb-logo-row"><a class="sbb-logo" href="/" onclick="showView('home');return false;"><img class="sbb-logo-img" src="img/30f78f4760.webp" alt="Enfermeiro Corporativo" width="200" height="62"></a><div class="head-right"><div class="lang-switch" role="group" aria-label="Idioma / Language"><button type="button" data-lang="pt" aria-pressed="true" onclick="setLang('pt')">PT</button><button type="button" data-lang="en" aria-pressed="false" onclick="setLang('en')">EN</button></div><button class="menu-btn" id="menuBtn" aria-label="Menu" onclick="openMenu()">
         <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-      </button></div>
-    </div>
+      </button></div></div>
+    <nav class="sbb-nav" aria-label="Principal"><div class="sbb-nav-in"><button type="button" onclick="showView('home')">Início</button><button type="button" onclick="showView('ferramentas')">Ferramentas</button><button type="button" onclick="showView('processo')">Processo de Enfermagem</button><button type="button" onclick="showView('especialidades')">Especialidades</button><button type="button" onclick="showView('biblioteca')">Biblioteca</button><button type="button" onclick="showView('casos-clinicos')">Casos Clínicos</button><button type="button" onclick="showView('cursos')">Cursos</button><button type="button" onclick="showView('sobre')">Sobre</button><button type="button" onclick="showView('contactos')">Contacto</button></div></nav>
   </header>
   </div><!-- /top-fixed -->
 
@@ -977,6 +972,7 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
         <li><button onclick="showView('especialidades');closeMenu()"><span class="dot-marker"></span>Especialidades<span class="dchev">›</span></button></li>
         <li><button onclick="showView('biblioteca');closeMenu()"><span class="dot-marker"></span>Biblioteca<span class="dchev">›</span></button></li>
         <li><button onclick="showView('casos-clinicos');closeMenu()"><span class="dot-marker"></span>Casos Clínicos<span class="dchev">›</span></button></li>
+        <li><button onclick="showView('cursos');closeMenu()"><span class="dot-marker"></span>Cursos<span class="dchev">›</span></button></li>
       </ul>
       <nav class="drawer-legal" aria-label="Informação"><a href="/pesquisa.html">Pesquisar</a><a href="/sobre.html">Sobre</a><a href="/contacto.html">Contacto</a><a href="/privacidade.html">Privacidade</a><a href="/termos.html">Termos</a><a href="/aviso-medico.html">Aviso médico</a><a href="/cookies.html">Cookies</a><a href="/rss.html">RSS</a></nav>
       <div class="drawer-lang"><span>Idioma / Language</span><div class="lang-switch" role="group" aria-label="Idioma / Language"><button type="button" data-lang="pt" aria-pressed="true" onclick="setLang('pt')">PT</button><button type="button" data-lang="en" aria-pressed="false" onclick="setLang('en')">EN</button></div></div>
@@ -990,9 +986,10 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
 
   <div class="searchbar" style="margin:14px 12px 4px;">
     <input id="searchInputGlobal" type="text" placeholder="O que procura em enfermagem?" autocomplete="off" onkeydown="if(event.key==='Enter') runGlobalSearch()">
-    <button class="clear" id="clearBtnGlobal" onclick="document.getElementById('searchInputGlobal').value='';this.classList.remove('show');">✕</button>
+    <button class="clear" id="clearBtnGlobal" onclick="document.getElementById('searchInputGlobal').value='';this.classList.remove('show');">✕</button><button type="button" class="sbb-search-btn" onclick="runGlobalSearch()" aria-label="Pesquisar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
   </div>
 
+  <div class="section-title">Áreas de estudo</div>
   <div class="proc-img-list quick-strip">
     <button type="button" class="proc-img-card" onclick="showView('avaliacao')" aria-label="Avaliação"><img src="img/c4b569e547.webp" alt="Avaliação"></button>
     <button type="button" class="proc-img-card" onclick="showView('diagnosticos')" aria-label="Diagnósticos"><img src="img/e6b2c5758c.webp" alt="Diagnósticos"></button>
@@ -1005,7 +1002,14 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
   <div class="section-title section-title-center">Processo de Enfermagem</div>
   <div class="proc-img-list" id="homeProcImgs"></div>
 
-  <!--EC:DICAS--><style>.ec-news{display:grid;grid-template-columns:1fr;gap:12px;margin:0 12px 10px}.ec-news .ec-nc{display:flex;align-items:stretch;background:linear-gradient(180deg,#fff,#e7ecf4);border:1px solid var(--borda,#dfe6f0);border-left:4px solid var(--dourado,#e8a317);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;min-height:128px;text-align:left;box-shadow:0 1px 0 #fff inset,0 2px 3px rgba(11,26,51,.10),0 10px 20px -8px rgba(11,26,51,.28);transition:transform .15s}.ec-news .ec-nc:active{transform:scale(.99)}.ec-news .ec-nc-im{flex:0 0 36%;position:relative;background:linear-gradient(135deg,#0b1a33,#f28c1c);display:flex;align-items:center;justify-content:center}.ec-news .ec-nc-im img.f{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;margin:0}.ec-news .ec-nc-im img.l{width:52px;height:52px;border-radius:50%;background:#fff;margin:0}.ec-news .ec-nc-b{display:flex;flex-direction:column;gap:4px;padding:11px 13px;min-width:0;flex:1;text-align:left}.ec-news .ec-nc-t{font-weight:800;color:var(--azul-escuro,#0b1a33);line-height:1.3;font-size:14.5px;text-align:left;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.ec-news .ec-nc-s{text-align:left!important;word-spacing:normal;letter-spacing:normal;font-size:12.5px;color:var(--texto-suave,#5b6b85);line-height:1.4;text-align:left;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.ec-news .ec-nc-m{margin-top:auto;font-size:11.5px;color:#8a94a6;text-align:left}.ec-news-more{text-align:center;margin:0 12px 16px}.ec-news-more a{display:inline-block;background:#fff;color:var(--azul-escuro,#0b1a33);border:1px solid var(--borda,#dfe6f0);border-radius:10px;padding:9px 16px;font-size:13px;font-weight:700;text-decoration:none}.ec-news-vazio{margin:0 16px 16px;font-size:13px;color:var(--texto-suave,#5b6b85)}@media(min-width:640px){.ec-news{grid-template-columns:1fr 1fr;gap:14px}.ec-news .ec-nc{min-height:160px}.ec-news .ec-nc-im{flex-basis:42%}.ec-news .ec-nc-t{font-size:16px}.ec-news .ec-nc-s{font-size:13.5px;-webkit-line-clamp:3}}.ec-news .ec-nc-k{align-self:flex-start;font-size:10.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#0b1a33;background:#F6E3B4;border-radius:99px;padding:2px 8px}</style><div class="section-title" id="ec-dicas">Dicas e Actualidades de Saúde</div><div class="ec-news"><a class="ec-nc" href="/dicas/higiene-das-maos-5-momentos.html"><span class="ec-nc-im"><img class="l" src="/android-chrome-192x192.png" alt="" width="52" height="52" loading="lazy"></span><span class="ec-nc-b"><span class="ec-nc-k">Dica</span><div class="ec-nc-t">Higiene das mãos: os 5 momentos da OMS</div><div class="ec-nc-s">Quando higienizar as mãos para proteger o doente e proteger-se a si.</div><div class="ec-nc-m">12 de outubro de 2026</div></span></a><a class="ec-nc" href="/dicas/reconhecer-um-avc.html"><span class="ec-nc-im"><img class="l" src="/android-chrome-192x192.png" alt="" width="52" height="52" loading="lazy"></span><span class="ec-nc-b"><span class="ec-nc-k">Artigo</span><div class="ec-nc-t">Reconhecer um AVC: actue depressa</div><div class="ec-nc-s">Face descaída, fraqueza num braço e fala alterada são sinais de alerta. O tempo conta.</div><div class="ec-nc-m">11 de outubro de 2026</div></span></a><a class="ec-nc" href="/dicas/febre-e-malaria.html"><span class="ec-nc-im"><img class="l" src="/android-chrome-192x192.png" alt="" width="52" height="52" loading="lazy"></span><span class="ec-nc-b"><span class="ec-nc-k">Dica</span><div class="ec-nc-t">Febre: quando pensar em malária</div><div class="ec-nc-s">Em zonas de malária, febre exige teste rápido e avaliação numa unidade de saúde.</div><div class="ec-nc-m">10 de outubro de 2026</div></span></a><a class="ec-nc" href="/dicas/hidratacao-sinais-de-alerta.html"><span class="ec-nc-im"><img class="l" src="/android-chrome-192x192.png" alt="" width="52" height="52" loading="lazy"></span><span class="ec-nc-b"><span class="ec-nc-k">Dica</span><div class="ec-nc-t">Hidratação: sinais de desidratação</div><div class="ec-nc-s">Sede, urina escura e boca seca podem indicar desidratação. Saiba quando pedir ajuda.</div><div class="ec-nc-m">9 de outubro de 2026</div></span></a></div><div class="ec-news-more"><a href="/dicas/">Ver todas as dicas e notícias</a></div><!--/EC:DICAS-->
+  <!--EC:DICAS--><style>.ec-news{display:grid;grid-template-columns:1fr;gap:12px;margin:0 12px 10px}.ec-news .ec-nc{display:flex;align-items:stretch;background:#e7ecf4;border:1px solid var(--borda,#dfe6f0);border-left:4px solid var(--dourado,#e8a317);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;min-height:128px;text-align:left;box-shadow:none;transition:transform .15s}.ec-news .ec-nc:active{transform:scale(.99)}.ec-news .ec-nc-im{flex:0 0 36%;position:relative;background:#0b1a33;display:flex;align-items:center;justify-content:center}.ec-news .ec-nc-im img.f{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;margin:0}.ec-news .ec-nc-im img.l{width:52px;height:52px;border-radius:50%;background:#fff;margin:0}.ec-news .ec-nc-b{display:flex;flex-direction:column;gap:4px;padding:11px 13px;min-width:0;flex:1;text-align:left}.ec-news .ec-nc-t{font-weight:800;color:var(--azul-escuro,#0b1a33);line-height:1.3;font-size:14.5px;text-align:left;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.ec-news .ec-nc-s{text-align:left!important;word-spacing:normal;letter-spacing:normal;font-size:12.5px;color:var(--texto-suave,#5b6b85);line-height:1.4;text-align:left;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.ec-news .ec-nc-m{margin-top:auto;font-size:11.5px;color:#8a94a6;text-align:left}.ec-news-more{text-align:center;margin:0 12px 16px}.ec-news-more a{display:inline-block;background:#fff;color:var(--azul-escuro,#0b1a33);border:1px solid var(--borda,#dfe6f0);border-radius:10px;padding:9px 16px;font-size:13px;font-weight:700;text-decoration:none}.ec-news-vazio{margin:0 16px 16px;font-size:13px;color:var(--texto-suave,#5b6b85)}@media(min-width:640px){.ec-news{grid-template-columns:1fr 1fr;gap:14px}.ec-news .ec-nc{min-height:160px}.ec-news .ec-nc-im{flex-basis:42%}.ec-news .ec-nc-t{font-size:16px}.ec-news .ec-nc-s{font-size:13.5px;-webkit-line-clamp:3}}.ec-news .ec-nc-k{align-self:flex-start;font-size:10.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#0b1a33;background:#F6E3B4;border-radius:99px;padding:2px 8px}</style><div class="section-title" id="ec-dicas">Dicas e Actualidades de Saúde</div><div class="ec-news"><a class="ec-nc" href="/dicas/higiene-das-maos-5-momentos.html"><span class="ec-nc-im"><img class="f" src="https://hospitalsiriolibanes.org.br/sites/institucional/files/blog/images/Foto1_Blog_Higiene_das_m%C3%A3os.webp" alt="" width="400" height="300" loading="lazy" decoding="async"></span><span class="ec-nc-b"><span class="ec-nc-k">Dica</span><div class="ec-nc-t">Higiene das mãos: os 5 momentos essenciais para prevenir infecções</div><div class="ec-nc-s">Conheça os 5 momentos para a higiene das mãos recomendados pela OMS e saiba quando utilizar solução alcoólica ou água e sabão para prevenir infecções.</div><div class="ec-nc-m">12 de outubro de 2026</div></span></a><a class="ec-nc" href="/dicas/reconhecer-um-avc.html"><span class="ec-nc-im"><img class="f" src="https://strokebeyondborders.org/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-09-at-17.26.21c.jpeg" alt="" width="400" height="300" loading="lazy" decoding="async"></span><span class="ec-nc-b"><span class="ec-nc-k">Artigo</span><div class="ec-nc-t">Acidente Vascular Cerebral (AVC): reconhecer os sinais e agir rapidamente</div><div class="ec-nc-s">Um AVC é uma emergência médica em que cada minuto conta. Aprenda a reconhecer os sinais de alerta e saiba como agir imediatamente para reduzir o risco de complicações.</div><div class="ec-nc-m">11 de outubro de 2026</div></span></a><a class="ec-nc" href="/dicas/febre-e-malaria.html"><span class="ec-nc-im"><img class="f" src="https://s3-sa-east-1.amazonaws.com/agencia-radio-arb/359/content_Mal%C3%A1ria_%281%29.png" alt="" width="400" height="300" loading="lazy" decoding="async"></span><span class="ec-nc-b"><span class="ec-nc-k">Dica</span><div class="ec-nc-t">Malária em Moçambique: sintomas, prevenção e sinais de perigo</div><div class="ec-nc-s">Conheça os principais sintomas da malária, as medidas de prevenção e os sinais de perigo que exigem assistência médica imediata.</div><div class="ec-nc-m">10 de outubro de 2026</div></span></a><a class="ec-nc" href="/dicas/hidratacao-sinais-de-alerta.html"><span class="ec-nc-im"><img class="f" src="https://www.cm-estremoz.pt/img/upload//desidratacao_2023.jpg" alt="" width="400" height="300" loading="lazy" decoding="async"></span><span class="ec-nc-b"><span class="ec-nc-k">Dica</span><div class="ec-nc-t">Desidratação: sinais de alerta, prevenção e quando procurar assistência médica</div><div class="ec-nc-s">Saiba reconhecer os sinais de desidratação, prevenir a perda excessiva de líquidos e identificar situações que exigem assistência médica urgente.</div><div class="ec-nc-m">9 de outubro de 2026</div></span></a></div><div class="ec-news-more"><a href="/dicas/">Ver todas as dicas e notícias</a></div><!--/EC:DICAS-->
+
+  <section class="sbb-band"><div class="sbb-band-in"><img src="img/c6e9e7a901.webp" alt=""><div><h2>O Enfermeiro Corporativo é uma plataforma digital de apoio à enfermagem. <b>Mais conhecimento, melhor cuidado.</b></h2><p>Criada para facilitar o estudo, a prática e o acesso a ferramentas e conteúdos de enfermagem.</p><button type="button" class="sbb-btn on-dark" onclick="showView('sobre')">Saiba mais</button></div></div></section>
+
+  <div class="section-title">Programa de educação continuada</div>
+  <p class="sbb-edu-lead">Acesse gratuitamente cursos, aulas e testes de enfermagem.</p>
+  <!--EC:CURSOS--><div class="sbb-courses"><a class="sbb-course" href="/cursos/elaboracao-de-monografias.html"><small>Investigação Científica em Enfermagem</small><b>Elaboração de Monografias em Enfermagem: Da Pesquisa Científica à Defesa</b><span>Intermédio · 8 horas · 6 aulas · 375MZN</span></a><a class="sbb-course" href="/cursos/estabilizacao-de-pacientes.html"><small>Urgência</small><b>Estabilização de pacientes</b><span>Intermédio · 6 horas · 5 aulas · Gratuito</span></a><a class="sbb-course" href="/cursos/primeiros-socorros.html"><small>Urgência</small><b>Primeiros socorros</b><span>Iniciante · 5 horas · 5 aulas · Gratuito</span></a></div><!--/EC:CURSOS-->
+  <div class="sbb-edu-btns"><button type="button" class="sbb-btn" onclick="showView('cursos')">Acessar todos os cursos</button><button type="button" class="sbb-btn" onclick="showView('biblioteca')">Acessar a biblioteca</button></div>
 
   <div class="section-title">Vídeo Tutorial</div>
   <div style="margin:0 12px 16px;position:relative;overflow:hidden;border-radius:12px;background:#000;">
@@ -1048,25 +1052,13 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
 
   <script src="/js/nucleo/modal-youtube.js"></script>
 
-  <div class="brand-footer">
-    <img class="alcartel-logo bf-logo" src="img/30f78f4760.webp" alt="Enfermeiro Corporativo" >
-    <p class="bf-desc"><b>Enfermeiro Corporativo</b> é uma plataforma digital de apoio à enfermagem, criada para facilitar o estudo, a prática e o acesso a ferramentas e conteúdos de enfermagem.</p>
+  <footer class="sbb-footer"><div class="sbb-footer-bar"></div><div class="sbb-footer-in"><div class="sbb-ft-logo"><img src="img/30f78f4760.webp" alt="Enfermeiro Corporativo" loading="lazy"></div>
     <div class="bf-socials">
       <a href="https://youtube.com/@alcarteldigitalvision" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="#FF0000" d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z"/><path fill="#fff" d="M9.545 15.568V8.432L15.818 12z"/></svg></a>
       <a href="https://tiktok.com/@alcarteloficialmoz" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><g transform="translate(1.6 1.6) scale(.867)"><path fill="#25F4EE" transform="translate(-.9 -.7)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07"/><path fill="#FE2C55" transform="translate(.9 .7)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07"/><path fill="#000" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07"/></g></svg></a>
       <a href="https://www.facebook.com/share/1JdcLoJ9BZ/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><circle cx="12" cy="12" r="11.9" fill="#fff"/><path fill="#1877F2" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036 27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/></svg></a>
     </div>
-    <div class="bf-divider"></div>
-    <div class="bf-links">
-      <a href="#" onclick="showView('sobre');return false;">Sobre</a>
-      <a href="#" onclick="showView('ajuda');return false;">Ajuda</a>
-      <a href="#" onclick="showView('contactos');return false;">Contactos</a>
-      <a href="#" onclick="showView('privacidade');return false;">Privacidade</a>
-      <a href="#" onclick="showView('termos');return false;">Termos</a>
-    </div>
-    <div class="bf-divider" style="margin-top:14px;"></div>
-    <div class="bf-credit" style="margin:12px 0 4px;text-align:center;">Desenvolvido por <b>Karlyon Enterprise S.A.</b></div>
-  </div>
+    <div class="sbb-cols"><div><h4>Sobre</h4><a href="#" onclick="showView('sobre');return false;">Quem somos</a><a href="#" onclick="showView('ajuda');return false;">Ajuda</a><a href="#" onclick="showView('contactos');return false;">Contactos</a><a href="/pesquisa.html">Pesquisar</a></div><div><h4>Ferramentas</h4><a href="#" onclick="showView('calculadora');return false;">Calculadoras</a><a href="#" onclick="showView('medicamentos');return false;">Medicamentos</a><a href="#" onclick="showView('escalas');return false;">Escalas clínicas</a><a href="#" onclick="showView('exames');return false;">Exames laboratoriais</a><a href="#" onclick="showView('urgencia');return false;">Urgência e emergência</a></div><div><h4>Estudo</h4><a href="#" onclick="showView('processo');return false;">Processo de Enfermagem</a><a href="#" onclick="showView('diagnosticos');return false;">Diagnósticos</a><a href="#" onclick="showView('biblioteca');return false;">Biblioteca</a><a href="#" onclick="showView('casos-clinicos');return false;">Casos clínicos</a><a href="#" onclick="showView('cursos');return false;">Cursos</a></div><div><h4>Legal</h4><a href="#" onclick="showView('privacidade');return false;">Privacidade</a><a href="#" onclick="showView('termos');return false;">Termos</a><a href="#" onclick="showView('aviso-medico');return false;">Aviso médico</a><a href="#" onclick="showView('cookies');return false;">Cookies</a><a href="#" onclick="showView('rss');return false;">RSS</a></div></div></div><div class="sbb-footer-note">Desenvolvido por <b>Karlyon Enterprise S.A.</b> · Alcartel Digital Vision · Beira, Moçambique</div></footer>
 
   </div><div class="view" id="view-ferramentas">
 
@@ -2094,7 +2086,7 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
   <div style="margin:0 12px 16px;background:#fff;border:1px solid var(--borda);border-radius:14px;overflow:hidden;">
     <!-- Cabeçalho do perfil -->
     <div style="background:#f28c1c;padding:22px 16px 18px;text-align:center;">
-      <img src="img/a3d5c70dfe.webp" alt="Dr. Sacaita MONTGOMERY" style="width:100px;height:150px;border-radius:14px;border:3px solid #ffffff;margin:0 auto 12px;object-fit:contain;background:#fff;display:block;box-shadow:0 4px 12px rgba(11,26,51,.25);">
+      <img src="img/a3d5c70dfe.webp" alt="Dr. Sacaita MONTGOMERY" style="width:100px;height:150px;border-radius:14px;border:3px solid #ffffff;margin:0 auto 12px;object-fit:contain;background:#fff;display:block;box-shadow:none;">
       <div style="color:#fff;font-size:16px;font-weight:800;letter-spacing:.4px;">Sacaita MONTGOMERY</div>
       <div style="color:#ffffff;font-size:12px;font-weight:700;margin-top:4px;">Enfermeiro Generalista</div>
       <div style="color:rgba(255,255,255,.75);font-size:11px;margin-top:3px;">Fundador &amp; CEO · Alcartel Digital Vision | Karlyon Enterprise S.A.</div>
@@ -2491,7 +2483,7 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
 }
 body{background:#fbfaf7}
 /* Estrelas dos separadores: vermelho e azul dos favicons; a linha dourada mantém-se */
-.star-divider .st{fill:#c8202f!important;filter:drop-shadow(0 1px 2px rgba(200,32,47,.35))!important}
+.star-divider .st{fill:#c8202f!important;filter:!important}
 .star-divider .sp{fill:#f28c1c!important;opacity:1!important}
 .star-divider .sm{fill:#0b1a33!important;opacity:.9!important}
 .star-divider{filter:none!important}
@@ -2543,19 +2535,19 @@ img,video,iframe,table{max-width:100%}
 p,li,.info-box,.alert-box,.a-sub,.calc-sub,.img-caption{hyphens:auto;-webkit-hyphens:auto}
 p,li,.info-box,.alert-box{text-align:justify}
 /* ===== «Processo de Enfermagem»: mesmo título das restantes secções (cartão branco, contorno e linha dourada) ===== */
-.section-title.section-title-center{background:linear-gradient(180deg,#ffffff 0%,#e7ecf4 100%)!important;color:#0b1a33!important;border:1px solid #C6CFE1!important;border-bottom:3px solid var(--dourado)!important;border-radius:14px;box-shadow:var(--rel-sombra);text-shadow:0 1px 0 #fff;letter-spacing:.6px}
+.section-title.section-title-center{background:#e7ecf4!important;color:#0b1a33!important;border:1px solid #C6CFE1!important;border-bottom:3px solid var(--dourado)!important;border-radius:14px;box-shadow:none;text-shadow:none;letter-spacing:.6px}
 </style>
 <script src="/js/interface/texto-justificado.js"></script>
 <style id="ec-titulos-unificados">
 /* ===== Estilo único de títulos: cartão branco, contorno e linha dourada por baixo (igual ao «Processo de Enfermagem») ===== */
 .section-title,.section-title.section-title-center,.proc-section-head,.ec-titulo-pagina{
-  background:linear-gradient(180deg,#ffffff 0%,#e7ecf4 100%)!important;
+  background:#e7ecf4!important;
   color:#0b1a33!important;
   border:1px solid #C6CFE1!important;
   border-bottom:3px solid #e8a317!important;
   border-radius:14px!important;
-  box-shadow:var(--rel-sombra,0 2px 6px rgba(11,26,51,.12))!important;
-  text-shadow:0 1px 0 #fff;
+  box-shadow:none!important;
+  text-shadow:none;
   letter-spacing:.6px;
 }
 .section-title,.section-title.section-title-center{text-align:center!important}
@@ -2568,7 +2560,7 @@ p,li,.info-box,.alert-box{text-align:justify}
 .founder-splash-overlay{padding:14px}
 .founder-splash-card{max-width:400px!important;max-height:92vh;max-height:92dvh;overflow-y:auto;padding:0!important;text-align:left!important;border-radius:18px!important;-webkit-overflow-scrolling:touch}
 .founder-splash-card .fs-head{background:#f28c1c;padding:22px 16px 16px;text-align:center}
-.founder-splash-card .fs-photo{width:84px;height:126px;margin:0 auto 10px;border:3px solid #fff;border-radius:14px;box-shadow:0 4px 12px rgba(11,26,51,.3)}
+.founder-splash-card .fs-photo{width:84px;height:126px;margin:0 auto 10px;border:3px solid #fff;border-radius:14px;box-shadow:none}
 .founder-splash-card .fs-name{color:#fff!important;font-size:16px;letter-spacing:.4px}
 .founder-splash-card .fs-role{color:#fff!important;font-size:12.5px;margin-top:4px}
 .founder-splash-card .fs-role2{color:rgba(255,255,255,.8);font-size:11px;margin-top:3px;line-height:1.4}
@@ -2594,7 +2586,7 @@ p,li,.info-box,.alert-box{text-align:justify}
 .top-fixed header .brand > div:not(.head-right) h1,.top-fixed header .brand > div:not(.head-right) span{text-align:center!important}
 /* Faixa com a og-image no topo das secções Sobre, Contactos, Privacidade, Termos, etc. */
 .ec-hero{margin:10px auto 0;max-width:760px;width:calc(100% - 24px)}
-.ec-hero img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid #C6CFE1;border-bottom:3px solid #e8a317;box-shadow:0 2px 6px rgba(11,26,51,.12);background:#fff}
+.ec-hero img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid #C6CFE1;border-bottom:3px solid #e8a317;box-shadow:none;background:#fff}
 </style>
 <script src="/js/nucleo/titulos-das-seccoes.js"></script>
 <script src="/js/modulos/leitor-pdf.js"></script><script src="/js/nucleo/configuracao-app.js"></script><script src="/js/pwa/convite-instalacao.js"></script><script src="/js/site/site.js" defer></script><script src="/js/nucleo/ligacoes-profundas.js" defer></script></body>
