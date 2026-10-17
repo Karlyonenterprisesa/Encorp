@@ -1,49 +1,59 @@
 {
-  "titulo": "Estabilização de pacientes",
-  "data": "2026-10-13",
-  "resumo": "Abordagem sistemática ao doente crítico: avaliação ABCDE, prioridades e reavaliação.",
-  "imagem": "",
-  "nivel": "Intermédio",
-  "area": "Urgência",
-  "duracao": "6 horas",
-  "instrutor": "Equipa Enfermeiro Corporativo",
-  "preco": "",
   "link_inscricao": "",
-  "corpo": "## Programa\n\n1. Avaliação primária **ABCDE**: via aérea, respiração, circulação, estado neurológico e exposição\n2. Oxigenoterapia e suporte ventilatório básico\n3. Acesso venoso e fluidoterapia\n4. Reconhecer o doente em deterioração: escalas de alerta (NEWS2)\n5. Choque: tipos e primeiras medidas\n6. Comunicação e passagem de turno\n7. Reavaliação contínua\n\nVeja [Avaliação primária ABCDE](/avaliacao/avaliacao-primaria-abcde.html) e a escala [NEWS2](/escalas/news2-national-early-warning-score.html).",
+  "nivel": "Intermédio",
+  "publicado": true,
+  "corpo": "## Apresentação\n\nEste curso destina-se a estudantes e profissionais de enfermagem que pretendem desenvolver competências na avaliação inicial, identificação de sinais de gravidade e prestação dos primeiros cuidados ao doente em situação crítica.\n\nA formação aborda a avaliação sistemática ABCDE, o suporte respiratório inicial, o acesso venoso, a fluidoterapia, a identificação da deterioração clínica através da escala NEWS2, as primeiras medidas perante situações de choque e a comunicação eficaz entre profissionais de saúde.\n\n## Objectivos de aprendizagem\n\nNo final do curso, o participante deverá ser capaz de:\n\n* Realizar uma avaliação primária sistemática segundo a abordagem ABCDE.\n* Reconhecer sinais de compromisso respiratório e circulatório.\n* Compreender os princípios da oxigenoterapia e do suporte ventilatório básico.\n* Conhecer os princípios de segurança do acesso venoso e da fluidoterapia.\n* Compreender a utilização e as limitações da escala NEWS2.\n* Identificar sinais sugestivos de choque e activar atempadamente a resposta de emergência.\n* Comunicar alterações clínicas de forma clara e estruturada.\n\n## Programa\n\n### Aula 1 — Avaliação primária ABCDE\n\n* A — Via aérea: avaliação da permeabilidade e sinais de obstrução.\n* B — Respiração: frequência respiratória, esforço ventilatório e oxigenação.\n* C — Circulação: pulso, pressão arterial, perfusão periférica e hemorragia.\n* D — Estado neurológico: consciência, resposta pupilar e glicemia, conforme indicação.\n* E — Exposição: observação sistemática, temperatura e prevenção da hipotermia.\n* Reavaliação após cada intervenção e escalada de cuidados perante sinais de gravidade.\n\n### Aula 2 — Oxigenoterapia e suporte ventilatório básico\n\n* Avaliação da hipoxemia e dos sinais de dificuldade respiratória.\n* Dispositivos de administração de oxigénio e princípios de utilização.\n* Monitorização da saturação periférica de oxigénio.\n* Objectivos de oxigenação individualizados, incluindo situações que exigem precauções específicas.\n* Reconhecimento da insuficiência respiratória e critérios para pedir ajuda urgente.\n\n### Aula 3 — Acesso venoso e fluidoterapia\n\n* Indicações e princípios de segurança do acesso venoso periférico.\n* Selecção de material e prevenção de complicações.\n* Princípios gerais da fluidoterapia e avaliação da resposta clínica.\n* Monitorização do balanço hídrico e dos sinais de sobrecarga.\n* Necessidade de prescrição, protocolos institucionais e vigilância durante a administração.\n\n### Aula 4 — Reconhecer a deterioração clínica: NEWS2\n\n* Parâmetros fisiológicos considerados na escala NEWS2.\n* Interpretação da pontuação e identificação de tendências.\n* Limitações da escala e importância do julgamento clínico.\n* Comunicação dos resultados e activação da resposta clínica de acordo com os protocolos locais.\n* Importância de não atrasar a assistência urgente perante sinais evidentes de gravidade.\n\n### Aula 5 — Choque: reconhecimento e primeiras medidas\n\n* Conceito de choque e compromisso da perfusão dos órgãos.\n* Principais tipos: hipovolémico, distributivo, cardiogénico e obstrutivo.\n* Sinais de alarme: alteração do estado mental, extremidades frias, pulso anormal e hipotensão, quando presente.\n* Avaliação ABCDE, pedido de ajuda e monitorização.\n* Princípios gerais de estabilização inicial e necessidade de tratamento dirigido à causa.\n\n### Aula 6 — Comunicação, passagem de turno e reavaliação contínua\n\n* Comunicação estruturada utilizando SBAR.\n* Registo objectivo dos sinais vitais, intervenções e resposta clínica.\n* Transmissão de informação crítica e continuidade dos cuidados.\n* Reavaliação ABCDE após intervenções.\n* Discussão de casos clínicos e identificação de prioridades assistenciais.\n\n## Metodologia de avaliação\n\nA aprendizagem pode ser consolidada através de perguntas de revisão, interpretação de cenários clínicos e exercícios de priorização de cuidados.\n\n## Nota de segurança clínica\n\nEste curso tem finalidade educativa e não substitui a formação prática supervisionada, os protocolos da instituição, a prescrição clínica ou a avaliação individual do doente. As intervenções devem respeitar as competências profissionais, os recursos disponíveis e as normas aplicáveis.\n\n# Aulas deste curso (vídeos)\n\n1. Avaliação primária ABCDE\n2. Oxigenoterapia e suporte ventilatório básico\n3. Acesso venoso e fluidoterapia\n4. Reconhecer a deterioração clínica (NEWS2)\n5. Choque: reconhecimento e primeiras medidas\n6. Comunicação e reavaliação contínua",
   "aulas": [
     {
       "titulo": "Avaliação primária ABCDE",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "duracao": "60 Minutos",
+      "resumo": "Aula 1 — Avaliação primária ABCDE\n\nAprenda a realizar a avaliação primária do doente através da abordagem ABCDE, identificando rapidamente alterações da via aérea, respiração, circulação, estado neurológico e exposição. Conheça a importância da intervenção prioritária, da reavaliação contínua e da activação atempada da equipa de emergência.",
+      "video": ""
     },
     {
       "titulo": "Oxigenoterapia",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "duracao": "60 Minutos",
+      "resumo": "Aula 2 — Oxigenoterapia\n\nConheça os principais dispositivos de administração de oxigénio, os princípios da oxigenoterapia e a monitorização da saturação periférica de oxigénio. Aprenda a reconhecer sinais de dificuldade respiratória e a compreender a necessidade de objectivos de oxigenação individualizados."
     },
     {
       "titulo": "Acesso venoso e fluidos",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "duracao": "60 Minutos",
+      "resumo": "Aula 3 — Acesso venoso e fluidos\n\nExplore os princípios do acesso venoso periférico, a selecção do material, a prevenção de complicações e os cuidados de vigilância. Compreenda os fundamentos da fluidoterapia, a avaliação da resposta clínica e o reconhecimento de sinais de sobrecarga hídrica."
     },
     {
       "titulo": "Reconhecer a deterioração (NEWS2)",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "duracao": "60 Minutos",
+      "resumo": "Aula 4 — Reconhecer a deterioração (NEWS2)\n\nAprenda a compreender os parâmetros fisiológicos da escala NEWS2, interpretar a pontuação e reconhecer tendências de deterioração clínica. Conheça as limitações da escala e a importância de comunicar os resultados e activar a resposta adequada segundo os protocolos institucionais.\n\n"
     },
     {
       "titulo": "Choque",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "duracao": "60 Minutos",
+      "resumo": "Aula 5 — Choque\n\nConheça os principais tipos de choque e os sinais de compromisso da perfusão dos órgãos. Explore a avaliação inicial, a monitorização, o pedido de ajuda e os princípios gerais de estabilização, respeitando os protocolos clínicos e as competências profissionais."
     }
   ],
+  "data": "2026-10-13",
+  "area": "Urgência e Emergência",
+  "instrutor": "Equipa Enfermeiro Corporativo",
+  "preco": "375MZN",
+  "duracao": "6 horas",
+  "imagem": "/uploads/cursos/curso-de-abordagem-ao-doente-crítico.png",
+  "resumo": "Curso de enfermagem sobre avaliação ABCDE, oxigenoterapia, fluidoterapia, escala NEWS2 e reconhecimento precoce da deterioração clínica.",
+  "titulo": "Abordagem Inicial ao Doente Crítico: ABCDE, NEWS2 e Emergências",
   "etiquetas": [
-    "Urgência"
-  ],
-  "publicado": true
+    "Enfermagem",
+    "Urgência",
+    "Emergência",
+    "Doente Crítico",
+    "ABCDE",
+    "NEWS2",
+    "Oxigenoterapia",
+    "Fluidoterapia",
+    "Choque",
+    "SBAR"
+  ]
 }
