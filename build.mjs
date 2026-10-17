@@ -404,6 +404,12 @@ write('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xm
       if (!existsSync(R(f))) continue;
       const h = read(f);
       let t = /<meta name="google-adsense-account"[^>]*>/.test(h) ? h.replace(/<meta name="google-adsense-account"[^>]*>/, meta) : h.replace(/(<meta charset="utf-8">)/i, '$1' + meta);
+      const adsSrc = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${cfg.adsenseClient}`;
+      if (!t.includes(adsSrc)) {
+        // consentimento negado por omissão antes do script; site.js trata do consentimento do utilizador
+        const consent = `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});</script>`;
+        t = t.replace(/(<meta name="google-adsense-account"[^>]*>)/, `$1${consent}<script async src="${adsSrc}" crossorigin="anonymous"></script>`);
+      }
       if (t !== h) { write(f, t); m++; }
     }
     console.log(`AdSense ${cfg.adsenseClient}: meta de verificação em ${m} páginas.`);
