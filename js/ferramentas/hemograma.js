@@ -41,6 +41,64 @@
     { id: 'ret', sigla: 'Retic', nome: 'Reticulócitos', un: '%', r: { h: [0.5, 2.5], m: [0.5, 2.5], c: [0.5, 2.5] },
       b: 'Medula pouco activa (ex.: anemia por falta de produção).', a: 'Medula a responder a perda ou destruição de sangue (ex.: hemorragia, hemólise).', d: 'Glóbulos vermelhos jovens: mostram a resposta da medula.' }
   ];
+
+  /* Para cada parâmetro alterado: t = tipo de infecção ou causa provável; l = locais / situações onde procurar; o = o que observar no utente.
+     Texto educativo e não diagnóstico: o hemograma orienta, não confirma. */
+  var INF = {
+    wbc: {
+      a: { t: 'Infecção, sobretudo bacteriana. Também inflamação, stress, corticoides, tabaco e doenças do sangue.', l: 'Pulmões (pneumonia), vias urinárias, pele e tecidos moles (celulite, abcesso), abdómen (apendicite, colecistite), ouvido, garganta, ossos e articulações, ferida cirúrgica, cateteres.', o: 'Febre ou calafrios, dor localizada, tosse com expectoração, dor ao urinar, ferida com pus ou vermelhidão, sinais vitais e estado de consciência.' },
+      b: { t: 'Infecções virais (VIH, hepatites, dengue, gripe), malária ou infecção grave (sépsis); fármacos; doença da medula.', l: 'Infecção sistémica (todo o organismo). Não indica um órgão em particular.', o: 'Febre, aftas ou feridas na boca, infecções repetidas, cansaço. Reforçar higiene das mãos e vigiar sinais de infecção.' }
+    },
+    neu: {
+      a: { t: 'Infecção bacteriana (a mais típica). Também inflamação aguda, enfarte, corticoides e stress.', l: 'Pulmões (pneumonia), rins e bexiga (pielonefrite, cistite), pele (celulite, abcessos), abdómen (apendicite, diverticulite), ferida cirúrgica, garganta.', o: 'Febre, dor num local, tosse com expectoração, urina turva ou com cheiro, ferida quente e com pus.' },
+      b: { t: 'Infecções virais; infecção bacteriana grave (sépsis, febre tifóide); fármacos; doença da medula.', l: 'Infecção sistémica. Sem as defesas dos neutrófilos, qualquer local pode infectar-se.', o: 'Febre em doente com neutrófilos baixos é uma urgência: avisar de imediato a equipa. Evitar visitas doentes, cumprir assepsia.' }
+    },
+    lin: {
+      a: { t: 'Infecções virais (mononucleose, citomegalovírus, hepatites, sarampo, papeira, tosse convulsa); tuberculose e brucelose crónicas.', l: 'Garganta e gânglios do pescoço, fígado, glândulas salivares, pulmões (tuberculose), vias respiratórias superiores.', o: 'Dor de garganta, gânglios aumentados, febre baixa prolongada, suores nocturnos, perda de peso e tosse com mais de 2 semanas (pensar em tuberculose).' },
+      b: { t: 'Imunossupressão: VIH, infecção grave ou sépsis, corticoides, desnutrição, tuberculose avançada.', l: 'Infecção sistémica; maior risco de infecções oportunistas (pulmão, boca, intestino, pele).', o: 'Infecções frequentes, candidíase oral, diarreia prolongada, perda de peso. Sugerir avaliação do estado imunitário conforme o protocolo.' }
+    },
+    mon: {
+      a: { t: 'Infecções crónicas ou granulomatosas (tuberculose, endocardite bacteriana, brucelose, sífilis), malária ou fase de recuperação de infecção aguda.', l: 'Pulmões (tuberculose), coração (válvulas), fígado e baço, gânglios.', o: 'Febre prolongada, suores nocturnos, perda de peso, tosse crónica, sopro cardíaco novo.' },
+      b: { t: 'Raramente relevante isoladamente.', l: 'Sem localização típica.', o: 'Interpretar com os restantes valores e com a clínica.' }
+    },
+    eos: {
+      a: { t: 'Parasitas (vermes intestinais como Ascaris, ancilostomas e Strongyloides; esquistossomose; filaríase) ou alergia (asma, eczema, fármacos).', l: 'Intestino (vermes), pulmão (migração larvar), pele (comichão, urticária), bexiga e fígado (esquistossomose).', o: 'Dor abdominal, diarreia, comichão anal, urina com sangue, tosse seca, comichão na pele. Perguntar por contacto com água doce, andar descalço e fármacos recentes.' },
+      b: { t: 'Em geral sem significado. Pode ocorrer no stress agudo, com corticoides ou no início de infecção aguda.', l: 'Sem localização típica.', o: 'Valorizar apenas com o quadro clínico.' }
+    },
+    bas: {
+      a: { t: 'Raramente infecção: sobretudo reacções alérgicas, hipotiroidismo e doenças do sangue.', l: 'Pele, vias respiratórias (alergia).', o: 'Urticária, rinite, comichão. Se persistir, encaminhar para avaliação.' },
+      b: { t: 'Sem significado clínico habitual.', l: 'Sem localização típica.', o: 'Sem acção específica.' }
+    },
+    hb: {
+      b: { t: 'Anemia que pode associar-se a malária (destruição dos glóbulos), ancilostomíase (perda crónica de sangue), VIH, tuberculose e outras infecções crónicas; também carência de ferro e perdas de sangue.', l: 'Sangue (malária), intestino (vermes e sangramento), medula óssea.', o: 'Palidez, cansaço, falta de ar ao esforço, tonturas, febre com calafrios (malária), fezes escuras ou com sangue.' },
+      a: { t: 'Hemoconcentração por perda de líquidos (diarreia, vómitos, febre, dengue) ou policitemia.', l: 'Sistémico.', o: 'Avaliar hidratação: sede, mucosas secas, urina escassa, pulso rápido.' }
+    },
+    ht: {
+      b: { t: 'Acompanha a anemia (ver Hemoglobina): malária, vermes intestinais, infecções crónicas, perdas de sangue.', l: 'Sangue, intestino.', o: 'Palidez, cansaço, falta de ar.' },
+      a: { t: 'Hemoconcentração (desidratação, dengue grave) ou excesso de glóbulos vermelhos.', l: 'Sistémico.', o: 'Hidratação, diurese, pulso e tensão arterial.' }
+    },
+    rbc: {
+      b: { t: 'Anemia por malária, vermes, infecções crónicas ou perdas.', l: 'Sangue, intestino.', o: 'Palidez, cansaço.' },
+      a: { t: 'Desidratação ou policitemia; não é típico de infecção.', l: 'Sistémico.', o: 'Hidratação e história de tabagismo ou doença pulmonar.' }
+    },
+    vcm: {
+      b: { t: 'Microcitose: carência de ferro (muitas vezes por ancilostomíase e outras perdas) ou talassemia.', l: 'Intestino (perda crónica de sangue por vermes).', o: 'Perguntar por andar descalço, fezes escuras, dieta e menstruação abundante.' },
+      a: { t: 'Macrocitose: carência de B12 ou folato, álcool, fígado, alguns fármacos (por exemplo, certos antirretrovirais).', l: 'Fígado, estômago e intestino (absorção).', o: 'Dieta, consumo de álcool e medicação em curso.' }
+    },
+    hcm: { b: { t: 'Falta de ferro (hipocromia); pode associar-se a vermes intestinais.', l: 'Intestino.', o: 'Palidez, cansaço.' }, a: { t: 'Acompanha a macrocitose.', l: 'Fígado, estômago.', o: 'Ver VCM.' } },
+    chcm: { b: { t: 'Hipocromia, por exemplo anemia por falta de ferro.', l: 'Intestino.', o: 'Palidez, cansaço.' }, a: { t: 'Raro; pode ser erro da amostra.', l: 'Sem localização típica.', o: 'Repetir a análise se persistir.' } },
+    rdw: { a: { t: 'Misto de causas de anemia (por exemplo, carência de ferro e de B12).', l: 'Sangue e intestino.', o: 'Sinais de anemia e dieta.' }, b: { t: 'Sem significado clínico habitual.', l: '—', o: '—' } },
+    plt: {
+      b: { t: 'Dengue, malária, VIH, hepatites, sépsis (com perturbação da coagulação) e outras infecções virais; também fármacos e doenças da medula.', l: 'Sangue e medula; risco de hemorragia na pele, boca e nariz.', o: 'Petéquias, hematomas, sangramento das gengivas ou nariz, fezes escuras. Evitar injecções intramusculares e traumatismos. Com febre, avisar a equipa.' },
+      a: { t: 'Trombocitose reactiva: infecção ou inflamação crónica (pneumonia, tuberculose, osteomielite) ou falta de ferro.', l: 'Pulmões, ossos, intestino.', o: 'Febre persistente, tosse crónica, dor óssea, cansaço.' }
+    },
+    vpm: { b: { t: 'Menor produção de plaquetas na medula.', l: 'Medula óssea.', o: 'Ver plaquetas.' }, a: { t: 'Plaquetas jovens, por destruição periférica (infecções virais, imunológicas).', l: 'Sangue, baço.', o: 'Ver plaquetas.' } },
+    ret: {
+      a: { t: 'A medula está a responder a perda ou destruição de sangue: malária, hemorragia, hemólise.', l: 'Sangue e medula.', o: 'Palidez, febre com calafrios, urina escura, icterícia (olhos amarelos).' },
+      b: { t: 'Medula pouco activa: carência de ferro/B12, infecção da medula (por exemplo, alguns vírus), fármacos.', l: 'Medula óssea.', o: 'Palidez, cansaço, infecções repetidas.' }
+    }
+  };
+  P.forEach(function (p) { p.inf = INF[p.id] || null; });
   var CRIT = { hb: [7, null, 'Hb < 7 g/dL'], plt: [20, null, 'Plaquetas < 20 ×10⁹/L'], wbc: [2, 30, 'Leucócitos < 2 ou > 30 ×10⁹/L'] };
 
   var css = '.ech{font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#0f2547;text-align:left}' +
@@ -55,7 +113,7 @@
     '.ech .tw{overflow-x:auto}.ech .tag{display:inline-block;border-radius:99px;padding:2px 9px;font-size:12px;font-weight:800;white-space:nowrap}' +
     '.ech .n{background:#DDF3E4;color:#0F5B2A}.ech .l{background:#FFE9C7;color:#7A4A00}.ech .a{background:#FBD5D9;color:#8A0012}' +
     '.ech .box{margin:12px 0;padding:11px 12px;border-radius:12px;background:#e7ecf4;border:1px solid #dfe6f0}.ech .crit{background:#FBE4E8;border-color:#c8202f;color:#6B0010}' +
-    '.ech ul{margin:6px 0 6px 18px;padding:0}.ech .msg{color:#8A0012;font-weight:700;min-height:1.2em}';
+    '.ech .inf{margin-top:6px;padding:8px 10px;border-radius:8px;background:#fff8ec;border:1px solid #f1d9a8;font-size:13.5px}.ech .inf p{margin:3px 0}.ech ul{margin:6px 0 6px 18px;padding:0}.ech .msg{color:#8A0012;font-weight:700;min-height:1.2em}';
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function num(v) { v = String(v == null ? '' : v).trim().replace(',', '.'); if (v === '') return null; var n = Number(v); return isFinite(n) ? n : NaN; }
@@ -91,6 +149,10 @@
     if (w === 'b' && neu === 'b') padroes.push('Leucopenia com neutropenia: risco aumentado de infecção; vigiar sinais de infecção e cumprir precauções.');
     if (st('eos') === 'a') padroes.push('Eosinofilia: considerar alergia/asma, parasitose ou reacção a fármacos.');
     if (st('lin') === 'a') padroes.push('Linfocitose: frequente em infecções virais.');
+    if (w === 'b' && st('lin') === 'a') padroes.push('Poucos leucócitos com linfocitose relativa: quadro compatível com infecção viral. Procure febre, dor de garganta, gânglios e contactos.');
+    if (st('eos') === 'a' && hb === 'b') padroes.push('Eosinófilos altos com anemia: pensar em parasitoses intestinais (por exemplo, ancilostomíase). Perguntar por fezes, dor abdominal e contacto com solo ou água doce.');
+    if (st('plt') === 'b' && (w === 'b' || st('lin') === 'a')) padroes.push('Plaquetas baixas com alteração dos leucócitos e febre: pensar em dengue, malária ou outra infecção viral/sistémica; vigiar sinais de hemorragia e avisar a equipa.');
+    if (w === 'a' && neu === 'a' && st('plt') === 'a') padroes.push('Leucocitose, neutrofilia e plaquetas altas: resposta inflamatória ou infecciosa activa; procurar o foco (pulmão, urina, pele, abdómen).');
     if (hb === 'b' && w === 'b' && st('plt') === 'b') padroes.push('Redução das três séries (pancitopenia): requer avaliação médica urgente.');
     if (st('plt') === 'b') padroes.push('Plaquetas baixas: vigilância de hemorragias (gengivas, nariz, petéquias, fezes escuras); evitar injecções intramusculares e traumatismos.');
     if (st('plt') === 'a') padroes.push('Plaquetas altas: pode ser reactivo (inflamação, carência de ferro) ou primário; correlacionar com a clínica.');
@@ -129,8 +191,11 @@
       h += '<div class="tw"><table><tr><th>Parâmetro</th><th>Valor</th><th>Referência</th><th>Estado</th><th>O que pode significar</th></tr>' + res.rows.map(function (o) {
         var tag = !o.r ? '<span class="tag n">sem ref.</span>' : o.st === 'n' ? '<span class="tag n">Normal</span>' : o.st === 'b' ? '<span class="tag l">Baixo</span>' : '<span class="tag a">Alto</span>';
         var ex = !o.r ? 'Interprete segundo a idade.' : o.st === 'n' ? 'Dentro do intervalo de referência.' : o.st === 'b' ? o.p.b : o.p.a;
-        return '<tr><td><b>' + esc(o.p.sigla) + '</b><br><small>' + esc(o.p.nome) + '</small></td><td>' + String(o.x).replace('.', ',') + ' ' + esc(o.p.un) + '</td><td>' + fmt(o.r) + '</td><td>' + tag + '</td><td>' + esc(ex) + '</td></tr>';
+        var di = (o.r && o.st !== 'n' && o.p.inf && o.p.inf[o.st]) ? o.p.inf[o.st] : null;
+        var det = di ? '<div class="inf"><p><b>Tipo de infecção / causa provável:</b> ' + esc(di.t) + '</p><p><b>Onde procurar:</b> ' + esc(di.l) + '</p><p><b>O que observar no utente:</b> ' + esc(di.o) + '</p></div>' : '';
+        return '<tr><td><b>' + esc(o.p.sigla) + '</b><br><small>' + esc(o.p.nome) + '</small></td><td>' + String(o.x).replace('.', ',') + ' ' + esc(o.p.un) + '</td><td>' + fmt(o.r) + '</td><td>' + tag + '</td><td>' + esc(ex) + det + '</td></tr>';
       }).join('') + '</table></div>';
+      if (res.rows.some(function (o) { return o.r && o.st !== 'n'; })) h += '<p class="box">As causas indicadas são <b>possibilidades</b> para orientar a observação do utente. Só o médico, com a história clínica, o exame físico e outros exames, confirma o diagnóstico.</p>';
       if (res.padroes.length) h += '<h3>Padrões a considerar</h3><div class="box"><ul>' + res.padroes.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul></div>';
       out.innerHTML = h;
     }
