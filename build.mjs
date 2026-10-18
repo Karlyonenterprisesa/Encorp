@@ -6,6 +6,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, unlinkSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const R = (...p) => join(ROOT, ...p);
@@ -90,14 +91,39 @@ for (const tipo of Object.keys(TIPOS)) {
       youtube: yt, video: String(d.video || ''), ficheiro: d.ficheiro || '', fonte: d.fonte || '', fonte_url: d.fonte_url || '', autor: d.autor || '',
       og: abs(d.imagem) || (yt ? `https://i.ytimg.com/vi/${yt}/hqdefault.jpg` : ''), corpo: d.corpo || '',
       chave: f.replace(/\.json$/, ''), curso: String(d.curso || ''), nivel: d.nivel || '', area: d.area || '', duracao: d.duracao || '', instrutor: d.instrutor || '',
-      preco: d.preco || '', link_inscricao: d.link_inscricao || '', ordem: Number(d.ordem) || 0, aprovacao: Math.min(100, Math.max(1, Number(d.aprovacao) || 50)),
-      aulas: (Array.isArray(d.aulas) ? d.aulas : []).filter((a) => a && a.titulo).map((a, n) => ({ titulo: a.titulo, youtube: ytId(a.youtube), video: String(a.video || ''), duracao: a.duracao || '', resumo: a.resumo || '', ordem: n + 1 })),
+      preco: d.preco || '', link_inscricao: d.link_inscricao || '', modo: d.modo === 'progressivo' ? 'progressivo' : 'livre', permitirDownload: d.permitir_download !== false, ordem: Number(d.ordem) || 0, aprovacao: Math.min(100, Math.max(1, Number(d.aprovacao) || 50)),
+      notaMinima: Math.min(100, Math.max(1, Number(d.nota_minima) || 70)), tentativas: Number.isInteger(Number(d.tentativas)) && d.tentativas !== '' && d.tentativas !== null && d.tentativas !== undefined ? Math.max(0, Number(d.tentativas)) : 3, esperaMinutos: Number.isFinite(Number(d.espera_minutos)) && d.espera_minutos !== '' && d.espera_minutos != null ? Math.max(0, Number(d.espera_minutos)) : 30, sequencial: d.sequencial !== false,
+      aulas: (Array.isArray(d.aulas) ? d.aulas : []).filter((a) => a && a.titulo).map((a, n) => ({ titulo: a.titulo, youtube: ytId(a.youtube), video: String(a.video || ''), duracao: a.duracao || '', resumo: a.resumo || '', ordem: n + 1,
+        conteudo: String(a.conteudo || ''), videoObrig: a.video_obrigatorio === true, permitirPptx: a.permitir_pptx !== false,
+        slides: (Array.isArray(a.slides) ? a.slides : []).filter((s) => s && (s.titulo || s.texto)).map((s) => ({ titulo: String(s.titulo || ''), texto: String(s.texto || ''), imagem: String(s.imagem || '') })),
+        teste: a.teste && Array.isArray(a.teste.perguntas) && a.teste.perguntas.length ? { notaMinima: Math.min(100, Math.max(0, Number(a.teste.nota_minima) || 0)), tentativas: a.teste.tentativas === '' || a.teste.tentativas == null ? undefined : Math.max(0, Number(a.teste.tentativas)), perguntas: a.teste.perguntas.map((q) => ({ pergunta: String(q.pergunta || ''), opcoes: (Array.isArray(q.opcoes) ? q.opcoes : []).map(String).filter(Boolean), correta: Number(q.correta) || 0, explicacao: String(q.explicacao || '') })) } : null })),
       perguntas: (Array.isArray(d.perguntas) ? d.perguntas : []).map((q) => ({ pergunta: String(q.pergunta || ''), opcoes: (Array.isArray(q.opcoes) ? q.opcoes : []).map(String).filter(Boolean), correta: Number(q.correta) || 1, explicacao: String(q.explicacao || '') }))
         .filter((q) => q.pergunta && q.opcoes.length >= 2 && q.correta >= 1 && q.correta <= q.opcoes.length),
     });
   }
 }
 itens.sort((a, b) => (a.data < b.data ? 1 : a.data > b.data ? -1 : a.titulo.localeCompare(b.titulo, 'pt')));   /* mais recentes primeiro */
+/* ---------- regra dos 10: todo o teste (de aula ou autónomo) tem exactamente 10 perguntas válidas ---------- */
+{
+  const erros = [];
+  const valida = (nome, ps) => {
+    if (ps.length !== 10) erros.push(`${nome}: tem ${ps.length} perguntas; precisa de exactamente 10.`);
+    ps.forEach((q, n) => { if (!q.pergunta || q.opcoes.length < 2 || q.opcoes.length > 6 || !(q.correta >= 1 && q.correta <= q.opcoes.length)) erros.push(`${nome}, pergunta ${n + 1}: enunciado, 2 a 6 opções e resposta certa válida são obrigatórios.`); });
+  };
+  for (const it of itens) {
+    if (it.tipo === 'testes') valida(`Teste «${it.titulo}»`, it.perguntas);
+    if (it.tipo === 'cursos') it.aulas.forEach((a, n) => { if (a.teste) valida(`Curso «${it.titulo}», aula ${n + 1} «${a.titulo}»`, a.teste.perguntas); });
+  }
+  if (erros.length) { console.error('ERRO nos testes:\n - ' + erros.join('\n - ')); process.exit(1); }
+}
+{ /* biblioteca: entradas repetidas (mesmo título e mesmo PDF) mostram-se uma só vez; fica a mais antiga, que já tem endereço publicado */
+  const vistos = new Map();
+  for (const it of [...itens].sort((x, y) => (x.chave < y.chave ? -1 : 1))) {   /* pelo nome do ficheiro: o mais antigo fica */
+    if (it.tipo !== 'biblioteca') continue;
+    const k = it.titulo.trim().toLowerCase() + '|' + it.ficheiro;
+    if (vistos.has(k)) { itens.splice(itens.indexOf(it), 1); console.warn('Biblioteca: entrada repetida ignorada (apague-a no CMS):', it.chave); } else vistos.set(k, it);
+  }
+}
 /* biblioteca: só PDF */
 for (let i = itens.length - 1; i >= 0; i--) {
   const it = itens[i];
@@ -140,14 +166,18 @@ const HEADER = read('templates/header.html');
 const FOOTER = read('templates/footer.html');
 
 function head({ titulo, desc, path, img, tipoOg = 'website', ld, extraCss = '', robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1' }) {
-  const url = SITE + path, t = `${titulo} | Enfermeiro Corporativo`, im = img || SITE + '/og-image.jpg';
-  return `<!DOCTYPE html><html lang="pt-MZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>${esc(t)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${robots}"><link rel="canonical" href="${esc(url)}"><meta property="og:site_name" content="Enfermeiro Corporativo"><meta property="og:locale" content="pt_MZ"><meta property="og:type" content="${tipoOg}"><meta property="og:title" content="${esc(t)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${esc(url)}"><meta property="og:image" content="${esc(im)}"><meta property="og:image:alt" content="${esc(titulo)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(t)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${esc(im)}"><meta name="theme-color" content="#0b1a33"><meta name="color-scheme" content="light"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.json"><link rel="alternate" type="application/rss+xml" title="Enfermeiro Corporativo" href="/feed.xml">${ld ? `<script type="application/ld+json">${jsonSafe(ld)}</script>` : ''}<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"><style>${CSS}${extraCss}</style><link rel="stylesheet" href="/css/sbb.css"></head>`;
+  /* títulos até ~65 caracteres (o Google corta o resto): a marca só entra se couber; descrições até 160 caracteres, cortadas numa palavra inteira */
+  desc = String(desc || '').replace(/\s+/g, ' ').trim();
+  if (desc.length > 160) { const c = desc.slice(0, 158).replace(/\s+\S*$/, '').replace(/[\s,;:.\-–—(]+$/, ''); desc = c + '…'; }
+  const url = SITE + path, t = (`${titulo} | Enfermeiro Corporativo`.length <= 68 ? `${titulo} | Enfermeiro Corporativo` : titulo), im = img || SITE + '/og-image.jpg';
+  return `<!DOCTYPE html><html lang="pt-MZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>${esc(t)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${robots}"><link rel="canonical" href="${esc(url)}"><meta property="og:site_name" content="Enfermeiro Corporativo"><meta property="og:locale" content="pt_MZ"><meta property="og:type" content="${tipoOg}"><meta property="og:title" content="${esc(t)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${esc(url)}"><meta property="og:image" content="${esc(im)}"><meta property="og:image:alt" content="${esc(titulo)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(t)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${esc(im)}"><meta name="theme-color" content="#0b1a33"><meta name="color-scheme" content="light"><link rel="icon" href="/favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2"><link rel="manifest" href="/manifest.json"><link rel="alternate" type="application/rss+xml" title="Enfermeiro Corporativo" href="/feed.xml">${ld ? `<script type="application/ld+json">${jsonSafe(ld)}</script>` : ''}<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"><style>${CSS}${extraCss}</style><link rel="stylesheet" href="/css/sbb.css"></head>`;
 }
 const page = (h, main) => `${h}<body>${HEADER}<main>${main}</main>${FOOTER}<script src="/js/site/site.js" defer></script></body></html>`;
 const share = (url, titulo) => `<div class="ec-share" aria-label="Partilhar"><button type="button" data-share data-title="${esc(titulo)}" data-url="${esc(url)}">Partilhar</button><a class="wa" href="https://wa.me/?text=${enc(titulo + ' ' + url)}" target="_blank" rel="noopener">WhatsApp</a><a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=${enc(url)}" target="_blank" rel="noopener">Facebook</a><a class="tg" href="https://t.me/share/url?url=${enc(url)}&text=${enc(titulo)}" target="_blank" rel="noopener">Telegram</a><a href="https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(titulo)}" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=${enc(titulo)}&body=${enc(url)}">Email</a><button type="button" data-copy data-url="${esc(url)}">Copiar link</button></div>`;
 
 const hero = `<div class="hero"><img src="/og-image.jpg" alt="Enfermeiro Corporativo — Mais conhecimento, melhor cuidado" width="1200" height="630" decoding="async"></div>`;
 const EDU_CSS = read('templates/educacao.css');
+const PLAYER_CSS = read('templates/player.css');
 function paginaEducacao(it, url) {
   const T = TIPOS[it.tipo], c = cursoDe.get(it);
   const cursoLink = c ? ` · <a href="${esc(c.url)}">${esc(c.titulo)}</a>` : '';
@@ -163,9 +193,12 @@ function paginaEducacao(it, url) {
     const pills = [it.nivel, it.area, it.duracao, it.instrutor && 'Formador: ' + it.instrutor].filter(Boolean).map((x) => `<span class="pill">${esc(x)}</span>`).join('') + `<span class="pill${it.preco ? '' : ' free'}">${esc(it.preco || 'Gratuito')}</span>`;
     const lista = aulas.length ? `<h2>Aulas (${aulas.length})</h2><ol class="aulas">${aulas.map((a, n) => `<li class="aula"><b>${n + 1}. ${esc(a.titulo)}</b>${a.duracao ? ` <span class="meta">· ${esc(a.duracao)}</span>` : ''}${a.resumo ? `<p>${esc(a.resumo)}</p>` : ''}${a.item ? `<a class="btn" href="${esc(a.item.url)}">Abrir aula</a>` : a.youtube ? `<button type="button" class="btn" data-yt="${esc(a.youtube)}">▶ Ver aula</button>` : a.video ? `<button type="button" class="btn" data-vid="${esc(a.video)}">▶ Ver aula</button>` : ''}</li>`).join('')}</ol>` : '';
     const lt = testes.length ? `<h2>Testes deste curso</h2>${testes.map(cardLista).join('')}` : '';
-    main = `<p class="meta"><a href="/cursos/">Cursos</a> · ${fmtData(it.data)}</p><h1>${esc(it.titulo)}</h1><p class="lead">${esc(it.resumo)}</p><p>${pills}</p>${insc}${share(url, it.titulo)}${capa}<article>${md(it.corpo)}</article>${lista}${lt}${insc}${tags}${cta}`;
+    const prog = it.modo === 'progressivo' && it.aulas.length > 0;
+    const playerHtml = `<h2>Aulas (${it.aulas.length})</h2><div id="ec-curso" data-curso="${esc(it.slug)}"><ol class="aulas">${it.aulas.map((a, n) => `<li class="aula"><b>${n + 1}. ${esc(a.titulo)}</b>${a.duracao ? ` <span class="meta">· ${esc(a.duracao)}</span>` : ''}${a.resumo ? `<p>${esc(a.resumo)}</p>` : ''}</li>`).join('')}</ol><p class="meta">Para estudar este curso crie uma conta gratuita ou entre. As aulas abrem por ordem; cada aula tem slides${it.aulas.some((a) => a.videoObrig) ? ', vídeo-resumo' : ''} e um teste de 10 perguntas (nota mínima ${it.notaMinima}%).</p><noscript><p>O estudo do curso precisa de JavaScript.</p></noscript></div>`;
+    main = `<p class="meta"><a href="/cursos/">Cursos</a> · ${fmtData(it.data)}</p><h1>${esc(it.titulo)}</h1><p class="lead">${esc(it.resumo)}</p><p>${pills}</p>${insc}${share(url, it.titulo)}${capa}<article>${md(it.corpo)}</article>${prog ? playerHtml : lista}${lt}${insc}${tags}${cta}`;
     ld = { ...ldBase, '@type': 'Course', name: it.titulo, description: it.resumo };
     extraJs = '<script src="/js/site/video-aulas.js" defer></script>';
+    if (prog) { extraCss += PLAYER_CSS; extraJs += '<script src="/js/site/conta.js" defer></script><script src="/js/site/curso-player.js" defer></script>'; }
   } else if (it.tipo === 'videoaulas') {
     const pdf = it.ficheiro ? `<p><a class="btn" href="${esc(it.ficheiro)}" target="_blank" rel="noopener">Material de apoio (PDF)</a></p>` : '';
     const video = player(it, it.titulo) || '<p>Vídeo indisponível.</p>';
@@ -186,6 +219,20 @@ function paginaEducacao(it, url) {
 }
 /* ---------- páginas de cada item ---------- */
 const cardLista = (it) => `<a class="card" href="${esc(it.url)}"><b>${esc(it.titulo)}</b>${it.resumo ? `<span>${esc(it.resumo)}</span><br>` : ''}<span>${esc(it.categoria || TIPOS[it.tipo].sing)}${it.meta ? ' · ' + esc(it.meta) : ''} · ${fmtData(it.data)}</span></a>`;
+const ICONES = { cursos: '🎓', biblioteca: '📄', videoaulas: '🎬', testes: '✅', dicas: '📰' };
+const capaCartao = (it, href) => `<a class="ec-cc-im" href="${esc(href)}" tabindex="-1" aria-hidden="true" data-ic="${ICONES[it.tipo] || ''}">${it.imagem ? `<img src="${esc(it.imagem)}" alt="" width="640" height="400" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'">` : ''}</a>`;
+const cardCurso = (it) => {
+  const n = aulasDe(it).length, prog = it.modo === 'progressivo';
+  const meta = [it.nivel, it.duracao, n ? `${n} aula${n === 1 ? '' : 's'}` : ''].filter(Boolean).map((x) => `<li>${esc(x)}</li>`).join('') + `<li${it.preco ? '' : ' class="free"'}>${esc(it.preco || 'Gratuito')}</li>`;
+  return `<article class="ec-cc">${capaCartao(it, it.url)}<div class="ec-cc-b">${it.area ? `<span class="ec-cc-k">${esc(it.area)}</span>` : ''}<h3><a href="${esc(it.url)}">${esc(it.titulo)}</a></h3>${it.resumo ? `<p>${esc(it.resumo)}</p>` : ''}<ul class="ec-cc-m">${meta}</ul><div class="ec-cc-a"><a class="btn" href="${esc(it.url)}">${prog ? 'Iniciar curso' : 'Consultar curso'}</a></div></div></article>`;
+};
+const formatoDe = (f) => { const m = String(f || '').match(/\.([a-z0-9]{2,5})(?:[?#]|$)/i); return m ? m[1].toUpperCase() : ''; };
+const cardDoc = (it) => {
+  const fmt = formatoDe(it.ficheiro), meta = [fmt && `Formato ${fmt}`, it.categoria].filter(Boolean).map((x) => `<li>${esc(x)}</li>`).join('');
+  return `<article class="ec-cc">${capaCartao(it, it.url)}<div class="ec-cc-b">${it.categoria ? `<span class="ec-cc-k">${esc(it.categoria)}</span>` : ''}<h3><a href="${esc(it.url)}">${esc(it.titulo)}</a></h3>${it.resumo ? `<p>${esc(it.resumo)}</p>` : ''}${meta ? `<ul class="ec-cc-m">${meta}</ul>` : ''}<div class="ec-cc-a">${it.ficheiro ? `<a class="btn" href="${esc(it.ficheiro)}" target="_blank" rel="noopener">Consultar</a>${it.permitirDownload ? `<a class="btn alt" href="${esc(it.ficheiro)}" download>Descarregar</a>` : ''}` : `<a class="btn" href="${esc(it.url)}">Ver ficha</a>`}</div></div></article>`;
+};
+const grelha = (l, f) => `<div class="ec-grid">${l.map(f).join('')}</div>`;
+const CARTOES_CSS = read('templates/cartoes.css');
 const AVISO = '<div class="notice"><b>Conteúdo educativo.</b> Não substitui o julgamento clínico, os protocolos da sua instituição nem as fontes oficiais actualizadas. <a href="/aviso-medico.html">Aviso médico</a></div>';
 const tagsDe = (it) => it.etiquetas.length ? `<p>${it.etiquetas.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</p>` : '';
 for (const it of itens) {
@@ -214,12 +261,12 @@ function cardsDir(dir, { skip = ['index.html'] } = {}) {
     return { t: unescH(h ? h[1].replace(/<[^>]+>/g, '') : f), d: unescH(l ? l[1].replace(/<[^>]+>/g, '') : ''), u: '/' + dir + '/' + f };
   }).sort((a, b) => a.t.localeCompare(b.t, 'pt')).map((x) => C(x.u, x.t, x.d)).join('');
 }
-function hub({ path, titulo, h1, desc, lead, crumbs = [], body, robots }) {
+function hub({ path, titulo, h1, desc, lead, crumbs = [], body, robots, extraCss = '', extraJs = '' }) {
   const url = SITE + path, chain = [['Início', '/'], ...crumbs], nome = h1 || titulo;
   const bc = { '@type': 'BreadcrumbList', itemListElement: [...chain.map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: SITE + u })), { '@type': 'ListItem', position: chain.length + 1, name: nome, item: url }] };
   const ld = { '@context': 'https://schema.org', '@graph': [{ '@type': 'CollectionPage', name: nome, description: desc, url, inLanguage: 'pt-MZ' }, bc] };
   const nav = `<p class="meta crumbs" aria-label="Navegação">${chain.map(([n, u]) => `<a href="${u}">${esc(n)}</a>`).join(' › ')} › ${esc(nome)}</p>`;
-  write(path.slice(1) + (path.endsWith('/') ? 'index.html' : ''), page(head({ titulo, desc, path, ld, ...(robots ? { robots } : {}) }), `${nav}<h1>${esc(nome)}</h1><p class="lead">${esc(lead || desc)}</p>${body}`));
+  write(path.slice(1) + (path.endsWith('/') ? 'index.html' : ''), page(head({ titulo, desc, path, ld, extraCss, ...(robots ? { robots } : {}) }), `${nav}<h1>${esc(nome)}</h1><p class="lead">${esc(lead || desc)}</p>${body}`).replace('</body>', extraJs + '</body>'));
 }
 const FER = ['Ferramentas', '/ferramentas/'], APR = ['Aprender', '/aprender/'], PRO = ['Processo de enfermagem', '/processo-enfermagem/'], CAL = ['Calculadoras', '/ferramentas/calculadoras/'];
 
@@ -273,26 +320,28 @@ hub({ path: '/aprender/', titulo: 'Aprender enfermagem', crumbs: [], desc: 'Proc
 hub({ path: '/ajuda.html', titulo: 'Ajuda', desc: 'Como usar o Enfermeiro Corporativo e como falar connosco.',
   body: '<p>Use a pesquisa para localizar conteúdos. Abra cada domínio e classe para consultar diagnósticos. Ao seleccionar um diagnóstico verá domínio, classe, código NANDA-I e sugestões de NIC e NOC. Este sistema não substitui protocolos institucionais nem julgamento clínico.</p><h2>Contactos</h2><p>E-mail: <a href="mailto:digitalcartel@gmail.com">digitalcartel@gmail.com</a><br>Telefone: 82 130 0088</p><p><a href="/contacto.html">Página de contactos</a> · <a href="/pesquisa.html">Pesquisar no site</a></p>' });
 
+const destaques = itens.filter((i) => i.tipo === 'dicas').slice(0, 8);
+const nCard = (it) => `<a class="ec-nc" href="${esc(it.url)}" draggable="false"><span class="ec-nc-im">${it.imagem ? `<img class="f" src="${esc(it.imagem)}" alt="" width="400" height="250" loading="lazy" decoding="async" draggable="false" referrerpolicy="no-referrer" onerror="this.style.display='none'">` : '<img class="l" src="/android-chrome-192x192.png" alt="" width="56" height="56" loading="lazy" draggable="false">'}</span><span class="ec-nc-b"><span class="ec-nc-k">${esc(it.categoria || 'Dica')}</span><span class="ec-nc-t">${esc(it.titulo)}</span>${it.resumo ? `<span class="ec-nc-s">${esc(it.resumo)}</span>` : ''}<span class="ec-nc-m">${fmtData(it.data)}</span><span class="ec-nc-go">Ler mais ›</span></span></a>`;
+const carrossel = (lista) => `<div class="ec-car" data-ec-car role="region" aria-roledescription="carrossel" aria-label="Dicas e actualidades de saúde"><div class="ec-car-vp"><div class="ec-car-tr">${lista.map(nCard).join('')}</div></div><div class="ec-car-ctl"><button type="button" data-car-ant aria-label="Cartão anterior">‹</button><button type="button" data-car-pausa aria-pressed="false">❚❚ Pausar</button><button type="button" data-car-seg aria-label="Cartão seguinte">›</button></div></div>`;
 /* listagens: dicas, biblioteca, aulas, testes */
 for (const tipo of ['dicas', 'biblioteca', 'videoaulas', 'testes']) {
   const T = TIPOS[tipo], lista = itens.filter((i) => i.tipo === tipo);
   let corpo;
   if (!lista.length) corpo = '<p>Ainda não há conteúdos publicados.</p>';
-  else if (tipo === 'biblioteca') { const g = {}; for (const i of lista) (g[i.categoria || 'Outros'] ||= []).push(i); corpo = Object.entries(g).map(([k, l]) => `<h2>${esc(k)}</h2>${l.map(cardLista).join('')}`).join(''); }
+  else if (tipo === 'biblioteca') { const g = {}; for (const i of lista) (g[i.categoria || 'Outros'] ||= []).push(i); corpo = Object.entries(g).map(([k, l]) => `<h2>${esc(k)}</h2>${grelha(l, cardDoc)}`).join(''); }
+  else if (tipo === 'dicas') corpo = carrossel(lista.slice(0, 8)) + `<h2>Todas as publicações</h2>` + lista.map(cardLista).join('');
   else corpo = lista.map(cardLista).join('');
-  hub({ path: '/' + T.base, titulo: T.nome, crumbs: tipo === 'biblioteca' ? [APR] : (tipo === 'dicas' ? [] : [['Cursos', '/cursos/']]), desc: T.lead, body: corpo, ...(lista.length ? {} : { robots: 'noindex,follow' }) });
+  hub({ path: '/' + T.base, titulo: T.nome, crumbs: tipo === 'biblioteca' ? [APR] : (tipo === 'dicas' ? [] : [['Cursos', '/cursos/']]), desc: T.lead, body: corpo, ...(tipo === 'biblioteca' && lista.length ? { extraCss: CARTOES_CSS } : {}), ...(tipo === 'dicas' && lista.length ? { extraCss: read('templates/dicas-home.css'), extraJs: '<script src="/js/interface/carrossel-dicas.js" defer></script>' } : {}), ...(lista.length ? {} : { robots: 'noindex,follow' }) });
 }
 /* hub /cursos/ */
 {
-  const sec = (tipo, titulo, ate, ver) => { const l = itens.filter((i) => i.tipo === tipo); return l.length ? `<h2>${titulo}</h2>${l.slice(0, ate).map(cardLista).join('')}${l.length > ate ? `<p><a class="btn alt" href="${ver}">Ver todos (${l.length})</a></p>` : ''}` : ''; };
+  const sec = (tipo, titulo, ate, ver) => { const l = itens.filter((i) => i.tipo === tipo); return l.length ? `<h2>${titulo}</h2>${tipo === 'cursos' ? grelha(l.slice(0, ate), cardCurso) : l.slice(0, ate).map(cardLista).join('')}${l.length > ate ? `<p><a class="btn alt" href="${ver}">Ver todos (${l.length})</a></p>` : ''}` : ''; };
   const vazio = !temConteudo('cursos');
-  hub({ path: '/cursos/', titulo: 'Cursos', desc: TIPOS.cursos.lead, body: vazio ? '<p>Em breve: cursos, video-aulas e testes.</p>' : sec('cursos', 'Cursos', 50, '/cursos/') + sec('videoaulas', 'Video-aulas', 6, '/cursos/aulas/') + sec('testes', 'Testes', 6, '/cursos/testes/'), ...(vazio ? { robots: 'noindex,follow' } : {}) });
+  hub({ path: '/cursos/', titulo: 'Cursos', desc: TIPOS.cursos.lead, body: vazio ? '<p>Em breve: cursos, video-aulas e testes.</p>' : sec('cursos', 'Cursos', 50, '/cursos/') + sec('videoaulas', 'Video-aulas', 6, '/cursos/aulas/') + sec('testes', 'Testes', 6, '/cursos/testes/'), extraCss: CARTOES_CSS, ...(vazio ? { robots: 'noindex,follow' } : {}) });
 }
 
 /* ---------- página inicial: Dicas e Actualidades de Saúde (zona entre <!--EC:DICAS--> e <!--/EC:DICAS-->) ---------- */
-const destaques = itens.filter((i) => i.tipo === 'dicas').slice(0, 4);
-const nCard = (it) => `<a class="ec-nc" href="${esc(it.url)}"><span class="ec-nc-im">${it.imagem ? `<img class="f" src="${esc(it.imagem)}" alt="" width="400" height="300" loading="lazy" decoding="async">` : '<img class="l" src="/android-chrome-192x192.png" alt="" width="52" height="52" loading="lazy">'}</span><span class="ec-nc-b"><span class="ec-nc-k">${esc(it.categoria || 'Dica')}</span><div class="ec-nc-t">${esc(it.titulo)}</div><div class="ec-nc-s">${esc(it.resumo)}</div><div class="ec-nc-m">${fmtData(it.data)}</div></span></a>`;
-const blocoHome = `<style>${read('templates/dicas-home.css')}</style><div class="section-title" id="ec-dicas">Dicas e Actualidades de Saúde</div>${destaques.length ? `<div class="ec-news">${destaques.map(nCard).join('')}</div><div class="ec-news-more"><a href="/dicas/">Ver todas as dicas e notícias</a></div>` : '<p class="ec-news-vazio">Em breve: dicas, artigos e notícias de saúde.</p>'}`;
+const blocoHome = `<style>${read('templates/dicas-home.css')}</style><div class="section-title" id="ec-dicas">Dicas e Actualidades de Saúde</div>${destaques.length ? `${carrossel(destaques)}<div class="ec-news-more"><a href="/dicas/">Ver todas as dicas e notícias</a></div>` : '<p class="ec-news-vazio">Em breve: dicas, artigos e notícias de saúde.</p>'}`;
 /* ---------- página inicial: cartões de cursos (zona entre <!--EC:CURSOS--> e <!--/EC:CURSOS-->) ---------- */
 {
   const cCard = (it) => `<a class="sbb-course" href="${esc(it.url)}"><small>${esc(it.area || 'Curso')}</small><b>${esc(it.titulo)}</b><span>${esc(it.meta || '')}</span></a>`;
@@ -319,6 +368,46 @@ const blocoHome = `<style>${read('templates/dicas-home.css')}</style><div class=
 }
 
 /* ---------- cabeçalho e rodapé únicos (templates/) em todas as páginas ---------- */
+/* ---------- PowerPoint por aula, gerado dos slides do CMS (api/_dados/slides/<curso>/aula-N.pptx; privado, servido pela API só a quem tem a aula desbloqueada) ---------- */
+const PPTX = new Set();
+{
+  let PptxGenJS = null;
+  try { PptxGenJS = createRequire(import.meta.url)('pptxgenjs'); } catch (e) { console.warn('pptxgenjs não está instalado: os PPTX não foram gerados (npm install).'); }
+  if (PptxGenJS) {
+    const { gerarPptx } = await import('./tools/gerar-pptx.mjs');
+    let n = 0;
+    for (const it of itens) {
+      if (it.tipo !== 'cursos') continue;
+      const dir = `api/_dados/slides/${it.slug}`;
+      for (const f of (existsSync(R(dir)) ? readdirSync(R(dir)) : [])) unlinkSync(R(`${dir}/${f}`));   /* aulas apagadas no CMS deixam de ter ficheiro */
+      for (let k = 0; k < it.aulas.length; k++) {
+        const a = it.aulas[k]; if (!a.slides.length) continue;
+        mkdirSync(R(dir), { recursive: true });
+        await gerarPptx(PptxGenJS, { curso: it.titulo, aula: a, n: k + 1, total: it.aulas.length, notaMinima: it.notaMinima, raiz: R('.'), destino: R(`${dir}/aula-${k + 1}.pptx`) });
+        PPTX.add(`${it.slug}/${k + 1}`); n++;
+      }
+    }
+    console.log(`PowerPoint: ${n} ficheiros gerados em api/_dados/slides/.`);
+  }
+}
+
+/* ---------- dados privados dos cursos com conta (respostas certas incluídas): só a API os lê; nunca são servidos como ficheiro ---------- */
+{
+  const priv = {};
+  for (const it of itens) {
+    if (it.tipo !== 'cursos' || it.modo !== 'progressivo' || !it.aulas.length) continue;
+    priv[it.slug] = { titulo: it.titulo, notaMinima: it.notaMinima, tentativas: it.tentativas, esperaMinutos: it.esperaMinutos, sequencial: it.sequencial,
+      aulas: it.aulas.map((a) => ({ titulo: a.titulo, resumo: a.resumo, duracao: a.duracao, html: md(a.conteudo),
+        slides: a.slides.map((s) => ({ titulo: s.titulo, html: md(s.texto), imagem: s.imagem })),
+        video: { youtube: a.youtube, ficheiro: a.video, obrigatorio: a.videoObrig }, pptx: a.permitirPptx && PPTX.has(`${it.slug}/${a.ordem}`),
+        teste: a.teste ? { notaMinima: a.teste.notaMinima, tentativas: a.teste.tentativas, perguntas: a.teste.perguntas } : null })) };
+  }
+  mkdirSync(R('api/_dados'), { recursive: true });
+  writeFileSync(R('api/_dados/cursos.json'), JSON.stringify(priv));
+  console.log(`Cursos com conta: ${Object.keys(priv).length} (dados privados em api/_dados/cursos.json).`);
+}
+hub({ path: '/conta/', titulo: 'A minha conta', desc: 'Entrar ou criar a conta de estudante para guardar o progresso nos cursos.', crumbs: [], body: '<div id="ec-conta-pag"><noscript><p>A conta precisa de JavaScript.</p></noscript></div>', robots: 'noindex,nofollow', extraCss: PLAYER_CSS, extraJs: '<script src="/js/site/conta.js" defer></script><script src="/js/site/conta-pagina.js" defer></script>' });
+
 const PAGINAS = walk('').filter((x) => !['index.html', '404.html'].includes(x) && !x.startsWith('google')).sort();
 {
   const H = HEADER.trim(), F = FOOTER.trim();
@@ -362,7 +451,7 @@ const unesc = unescH;
     idx.push({ t: unesc(ti[1]).replace(/\s*[|—-]\s*Enfermeiro Corporativo\s*$/, '').trim() || 'Enfermeiro Corporativo', d: unesc(de ? de[1] : '').slice(0, 220), u: url, s: as.length ? as[as.length - 1] : '' });
   };
   add('index.html', '/');
-  for (const f of PAGINAS) if (f !== 'pesquisa.html') add(f, urlDe(f));
+  for (const f of PAGINAS) if (f !== 'pesquisa.html' && !f.startsWith('conta/')) add(f, urlDe(f));
   write('search-index.json', JSON.stringify(idx));
   const mainP = `<h1>Pesquisar no site</h1><p class="lead">Diagnósticos NANDA-I, intervenções NIC, resultados NOC, calculadoras, escalas, medicamentos, procedimentos, casos clínicos, cursos e dicas de saúde.</p><form id="ec-q" role="search" onsubmit="return false"><input id="q" type="search" name="q" placeholder="O que procura? (ex.: dor aguda, gotejamento, paracetamol)" autocomplete="off" autocapitalize="off" aria-label="Pesquisar no site" autofocus></form><p id="n" class="meta" aria-live="polite"></p><div id="r"></div><noscript><p>A pesquisa precisa de JavaScript. Pode navegar em <a href="/aprender/">Aprender</a> e <a href="/ferramentas/">Ferramentas</a>.</p></noscript><script src="/js/site/pesquisa.js" defer></script>`;
   const cssP = '#q{width:100%;box-sizing:border-box;padding:13px 14px;font-size:16px;border:1px solid #dfe6f0;border-radius:12px;background:#fff;color:inherit;margin:4px 0 6px}#q:focus{outline:2px solid #0b1a33;outline-offset:1px}';
@@ -371,7 +460,7 @@ const unesc = unescH;
 }
 
 /* ---------- conteudo.json (lido pela app: Biblioteca, Cursos) ---------- */
-write('conteudo.json', JSON.stringify({ atualizado: new Date().toISOString(), itens: itens.map(({ corpo, aulas, perguntas, chave, link_inscricao, aprovacao, instrutor, area, ...r }) => ({ ...r, curso: cursoDe.get(itens.find((x) => x.url === r.url))?.slug || '', nAulas: aulas.length, nPerguntas: perguntas.length })) }));
+write('conteudo.json', JSON.stringify({ atualizado: new Date().toISOString(), itens: itens.map(({ corpo, aulas, perguntas, chave, link_inscricao, aprovacao, instrutor, ...r }) => ({ ...r, formato: r.tipo === 'biblioteca' ? formatoDe(r.ficheiro) : undefined, curso: cursoDe.get(itens.find((x) => x.url === r.url))?.slug || '', nAulas: aulas.length, nPerguntas: perguntas.length })) }));
 
 /* ---------- feed.xml (dicas e actualidades) ---------- */
 const x = (s) => esc(s).replace(/'/g, '&apos;');
@@ -392,6 +481,23 @@ write('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xm
 }
 
 /* ---------- AdSense / Analytics: config no site.js, ads.txt e meta de verificação em todas as páginas ---------- */
+/* ---------- SEO: títulos e descrições com comprimento adequado em TODAS as páginas (também nas escritas à mão) ---------- */
+{
+  const MARCA = ' | Enfermeiro Corporativo';
+  const corta = (d) => { d = d.replace(/\s+/g, ' ').trim(); if (d.length <= 160) return d; return d.slice(0, 158).replace(/\s+\S*$/, '').replace(/[\s,;:.\-–—(]+$/, '') + '…'; };
+  let n = 0;
+  for (const f of PAGINAS) {
+    if (f.startsWith('templates/') || f.startsWith('google') || !existsSync(R(f))) continue;
+    const h = read(f); let t = h;
+    t = t.replace(/(<title>)([^<]*)(<\/title>)/, (m, a, x, z) => (x.length > 70 && x.endsWith(MARCA) ? a + x.slice(0, -MARCA.length) + z : m));
+    t = t.replace(/(<meta property="og:title" content=")([^"]*)(")/, (m, a, x, z) => (x.length > 70 && x.endsWith(MARCA) ? a + x.slice(0, -MARCA.length) + z : m));
+    for (const re of [/(<meta name="description" content=")([^"]*)(")/, /(<meta property="og:description" content=")([^"]*)(")/, /(<meta name="twitter:description" content=")([^"]*)(")/]) {
+      t = t.replace(re, (m, a, x, z) => { const u = x.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>'); return u.length > 170 ? a + esc(corta(u)) + z : m; });
+    }
+    if (t !== h) { write(f, t); n++; }
+  }
+  console.log(`SEO: ${n} páginas com título/descrição ajustados.`);
+}
 {
   const ads = String(site.adsenseClient || '').trim(), ga = String(site.gaId || '').trim();
   const cfg = { adsenseClient: /^ca-pub-\d+$/.test(ads) ? ads : '', gaId: /^G-[A-Z0-9]+$/.test(ga) ? ga : '' };
@@ -401,7 +507,7 @@ write('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xm
     const meta = `<meta name="google-adsense-account" content="${cfg.adsenseClient}">`;
     let m = 0;
     for (const f of ['index.html', '404.html', ...PAGINAS]) {
-      if (!existsSync(R(f))) continue;
+      if (!existsSync(R(f)) || f.startsWith('conta/')) continue;   /* sem anúncios na área do estudante */
       const h = read(f);
       let t = /<meta name="google-adsense-account"[^>]*>/.test(h) ? h.replace(/<meta name="google-adsense-account"[^>]*>/, meta) : h.replace(/(<meta charset="utf-8">)/i, '$1' + meta);
       const adsSrc = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${cfg.adsenseClient}`;

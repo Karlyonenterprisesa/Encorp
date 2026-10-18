@@ -4,6 +4,21 @@
   "outputDirectory": ".",
   "redirects": [
     {
+      "source": "/conteudo/:path*",
+      "destination": "/404.html",
+      "permanent": false
+    },
+    {
+      "source": "/api/_dados/:path*",
+      "destination": "/404.html",
+      "permanent": false
+    },
+    {
+      "source": "/api/_lib/:path*",
+      "destination": "/404.html",
+      "permanent": false
+    },
+    {
       "source": "/admin",
       "destination": "/admin/",
       "permanent": false
@@ -1535,7 +1550,33 @@
           "value": "strict-origin-when-cross-origin"
         }
       ]
+    },
+    {
+      "source": "/api/(aluno|aprendizagem)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/conta/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ],
-  "cleanUrls": false
+  "cleanUrls": false,
+  "functions": {
+    "api/aprendizagem.js": {
+      "includeFiles": "api/_dados/**"
+    },
+    "api/aluno.js": {
+      "maxDuration": 10
+    }
+  }
 }
