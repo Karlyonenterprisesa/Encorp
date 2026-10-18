@@ -61,6 +61,61 @@
       ],
       "correta": 2,
       "explicacao": "Permitem identificar e verificar as fontes usadas."
+    },
+    {
+      "pergunta": "A secção que descreve os métodos e procedimentos do estudo chama-se:",
+      "opcoes": [
+        "Metodologia",
+        "Dedicatória",
+        "Anexos",
+        "Índice"
+      ],
+      "correta": 1,
+      "explicacao": "A metodologia descreve tipo de estudo, amostra, instrumentos e análise."
+    },
+    {
+      "pergunta": "Qual é a função das conclusões?",
+      "opcoes": [
+        "Apresentar uma nova revisão de literatura",
+        "Responder aos objectivos com base nos resultados",
+        "Listar os agradecimentos",
+        "Descrever o orçamento"
+      ],
+      "correta": 2,
+      "explicacao": "As conclusões respondem aos objectivos e sintetizam os achados."
+    },
+    {
+      "pergunta": "Citar uma ideia de outro autor sem o indicar é:",
+      "opcoes": [
+        "Aceitável em trabalhos académicos",
+        "Plágio",
+        "Obrigatório",
+        "Uma forma de resumo"
+      ],
+      "correta": 2,
+      "explicacao": "É plágio e constitui falta grave em trabalhos académicos."
+    },
+    {
+      "pergunta": "O resumo (abstract) de uma monografia deve:",
+      "opcoes": [
+        "Ser o capítulo mais longo",
+        "Sintetizar objectivo, método, resultados e conclusão",
+        "Substituir a introdução",
+        "Conter apenas a bibliografia"
+      ],
+      "correta": 2,
+      "explicacao": "É uma síntese curta de todo o trabalho."
+    },
+    {
+      "pergunta": "Os anexos servem para:",
+      "opcoes": [
+        "Substituir os resultados",
+        "Incluir material de apoio, como o instrumento de recolha de dados",
+        "Fazer a conclusão",
+        "Citar autores"
+      ],
+      "correta": 2,
+      "explicacao": "Os anexos reúnem documentos complementares, como questionários e autorizações."
     }
   ],
   "etiquetas": [],

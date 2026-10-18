@@ -61,6 +61,61 @@
       ],
       "correta": 2,
       "explicacao": "Proteja de lesões; nunca meta objectos na boca nem a imobilize à força."
+    },
+    {
+      "pergunta": "Perante uma vítima inconsciente que não respira normalmente, deve-se:",
+      "opcoes": [
+        "Dar-lhe água",
+        "Pedir ajuda e iniciar compressões torácicas",
+        "Colocá-la sentada",
+        "Esperar que acorde"
+      ],
+      "correta": 2,
+      "explicacao": "Pede-se ajuda (112/serviço local) e iniciam-se compressões torácicas."
+    },
+    {
+      "pergunta": "Numa queimadura ligeira, a primeira medida é:",
+      "opcoes": [
+        "Aplicar manteiga",
+        "Arrefecer com água corrente fresca",
+        "Rebentar as bolhas",
+        "Aplicar gelo directamente"
+      ],
+      "correta": 2,
+      "explicacao": "Arrefece-se com água corrente fresca durante vários minutos."
+    },
+    {
+      "pergunta": "Numa suspeita de fractura, deve-se:",
+      "opcoes": [
+        "Tentar endireitar o membro",
+        "Imobilizar na posição encontrada",
+        "Massajar o local",
+        "Pedir ao doente que ande"
+      ],
+      "correta": 2,
+      "explicacao": "Imobiliza-se sem manipular, e procura-se ajuda."
+    },
+    {
+      "pergunta": "Numa hipoglicemia em doente consciente que consegue engolir, pode-se dar:",
+      "opcoes": [
+        "Açúcar ou bebida açucarada",
+        "Álcool",
+        "Café sem açúcar",
+        "Nada"
+      ],
+      "correta": 1,
+      "explicacao": "Hidratos de carbono de absorção rápida, como açúcar dissolvido em água."
+    },
+    {
+      "pergunta": "Ao prestar socorro, a protecção do socorrista:",
+      "opcoes": [
+        "Não importa",
+        "É prioritária e inclui o uso de luvas quando possível",
+        "Só interessa em hospital",
+        "Dispensa avaliar a cena"
+      ],
+      "correta": 2,
+      "explicacao": "Garantir a própria segurança evita novas vítimas."
     }
   ],
   "etiquetas": [],

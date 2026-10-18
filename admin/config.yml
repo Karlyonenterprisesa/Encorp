@@ -11,6 +11,10 @@ backend:
 locale: pt
 media_folder: uploads
 public_folder: /uploads
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
 site_url: https://encorp.vercel.app
 display_url: https://encorp.vercel.app
 collections:
@@ -192,6 +196,42 @@ collections:
     name: corpo
     widget: markdown
     required: false
+  - label: Modo do curso
+    name: modo
+    widget: select
+    options:
+    - {label: 'Livre (aberto a todos, sem conta)', value: livre}
+    - {label: 'Progressivo (conta de estudante, aulas por ordem, testes)', value: progressivo}
+    default: livre
+    required: false
+    hint: No modo progressivo cada aula pode ter conteúdo, slides, vídeo-resumo e um teste de 10 perguntas, corrigido no servidor.
+  - label: Nota mínima de aprovação (%) — modo progressivo
+    name: nota_minima
+    widget: number
+    value_type: int
+    min: 1
+    max: 100
+    default: 70
+    required: false
+  - label: Tentativas seguidas permitidas por teste (0 = ilimitadas)
+    name: tentativas
+    widget: number
+    value_type: int
+    min: 0
+    default: 3
+    required: false
+  - label: Espera, em minutos, depois de esgotar as tentativas
+    name: espera_minutos
+    widget: number
+    value_type: int
+    min: 0
+    default: 30
+    required: false
+  - label: Aulas por ordem (só abre a seguinte depois de aprovar a anterior)
+    name: sequencial
+    widget: boolean
+    default: true
+    required: false
   - label: Aulas deste curso (vídeos)
     name: aulas
     widget: list
@@ -219,6 +259,50 @@ collections:
       name: resumo
       widget: text
       required: false
+    - label: Conteúdo escrito da aula (modo progressivo)
+      name: conteudo
+      widget: markdown
+      required: false
+    - label: Slides de aprendizagem (modo progressivo)
+      name: slides
+      widget: list
+      required: false
+      summary: '{{fields.titulo}}'
+      hint: O estudante tem de ver todos os slides, pela ordem, antes do teste. O PowerPoint (.pptx) desta aula é gerado sozinho a partir destes slides em cada publicação.
+      fields:
+      - {label: Título do slide, name: titulo, widget: string}
+      - {label: Texto do slide, name: texto, widget: markdown, required: false}
+      - {label: Imagem do slide, name: imagem, widget: image, required: false}
+    - label: Permitir descarregar os slides em PowerPoint
+      name: permitir_pptx
+      widget: boolean
+      default: true
+      required: false
+      hint: O ficheiro .pptx é criado automaticamente a partir dos slides e só fica disponível para o estudante com a aula desbloqueada.
+    - label: Vídeo-resumo obrigatório antes do teste
+      name: video_obrigatorio
+      widget: boolean
+      default: false
+      required: false
+      hint: Só se aplica quando a aula tem vídeo (link do YouTube ou ficheiro). Sem vídeo, esta opção não bloqueia a aula.
+    - label: Teste da aula (modo progressivo)
+      name: teste
+      widget: object
+      required: false
+      fields:
+      - {label: Nota mínima desta aula (%) — vazio = a do curso, name: nota_minima, widget: number, value_type: int, min: 1, max: 100, required: false}
+      - {label: Tentativas seguidas desta aula (vazio = as do curso), name: tentativas, widget: number, value_type: int, min: 0, required: false}
+      - label: Perguntas (EXACTAMENTE 10)
+        name: perguntas
+        widget: list
+        min: 10
+        max: 10
+        summary: '{{fields.pergunta}}'
+        fields:
+        - {label: Pergunta, name: pergunta, widget: text}
+        - {label: Opções de resposta (use «Adicionar» para cada opção), name: opcoes, widget: list, min: 2, max: 6}
+        - {label: Número da opção correcta (1 = a primeira da lista), name: correta, widget: number, value_type: int, min: 1, max: 6, default: 1}
+        - {label: Explicação (só aparece depois de aprovar), name: explicacao, widget: text, required: false}
   - label: Etiquetas
     name: etiquetas
     widget: list
@@ -374,7 +458,9 @@ collections:
     name: perguntas
     widget: list
     summary: '{{fields.pergunta}}'
-    hint: Cada pergunta tem 2 a 6 opções e uma só resposta correta.
+    min: 10
+    max: 10
+    hint: O teste tem de ter EXACTAMENTE 10 perguntas. Cada pergunta tem 2 a 6 opções e uma só resposta correta.
     fields:
     - label: Pergunta
       name: pergunta

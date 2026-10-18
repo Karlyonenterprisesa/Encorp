@@ -14,36 +14,696 @@
     {
       "titulo": "Avaliação primária ABCDE",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "video": "",
+      "video_obrigatorio": false,
+      "duracao": "1 hora",
+      "resumo": "Sequência e prioridades da avaliação do doente crítico.",
+      "conteudo": "A abordagem **ABCDE** organiza a avaliação por prioridades: o que mata mais depressa avalia-se e trata-se primeiro.",
+      "slides": [
+        {
+          "titulo": "A e B: via aérea e respiração",
+          "texto": "- A: via aérea permeável? Fala, ruídos, obstrução\n- B: frequência respiratória, esforço, saturação, simetria do tórax\n- Resolva cada problema antes de passar à letra seguinte"
+        },
+        {
+          "titulo": "C e D: circulação e défice neurológico",
+          "texto": "- C: pulso, tensão arterial, perfusão, hemorragias\n- D: estado de consciência (por exemplo, escala AVPU), pupilas e glicemia\n- Reavalie sempre que o doente mudar"
+        },
+        {
+          "titulo": "E: exposição e reavaliação",
+          "texto": "- E: despir para examinar, preservando dignidade e temperatura\n- Evite a hipotermia\n- Reavalie de forma sistemática depois de cada intervenção\n- Peça ajuda cedo"
+        }
+      ],
+      "teste": {
+        "perguntas": [
+          {
+            "pergunta": "O que significa A no ABCDE?",
+            "opcoes": [
+              "Ambiente",
+              "Via aérea (Airway)",
+              "Abdómen",
+              "Alimentação"
+            ],
+            "correta": 2,
+            "explicacao": "A é Airway: via aérea."
+          },
+          {
+            "pergunta": "O que se avalia em B?",
+            "opcoes": [
+              "Respiração",
+              "Bexiga",
+              "Braço",
+              "Barulho"
+            ],
+            "correta": 1,
+            "explicacao": "Breathing: frequência, esforço e saturação."
+          },
+          {
+            "pergunta": "A letra C refere-se a:",
+            "opcoes": [
+              "Circulação",
+              "Cor",
+              "Cabelo",
+              "Cuidados"
+            ],
+            "correta": 1,
+            "explicacao": "Circulation: pulso, TA, perfusão, hemorragias."
+          },
+          {
+            "pergunta": "A letra D refere-se a:",
+            "opcoes": [
+              "Dor de dentes",
+              "Défice neurológico",
+              "Dieta",
+              "Dormir"
+            ],
+            "correta": 2,
+            "explicacao": "Disability: consciência, pupilas e glicemia."
+          },
+          {
+            "pergunta": "A letra E refere-se a:",
+            "opcoes": [
+              "Exposição e controlo do ambiente",
+              "Escola",
+              "Energia",
+              "Emprego"
+            ],
+            "correta": 1,
+            "explicacao": "Exposure: despir para examinar e evitar hipotermia."
+          },
+          {
+            "pergunta": "Se encontrar um problema na via aérea, deve:",
+            "opcoes": [
+              "Anotar e continuar",
+              "Resolvê-lo antes de avançar",
+              "Chamar no fim",
+              "Ignorar"
+            ],
+            "correta": 2,
+            "explicacao": "Resolve-se à medida que se encontra."
+          },
+          {
+            "pergunta": "Uma escala simples de consciência é:",
+            "opcoes": [
+              "AVPU",
+              "NEWS3",
+              "PICO",
+              "ABNT"
+            ],
+            "correta": 1,
+            "explicacao": "AVPU: alerta, voz, dor, não responde."
+          },
+          {
+            "pergunta": "A glicemia capilar avalia-se habitualmente em:",
+            "opcoes": [
+              "D",
+              "A",
+              "B",
+              "E"
+            ],
+            "correta": 1,
+            "explicacao": "Faz parte da avaliação do estado neurológico."
+          },
+          {
+            "pergunta": "Depois de cada intervenção, deve-se:",
+            "opcoes": [
+              "Reavaliar",
+              "Parar",
+              "Ignorar",
+              "Despir sempre"
+            ],
+            "correta": 1,
+            "explicacao": "A reavaliação contínua é parte do ABCDE."
+          },
+          {
+            "pergunta": "Ao expor o doente, deve-se:",
+            "opcoes": [
+              "Evitar a hipotermia e preservar a dignidade",
+              "Deixá-lo despido",
+              "Ignorar a temperatura",
+              "Expor em público"
+            ],
+            "correta": 1,
+            "explicacao": "Exposição com cuidado."
+          }
+        ]
+      }
     },
     {
       "titulo": "Oxigenoterapia",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "video": "",
+      "video_obrigatorio": false,
+      "duracao": "1 hora",
+      "resumo": "Indicações, dispositivos e alvos de saturação.",
+      "conteudo": "O oxigénio é um **medicamento**: tem indicação, dose e alvo. Dar de mais pode ser tão mau como dar de menos em alguns doentes.",
+      "slides": [
+        {
+          "titulo": "Quando e quanto",
+          "texto": "- Indicado na hipoxemia, de acordo com prescrição ou protocolo\n- Alvo habitual no adulto: SpO₂ de 94 a 98%\n- Doentes com risco de insuficiência respiratória hipercápnica (por exemplo, DPOC): alvo de 88 a 92%\n- Registe sempre o dispositivo e o fluxo"
+        },
+        {
+          "titulo": "Dispositivos",
+          "texto": "- Cânula nasal: fluxos baixos, cerca de 1 a 4 L/min\n- Máscara simples: fluxos moderados\n- Máscara com reservatório: fluxos altos, cerca de 10 a 15 L/min\n- Humidificação conforme protocolo"
+        },
+        {
+          "titulo": "Segurança",
+          "texto": "- Oxigénio favorece a combustão: sem chamas nem tabaco\n- Verifique o fluxómetro e as ligações\n- Reavalie a saturação e a respiração após cada ajuste\n- Se o doente piorar, alerte a equipa"
+        }
+      ],
+      "teste": {
+        "perguntas": [
+          {
+            "pergunta": "O alvo habitual de SpO₂ no adulto sem risco hipercápnico é:",
+            "opcoes": [
+              "94 a 98%",
+              "70 a 80%",
+              "80 a 85%",
+              "99 a 100% obrigatório"
+            ],
+            "correta": 1,
+            "explicacao": "Em geral 94 a 98%."
+          },
+          {
+            "pergunta": "Em doentes com risco hipercápnico, o alvo costuma ser:",
+            "opcoes": [
+              "88 a 92%",
+              "98 a 100%",
+              "60%",
+              "Não há alvo"
+            ],
+            "correta": 1,
+            "explicacao": "Evita-se a hiperóxia."
+          },
+          {
+            "pergunta": "A cânula nasal usa habitualmente fluxos:",
+            "opcoes": [
+              "Baixos",
+              "Muito altos",
+              "De 50 L/min",
+              "Não usa fluxo"
+            ],
+            "correta": 1,
+            "explicacao": "Cerca de 1 a 4 L/min."
+          },
+          {
+            "pergunta": "A máscara com reservatório usa fluxos:",
+            "opcoes": [
+              "Altos",
+              "Nulos",
+              "Entre 0,1 e 0,2 L/min",
+              "Só 1 L/min"
+            ],
+            "correta": 1,
+            "explicacao": "Cerca de 10 a 15 L/min."
+          },
+          {
+            "pergunta": "Perto de oxigénio, é proibido:",
+            "opcoes": [
+              "Chamas e tabaco",
+              "Água",
+              "Luz do dia",
+              "Cadeira"
+            ],
+            "correta": 1,
+            "explicacao": "O oxigénio favorece a combustão."
+          },
+          {
+            "pergunta": "Ao dar oxigénio, deve-se registar:",
+            "opcoes": [
+              "O dispositivo e o fluxo",
+              "Só a hora",
+              "A cor do tubo",
+              "Nada"
+            ],
+            "correta": 1,
+            "explicacao": "Registo do dispositivo e fluxo."
+          },
+          {
+            "pergunta": "Após aumentar o fluxo, deve-se:",
+            "opcoes": [
+              "Reavaliar a saturação e a respiração",
+              "Sair",
+              "Ignorar",
+              "Apagar o registo"
+            ],
+            "correta": 1,
+            "explicacao": "Reavalia-se o efeito."
+          },
+          {
+            "pergunta": "O oxigénio deve ser administrado:",
+            "opcoes": [
+              "Segundo prescrição ou protocolo",
+              "Sem critério",
+              "Só às sextas",
+              "Só em casa"
+            ],
+            "correta": 1,
+            "explicacao": "É tratado como medicamento."
+          },
+          {
+            "pergunta": "Se o doente piorar com oxigénio, deve-se:",
+            "opcoes": [
+              "Alertar a equipa",
+              "Retirar o registo",
+              "Ignorar",
+              "Dormir"
+            ],
+            "correta": 1,
+            "explicacao": "Comunicação precoce."
+          },
+          {
+            "pergunta": "Antes de iniciar, deve-se verificar:",
+            "opcoes": [
+              "Fluxómetro e ligações",
+              "A cor da parede",
+              "O relógio",
+              "O sapato"
+            ],
+            "correta": 1,
+            "explicacao": "Equipamento funcional e seguro."
+          }
+        ]
+      }
     },
     {
       "titulo": "Acesso venoso e fluidos",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "video": "",
+      "video_obrigatorio": false,
+      "duracao": "1 hora",
+      "resumo": "Escolha de cateter, cuidados e administração de fluidos.",
+      "conteudo": "O acesso venoso periférico permite medicamentos e fluidos. A técnica **asséptica** e a vigilância previnem complicações.",
+      "slides": [
+        {
+          "titulo": "Preparação e técnica",
+          "texto": "- Higiene das mãos e luvas\n- Escolha o local e o calibre adequados\n- Desinfecte a pele e respeite o tempo de secagem\n- Confirme o retorno venoso e fixe o cateter"
+        },
+        {
+          "titulo": "Fluidos",
+          "texto": "- Cristaloides (por exemplo, soro fisiológico, Ringer lactato) conforme prescrição\n- Em hipovolemia, administre em bólus prescritos e reavalie após cada um\n- Verifique o rótulo, o prazo e o aspecto\n- Registe volume, hora e resposta do doente"
+        },
+        {
+          "titulo": "Vigilância e complicações",
+          "texto": "- Infiltração: inchaço, frio, dor no local\n- Flebite: vermelhidão, calor, cordão doloroso\n- Sobrecarga de fluidos: dispneia, edemas\n- Pare e avise a equipa perante sinais de complicação"
+        }
+      ],
+      "teste": {
+        "perguntas": [
+          {
+            "pergunta": "Antes de puncionar, deve-se:",
+            "opcoes": [
+              "Fazer higiene das mãos e usar luvas",
+              "Saltar a higiene",
+              "Usar luvas sujas",
+              "Aplicar terra"
+            ],
+            "correta": 1,
+            "explicacao": "Técnica asséptica."
+          },
+          {
+            "pergunta": "Qual destes é um sinal de infiltração?",
+            "opcoes": [
+              "Inchaço e frio no local",
+              "Pulso normal",
+              "Pele seca",
+              "Sono"
+            ],
+            "correta": 1,
+            "explicacao": "O fluido sai da veia para os tecidos."
+          },
+          {
+            "pergunta": "Qual destes é um sinal de flebite?",
+            "opcoes": [
+              "Vermelhidão e calor ao longo da veia",
+              "Sede",
+              "Tosse",
+              "Soluços"
+            ],
+            "correta": 1,
+            "explicacao": "Inflamação da veia."
+          },
+          {
+            "pergunta": "Em hipovolemia, os bólus de fluidos devem ser:",
+            "opcoes": [
+              "Prescritos e seguidos de reavaliação",
+              "Livres e sem registo",
+              "Sempre de 5 L",
+              "Evitados sempre"
+            ],
+            "correta": 1,
+            "explicacao": "Cada bólus é seguido de reavaliação."
+          },
+          {
+            "pergunta": "Antes de administrar um fluido, verifica-se:",
+            "opcoes": [
+              "Rótulo, prazo e aspecto",
+              "A cor do saco apenas",
+              "A marca",
+              "Nada"
+            ],
+            "correta": 1,
+            "explicacao": "Confirmações de segurança."
+          },
+          {
+            "pergunta": "Sinais de sobrecarga de fluidos incluem:",
+            "opcoes": [
+              "Dispneia e edemas",
+              "Boa disposição",
+              "Apetite",
+              "Sede"
+            ],
+            "correta": 1,
+            "explicacao": "Excesso de volume."
+          },
+          {
+            "pergunta": "Se houver sinais de complicação, deve-se:",
+            "opcoes": [
+              "Parar e avisar a equipa",
+              "Aumentar o ritmo",
+              "Ignorar",
+              "Cobrir com pano"
+            ],
+            "correta": 1,
+            "explicacao": "Parar e comunicar."
+          },
+          {
+            "pergunta": "O cateter deve ser:",
+            "opcoes": [
+              "Bem fixado",
+              "Solto",
+              "Colado com fita suja",
+              "Dobrado"
+            ],
+            "correta": 1,
+            "explicacao": "A fixação previne deslocamento."
+          },
+          {
+            "pergunta": "O registo deve incluir:",
+            "opcoes": [
+              "Volume, hora e resposta",
+              "Só o nome do doente",
+              "A cor do cateter",
+              "Nada"
+            ],
+            "correta": 1,
+            "explicacao": "Registo completo."
+          },
+          {
+            "pergunta": "A pele deve ser desinfectada e:",
+            "opcoes": [
+              "Deixar secar o tempo indicado",
+              "Puncionar de imediato",
+              "Molhar de novo",
+              "Limpar com terra"
+            ],
+            "correta": 1,
+            "explicacao": "O tempo de contacto do antissético importa."
+          }
+        ]
+      }
     },
     {
       "titulo": "Reconhecer a deterioração (NEWS2)",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "video": "",
+      "video_obrigatorio": false,
+      "duracao": "1 hora",
+      "resumo": "Utilizar a escala NEWS2 para identificar o doente que se agrava.",
+      "conteudo": "A **NEWS2** soma pontos de sete parâmetros para alertar precocemente: frequência respiratória, SpO₂, oxigénio suplementar, tensão arterial sistólica, pulso, consciência e temperatura.",
+      "slides": [
+        {
+          "titulo": "Os sete parâmetros",
+          "texto": "- Frequência respiratória\n- Saturação de oxigénio\n- Ar ambiente ou oxigénio suplementar\n- Tensão arterial sistólica\n- Frequência de pulso\n- Nível de consciência\n- Temperatura"
+        },
+        {
+          "titulo": "Interpretar a pontuação",
+          "texto": "- Pontuação baixa: continuar a monitorizar na frequência definida\n- Parâmetro isolado com pontuação máxima: avaliação urgente\n- Pontuação intermédia: resposta urgente da equipa\n- Pontuação alta: resposta de emergência\n- Siga os limiares do protocolo da sua instituição"
+        },
+        {
+          "titulo": "Agir",
+          "texto": "- Aumente a frequência das observações\n- Comunique de forma estruturada\n- Registe valores, hora e a quem avisou\n- A escala apoia o julgamento clínico e não o substitui"
+        }
+      ],
+      "teste": {
+        "perguntas": [
+          {
+            "pergunta": "A NEWS2 serve para:",
+            "opcoes": [
+              "Detectar deterioração clínica",
+              "Medir a altura",
+              "Calcular doses",
+              "Medir a dor"
+            ],
+            "correta": 1,
+            "explicacao": "Alerta precoce de deterioração."
+          },
+          {
+            "pergunta": "Quantos parâmetros inclui a NEWS2?",
+            "opcoes": [
+              "Sete",
+              "Dois",
+              "Vinte",
+              "Nenhum"
+            ],
+            "correta": 1,
+            "explicacao": "Sete parâmetros fisiológicos."
+          },
+          {
+            "pergunta": "Qual destes é um parâmetro da NEWS2?",
+            "opcoes": [
+              "Frequência respiratória",
+              "Altura",
+              "Peso",
+              "Idade"
+            ],
+            "correta": 1,
+            "explicacao": "Frequência respiratória."
+          },
+          {
+            "pergunta": "A administração de oxigénio suplementar:",
+            "opcoes": [
+              "Conta na pontuação",
+              "Não conta",
+              "Anula a pontuação",
+              "É proibida"
+            ],
+            "correta": 1,
+            "explicacao": "Faz parte do cálculo."
+          },
+          {
+            "pergunta": "Uma pontuação alta deve levar a:",
+            "opcoes": [
+              "Resposta de emergência",
+              "Adiar",
+              "Ignorar",
+              "Apenas registar"
+            ],
+            "correta": 1,
+            "explicacao": "Escalada imediata."
+          },
+          {
+            "pergunta": "Perante deterioração, deve-se:",
+            "opcoes": [
+              "Aumentar a frequência das observações",
+              "Diminuir as observações",
+              "Parar de medir",
+              "Esperar"
+            ],
+            "correta": 1,
+            "explicacao": "Observar com mais frequência."
+          },
+          {
+            "pergunta": "A NEWS2 substitui o julgamento clínico?",
+            "opcoes": [
+              "Não, apoia-o",
+              "Sim, totalmente",
+              "Só à noite",
+              "Sim, sempre"
+            ],
+            "correta": 1,
+            "explicacao": "É ferramenta de apoio."
+          },
+          {
+            "pergunta": "O nível de consciência pode avaliar-se com:",
+            "opcoes": [
+              "AVPU",
+              "PICO",
+              "ABNT",
+              "PDF"
+            ],
+            "correta": 1,
+            "explicacao": "Alerta, voz, dor, não responde."
+          },
+          {
+            "pergunta": "Os limiares de resposta devem seguir:",
+            "opcoes": [
+              "O protocolo da instituição",
+              "Opinião de terceiros",
+              "O acaso",
+              "Nada"
+            ],
+            "correta": 1,
+            "explicacao": "Protocolo local."
+          },
+          {
+            "pergunta": "Ao alertar, a comunicação deve ser:",
+            "opcoes": [
+              "Clara e estruturada",
+              "Vaga",
+              "Escondida",
+              "Adiada"
+            ],
+            "correta": 1,
+            "explicacao": "Comunicação estruturada."
+          }
+        ]
+      }
     },
     {
       "titulo": "Choque",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "video": "",
+      "video_obrigatorio": false,
+      "duracao": "1 hora",
+      "resumo": "Reconhecer e abordar os tipos de choque.",
+      "conteudo": "O **choque** é uma falência circulatória que não entrega oxigénio suficiente aos tecidos. Reconhecê-lo cedo e tratar a causa salva vidas.",
+      "slides": [
+        {
+          "titulo": "Tipos de choque",
+          "texto": "- Hipovolémico: perda de volume (hemorragia, desidratação)\n- Cardiogénico: falência da bomba\n- Distributivo: vasodilatação (séptico, anafiláctico)\n- Obstrutivo: obstáculo à circulação (por exemplo, tamponamento, embolia)"
+        },
+        {
+          "titulo": "Sinais",
+          "texto": "- Taquicardia e taquipneia\n- Hipotensão (pode surgir tarde)\n- Pele fria e pegajosa, ou quente e vermelha em alguns casos\n- Enchimento capilar lento, oligúria e alteração da consciência"
+        },
+        {
+          "titulo": "Primeiras acções",
+          "texto": "- ABCDE, oxigénio se indicado e monitorização\n- Acesso venoso e fluidos conforme prescrição e causa\n- Tratar a causa: parar hemorragia, antibióticos, adrenalina em anafilaxia\n- Alertar a equipa de emergência e reavaliar"
+        }
+      ],
+      "teste": {
+        "perguntas": [
+          {
+            "pergunta": "O choque hipovolémico deve-se a:",
+            "opcoes": [
+              "Perda de volume",
+              "Excesso de sono",
+              "Frio apenas",
+              "Dor de cabeça"
+            ],
+            "correta": 1,
+            "explicacao": "Hemorragia ou desidratação."
+          },
+          {
+            "pergunta": "A anafilaxia é um choque:",
+            "opcoes": [
+              "Distributivo",
+              "Hipovolémico",
+              "Obstrutivo",
+              "Nenhum"
+            ],
+            "correta": 1,
+            "explicacao": "Vasodilatação grave."
+          },
+          {
+            "pergunta": "Qual destes é um sinal de choque?",
+            "opcoes": [
+              "Taquicardia e pele fria",
+              "Apetite",
+              "Tosse seca isolada",
+              "Sorriso"
+            ],
+            "correta": 1,
+            "explicacao": "Compensação circulatória."
+          },
+          {
+            "pergunta": "A hipotensão no choque:",
+            "opcoes": [
+              "Pode surgir tarde",
+              "Surge sempre primeiro",
+              "Nunca surge",
+              "É normal"
+            ],
+            "correta": 1,
+            "explicacao": "Os mecanismos compensatórios mantêm a TA durante algum tempo."
+          },
+          {
+            "pergunta": "O enchimento capilar no choque está habitualmente:",
+            "opcoes": [
+              "Lento",
+              "Rápido",
+              "Inalterado",
+              "Ausente de qualquer valor"
+            ],
+            "correta": 1,
+            "explicacao": "Perfusão periférica reduzida."
+          },
+          {
+            "pergunta": "O tratamento do choque inclui:",
+            "opcoes": [
+              "Tratar a causa",
+              "Ignorar a causa",
+              "Esperar",
+              "Dar apenas água"
+            ],
+            "correta": 1,
+            "explicacao": "A causa tem de ser tratada."
+          },
+          {
+            "pergunta": "Na anafilaxia, o fármaco de primeira linha é:",
+            "opcoes": [
+              "Adrenalina intramuscular",
+              "Paracetamol",
+              "Vitamina C",
+              "Xarope"
+            ],
+            "correta": 1,
+            "explicacao": "Adrenalina IM precoce."
+          },
+          {
+            "pergunta": "A oligúria significa:",
+            "opcoes": [
+              "Pouca urina",
+              "Muita urina",
+              "Urina azul",
+              "Sem sede"
+            ],
+            "correta": 1,
+            "explicacao": "Redução do débito urinário."
+          },
+          {
+            "pergunta": "No choque, deve-se:",
+            "opcoes": [
+              "Reavaliar de forma contínua",
+              "Parar a avaliação",
+              "Deixar o doente só",
+              "Esconder os sinais"
+            ],
+            "correta": 1,
+            "explicacao": "Monitorização contínua."
+          },
+          {
+            "pergunta": "O choque obstrutivo ocorre quando:",
+            "opcoes": [
+              "Há obstáculo à circulação",
+              "Há excesso de energia",
+              "Há frio",
+              "Há dor de dentes"
+            ],
+            "correta": 1,
+            "explicacao": "Por exemplo, embolia pulmonar ou tamponamento."
+          }
+        ]
+      }
     }
   ],
   "etiquetas": [
     "Urgência"
   ],
-  "publicado": true
+  "publicado": true,
+  "modo": "progressivo",
+  "nota_minima": 70,
+  "tentativas": 3,
+  "espera_minutos": 30,
+  "sequencial": true
 }

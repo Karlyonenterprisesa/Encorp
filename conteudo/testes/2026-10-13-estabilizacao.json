@@ -61,6 +61,61 @@
       ],
       "correta": 2,
       "explicacao": "O NEWS2 pontua parâmetros fisiológicos para alertar sobre deterioração."
+    },
+    {
+      "pergunta": "O que significa a letra B no ABCDE?",
+      "opcoes": [
+        "Sangue (Blood)",
+        "Respiração (Breathing)",
+        "Bexiga",
+        "Batimento"
+      ],
+      "correta": 2,
+      "explicacao": "B refere-se à respiração (Breathing): frequência, esforço e saturação."
+    },
+    {
+      "pergunta": "O que se avalia na letra C do ABCDE?",
+      "opcoes": [
+        "Circulação",
+        "Consciência",
+        "Cabeça",
+        "Cuidados"
+      ],
+      "correta": 1,
+      "explicacao": "C refere-se à circulação: pulso, tensão arterial, perfusão e hemorragias."
+    },
+    {
+      "pergunta": "A letra E do ABCDE significa:",
+      "opcoes": [
+        "Emergência",
+        "Exposição e controlo ambiental",
+        "Escala de dor",
+        "Exame laboratorial"
+      ],
+      "correta": 2,
+      "explicacao": "E é Exposição: despir para examinar, evitando a hipotermia."
+    },
+    {
+      "pergunta": "Na avaliação primária, uma obstrução da via aérea deve ser:",
+      "opcoes": [
+        "Registada e tratada no fim",
+        "Resolvida de imediato",
+        "Ignorada se o doente respira",
+        "Reavaliada só na manhã seguinte"
+      ],
+      "correta": 2,
+      "explicacao": "Problemas A, B e C resolvem-se à medida que são encontrados."
+    },
+    {
+      "pergunta": "Após qualquer intervenção, o doente crítico deve ser:",
+      "opcoes": [
+        "Deixado em repouso sem vigilância",
+        "Reavaliado de forma sistemática",
+        "Avaliado apenas à chegada do médico",
+        "Avaliado só em caso de queixa"
+      ],
+      "correta": 2,
+      "explicacao": "A reavaliação contínua é parte essencial da abordagem ABCDE."
     }
   ],
   "etiquetas": [],

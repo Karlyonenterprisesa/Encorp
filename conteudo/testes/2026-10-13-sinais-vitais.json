@@ -61,6 +61,61 @@
       ],
       "correta": 2,
       "explicacao": "Hipotensão com sintomas pode indicar choque: alerte e reavalie."
+    },
+    {
+      "pergunta": "Qual é o valor de temperatura considerado hipotermia?",
+      "opcoes": [
+        "Abaixo de 35,0 °C",
+        "36,5 °C",
+        "37,5 °C",
+        "38,0 °C"
+      ],
+      "correta": 1,
+      "explicacao": "Temperatura inferior a 35,0 °C."
+    },
+    {
+      "pergunta": "Qual é a tensão arterial normal de referência num adulto?",
+      "opcoes": [
+        "Abaixo de 120/80 mmHg",
+        "150/95 mmHg",
+        "170/100 mmHg",
+        "Abaixo de 70/40 mmHg"
+      ],
+      "correta": 1,
+      "explicacao": "Abaixo de 120/80 mmHg."
+    },
+    {
+      "pergunta": "A taquicardia no adulto define-se como frequência:",
+      "opcoes": [
+        "Acima de 100 bpm",
+        "Entre 60 e 100 bpm",
+        "Abaixo de 60 bpm",
+        "Igual a zero"
+      ],
+      "correta": 1,
+      "explicacao": "Acima de 100 batimentos por minuto em repouso."
+    },
+    {
+      "pergunta": "Um valor isolado de tensão arterial elevada:",
+      "opcoes": [
+        "Confirma sempre hipertensão",
+        "Deve ser repetido e confirmado",
+        "Dispensa nova medição",
+        "Indica sempre emergência"
+      ],
+      "correta": 2,
+      "explicacao": "A hipertensão exige confirmação em medições repetidas."
+    },
+    {
+      "pergunta": "Ao registar a SpO₂ deve indicar-se:",
+      "opcoes": [
+        "Se o doente está em ar ambiente ou com oxigénio",
+        "A cor da roupa",
+        "O nome do oxímetro",
+        "O peso"
+      ],
+      "correta": 1,
+      "explicacao": "O contexto de oxigénio suplementar muda a interpretação."
     }
   ],
   "etiquetas": [],

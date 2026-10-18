@@ -14,30 +14,575 @@
     {
       "titulo": "Temperatura e pulso",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "video": "",
+      "video_obrigatorio": false,
+      "duracao": "1 hora",
+      "resumo": "Locais e técnica de medição da temperatura; frequência, ritmo e amplitude do pulso.",
+      "conteudo": "Nesta aula aprende a medir a **temperatura** e o **pulso** com técnica correcta e a registar os valores.\n\nA temperatura pode ser medida na axila, na boca, no ouvido ou na testa. Escolha o local conforme o doente e o material disponível, e use sempre o mesmo local para comparar valores ao longo do tempo.\n\nO pulso radial avalia a **frequência** (batimentos por minuto), o **ritmo** (regular ou irregular) e a **amplitude** (fraco, normal, forte).",
+      "slides": [
+        {
+          "titulo": "Temperatura corporal: valores de referência",
+          "texto": "- Adulto saudável, axilar: cerca de 36,0 a 37,0 °C\n- Febre: a partir de 38,0 °C\n- Hipotermia: abaixo de 35,0 °C\n- Registe sempre o local da medição"
+        },
+        {
+          "titulo": "Técnica de medição da temperatura",
+          "texto": "1. Lave as mãos e explique o procedimento\n2. Verifique que o termómetro está limpo e a zero\n3. Axila seca, termómetro bem encostado à pele\n4. Aguarde o sinal sonoro ou o tempo indicado\n5. Leia, registe e limpe o termómetro"
+        },
+        {
+          "titulo": "Pulso radial: como avaliar",
+          "texto": "- Use as pontas de dois ou três dedos, nunca o polegar\n- Pulso regular: conte 30 segundos e multiplique por 2\n- Pulso irregular: conte 60 segundos completos\n- Avalie frequência, ritmo e amplitude"
+        },
+        {
+          "titulo": "Pulso: valores de referência",
+          "texto": "- Adulto em repouso: 60 a 100 batimentos por minuto\n- Taquicardia: acima de 100 bpm\n- Bradicardia: abaixo de 60 bpm\n- Febre, dor, ansiedade e hemorragia podem aumentar a frequência"
+        }
+      ],
+      "teste": {
+        "perguntas": [
+          {
+            "pergunta": "Qual é a faixa de referência da frequência de pulso de um adulto em repouso?",
+            "opcoes": [
+              "40 a 60 bpm",
+              "60 a 100 bpm",
+              "100 a 130 bpm",
+              "130 a 160 bpm"
+            ],
+            "correta": 2,
+            "explicacao": "A referência habitual no adulto em repouso é 60 a 100 batimentos por minuto."
+          },
+          {
+            "pergunta": "A partir de que valor se considera febre num adulto?",
+            "opcoes": [
+              "36,0 °C",
+              "37,0 °C",
+              "38,0 °C",
+              "41,0 °C"
+            ],
+            "correta": 3,
+            "explicacao": "Considera-se febre a temperatura igual ou superior a 38,0 °C."
+          },
+          {
+            "pergunta": "Para avaliar o pulso radial devemos usar:",
+            "opcoes": [
+              "O polegar",
+              "Duas ou três pontas de dedos",
+              "O punho fechado",
+              "Apenas o estetoscópio"
+            ],
+            "correta": 2,
+            "explicacao": "O polegar tem pulsação própria e pode induzir erro; usam-se as pontas dos dedos."
+          },
+          {
+            "pergunta": "Se o pulso é irregular, deve contar-se durante:",
+            "opcoes": [
+              "15 segundos",
+              "30 segundos",
+              "60 segundos",
+              "5 segundos"
+            ],
+            "correta": 3,
+            "explicacao": "Num pulso irregular, a contagem deve ser de um minuto completo."
+          },
+          {
+            "pergunta": "Uma frequência de pulso de 52 bpm num adulto em repouso designa-se:",
+            "opcoes": [
+              "Taquicardia",
+              "Bradicardia",
+              "Normocardia",
+              "Arritmia"
+            ],
+            "correta": 2,
+            "explicacao": "Frequência abaixo de 60 bpm designa-se bradicardia."
+          },
+          {
+            "pergunta": "Qual destas situações pode aumentar a frequência de pulso?",
+            "opcoes": [
+              "Febre",
+              "Repouso prolongado",
+              "Sono profundo",
+              "Frio intenso apenas"
+            ],
+            "correta": 1,
+            "explicacao": "Febre, dor, ansiedade e hemorragia aumentam a frequência cardíaca."
+          },
+          {
+            "pergunta": "Antes de medir a temperatura axilar, a axila deve estar:",
+            "opcoes": [
+              "Húmida",
+              "Seca",
+              "Com pomada",
+              "Coberta com gaze molhada"
+            ],
+            "correta": 2,
+            "explicacao": "A humidade altera a leitura; a axila deve estar seca."
+          },
+          {
+            "pergunta": "Ao comparar a temperatura de um doente ao longo do dia, deve-se:",
+            "opcoes": [
+              "Mudar de local a cada medição",
+              "Usar sempre o mesmo local e registar qual",
+              "Usar o local mais cómodo para o enfermeiro",
+              "Não registar o local"
+            ],
+            "correta": 2,
+            "explicacao": "Locais diferentes dão valores diferentes; use o mesmo e registe-o."
+          },
+          {
+            "pergunta": "Temperatura de 34,5 °C num adulto indica:",
+            "opcoes": [
+              "Febre",
+              "Valor normal",
+              "Hipotermia",
+              "Hipertermia"
+            ],
+            "correta": 3,
+            "explicacao": "Temperatura abaixo de 35,0 °C corresponde a hipotermia."
+          },
+          {
+            "pergunta": "Além da frequência, no pulso avalia-se também:",
+            "opcoes": [
+              "Cor e peso",
+              "Ritmo e amplitude",
+              "Altura e idade",
+              "Apenas a temperatura da pele"
+            ],
+            "correta": 2,
+            "explicacao": "No pulso avaliam-se frequência, ritmo e amplitude."
+          }
+        ]
+      }
     },
     {
       "titulo": "Respiração e saturação",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "video": "",
+      "video_obrigatorio": false,
+      "duracao": "1 hora",
+      "resumo": "Contagem da frequência respiratória e utilização do oxímetro de pulso.",
+      "conteudo": "A **frequência respiratória** (FR) é o sinal vital mais facilmente esquecido, mas é dos que mais cedo se altera num doente que se agrava.\n\nA **saturação periférica de oxigénio** (SpO₂) mede, de forma não invasiva, a percentagem de hemoglobina saturada com oxigénio.",
+      "slides": [
+        {
+          "titulo": "Frequência respiratória",
+          "texto": "- Adulto em repouso: 12 a 20 respirações por minuto\n- Taquipneia: acima de 20 por minuto\n- Bradipneia: abaixo de 12 por minuto\n- Conte durante 60 segundos"
+        },
+        {
+          "titulo": "Como contar a respiração",
+          "texto": "1. Mantenha a posição do dedo no pulso, como se ainda o contasse\n2. Observe o movimento do tórax ou do abdómen\n3. Cada subida e descida conta como uma respiração\n4. Registe também esforço respiratório e uso de músculos acessórios"
+        },
+        {
+          "titulo": "Saturação periférica de oxigénio (SpO₂)",
+          "texto": "- Valor habitual: 95% ou mais em ar ambiente\n- Persistentemente abaixo de 90%: avaliação urgente\n- Coloque o sensor num dedo limpo, quente e imóvel\n- Registe se o doente está em ar ambiente ou com oxigénio"
+        },
+        {
+          "titulo": "Limitações do oxímetro",
+          "texto": "- Extremidades frias ou má perfusão dão leituras pouco fiáveis\n- Verniz ou unhas postiças podem alterar a leitura\n- Movimento do doente dificulta a medição\n- Na intoxicação por monóxido de carbono a leitura pode parecer normal"
+        }
+      ],
+      "teste": {
+        "perguntas": [
+          {
+            "pergunta": "Qual é a frequência respiratória de referência de um adulto em repouso?",
+            "opcoes": [
+              "4 a 8 por minuto",
+              "12 a 20 por minuto",
+              "25 a 35 por minuto",
+              "40 a 50 por minuto"
+            ],
+            "correta": 2,
+            "explicacao": "Em repouso, o adulto respira cerca de 12 a 20 vezes por minuto."
+          },
+          {
+            "pergunta": "Uma frequência respiratória de 28 por minuto designa-se:",
+            "opcoes": [
+              "Bradipneia",
+              "Eupneia",
+              "Taquipneia",
+              "Apneia"
+            ],
+            "correta": 3,
+            "explicacao": "Acima de 20 respirações por minuto fala-se de taquipneia."
+          },
+          {
+            "pergunta": "Durante quanto tempo se deve contar a frequência respiratória?",
+            "opcoes": [
+              "10 segundos",
+              "30 segundos",
+              "60 segundos",
+              "5 segundos"
+            ],
+            "correta": 3,
+            "explicacao": "Conta-se durante um minuto completo para maior fiabilidade."
+          },
+          {
+            "pergunta": "Porque se mantém a posição de dedos no pulso ao contar a respiração?",
+            "opcoes": [
+              "Para o doente não perceber que está a ser observado",
+              "Para medir a temperatura",
+              "Para calibrar o oxímetro",
+              "Não há razão"
+            ],
+            "correta": 1,
+            "explicacao": "Se o doente se aperceber, pode alterar o padrão respiratório."
+          },
+          {
+            "pergunta": "Uma SpO₂ persistentemente abaixo de 90% em ar ambiente exige:",
+            "opcoes": [
+              "Nenhuma acção",
+              "Avaliação urgente",
+              "Apenas registo no fim do turno",
+              "Repetir só no dia seguinte"
+            ],
+            "correta": 2,
+            "explicacao": "Hipoxemia significativa exige avaliação e actuação urgentes."
+          },
+          {
+            "pergunta": "Qual é o valor habitual de SpO₂ num adulto saudável em ar ambiente?",
+            "opcoes": [
+              "70% ou menos",
+              "80%",
+              "90%",
+              "95% ou mais"
+            ],
+            "correta": 4,
+            "explicacao": "Em geral, 95% ou mais."
+          },
+          {
+            "pergunta": "Qual destas situações pode dar uma leitura falsa no oxímetro?",
+            "opcoes": [
+              "Dedo quente e imóvel",
+              "Verniz nas unhas",
+              "Mão limpa",
+              "Sensor bem posicionado"
+            ],
+            "correta": 2,
+            "explicacao": "Verniz, extremidades frias e movimento podem alterar a leitura."
+          },
+          {
+            "pergunta": "Ao registar a SpO₂ deve indicar-se também:",
+            "opcoes": [
+              "A cor do sensor",
+              "Se o doente respira ar ambiente ou oxigénio",
+              "A marca do oxímetro apenas",
+              "O peso do doente"
+            ],
+            "correta": 2,
+            "explicacao": "O mesmo valor tem significados diferentes com ou sem oxigénio suplementar."
+          },
+          {
+            "pergunta": "Sinais de esforço respiratório incluem:",
+            "opcoes": [
+              "Uso dos músculos acessórios e tiragem",
+              "Sorriso",
+              "Mãos quentes",
+              "Pele seca"
+            ],
+            "correta": 1,
+            "explicacao": "Tiragem e uso de músculos acessórios indicam aumento do esforço respiratório."
+          },
+          {
+            "pergunta": "Uma frequência respiratória de 8 por minuto num adulto designa-se:",
+            "opcoes": [
+              "Taquipneia",
+              "Bradipneia",
+              "Normal",
+              "Hiperpneia"
+            ],
+            "correta": 2,
+            "explicacao": "Abaixo de 12 por minuto fala-se de bradipneia."
+          }
+        ]
+      }
     },
     {
       "titulo": "Tensão arterial",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "video": "",
+      "video_obrigatorio": false,
+      "duracao": "1 hora",
+      "resumo": "Técnica de medição, escolha da braçadeira e erros comuns.",
+      "conteudo": "A **tensão arterial** (TA) exprime-se em mmHg, com dois valores: **sistólica** (contracção do coração) e **diastólica** (relaxamento).\n\nA técnica influencia muito o resultado: braçadeira adequada, braço ao nível do coração e repouso prévio são os pontos mais importantes.",
+      "slides": [
+        {
+          "titulo": "Valores de referência da TA no adulto",
+          "texto": "- Normal: abaixo de 120/80 mmHg\n- Hipertensão: 140/90 mmHg ou mais, confirmada em medições repetidas\n- Hipotensão: abaixo de 90/60 mmHg, sobretudo se houver sintomas\n- Um valor isolado não faz o diagnóstico"
+        },
+        {
+          "titulo": "Preparar o doente",
+          "texto": "1. Repouso sentado durante cerca de 5 minutos\n2. Sem fumar nem tomar café nos 30 minutos anteriores\n3. Bexiga vazia, costas apoiadas, pernas sem cruzar\n4. Braço descoberto, apoiado ao nível do coração"
+        },
+        {
+          "titulo": "Escolher e colocar a braçadeira",
+          "texto": "- A largura deve cobrir cerca de 40% do perímetro do braço\n- Braçadeira demasiado pequena: valores falsamente altos\n- Braçadeira demasiado grande: valores falsamente baixos\n- Coloque o bordo inferior 2 a 3 cm acima da prega do cotovelo"
+        },
+        {
+          "titulo": "Erros comuns",
+          "texto": "- Braço abaixo ou acima do nível do coração\n- Falar durante a medição\n- Esvaziar a braçadeira depressa demais\n- Medir sobre roupa apertada\n- Não repetir uma medição suspeita"
+        }
+      ],
+      "teste": {
+        "perguntas": [
+          {
+            "pergunta": "Qual é a tensão arterial normal de referência num adulto?",
+            "opcoes": [
+              "Abaixo de 120/80 mmHg",
+              "140/90 mmHg",
+              "160/100 mmHg",
+              "Abaixo de 60/40 mmHg"
+            ],
+            "correta": 1,
+            "explicacao": "Considera-se normal um valor abaixo de 120/80 mmHg."
+          },
+          {
+            "pergunta": "A hipertensão é confirmada com:",
+            "opcoes": [
+              "Uma única medição elevada",
+              "Medições elevadas repetidas",
+              "Apenas sintomas",
+              "Apenas a idade"
+            ],
+            "correta": 2,
+            "explicacao": "O diagnóstico exige valores elevados confirmados em medições repetidas."
+          },
+          {
+            "pergunta": "Uma braçadeira demasiado pequena para o braço dá valores:",
+            "opcoes": [
+              "Falsamente baixos",
+              "Falsamente altos",
+              "Sempre correctos",
+              "Impossíveis de ler"
+            ],
+            "correta": 2,
+            "explicacao": "Braçadeira pequena sobrestima a tensão arterial."
+          },
+          {
+            "pergunta": "O braço deve ficar ao nível:",
+            "opcoes": [
+              "Do umbigo",
+              "Do coração",
+              "Da cabeça",
+              "Do joelho"
+            ],
+            "correta": 2,
+            "explicacao": "Se o braço estiver abaixo do coração, a leitura sobe; se acima, desce."
+          },
+          {
+            "pergunta": "Antes da medição, o doente deve repousar cerca de:",
+            "opcoes": [
+              "30 segundos",
+              "5 minutos",
+              "2 horas",
+              "Não é necessário"
+            ],
+            "correta": 2,
+            "explicacao": "Cerca de 5 minutos de repouso sentado."
+          },
+          {
+            "pergunta": "Qual destes factores pode alterar a medição?",
+            "opcoes": [
+              "Falar durante a medição",
+              "Estar sentado com as costas apoiadas",
+              "Braço apoiado",
+              "Doente tranquilo"
+            ],
+            "correta": 1,
+            "explicacao": "Falar, fumar e café recentes elevam falsamente a tensão."
+          },
+          {
+            "pergunta": "A hipotensão sintomática refere-se habitualmente a valores abaixo de:",
+            "opcoes": [
+              "140/90 mmHg",
+              "120/80 mmHg",
+              "90/60 mmHg",
+              "200/120 mmHg"
+            ],
+            "correta": 3,
+            "explicacao": "Valores abaixo de 90/60 mmHg, sobretudo com sintomas, merecem avaliação."
+          },
+          {
+            "pergunta": "A pressão sistólica corresponde:",
+            "opcoes": [
+              "Ao relaxamento do coração",
+              "À contracção do coração",
+              "À frequência respiratória",
+              "À temperatura"
+            ],
+            "correta": 2,
+            "explicacao": "A sistólica corresponde à contracção; a diastólica ao relaxamento."
+          },
+          {
+            "pergunta": "A largura da braçadeira deve cobrir aproximadamente:",
+            "opcoes": [
+              "10% do perímetro do braço",
+              "40% do perímetro do braço",
+              "90% do perímetro do braço",
+              "Não importa"
+            ],
+            "correta": 2,
+            "explicacao": "Cerca de 40% do perímetro do braço."
+          },
+          {
+            "pergunta": "Perante uma medição suspeita, o correcto é:",
+            "opcoes": [
+              "Ignorá-la",
+              "Repetir a medição",
+              "Registar sem confirmar",
+              "Apagar o valor"
+            ],
+            "correta": 2,
+            "explicacao": "Repete-se a medição, com técnica correcta, antes de decidir."
+          }
+        ]
+      }
     },
     {
       "titulo": "Interpretar e alertar",
       "youtube": "",
-      "duracao": "",
-      "resumo": ""
+      "video": "",
+      "video_obrigatorio": false,
+      "duracao": "1 hora",
+      "resumo": "Valores de referência, tendências e quando alertar a equipa.",
+      "conteudo": "Os sinais vitais só ganham sentido quando **interpretados em conjunto** e **ao longo do tempo**. Um valor ligeiramente alterado mas estável pode ser menos preocupante do que valores normais que pioram a cada medição.\n\nAprenda a reconhecer os sinais de deterioração e a comunicar de forma clara.",
+      "slides": [
+        {
+          "titulo": "Ver o conjunto e a tendência",
+          "texto": "- Compare sempre com os valores anteriores do mesmo doente\n- Uma tendência de agravamento pesa mais do que um valor isolado\n- Relacione os valores com o estado do doente: queixas, cor da pele, consciência"
+        },
+        {
+          "titulo": "Sinais de alerta",
+          "texto": "- Frequência respiratória muito alta ou muito baixa\n- SpO₂ abaixo de 90%\n- Tensão arterial baixa com tonturas, pele fria ou confusão\n- Alteração do estado de consciência\n- Febre alta com mau estado geral"
+        },
+        {
+          "titulo": "Quando e como alertar",
+          "texto": "- Alerte sem demora quando houver sinais de deterioração\n- Siga o protocolo e a escala de alerta da sua instituição (por exemplo, NEWS2)\n- Seja claro: situação, avaliação, o que observou, o que pede\n- Registe valores, hora e a quem comunicou"
+        },
+        {
+          "titulo": "Registo correcto",
+          "texto": "- Valor, unidade, hora e local de medição\n- Condições relevantes: oxigénio, posição, repouso\n- Valores anormais repetidos e acção tomada\n- Nunca registe um valor que não mediu"
+        }
+      ],
+      "teste": {
+        "perguntas": [
+          {
+            "pergunta": "Qual destes elementos pesa mais na avaliação de um doente?",
+            "opcoes": [
+              "Um valor isolado sem contexto",
+              "A tendência dos valores ao longo do tempo",
+              "A idade do enfermeiro",
+              "A hora do turno"
+            ],
+            "correta": 2,
+            "explicacao": "Uma tendência de agravamento é um sinal precoce importante."
+          },
+          {
+            "pergunta": "Qual destes é um sinal de alerta?",
+            "opcoes": [
+              "SpO₂ de 98%",
+              "SpO₂ abaixo de 90%",
+              "Pulso de 75 bpm",
+              "Temperatura de 36,5 °C"
+            ],
+            "correta": 2,
+            "explicacao": "SpO₂ persistentemente abaixo de 90% exige avaliação urgente."
+          },
+          {
+            "pergunta": "Uma TA de 85/50 mmHg com tonturas e pele fria deve levar a:",
+            "opcoes": [
+              "Ignorar",
+              "Alertar a equipa e vigiar o doente",
+              "Medir só na semana seguinte",
+              "Dar alta imediata"
+            ],
+            "correta": 2,
+            "explicacao": "Hipotensão sintomática exige comunicação e vigilância."
+          },
+          {
+            "pergunta": "Ao comunicar uma deterioração, deve ser:",
+            "opcoes": [
+              "Vago e longo",
+              "Claro e estruturado",
+              "Apenas verbal sem registo",
+              "Adiado para o fim do turno"
+            ],
+            "correta": 2,
+            "explicacao": "Uma comunicação estruturada reduz erros e acelera a resposta."
+          },
+          {
+            "pergunta": "No registo dos sinais vitais deve constar:",
+            "opcoes": [
+              "Apenas o valor",
+              "Valor, unidade, hora e local de medição",
+              "Só a hora",
+              "Só o nome do doente"
+            ],
+            "correta": 2,
+            "explicacao": "Valor, unidade, hora e condições tornam o registo útil e comparável."
+          },
+          {
+            "pergunta": "Qual é a atitude correcta se não mediu um valor?",
+            "opcoes": [
+              "Estimar e registar",
+              "Não registar o que não mediu",
+              "Copiar o valor do turno anterior",
+              "Registar um valor normal"
+            ],
+            "correta": 2,
+            "explicacao": "Nunca se regista um valor que não foi medido."
+          },
+          {
+            "pergunta": "A alteração do estado de consciência num doente é:",
+            "opcoes": [
+              "Sem importância",
+              "Um sinal de alerta",
+              "Normal em todos os doentes",
+              "Apenas um problema administrativo"
+            ],
+            "correta": 2,
+            "explicacao": "Confusão ou sonolência súbitas podem indicar deterioração grave."
+          },
+          {
+            "pergunta": "Escalas como a NEWS2 servem para:",
+            "opcoes": [
+              "Substituir o julgamento clínico",
+              "Apoiar a identificação precoce de deterioração",
+              "Medir a temperatura",
+              "Calcular doses"
+            ],
+            "correta": 2,
+            "explicacao": "São apoio à decisão, não substituem o julgamento clínico."
+          },
+          {
+            "pergunta": "Relativamente aos protocolos da instituição, o enfermeiro deve:",
+            "opcoes": [
+              "Ignorá-los",
+              "Segui-los na escalada de alertas",
+              "Aplicá-los só às sextas",
+              "Alterá-los sozinho"
+            ],
+            "correta": 2,
+            "explicacao": "Deve seguir os protocolos e a escala de alerta da sua instituição."
+          },
+          {
+            "pergunta": "Valores normais que pioram a cada medição indicam:",
+            "opcoes": [
+              "Que nada se passa",
+              "Possível deterioração a vigiar",
+              "Erro do aparelho sempre",
+              "Melhoria do doente"
+            ],
+            "correta": 2,
+            "explicacao": "A tendência de agravamento pode ser o primeiro sinal de deterioração."
+          }
+        ]
+      }
     }
   ],
   "etiquetas": [
     "Avaliação"
   ],
-  "publicado": true
+  "publicado": true,
+  "modo": "progressivo",
+  "nota_minima": 70,
+  "tentativas": 3,
+  "espera_minutos": 30,
+  "sequencial": true
 }
