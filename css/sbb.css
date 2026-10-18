@@ -18,7 +18,7 @@ body > header nav{display:flex;justify-content:safe center;flex-wrap:nowrap;gap:
 body > header nav a{flex:0 0 auto;white-space:nowrap;background:none!important;color:#fff!important;border-radius:0!important;padding:16px .8em!important;font-size:var(--nvf,13px)!important;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
 body > header nav a:hover{background:var(--sbb-navy2)!important}
 main{max-width:var(--sbb-w)!important}
-main h1,main h2{background:none!important;border:0!important;border-radius:0!important;text-align:left!important;color:var(--sbb-navy)!important;text-transform:uppercase;letter-spacing:.3px!important;font-weight:800;padding:0!important;margin:34px 0 14px!important;font-size:clamp(20px,3vw,28px)!important;line-height:1.2}
+main h1,main h2{background:none!important;border:0!important;border-radius:0!important;text-align:center!important;color:var(--sbb-navy)!important;text-transform:uppercase;letter-spacing:.3px!important;font-weight:800;padding:0!important;margin:34px 0 14px!important;font-size:clamp(20px,3vw,28px)!important;line-height:1.2}
 main h1{margin-top:22px!important;font-size:clamp(24px,4vw,36px)!important}
 main h3{color:var(--sbb-navy)}
 .card{background:#fff!important;border:1px solid var(--sbb-line)!important;border-left:1px solid var(--sbb-line)!important;border-radius:6px!important;transition:border-color .15s ease}
@@ -67,7 +67,7 @@ body > footer{border-top:48px solid var(--sbb-navy);margin-top:40px;padding:0!im
 #app .view > .section-title,#app .view > .section-title-center{width:100%}
 
 /* títulos de secção: texto simples, maiúsculas */
-#app .section-title,#app .section-title-center{background:none!important;border:0!important;border-radius:0!important;margin-top:40px!important;margin-bottom:14px!important;text-align:left!important;color:var(--sbb-navy)!important;font-size:clamp(22px,3.2vw,30px)!important;font-weight:800!important;letter-spacing:.3px!important;text-transform:uppercase;padding-left:20px!important;padding-right:20px!important}
+#app .section-title,#app .section-title-center{background:none!important;border:0!important;border-radius:0!important;margin-top:40px!important;margin-bottom:14px!important;text-align:center!important;color:var(--sbb-navy)!important;font-size:clamp(22px,3.2vw,30px)!important;font-weight:800!important;letter-spacing:.3px!important;text-transform:uppercase;padding-left:20px!important;padding-right:20px!important}
 #app .section-title::before,#app .section-title::after{display:none!important}
 
 /* pesquisa */
@@ -149,4 +149,7 @@ body > footer{border-top:48px solid var(--sbb-navy);margin-top:40px;padding:0!im
 @media(min-width:1200px){:root{--nvf:calc(1vw*.86)}}
 @media(min-width:1600px){:root{--nvf:calc(1vw*.8)}}
 @media(min-width:1500px){:root{--nvf:12.5px}}
-@media(min-width:1600px){:root{--nvf:13px}}
+/* Processo de Enfermagem e páginas de conteúdo: tabelas e imagens nunca saem do ecrã */
+main table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border-collapse:collapse}
+main img{max-width:100%;height:auto}
+main h3,main .section-title,main .sec-title{text-align:center}
