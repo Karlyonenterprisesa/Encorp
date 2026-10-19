@@ -23,8 +23,8 @@ export async function gerarPptx(PptxGenJS, o) {
   const { curso, aula, n, total, notaMinima, raiz, destino } = o;
   const pres = new PptxGenJS();
   pres.layout = 'LAYOUT_16x9';
-  pres.title = `${aula.titulo} — ${curso}`; pres.author = 'Enfermeiro Corporativo'; pres.company = 'Alcartel Digital Vision'; pres.subject = curso;
-  const RODAPE = 'Enfermeiro Corporativo · encorp.vercel.app';
+  pres.title = `${aula.titulo} — ${curso}`; pres.author = 'ENCORP'; pres.company = 'Alcartel Digital Vision'; pres.subject = curso;
+  const RODAPE = 'ENCORP · encorp.vercel.app';
   const slidesN = aula.slides.length;
 
   /* 1. título */
