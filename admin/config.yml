@@ -1,4 +1,4 @@
-# Enfermeiro Corporativo — Decap CMS com login GitHub (OAuth via /api/auth e /api/callback na Vercel)
+# ENCORP — Decap CMS com login GitHub (OAuth via /api/auth e /api/callback na Vercel)
 # Colecções: Dicas e Actualidades (home), Biblioteca (PDF), Cursos, Video-aulas, Testes e Definições.
 # Variáveis na Vercel: GITHUB_CLIENT_ID e GITHUB_CLIENT_SECRET (ver LEIA-ME-CMS.md)
 
