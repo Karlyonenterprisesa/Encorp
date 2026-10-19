@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://encorp.vercel.app/</loc></url>
 <url><loc>https://encorp.vercel.app/ajuda.html</loc></url>
+<url><loc>https://encorp.vercel.app/apoiar.html</loc></url>
 <url><loc>https://encorp.vercel.app/aprender/casos-clinicos/c001-enfarte-agudo-do-miocardio-com-supra-st.html</loc><lastmod>2026-10-04</lastmod></url>
 <url><loc>https://encorp.vercel.app/aprender/casos-clinicos/c002-avc-isquemico-hemiplegia-a-direita.html</loc><lastmod>2026-10-04</lastmod></url>
 <url><loc>https://encorp.vercel.app/aprender/casos-clinicos/c003-asma-aguda-moderada.html</loc><lastmod>2026-10-04</lastmod></url>
@@ -40,20 +41,16 @@
 <url><loc>https://encorp.vercel.app/aviso-medico.html</loc></url>
 <url><loc>https://encorp.vercel.app/biblioteca/</loc></url>
 <url><loc>https://encorp.vercel.app/biblioteca/lista-nacional-de-medicamentos-essenciais.html</loc></url>
+<url><loc>https://encorp.vercel.app/biblioteca/manual-do-sistema.html</loc></url>
 <url><loc>https://encorp.vercel.app/biblioteca/manual-gastrite-ulcerativa.html</loc></url>
-<url><loc>https://encorp.vercel.app/biblioteca/processo-de-enfermagem-do-adulto.html</loc></url>
 <url><loc>https://encorp.vercel.app/contacto.html</loc></url>
 <url><loc>https://encorp.vercel.app/cookies.html</loc></url>
 <url><loc>https://encorp.vercel.app/cursos/elaboracao-de-monografias.html</loc></url>
 <url><loc>https://encorp.vercel.app/cursos/estabilizacao-de-pacientes.html</loc></url>
 <url><loc>https://encorp.vercel.app/cursos/</loc></url>
-<url><loc>https://encorp.vercel.app/cursos/primeiros-socorros.html</loc></url>
-<url><loc>https://encorp.vercel.app/cursos/sinais-vitais-e-interpretacao.html</loc></url>
 <url><loc>https://encorp.vercel.app/cursos/testes/estabilizacao.html</loc></url>
 <url><loc>https://encorp.vercel.app/cursos/testes/</loc></url>
 <url><loc>https://encorp.vercel.app/cursos/testes/monografia.html</loc></url>
-<url><loc>https://encorp.vercel.app/cursos/testes/primeiros-socorros.html</loc></url>
-<url><loc>https://encorp.vercel.app/cursos/testes/sinais-vitais.html</loc></url>
 <url><loc>https://encorp.vercel.app/diagnosticos/amamentacao-exclusiva-conturbada.html</loc><lastmod>2026-10-04</lastmod></url>
 <url><loc>https://encorp.vercel.app/diagnosticos/amamentacao-ineficaz.html</loc><lastmod>2026-10-04</lastmod></url>
 <url><loc>https://encorp.vercel.app/diagnosticos/ansiedade-excessiva-relacionada-a-morte.html</loc><lastmod>2026-10-04</lastmod></url>

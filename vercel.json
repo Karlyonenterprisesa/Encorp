@@ -1432,6 +1432,21 @@
       "source": "/site.js",
       "destination": "/js/site/site.js",
       "permanent": true
+    },
+    {
+      "source": "/biblioteca/processo-de-enfermagem-do-adulto.html",
+      "destination": "/biblioteca/manual-do-sistema.html",
+      "permanent": true
+    },
+    {
+      "source": "/biblioteca/lista-nacional-de-medicamentos-essenciais-—-moçambique-2017.html",
+      "destination": "/biblioteca/lista-nacional-de-medicamentos-essenciais.html",
+      "permanent": true
+    },
+    {
+      "source": "/biblioteca/lista-nacional-de-medicamentos-essenciais-%E2%80%94-mo%C3%A7ambique-2017.html",
+      "destination": "/biblioteca/lista-nacional-de-medicamentos-essenciais.html",
+      "permanent": true
     }
   ],
   "headers": [
@@ -1548,6 +1563,22 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self'; base-uri 'self'; object-src 'none'; form-action 'self'"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
         }
       ]
     },

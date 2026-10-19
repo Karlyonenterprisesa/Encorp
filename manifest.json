@@ -1,8 +1,8 @@
 {
   "id": "/",
-  "name": "Enfermeiro Corporativo",
+  "name": "ENCORP",
   "short_name": "Enf. Corporativo",
-  "description": "Apoio ao estudo e à prática de enfermagem: NANDA-I, NIC, NOC, escalas, calculadoras e casos clínicos.",
+  "description": "ENCORP: Enciclopédia de Enfermagem, Conhecimento, Orientação, Recursos e Prática. Abrange conteúdos científicos, procedimentos, palestras, testes, farmacologia e actualidades de saúde.",
   "lang": "pt-MZ",
   "dir": "ltr",
   "start_url": "/?utm_source=pwa",

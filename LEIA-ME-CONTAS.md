@@ -12,7 +12,7 @@ e o leitor de cursos mostra «as contas ainda não estão activas».
 3. Publicar de novo (*Redeploy*).
 
 ## 2. Como funciona
-- **Registo:** o servidor atribui número de estudante (`ENC-000001`), nome de utilizador único e código de 4 dígitos (gerado com `crypto.randomInt`).
+- **Registo:** o servidor atribui número de estudante (`ENC-000001`), nome de utilizador único e código de 6 dígitos (gerado com `crypto.randomInt`; as contas antigas, de 4 dígitos, continuam a funcionar).
   O código aparece **uma única vez** e não é recuperável. Guarda-se apenas um hash (HMAC com `SESSION_SECRET` + scrypt com sal).
 - **Sessão:** cookie `HttpOnly; Secure; SameSite=Lax`, assinado, revogado ao sair.
 - **Protecção:** 5 falhas por utilizador (mesmo inexistente) bloqueiam 15 min; 40 tentativas por IP / 15 min; 5 registos por IP / hora.
@@ -33,7 +33,8 @@ estudante só o descarrega com a aula desbloqueada (botão no leitor). Para desa
 Editar os slides no Decap → publicar → o PPTX é refeito. Se `pptxgenjs` faltar, o build avisa e continua.
 
 ## 4. Limitações conhecidas
-- Código de 4 dígitos é fraco por natureza; a protecção está no limite de tentativas e na «pimenta» do servidor.
+- O código numérico (6 dígitos nas contas novas, 4 nas antigas) é fraco por natureza; a protecção está no limite de tentativas e na «pimenta» do servidor. O bloqueio de 15 min por utilizador pode ser provocado por terceiros que saibam o nome de utilizador: é o preço de impedir tentativas distribuídas.
+- Um teste reprovado só mostra a nota (não diz que perguntas falhou); a correcção completa só aparece depois de aprovar.
 - Não há recuperação de código nem painel de administração: um estudante que perca o código tem de criar nova conta.
 - O servidor não consegue «ver» o vídeo; usa o evento de fim do leitor e um tempo mínimo decorrido (melhor esforço).
 - Ficheiros MP4 carregados no CMS são públicos por URL; para vídeo protegido use YouTube «não listado».

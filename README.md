@@ -1,4 +1,6 @@
-# Enfermeiro Corporativo
+# ENCORP
+
+**Enciclopédia de Enfermagem, Conhecimento, Orientação, Recursos e Prática.** Abrange conteúdos científicos, procedimentos, palestras, testes, farmacologia e actualidades de saúde.
 
 Aplicação/site estático (PWA) de apoio à enfermagem. Site: https://encorp.vercel.app · Repositório: https://github.com/karlyonenterprisesa/encorp. Alojado na Vercel; o `build.mjs` corre em cada publicação.
 

@@ -1,4 +1,4 @@
-/* Enfermeiro Corporativo — layout plano inspirado no Stroke Beyond Borders.
+/* ENCORP — layout plano inspirado no Stroke Beyond Borders.
    Cores: mantém o azul do Encorp. Sem sombras, relevo, degradés nem 3D. Carregar por último. */
 :root{--sbb-navy:#0b1a33;--sbb-navy2:#0a1850;--sbb-blue:#0148E0;--sbb-text:#0f2547;--sbb-muted:#5b6b85;--sbb-line:#dfe6f0;--sbb-field:#efefef;--sbb-soft:#eef3fb;--sbb-w:1140px}
 html,body{background:#fff}

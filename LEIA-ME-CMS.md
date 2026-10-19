@@ -7,7 +7,7 @@ Fluxo: escreve em `/admin` → o CMS grava no GitHub → a Vercel corre `node bu
 2. **GitHub → Settings → Developer settings → OAuth Apps → New OAuth App**
    - Homepage URL: `https://encorp.vercel.app`
    - Authorization callback URL: `https://encorp.vercel.app/api/callback`
-3. **Vercel → Project → Settings → Environment Variables:** `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` (e, se o repositório for público, `GITHUB_SCOPE=public_repo,user`).
+3. **Vercel → Project → Settings → Environment Variables:** `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` (`GITHUB_SCOPE` por defeito é `public_repo`, suficiente para um repositório público; se o repositório for privado, defina `GITHUB_SCOPE=repo`).
 4. **Redeploy** e abra `/admin/`.
 
 ## O que cada colecção faz

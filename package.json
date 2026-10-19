@@ -2,7 +2,7 @@
   "name": "encorp",
   "version": "1.0.0",
   "private": true,
-  "description": "Enfermeiro Corporativo — Plataforma Digital para Enfermeiros e Estudantes. Site com Decap CMS (GitHub) e build estático na Vercel.",
+  "description": "ENCORP: Enciclopédia de Enfermagem, Conhecimento, Orientação, Recursos e Prática. Abrange conteúdos científicos, procedimentos, palestras, testes, farmacologia e actualidades de saúde. Site com Decap CMS (GitHub) e build estático na Vercel.",
   "scripts": {
     "build": "node build.mjs",
     "test": "node build.mjs && node tests/api.mjs"
