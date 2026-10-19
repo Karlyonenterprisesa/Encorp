@@ -3,7 +3,17 @@
 // Conteúdo de referência extraído de JASSAA Premium v3.0 (Diagnósticos de Enfermagem,
 // NOC/NIC por domínio, tabela comparativa e resumo de ferramentas de cálculo).
 
-buildAccordionView('biblioteca', 'Biblioteca Especializada', 'Documentos de referência: Manual Guia (Gastrite Ulcerativa), Lista Nacional de Medicamentos Essenciais (Moçambique, 2017) e Processo de Enfermagem do Adulto.', [
+buildAccordionView('biblioteca', 'Biblioteca Especializada', 'Documentos de referência: Manual do Sistema, Manual Guia (Gastrite Ulcerativa), Lista Nacional de Medicamentos Essenciais (Moçambique, 2017) e Processo de Enfermagem do Adulto.', [
+{
+  icon: ICON_PROC, bg:'#e7ecf4', fg:'#000000',
+  title:'📘 Manual do Sistema',
+  sub:'Guia de utilização · Alcartel Digital Vision · Karlyon Enterprise, S.A.',
+  body:`
+  <div class="info-box"><b>Tipo:</b> Manual — Guia de utilização da plataforma</div>
+  <p>Manual completo da plataforma ENCORP: quem criou o sistema, objectivos e um guia passo a passo de todas as ferramentas e conteúdos disponíveis.</p>
+  ${libraryPdfButtons('manual')}
+  ${libraryPdfViewerBlock('manual','Manual do Sistema ENCORP')}`
+},
 {
   icon: ICON_PROC, bg:'#fbe4e8', fg:'#c8202f',
   title:'📄 Manual Guia — Gastrite Ulcerativa',

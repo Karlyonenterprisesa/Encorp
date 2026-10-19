@@ -365,3 +365,6 @@ const FLASHCARDS = [
 ];
 
 
+
+// Ordem do raciocínio: Diagnóstico → Intervenções (NIC) → Resultados (NOC). As perguntas 2 e 3 trocam de lugar (excepto C016/C017, onde ambas são de intervenção).
+/* ORDEM_NIC_NOC */ CASOS_ESTUDO.forEach(function(c){ if(c.id==='C016'||c.id==='C017') return; var p=c.perguntas; var x=p[1]; p[1]=p[2]; p[2]=x; });
