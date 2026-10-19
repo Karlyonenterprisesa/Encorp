@@ -27,7 +27,7 @@ async function registar(req, res, corpo) {
   if (!utilizador) return S.enviar(res, 503, { erro: 'Não foi possível criar o utilizador. Tente novamente.' });
 
   const numero = 'ENC-' + String(await kv.incr('seq:estudante')).padStart(6, '0');
-  const codigo = String(crypto.randomInt(0, 10000)).padStart(4, '0');
+  const codigo = String(crypto.randomInt(0, 1000000)).padStart(6, '0');   // 6 dígitos (contas antigas continuam a entrar com 4)
   const sal = crypto.randomBytes(16).toString('hex');
   const h = await S.hashCodigo(utilizador, codigo, sal);
   await kv.set('est:' + uid, JSON.stringify({ numero, uid, nome, utilizador, sal, h, criado: new Date().toISOString() }));
@@ -45,8 +45,8 @@ async function entrar(req, res, corpo) {
   const falhas = Number((await kv.get(chaveU)) || 0);
   if (falhas >= 5) return S.enviar(res, 429, { erro: 'Demasiadas tentativas. Tente dentro de 15 minutos.' });   // vale também para nomes inexistentes (sem enumeração)
 
-  const falhar = async () => { const n = await kv.incr(chaveU); if (n === 1) await kv.expire(chaveU, 900); return S.enviar(res, 401, { erro: GENERICO }); };
-  if (!/^[a-z0-9._-]{1,40}$/.test(u) || !/^\d{4}$/.test(c)) { await S.hashCodigo('x', '0000', S.DUMMY_SAL); return falhar(); }
+  const falhar = async () => { await kv.incrExp(chaveU, 900); return S.enviar(res, 401, { erro: GENERICO }); };
+  if (!/^[a-z0-9._-]{1,40}$/.test(u) || !S.CODIGO_RE.test(c)) { await S.hashCodigo('x', '000000', S.DUMMY_SAL); return falhar(); }
   const uid = await kv.get('usr:' + u);
   const reg = uid ? await kv.get('est:' + uid) : null;
   if (!reg) { await S.hashCodigo(u, c, S.DUMMY_SAL); return falhar(); }   // mesmo tempo de resposta que um utilizador real

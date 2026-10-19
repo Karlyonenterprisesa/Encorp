@@ -159,21 +159,21 @@ module.exports = async (req, res) => {
       if (!t || t.uid !== uid || t.slug !== slug || t.i !== i) return S.enviar(res, 400, { erro: 'Tentativa inválida ou expirada. Comece o teste de novo.' });
       await kv.del('tent:' + tid);                                         // uma tentativa só pode ser submetida uma vez
       if (!Array.isArray(b.respostas) || b.respostas.length !== 10) return S.enviar(res, 400, { erro: 'Responda às 10 perguntas.' });
-      let certas = 0; const correcao = [];
+      let certas = 0; const certasPorPergunta = [];
       t.ordem.forEach((qi, k) => {
         const q = a.teste.perguntas[qi], r = b.respostas[k];
         const escolhida = Number.isInteger(r) && r >= 0 && r < t.opc[k].length ? t.opc[k][r] : -1;   // índice original da opção
         const certa = escolhida === q.correta - 1;
         if (certa) certas++;
-        correcao.push({ certa });
+        certasPorPergunta.push(certa);
       });
       const pct = Math.round((certas / 10) * 100), min = notaMin(c, a), aprovado = pct >= min;
       x.tentativas += 1; x.ultima = agora; x.melhor = Math.max(x.melhor, pct);
       if (aprovado) { x.aprovado = true; x.concluida = x.concluida || agora; }
       await gravarProg(uid, slug, p);
       const max = maxTent(c, a);
-      const out = { pontuacao: certas, total: 10, percentagem: pct, notaMinima: min, aprovado, tentativasRestantes: max > 0 ? Math.max(0, max - x.tentativas) : null, correcao };
-      if (aprovado) out.correcao = t.ordem.map((qi, k) => { const q = a.teste.perguntas[qi]; return { certa: correcao[k].certa, correta: q.opcoes[q.correta - 1], explicacao: q.explicacao || '' }; });   // soluções só depois de aprovar
+      const out = { pontuacao: certas, total: 10, percentagem: pct, notaMinima: min, aprovado, tentativasRestantes: max > 0 ? Math.max(0, max - x.tentativas) : null };   // reprovado: só a nota, sem dizer que perguntas falhou (evita deduzir respostas por tentativas sucessivas)
+      if (aprovado) out.correcao = t.ordem.map((qi, k) => { const q = a.teste.perguntas[qi]; return { certa: certasPorPergunta[k], correta: q.opcoes[q.correta - 1], explicacao: q.explicacao || '' }; });   // correcção e soluções só depois de aprovar
       out.curso = resumoCurso(c, p);
       return S.enviar(res, 200, out);
     }

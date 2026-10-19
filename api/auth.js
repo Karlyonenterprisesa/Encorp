@@ -1,6 +1,6 @@
 /* Decap CMS — passo 1 do login GitHub (OAuth).
    Rota: /api/auth  →  redireciona para o GitHub.
-   Variáveis na Vercel: GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET (opcional: GITHUB_SCOPE). */
+   Variáveis na Vercel: GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET (opcional: GITHUB_SCOPE; por defeito `public_repo`, só repositórios públicos. Repositório privado: GITHUB_SCOPE=repo). */
 const crypto = require('node:crypto');
 
 module.exports = (req, res) => {
@@ -13,7 +13,7 @@ module.exports = (req, res) => {
   const host = req.headers['x-forwarded-host'] || req.headers.host;
   const proto = req.headers['x-forwarded-proto'] || 'https';
   const redirectUri = `${proto}://${host}/api/callback`;
-  const scope = process.env.GITHUB_SCOPE || 'repo,user';
+  const scope = process.env.GITHUB_SCOPE || 'public_repo';
   const state = crypto.randomBytes(16).toString('hex');
 
   const url = new URL('https://github.com/login/oauth/authorize');
