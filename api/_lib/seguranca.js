@@ -16,7 +16,7 @@ const igual = (a, b) => { a = Buffer.from(a); b = Buffer.from(b); return a.lengt
 function scrypt(pw, sal) {
   return new Promise((ok, no) => crypto.scrypt(pw, sal, 32, { N: 16384, r: 8, p: 1, maxmem: 64 * 1024 * 1024 }, (e, k) => (e ? no(e) : ok(k))));
 }
-/* o código só tem 4 dígitos: a «pimenta» (segredo no servidor) impede que uma fuga da base de dados permita adivinhá-lo offline */
+/* contas novas têm 6 dígitos (contas antigas, 4): a «pimenta» (segredo no servidor) impede que uma fuga da base de dados permita adivinhá-lo offline */
 async function hashCodigo(utilizador, codigo, salHex) {
   const pre = hmac(SEGREDO(), 'codigo:' + utilizador + ':' + codigo);
   return (await scrypt(pre, Buffer.from(salHex, 'hex'))).toString('hex');
@@ -74,9 +74,9 @@ const ipDe = (req) => String((req.headers['x-forwarded-for'] || req.socket.remot
 
 /* limite simples: devolve false se excedeu */
 async function limite(chave, max, janelaSeg) {
-  const n = await kv.incr(chave);
-  if (n === 1) await kv.expire(chave, janelaSeg);
+  const n = await kv.incrExp(chave, janelaSeg);
   return n <= max;
 }
 
-module.exports = { pronto, hashCodigo, DUMMY_SAL, criarSessao, lerSessao, cookie, enviar, lerCorpo, pedidoSeguro, ipDe, limite, igual, DIAS };
+const CODIGO_RE = /^\d{4,6}$/;   // 4 dígitos (contas antigas) a 6 (contas novas)
+module.exports = { CODIGO_RE, pronto, hashCodigo, DUMMY_SAL, criarSessao, lerSessao, cookie, enviar, lerCorpo, pedidoSeguro, ipDe, limite, igual, DIAS };

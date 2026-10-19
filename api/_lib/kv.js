@@ -22,6 +22,9 @@ module.exports = {
   set: (k, v, opts) => cmd('SET', k, v, ...(opts && opts.nx ? ['NX'] : []), ...(opts && opts.ex ? ['EX', String(opts.ex)] : [])),
   del: (k) => cmd('DEL', k),
   incr: (k) => cmd('INCR', k),
+  /* INCR + EXPIRE numa só operação atómica (Lua). Se a chave existir sem validade (ex.: um EXPIRE anterior falhou),
+     volta a definir a validade, para nunca haver bloqueios permanentes. */
+  incrExp: (k, s) => cmd('EVAL', "local n=redis.call('INCR',KEYS[1]) if n==1 or redis.call('TTL',KEYS[1])<0 then redis.call('EXPIRE',KEYS[1],ARGV[1]) end return n", '1', k, String(s)),
   expire: (k, s) => cmd('EXPIRE', k, String(s)),
   ttl: (k) => cmd('TTL', k),
 };
