@@ -20,6 +20,13 @@
   }
   function aviso(txt, cls) { var p = el('p', cls || 'ec-msg', txt); p.setAttribute('role', 'alert'); return p; }
 
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('[data-iniciar]') : null; if (!t) return;
+    e.preventDefault();
+    if (estado) { var pi = primeiraAula(); if (pi >= 0) { abrir(pi); raiz.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; } }
+    raiz.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
   function inicio() {
     ECConta.eu().then(function (j) {
       if (j.utilizador) { user = j; carregar(); return; }
@@ -38,8 +45,18 @@
     });
   }
 
+  function primeiraAula() {
+    for (var i = 0; i < estado.aulas.length; i++) if (estado.aulas[i].estado === 'disponivel') return i;
+    return -1;
+  }
   function lista() {
     limpa(); raiz.appendChild(faixa());
+    var pi = primeiraAula(), comecou = estado.aulas.some(function (a) { return a.estado === 'concluida' || a.slidesVistos > 0 || a.tentativas > 0; });
+    if (pi >= 0) {
+      var ini = el('p'), bi = el('button', 'btn ec-iniciar', comecou ? '▶ Continuar curso' : '▶ Iniciar curso'); bi.type = 'button';
+      bi.onclick = function () { abrir(pi); }; ini.appendChild(bi);
+      ini.appendChild(el('span', 'meta', ' Aula ' + (pi + 1) + ': ' + estado.aulas[pi].titulo)); raiz.appendChild(ini);
+    }
     var ol = el('ol', 'aulas ec-lista-aulas');
     estado.aulas.forEach(function (a, i) {
       var li = el('li', 'aula ec-a-' + a.estado), t = el('b', '', (i + 1) + '. ' + a.titulo);
@@ -71,7 +88,13 @@
     limpa(); raiz.appendChild(faixa());
     var voltar = el('button', 'btn alt', '‹ Todas as aulas'); voltar.type = 'button'; voltar.onclick = carregar; raiz.appendChild(voltar);
     raiz.appendChild(el('h3', '', (i + 1) + '. ' + a.titulo));
+    raiz.appendChild(el('p', 'meta ec-passos-aula', '1 Ler · 2 Slides · 3 Teste'));
     var txt = el('div', 'ec-texto'); txt.innerHTML = a.html; raiz.appendChild(txt);
+    if (a.slides.length) {
+      var seguir = el('button', 'btn', 'Continuar para os slides ↓'); seguir.type = 'button';
+      seguir.onclick = function () { var s = raiz.querySelector('.ec-slides'); if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+      raiz.appendChild(seguir);
+    }
     var req = { slides: a.nSlides === 0 || a.slidesVistos >= a.nSlides, video: !a.videoObrigatorio || a.videoVisto };
     var pronto = el('div', 'ec-teste-box');
 

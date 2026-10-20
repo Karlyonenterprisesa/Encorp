@@ -1,15 +1,15 @@
 {
   "titulo": "Estabilização de pacientes",
   "data": "2026-10-13",
-  "resumo": "Abordagem sistemática ao doente crítico: avaliação ABCDE, prioridades e reavaliação.",
+  "resumo": "Curso gratuito: avaliar e estabilizar o doente crítico com ABCDE, oxigenoterapia, acesso venoso, NEWS2 e choque. Casos clínicos e teste em cada aula.",
   "imagem": "/uploads/cursos/curso-de-abordagem-ao-doente-crítico.png",
   "nivel": "Intermédio",
-  "area": "Urgência",
+  "area": "Urgência e Emergência",
   "duracao": "6 horas",
   "instrutor": "Equipa ENCORP",
-  "preco": "",
+  "preco": "Gratuito",
   "link_inscricao": "",
-  "corpo": "## Programa\n\n1. Avaliação primária **ABCDE**: via aérea, respiração, circulação, estado neurológico e exposição\n2. Oxigenoterapia e suporte ventilatório básico\n3. Acesso venoso e fluidoterapia\n4. Reconhecer o doente em deterioração: escalas de alerta (NEWS2)\n5. Choque: tipos e primeiras medidas\n6. Comunicação e passagem de turno\n7. Reavaliação contínua\n\nVeja [Avaliação primária ABCDE](/avaliacao/avaliacao-primaria-abcde.html) e a escala [NEWS2](/escalas/news2-national-early-warning-score.html).",
+  "corpo": "## Sobre o curso\n\nEste curso ensina uma abordagem sistemática ao doente crítico: reconhecer cedo quem se está a agravar, avaliar por prioridades e iniciar as primeiras medidas de estabilização enquanto a ajuda diferenciada não chega. Cada aula tem slides com casos clínicos resolvidos e um teste no final.\n\n### Objectivos\n\nAo terminar o curso, o estudante será capaz de:\n\n* aplicar a sequência **ABCDE** para avaliar e tratar por ordem de prioridade;\n* administrar **oxigénio** com indicação, dispositivo e alvo de saturação adequados;\n* escolher o cateter e o local, puncionar uma veia periférica com técnica asséptica e administrar **fluidos** com segurança;\n* pontuar a escala **NEWS2** e comunicar a deterioração com **SBAR**;\n* reconhecer os quatro tipos de **choque** (incluindo o hemorrágico, o séptico e a anafilaxia) e iniciar as primeiras acções.\n\n### Para quem é\n\nEstudantes e profissionais de enfermagem que querem agir com segurança perante o doente que se agrava. É de nível intermédio: ajuda ter feito antes o curso [Sinais vitais e interpretação](/cursos/sinais-vitais-e-interpretacao.html).\n\n### Como estudar\n\nO curso é **gratuito** e funciona por aulas, pela ordem certa:\n\n1. Crie a sua conta de estudante (ou entre) e toque em **Iniciar curso**.\n2. Leia os **slides** da aula, do primeiro ao último.\n3. No fim da leitura, faça o **teste da aula**: 10 perguntas, nota mínima de 70%, até 3 tentativas seguidas (se esgotar, espere 30 minutos e tente de novo).\n4. Com 70% ou mais, a aula fica concluída e a **aula seguinte abre**.\n5. Ao concluir a última aula, o curso fica concluído.\n\nPode voltar a qualquer aula já concluída para rever a matéria.\n\n### Programa\n\n1. **Avaliação primária ABCDE** — sequência e prioridades da avaliação do doente crítico.\n2. **Oxigenoterapia** — indicações, dispositivos e alvos de saturação.\n3. **Acesso venoso e fluidos** — escolha de cateter, técnica, cuidados e administração de fluidos.\n4. **Reconhecer a deterioração (NEWS2)** — os sete parâmetros, a pontuação e como agir.\n5. **Choque** — reconhecer e abordar os tipos de choque.\n\nConsulte também a página [Avaliação primária ABCDE](/avaliacao/avaliacao-primaria-abcde.html) e a escala [NEWS2](/escalas/news2-national-early-warning-score.html).\n\n### Nota importante\n\nConteúdo de apoio à aprendizagem. Siga sempre os protocolos da sua unidade de saúde e a orientação clínica local; este curso não substitui a formação prática supervisionada.\n\n### Programa das aulas\n\n1. **Avaliação primária ABCDE** — Sequência e prioridades da avaliação do doente crítico.\n2. **Oxigenoterapia** — Indicações, dispositivos e alvos de saturação.\n3. **Acesso venoso e fluidos** — Escolha de cateter, cuidados e administração de fluidos.\n4. **Reconhecer a deterioração (NEWS2)** — Utilizar a escala NEWS2 para identificar o doente que se agrava.\n5. **Choque** — Reconhecer e abordar os tipos de choque.\n\n### Como funciona\n\n* **Gratuito**: o curso não tem custo. Crie uma conta de estudante para guardar o seu progresso.\n* **Aula a aula**: em cada aula lê o conteúdo, vê todos os slides e só depois abre o teste.\n* **Teste no fim de cada aula**: 10 perguntas, com nota mínima de 70% para aprovar. Tem até 3 tentativas seguidas e, se não passar, volta a tentar após 30 minutos de revisão.\n* **Por ordem**: a aula seguinte abre quando é aprovado no teste da anterior. Ao concluir as 5 aulas, termina o curso.\n",
   "aulas": [
     {
       "titulo": "Avaliação primária ABCDE",
@@ -964,7 +964,13 @@
     }
   ],
   "etiquetas": [
-    "Urgência"
+    "Urgência",
+    "Emergência",
+    "ABCDE",
+    "Doente crítico",
+    "NEWS2",
+    "Oxigenoterapia",
+    "Choque"
   ],
   "publicado": true,
   "modo": "progressivo",
