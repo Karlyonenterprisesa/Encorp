@@ -272,6 +272,23 @@ collections:
       fields:
       - {label: Título do slide, name: titulo, widget: string}
       - {label: Texto do slide, name: texto, widget: markdown, required: false}
+      - label: Tipo de slide
+        name: tipo
+        widget: select
+        default: conteudo
+        required: false
+        options:
+        - {label: Conteúdo, value: conteudo}
+        - {label: Objectivos da aula, value: objetivos}
+        - {label: Sequência (passos em cartões), value: fluxo}
+        - {label: Caso clínico, value: caso}
+        - {label: Pontos-chave, value: pontos-chave}
+        - {label: Resumo, value: resumo}
+        - {label: Para reflectir, value: reflexao}
+        - {label: Para aprofundar (ligações), value: leitura}
+        hint: 'Decide o desenho no PowerPoint e no leitor. Texto: listas com «-» ou «1.», «> » para caixa de destaque (comece por «Atenção» para alerta), tabelas com «| a | b |», «**negrito**».'
+      - {label: Notas do orador (só no PowerPoint), name: notas, widget: text, required: false}
+      - {label: 'Tempo mínimo neste slide (segundos) — vazio = calculado pelo nº de palavras', name: tempo, widget: number, value_type: int, min: 3, max: 600, required: false, hint: 'O estudante só pode avançar depois deste tempo (imposto pelo servidor). Por defeito: cerca de 2 palavras por segundo + 8 s, entre 10 e 120 s.'}
       - {label: Imagem do slide, name: imagem, widget: image, required: false}
     - label: Permitir descarregar os slides em PowerPoint
       name: permitir_pptx
@@ -282,9 +299,16 @@ collections:
     - label: Vídeo-resumo obrigatório antes do teste
       name: video_obrigatorio
       widget: boolean
-      default: false
+      default: true
       required: false
-      hint: Só se aplica quando a aula tem vídeo (link do YouTube ou ficheiro). Sem vídeo, esta opção não bloqueia a aula.
+      hint: 'Ordem da aula: slides → vídeo-resumo → teste. O vídeo só abre depois dos slides e o teste só abre depois de o estudante ver 90% do vídeo a tocar (tempo real, sem saltar). Sem vídeo, esta opção não bloqueia a aula.'
+    - label: Duração do vídeo-resumo (minutos)
+      name: duracao_video
+      widget: number
+      value_type: float
+      min: 0.5
+      required: false
+      hint: 'Recomendado: dá ao servidor a duração certa para exigir 90% do vídeo (ex.: 4.5). Se ficar vazio, usa a duração indicada pelo leitor de vídeo.'
     - label: Teste da aula (modo progressivo)
       name: teste
       widget: object

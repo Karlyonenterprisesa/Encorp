@@ -57,3 +57,18 @@ Em **Vídeos**, **Video-aulas** e nas **aulas de um curso** há dois campos. Use
 - **Carregar o vídeo (MP4):** envia o ficheiro pelo próprio CMS e toca num leitor do site. Use para clipes curtos.
 
 Limites do ficheiro carregado: fica guardado no GitHub (que bloqueia ficheiros acima de 100 MB) e é servido pela Vercel, cujo plano gratuito tem limite mensal de transferência. Por isso: formato **MP4 (H.264)**, de preferência até **20–25 MB** por vídeo, e **imagem de capa** preenchida (é o que se vê antes de tocar). Para comprimir: HandBrake, 720p.
+
+## Slides enriquecidos e PowerPoint (aulas dos cursos)
+Cada slide tem **Tipo** (Conteúdo, Objectivos, Sequência, Caso clínico, Pontos-chave, Resumo, Para reflectir, Para aprofundar) e **Notas do orador**. O tipo muda o desenho no leitor e no `.pptx`.
+- Texto do slide: listas (`-` ou `1.`), caixas de destaque (`> texto`; se começar por «Atenção» fica laranja), tabelas (`| a | b |`), `**negrito**` e ligações `[texto](/pagina.html)`.
+- O PowerPoint de cada aula (gerado em cada build por `tools/gerar-pptx.mjs`) tem: capa, «Nesta aula» com roteiro, um slide por slide do CMS (com barra de progresso e notas do orador) e o aviso do teste.
+- Se um slide tiver texto a mais, o build avisa («divida-o em dois»).
+- As 11 aulas de **Estabilização de pacientes** e **Elaboração de monografias** têm agora 13 a 16 slides cada, com casos clínicos e resoluções. **O texto clínico deve ser revisto por um profissional de enfermagem antes de ser usado em formação** (valores de referência, doses de adrenalina, tabela NEWS2, classes de choque).
+
+## Aulas ao estilo plataforma de cursos (slides → vídeo → teste)
+Ordem de cada aula, imposta **pelo servidor** (não dá para saltar mexendo no navegador):
+1. **Slides cronometrados.** O botão «Seguinte» só abre depois do tempo mínimo do slide (contagem decrescente visível). O tempo é calculado pelas palavras (cerca de 2 palavras por segundo + 8 s, entre 10 e 120 s) ou fixado no campo **Tempo mínimo neste slide** do CMS.
+2. **Vídeo-resumo** (YouTube ou ficheiro carregado no CMS). Só abre depois do último slide. O teste só abre depois de o estudante ver **90%** do vídeo a tocar (tempo real: saltar para a frente não conta). Indique a **Duração do vídeo (minutos)** no CMS para o servidor saber o tempo exacto.
+3. **Teste de 10 perguntas.** O estudante responde e carrega em **Corrigir**: vê quantas acertou e quais ficaram **certas ✔ ou erradas ✘**. A opção certa e a explicação só aparecem depois de aprovar (assim não se descobrem as respostas por tentativa e erro).
+- «Elaboração de monografias» passou a **modo progressivo** (conta de estudante + aulas em sequência), como a Estabilização. Para voltar ao modo livre, mude «Modo» no CMS.
+- Testar localmente: `node build.mjs && ENCORP_MIN_SLIDE_MS=4000 node tests/servidor-dev.mjs` (http://localhost:8810, Redis simulado).

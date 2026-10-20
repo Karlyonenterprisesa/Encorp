@@ -14,7 +14,11 @@ const crypto = require('node:crypto');
 const kv = require('./_lib/kv');
 const S = require('./_lib/seguranca');
 
-const MIN_SLIDE_MS = 3000;
+/* Tempo mínimo por slide: calculado no build a partir do nº de palavras (ou fixado no CMS, campo «tempo»). Mínimo absoluto: 3 s.
+   ENCORP_MIN_SLIDE_MS (só para testes automáticos) impõe o mesmo valor a todos os slides. */
+const MIN_FIXO = process.env.ENCORP_MIN_SLIDE_MS ? Number(process.env.ENCORP_MIN_SLIDE_MS) : null;
+const minSlideMs = (a, k) => (MIN_FIXO != null ? MIN_FIXO : Math.max(3000, (Number(((a.slides || [])[k] || {}).min) || 10) * 1000));
+const FRACAO_VIDEO = 0.9;   // % do vídeo que tem de ser realmente visto (tempo de reprodução)
 let CURSOS = null;
 const cursos = () => {
   if (CURSOS) return CURSOS;
@@ -26,14 +30,15 @@ const embaralhar = (n) => { const a = [...Array(n).keys()]; for (let i = n - 1; 
 const chaveProg = (uid, curso) => `prog:${uid}:${curso}`;
 async function lerProg(uid, curso) { const r = await kv.get(chaveProg(uid, curso)); return r ? JSON.parse(r) : { aulas: {} }; }
 const gravarProg = (uid, curso, p) => kv.set(chaveProg(uid, curso), JSON.stringify(p));
-const pa = (p, i) => (p.aulas[i] ||= { vistos: 0, slideTs: 0, videoInicio: 0, videoFim: 0, tentativas: 0, ultima: 0, melhor: 0, aprovado: false, concluida: 0 });
+const pa = (p, i) => (p.aulas[i] ||= { vistos: 0, slideTs: 0, videoInicio: 0, videoFim: 0, videoSeg: 0, videoUlt: 0, videoDur: 0, tentativas: 0, ultima: 0, melhor: 0, aprovado: false, concluida: 0 });
 
 const temVideo = (a) => !!(a.video && (a.video.youtube || a.video.ficheiro));
-const videoObrig = (a) => temVideo(a) && a.video.obrigatorio === true;
+const videoObrig = (a) => temVideo(a) && a.video.obrigatorio !== false;   // com vídeo, é obrigatório (salvo se desligado no CMS)
+const videoNecessarioSeg = (a, x) => { const m = Number(a.video && a.video.minutos) || 0; const d = m > 0 ? m * 60 : (Number(x.videoDur) || 0); return d > 0 ? Math.ceil(d * FRACAO_VIDEO) : 0; };
 function requisitos(a, x) {
   const falta = [];
   const n = (a.slides || []).length;
-  if (n && !(x.vistos >= n && Date.now() - x.slideTs >= MIN_SLIDE_MS)) falta.push('slides');
+  if (n && !(x.vistos >= n && Date.now() - x.slideTs >= minSlideMs(a, n - 1))) falta.push('slides');
   if (videoObrig(a) && !x.videoFim) falta.push('video');
   return falta;
 }
@@ -81,8 +86,8 @@ module.exports = async (req, res) => {
         return res.end(fs.readFileSync(f));
       }
       return S.enviar(res, 200, {
-        ...estadoAula(c, p, a, i), html: a.html || '', slides: (a.slides || []).map((s) => ({ titulo: s.titulo || '', html: s.html || '', imagem: s.imagem || '' })),
-        video: temVideo(a) ? { youtube: a.video.youtube || '', ficheiro: a.video.ficheiro || '' } : null,
+        ...estadoAula(c, p, a, i), html: a.html || '', slides: (a.slides || []).map((s) => ({ titulo: s.titulo || '', html: s.html || '', imagem: s.imagem || '', tipo: s.tipo || 'conteudo' })),
+        video: temVideo(a) ? (() => { const x = p.aulas[i] || {}; return { youtube: a.video.youtube || '', ficheiro: a.video.ficheiro || '', necessarioSeg: videoNecessarioSeg(a, x), vistoSeg: Math.round(x.videoSeg || 0) }; })() : null,
         teste: a.teste ? { total: a.teste.perguntas.length, notaMinima: notaMin(c, a), tentativasMax: maxTent(c, a) } : null,
       });
     }
@@ -102,22 +107,33 @@ module.exports = async (req, res) => {
       if (!Number.isInteger(k) || k < 0 || k >= n) return S.enviar(res, 400, { erro: 'Slide inválido.' });
       if (k > x.vistos) return S.enviar(res, 409, { erro: 'Veja os slides pela ordem.', proximo: x.vistos });
       if (k === x.vistos) {
-        if (x.vistos > 0 && agora - x.slideTs < MIN_SLIDE_MS) return S.enviar(res, 429, { erro: 'Leia o slide antes de avançar.', esperaMs: MIN_SLIDE_MS - (agora - x.slideTs) });
+        if (x.vistos > 0 && agora - x.slideTs < minSlideMs(a, k - 1)) return S.enviar(res, 429, { erro: 'Leia o slide antes de avançar.', esperaMs: minSlideMs(a, k - 1) - (agora - x.slideTs) });
         x.vistos = k + 1; x.slideTs = agora; await gravarProg(uid, slug, p);
       }
-      return S.enviar(res, 200, { vistos: x.vistos, total: n });
+      /* tempo que ainda falta no slide mais recente (continua certo depois de recarregar a página); slides já passados: 0 */
+      const restanteMs = k === x.vistos - 1 ? Math.max(0, minSlideMs(a, k) - (agora - x.slideTs)) : 0;
+      return S.enviar(res, 200, { vistos: x.vistos, total: n, restanteMs });
     }
 
     if (b.acao === 'video') {
       if (!temVideo(a)) return S.enviar(res, 200, { ok: true, semVideo: true });
-      if (b.evento === 'inicio') { if (!x.videoInicio) { x.videoInicio = agora; await gravarProg(uid, slug, p); } return S.enviar(res, 200, { ok: true }); }
+      if (requisitos(a, x).includes('slides')) return S.enviar(res, 403, { erro: 'Veja primeiro todos os slides.', faltam: ['slides'] });   // o vídeo-resumo vem depois dos slides
+      const resp = () => ({ ok: true, vistoSeg: Math.round(x.videoSeg || 0), necessarioSeg: videoNecessarioSeg(a, x), completo: !!x.videoFim });
+      if (b.evento === 'inicio') { if (!x.videoInicio) x.videoInicio = agora; x.videoUlt = agora; await gravarProg(uid, slug, p); return S.enviar(res, 200, resp()); }
+      if (b.evento === 'batida') {          // o leitor diz quantos segundos reproduziu desde a última batida; o servidor nunca credita mais do que o tempo real decorrido
+        if (!x.videoInicio) return S.enviar(res, 409, { erro: 'Inicie o vídeo primeiro.' });
+        const dt = x.videoUlt ? (agora - x.videoUlt) / 1000 : 0, rel = Math.max(0, Math.min(Number(b.seg) || 0, dt + 2, 30));
+        x.videoSeg = (x.videoSeg || 0) + rel; x.videoUlt = agora;
+        const dur = Number(b.dur); if (!x.videoDur && Number.isFinite(dur) && dur >= 5 && dur <= 14400) x.videoDur = Math.round(dur);
+        const nec = videoNecessarioSeg(a, x); if (nec > 0 && x.videoSeg >= nec && !x.videoFim) x.videoFim = agora;
+        await gravarProg(uid, slug, p); return S.enviar(res, 200, resp());
+      }
       if (b.evento === 'fim') {
         if (!x.videoInicio) return S.enviar(res, 409, { erro: 'Inicie o vídeo primeiro.' });
-        const mins = Number((String(a.duracao || '').match(/(\d+)/) || [])[1]);
-        const minimoMs = Math.min(600000, mins ? mins * 60000 * 0.6 : 20000);    // melhor esforço: o servidor não vê o vídeo, só o tempo decorrido
-        if (agora - x.videoInicio < minimoMs) return S.enviar(res, 429, { erro: 'Veja o vídeo até ao fim.', esperaMs: Math.ceil(minimoMs - (agora - x.videoInicio)) });
+        const nec = videoNecessarioSeg(a, x);
+        if (nec > 0 ? x.videoSeg < nec : agora - x.videoInicio < 20000) return S.enviar(res, 429, { erro: 'Veja o vídeo até ao fim.', faltaSeg: Math.max(0, Math.ceil(nec - (x.videoSeg || 0))) });
         if (!x.videoFim) { x.videoFim = agora; await gravarProg(uid, slug, p); }
-        return S.enviar(res, 200, { ok: true });
+        return S.enviar(res, 200, resp());
       }
       return S.enviar(res, 400, { erro: 'Evento inválido.' });
     }
@@ -172,7 +188,7 @@ module.exports = async (req, res) => {
       if (aprovado) { x.aprovado = true; x.concluida = x.concluida || agora; }
       await gravarProg(uid, slug, p);
       const max = maxTent(c, a);
-      const out = { pontuacao: certas, total: 10, percentagem: pct, notaMinima: min, aprovado, tentativasRestantes: max > 0 ? Math.max(0, max - x.tentativas) : null };   // reprovado: só a nota, sem dizer que perguntas falhou (evita deduzir respostas por tentativas sucessivas)
+      const out = { pontuacao: certas, total: 10, percentagem: pct, notaMinima: min, aprovado, marcas: certasPorPergunta, tentativasRestantes: max > 0 ? Math.max(0, max - x.tentativas) : null };   // reprovado: só a nota, sem dizer que perguntas falhou (evita deduzir respostas por tentativas sucessivas)
       if (aprovado) out.correcao = t.ordem.map((qi, k) => { const q = a.teste.perguntas[qi]; return { certa: certasPorPergunta[k], correta: q.opcoes[q.correta - 1], explicacao: q.explicacao || '' }; });   // correcção e soluções só depois de aprovar
       out.curso = resumoCurso(c, p);
       return S.enviar(res, 200, out);
