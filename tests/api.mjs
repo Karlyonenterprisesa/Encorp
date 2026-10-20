@@ -1,3 +1,4 @@
+process.env.ENCORP_MIN_SLIDE_MS = '3000';   // testes: mesmo tempo mínimo (3 s) em todos os slides
 import http from 'node:http'; import { createRequire } from 'node:module'; import fs from 'node:fs'; import { fileURLToPath } from 'node:url'; import path from 'node:path';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');   // teste das API com Redis simulado: node tests/api.mjs (corre antes: node build.mjs)
 const require = createRequire(import.meta.url);
@@ -15,6 +16,10 @@ const kvSrv = http.createServer((q, s) => { let b = ''; q.on('data', (c) => b +=
   s.setHeader('content-type', 'application/json'); s.end(JSON.stringify({ result: r })); }); }).listen(8801);
 process.env.KV_REST_API_URL = 'http://localhost:8801'; process.env.KV_REST_API_TOKEN = 't';
 process.env.SESSION_SECRET = 'x'.repeat(40);
+const DADOS = ROOT + '/api/_dados/cursos.json', DADOS_ORIG = fs.readFileSync(DADOS, 'utf8');
+{ const d = JSON.parse(DADOS_ORIG);   // curso sintético só para testar slides cronometrados + vídeo (restaurado no fim)
+  d['video-teste'] = { titulo: 'Vídeo teste', notaMinima: 70, tentativas: 3, esperaMinutos: 30, sequencial: true, aulas: [{ titulo: 'A', resumo: '', duracao: '', html: '', slides: [{ titulo: 's1', html: '<p>a</p>', imagem: '', tipo: 'conteudo', min: 3 }, { titulo: 's2', html: '<p>b</p>', imagem: '', tipo: 'conteudo', min: 3 }], video: { youtube: 'abcdefghijk', ficheiro: '', obrigatorio: true, minutos: 0.2 }, teste: null }] };
+  fs.writeFileSync(DADOS, JSON.stringify(d)); }
 const aluno = require(ROOT + '/api/aluno.js'), apr = require(ROOT + '/api/aprendizagem.js');
 const app = http.createServer((q, s) => q.url.startsWith('/api/aluno') ? aluno(q, s) : apr(q, s)).listen(8802);
 const call = async (jar, method, path, body, hdr = {}) => {
@@ -59,7 +64,7 @@ t('aula 1 devolve slides e teste sem respostas', NS >= 3 && au.teste.total === 1
 // 6. teste antes dos slides
 t('teste antes de ver slides → 403', (await call(A, 'POST', '/api/aprendizagem', { acao: 'teste-iniciar', curso: C, aula: 0 }))._st === 403);
 // 7. slides: ritmo e ordem
-t('slide 0 ok', (await call(A, 'POST', '/api/aprendizagem', { acao: 'slide', curso: C, aula: 0, i: 0 }))._st === 200);
+{ const r0 = await call(A, 'POST', '/api/aprendizagem', { acao: 'slide', curso: C, aula: 0, i: 0 }); t('slide 0 ok e devolve o tempo que falta (restanteMs)', r0._st === 200 && r0.restanteMs > 0 && r0.restanteMs <= 3000, JSON.stringify(r0)); }
 t('saltar para slide 2 → 409', (await call(A, 'POST', '/api/aprendizagem', { acao: 'slide', curso: C, aula: 0, i: 2 }))._st === 409);
 t('slide 1 depressa demais → 429', (await call(A, 'POST', '/api/aprendizagem', { acao: 'slide', curso: C, aula: 0, i: 1 }))._st === 429);
 for (let k = 1; k < NS; k++) { await new Promise((r) => setTimeout(r, 3100)); const r = await call(A, 'POST', '/api/aprendizagem', { acao: 'slide', curso: C, aula: 0, i: k }); if (r._st !== 200) console.log('slide', k, r); }
@@ -77,7 +82,7 @@ const ti = await call(A, 'POST', '/api/aprendizagem', { acao: 'teste-iniciar', c
 t('teste inicia com 10 perguntas, sem respostas certas', ti._st === 200 && ti.perguntas.length === 10 && !JSON.stringify(ti).includes('correta') && !JSON.stringify(ti).includes('explicacao'));
 const wrong = await call(A, 'POST', '/api/aprendizagem', { acao: 'teste-submeter', curso: C, aula: 0, tid: ti.tid, respostas: Array(10).fill(0) });
 t('submissão corrigida no servidor (falha) sem revelar certas', wrong._st === 200 && wrong.total === 10 && (wrong.aprovado === false || wrong.percentagem >= 70) && (wrong.aprovado || wrong.correcao === undefined));
-t('reprovado: só a nota, sem certa/errada por pergunta', wrong.aprovado || !JSON.stringify(wrong).includes('certa'));
+t('reprovado: certa/errada por pergunta (marcas) mas sem opção certa nem explicação', wrong.aprovado || (Array.isArray(wrong.marcas) && wrong.marcas.length === 10 && wrong.correcao === undefined && !JSON.stringify(wrong).includes('explicacao')));
 t('tid não reutilizável', (await call(A, 'POST', '/api/aprendizagem', { acao: 'teste-submeter', curso: C, aula: 0, tid: ti.tid, respostas: Array(10).fill(0) }))._st === 400);
 t('aula 2 continua bloqueada após falhar', (await call(A, 'GET', `/api/aprendizagem?curso=${C}&aula=1`))._st === 403);
 // responder certo: o teste de teste conhece os dados privados
@@ -110,4 +115,20 @@ const jr = { c: oldCookie }; t('sessão revogada após sair', (await call(jr, 'G
 // 11. tentativas: 3 falhas -> esgotado
 const G = {}; await call(G, 'POST', '/api/aluno', { acao: 'registar', nome: 'Rui' });
 await call(G, 'POST', '/api/aprendizagem', { acao: 'slide', curso: C, aula: 0, i: 0 });
+// 9. slides cronometrados + vídeo (curso sintético): vídeo só depois dos slides; teste/conclusão só com 90% do vídeo visto
+{ const V = {}; await call(V, 'POST', '/api/aluno', { acao: 'registar', nome: 'Vera Vídeo' });
+  const P = (b) => call(V, 'POST', '/api/aprendizagem', { curso: 'video-teste', aula: 0, ...b });
+  t('vídeo antes dos slides → 403', (await P({ acao: 'video', evento: 'inicio' }))._st === 403);
+  await P({ acao: 'slide', i: 0 }); await new Promise((r) => setTimeout(r, 3100)); await P({ acao: 'slide', i: 1 });
+  t('último slide: concluir ainda recusado (tempo do slide + vídeo)', (await P({ acao: 'concluir' }))._st === 403);
+  await new Promise((r) => setTimeout(r, 3100));
+  t('vídeo inicia depois dos slides', (await P({ acao: 'video', evento: 'inicio' }))._st === 200);
+  t('fim do vídeo sem tempo visto → 429', (await P({ acao: 'video', evento: 'fim' }))._st === 429);
+  const b1 = await P({ acao: 'video', evento: 'batida', seg: 500, dur: 12 });
+  t('servidor não credita mais do que o tempo real (batida de 500 s ≈ 2 s)', b1._st === 200 && b1.vistoSeg <= 3 && !b1.completo, JSON.stringify(b1));
+  await new Promise((r) => setTimeout(r, 11000));
+  const b2 = await P({ acao: 'video', evento: 'batida', seg: 11, dur: 12 });
+  t('90% do vídeo visto (≈ 11 s de 12 s) → completo', b2._st === 200 && b2.completo === true, JSON.stringify(b2));
+  const fin = await P({ acao: 'concluir' }); t('aula concluída depois de slides + vídeo', fin._st === 200); }
+fs.writeFileSync(DADOS, DADOS_ORIG);
 console.log('--- fim:', ok, 'ok,', bad, 'falhas'); process.exit(bad ? 1 : 0);
