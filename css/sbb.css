@@ -119,7 +119,7 @@ body > footer{border-top:48px solid var(--sbb-navy);margin-top:40px;padding:0!im
 .sbb-course{display:flex;flex-direction:column;justify-content:flex-end;gap:8px;min-height:190px;padding:24px;background:var(--sbb-navy);color:#fff;border-radius:0;text-decoration:none}
 .sbb-course:nth-child(2){background:var(--sbb-blue)}
 .sbb-course:nth-child(3){background:var(--sbb-navy2)}
-.sbb-course small{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#e3ecff}
+.sbb-course small{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#bcd0f5}
 .sbb-course b{font-size:21px;line-height:1.25}
 .sbb-course span{font-size:13.5px;color:#dbe4f5}
 .sbb-edu-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin:34px 0 10px}
@@ -228,11 +228,12 @@ body > header .sbb-logo img{margin:0!important;height:56px}
 .enc-intro p{font-size:13px;line-height:1.55;color:#34455f;margin:8px 0 0;text-align:center!important;hyphens:none}
 
 /* ---------- Botão flutuante do WhatsApp (animado) ---------- */
-.wa-float{position:relative;z-index:1;flex:none;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.32);text-decoration:none;animation:wa-bob 3.6s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+.wa-float{position:fixed;right:16px;bottom:20px;z-index:90;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.32);text-decoration:none;animation:wa-bob 3.6s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
 .wa-float::before,.wa-float::after{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(37,211,102,.5);z-index:-1;animation:wa-ring 2.4s ease-out infinite}
 .wa-float::after{animation-delay:1.2s}
 .wa-float svg{width:34px;height:34px;display:block}
 .wa-float:hover,.wa-float:focus-visible{filter:brightness(1.08)}
+body:has(.bottom-nav) .wa-float{bottom:calc(88px + env(safe-area-inset-bottom,0px))}
 @keyframes wa-ring{0%{transform:scale(1);opacity:.75}100%{transform:scale(1.9);opacity:0}}
 @keyframes wa-bob{0%,84%,100%{transform:translateY(0) rotate(0)}88%{transform:translateY(-7px) rotate(-9deg)}92%{transform:translateY(0) rotate(9deg)}96%{transform:rotate(-4deg)}}
 @media(prefers-reduced-motion:reduce){.wa-float,.wa-float::before,.wa-float::after{animation:none}}
@@ -249,70 +250,10 @@ body > header .sbb-logo img{margin:0!important;height:56px}
 @keyframes ht-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 @media(prefers-reduced-motion:reduce){.home-tools .icon-box{animation:none}.home-tools .home-card.ht-rv{opacity:1;transform:none}}
 
-/* contraste: setas dos cartões da app sempre legíveis */
-.home-card .chev-r{color:#0b1a33!important}
-
-/* contraste garantido: botões das calculadoras e de acção (letra sempre legível sobre o fundo) */
-button.calc-btn,.calc-actions button.calc-btn{background:#0148e0!important;color:#fff!important;border:2px solid #0148e0!important;font-weight:800}
-button.calc-btn.ghost,.calc-actions button.calc-btn.ghost{background:#fff!important;color:#0b1a33!important;border:2px solid #0b1a33!important}
-button.calc-btn:hover{filter:brightness(1.1)}
-button.calc-btn:focus-visible{outline:3px solid #f28c1c;outline-offset:2px}
-.calc-box label,.calc-field label,.calc-label{color:#0b1a33}
-
-
-/* ======================= v2: título no cabeçalho, idiomas, pesquisa, vídeo, WhatsApp ======================= */
-/* cabeçalho: ícone | título com contorno | idioma (+ menu) */
-.sbb-logo-row{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px;padding:8px 12px!important}
-.sbb-logo-row .head-right{position:static!important;transform:none!important;flex:0 0 auto}
-.sbb-logo-row .sbb-logo{flex:0 0 auto}
-body > header .sbb-logo-row .sbb-logo{padding:0}
-body > header .sbb-logo-row .sbb-logo img{height:46px;margin:0}
-body > header{text-align:left}
-body > header nav{justify-content:safe center}
-.sbb-title{flex:1 1 auto;min-width:0;max-width:340px;margin:4px auto;padding:6px 10px 7px;text-align:center;line-height:1.25;color:var(--sbb-navy);background:linear-gradient(180deg,#fff 0%,#eef3fb 100%);border:2px solid var(--sbb-navy);border-radius:14px;outline:1px solid #b9c8e6;outline-offset:3px}
-.sbb-title b{display:block;font-size:17px;font-weight:900;letter-spacing:3px;margin-bottom:3px;padding-bottom:3px;border-bottom:1px solid var(--sbb-line)}
-.sbb-title span{display:block;font-size:9.5px;font-weight:700;color:#2a3d5e}
-@media(min-width:600px){.sbb-title{max-width:400px;padding:8px 18px 9px}.sbb-title b{font-size:22px}.sbb-title span{font-size:12px}}
-@media(min-width:900px){.sbb-logo-row{padding:12px 28px!important;gap:20px}.sbb-logo-img,body > header .sbb-logo-row .sbb-logo img{height:62px}}
-@media(max-width:359px){.sbb-title{padding:5px 6px 6px}.sbb-title b{font-size:15px;letter-spacing:2px}.sbb-title span{font-size:8.5px}}
-
-/* seletor de idioma (tradução automática da página inteira) */
-.lang-pick{position:relative}
-.lp-btn{display:inline-flex;align-items:center;gap:5px;height:36px;padding:0 10px;border:1.5px solid var(--sbb-navy);border-radius:999px;background:#fff;color:var(--sbb-navy);font:800 12px/1 inherit;font-family:inherit;cursor:pointer}
-.lp-btn svg{width:16px;height:16px;flex:none}
-.lp-btn .lp-chev{width:10px;height:10px;transition:transform .15s}
-.lp-btn[aria-expanded="true"] .lp-chev{transform:rotate(180deg)}
-.lp-btn:focus-visible,.lp-menu button:focus-visible{outline:2px solid var(--sbb-blue);outline-offset:2px}
-.lp-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:400;min-width:176px;max-height:min(62vh,380px);overflow:auto;margin:0;padding:6px;list-style:none;background:#fff;border:1px solid var(--sbb-line);border-radius:12px;box-shadow:0 12px 30px rgba(11,26,51,.24)}
-.lp-menu[hidden]{display:none}
-.lp-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:14px;padding:9px 10px;border:0;border-radius:8px;background:none;color:var(--sbb-text);font:600 14px/1.2 inherit;font-family:inherit;text-align:left;cursor:pointer}
-.lp-menu button:hover{background:var(--sbb-soft)}
-.lp-menu button[aria-selected="true"]{background:var(--sbb-navy);color:#fff}
-.lp-menu small{font-size:11px;font-weight:700;opacity:.75}
-.drawer-lang .lp-menu{right:auto;left:0}
-/* esconder a interface própria do Google Tradutor */
-.goog-te-banner-frame,.goog-te-balloon-frame,#goog-gt-tt,.goog-tooltip,.goog-te-menu-frame,iframe.skiptranslate,.VIpgJd-ZVi9od-ORHb-OEVmcd,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf{display:none!important}
-html body{top:0!important}
-.goog-text-highlight{background:none!important;box-shadow:none!important}
-#ec_gt{position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden}
-
-/* página inicial: descrição por cima, pesquisa centrada */
-#app .view > .enc-intro{max-width:640px!important;padding:0 20px;margin:18px auto 10px!important}
-.enc-intro p{font-size:14px;line-height:1.6;margin:0}
-#app .view > #ecHomeSearch{position:relative;max-width:620px!important;width:100%;margin:0 auto 14px!important;padding:0 20px}
-#app #ecHomeSearch input{height:54px!important;border:1.5px solid var(--sbb-line)!important;border-radius:999px!important;background:#fff!important;padding:0 66px 0 24px!important;box-shadow:0 2px 12px rgba(11,26,51,.08)}
-#app #ecHomeSearch input:focus{border-color:var(--sbb-blue)!important;outline:0;box-shadow:0 0 0 3px rgba(1,72,224,.15)}
-#app #ecHomeSearch .clear{right:78px!important}
-#app #ecHomeSearch .sbb-search-btn{right:26px;top:5px;height:44px;width:44px;border-radius:50%;background:var(--sbb-navy);color:#fff}
-#app #ecHomeSearch .sbb-search-btn:hover{background:var(--sbb-navy2)}
-
-/* vídeo do canal: mais pequeno */
-#app .view > .ec-video{max-width:340px!important;margin:0 auto 10px!important;padding:0 20px;position:relative}
-.ec-video > div{background:#000}
-#app .view > .ec-video-link{margin:0 auto 16px!important;text-align:center}
-
-/* WhatsApp: faz parte do rodapé, nunca por cima do conteúdo */
-.sbb-wa{display:flex;flex-direction:column;align-items:center;gap:30px;padding:40px 16px 34px;text-align:center}
-.sbb-wa p{margin:0;font-size:13px;font-weight:700;color:var(--sbb-navy)}
-#app .sbb-wa-global{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
-body:has(#view-home.active) .sbb-wa-global{display:none}
+/* ---------- Título no cabeçalho: ENCORP (cima) + nome completo (baixo), centrado entre o logótipo e o seletor de idioma ---------- */
+.sbb-title{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 6px}
+.sbb-title b{display:block;font-size:clamp(15px,4.8vw,20px);font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--sbb-navy,#0b1a33);line-height:1.1}
+.sbb-title span{display:block;font-size:clamp(7.5px,2.25vw,10px);font-weight:600;line-height:1.25;margin-top:2px;color:var(--sbb-navy,#0b1a33);text-align:center}
+@media(min-width:900px){.sbb-title b{font-size:26px;letter-spacing:2px}.sbb-title span{font-size:13px;margin-top:3px}}
+.enc-intro{margin-top:10px}
+.enc-intro p{font-size:13.5px;line-height:1.6;margin-top:0}

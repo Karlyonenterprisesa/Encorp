@@ -9,7 +9,7 @@
 <style>
 /* fonte: Outfit (Google Fonts) com fallback para a fonte do sistema */
 :root{/* ===== Identidade Alcartel Digital Vision — Azul · Branco · Preto ===== */
-    --azul-escuro:#0b1a33;--azul:#a64b00;--azul-claro:#f7a23b;--vermelho:#c8202f;--vermelho-esc:#9e1a26;--dourado:#e8a317;--dourado-esc:#0b1a33;--dourado-suave:#e7ecf4;--verde-saude:#0b1a33;--verde-saude-esc:#0b1a33;--verde-saude-suave:#e7ecf4;--preto:#0b1a33;--bg:#fbfaf7;--card:#ffffff;--texto:#0f2547;--texto-suave:#5b6b85;--borda:#dfe6f0;--fonte-titulo:'Outfit',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--fonte-texto:'Outfit',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;}
+    --azul-escuro:#0b1a33;--azul:#f28c1c;--azul-claro:#f7a23b;--vermelho:#c8202f;--vermelho-esc:#9e1a26;--dourado:#e8a317;--dourado-esc:#0b1a33;--dourado-suave:#e7ecf4;--verde-saude:#0b1a33;--verde-saude-esc:#0b1a33;--verde-saude-suave:#e7ecf4;--preto:#0b1a33;--bg:#fbfaf7;--card:#ffffff;--texto:#0f2547;--texto-suave:#5b6b85;--borda:#dfe6f0;--fonte-titulo:'Outfit',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--fonte-texto:'Outfit',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html, body{margin:0;padding:0;background:var(--bg);font-family:var(--fonte-texto);color:var(--texto);font-size:15px;line-height:1.5;}
 .brand h1{font-family:var(--fonte-titulo);font-weight:700;}
@@ -52,7 +52,7 @@ header{padding:10px 14px 0;}
 .quick-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;overflow:visible;max-width:380px;margin:0 auto;padding:12px 12px 8px;}
 .quick-strip .proc-img-card{flex:none;width:100%;}
 .proc-img-card img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;-webkit-user-drag:none;}
-.banner-cta{display:block;margin:8px auto 0;padding:9px 22px;background:#a64b00;color:#fff;border:none;border-radius:20px;font-size:12.5px;font-weight:800;letter-spacing:.3px;cursor:pointer;transition:transform .12s ease;}
+.banner-cta{display:block;margin:8px auto 0;padding:9px 22px;background:#f28c1c;color:#fff;border:none;border-radius:20px;font-size:12.5px;font-weight:800;letter-spacing:.3px;cursor:pointer;transition:transform .12s ease;}
 .banner-cta:active{background:var(--azul-escuro);transform:scale(.98);}
 /* O topo é sempre fixo e visível — sem comportamento de ocultar ao rolar. */
 /* ===== Rodapé + navegação fixos na base (visíveis em todas as secções) ===== */
@@ -65,7 +65,7 @@ header{padding:10px 14px 0;}
 .searchbar .clear.show{display:flex;}
 .edition-tabs{display:flex;gap:8px;margin:14px 12px 0;}
 .edition-tab{flex:1;padding:9px 8px;border-radius:12px;border:1px solid var(--borda);background:#fff;color:var(--texto-suave);font-size:12.5px;font-weight:700;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease;}
-.edition-tab.active{background:#a64b00;color:#fff;border-color:transparent;}
+.edition-tab.active{background:#f28c1c;color:#fff;border-color:transparent;}
 .stats{margin:6px 16px 4px;font-size:12.5px;color:var(--texto-suave);}
 .stats b{color:var(--azul-escuro);}
 main{flex:1;padding:6px 10px 90px;}
@@ -177,7 +177,7 @@ footer b{color:var(--azul-escuro);}
 .process-trail{display:flex;align-items:center;gap:4px;overflow-x:auto;padding:12px 12px 12px;-webkit-overflow-scrolling:touch;border-radius:14px;margin:0 12px 12px;}
 .pt-step{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:4px;background:var(--card);border:2px solid var(--azul);border-radius:12px;padding:10px 12px;font-size:10.5px;font-weight:700;color:var(--texto);cursor:pointer;min-width:74px;transition:all 0.3s ease;}
 .pt-step:hover{background:rgba(199,106,0,0.08);border-color:var(--azul-escuro);}
-.pt-num{width:28px;height:28px;border-radius:50%;background:#a64b00;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.pt-num{width:28px;height:28px;border-radius:50%;background:#f28c1c;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;}
 .pt-icon{width:28px;height:28px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:1px;color:var(--azul-escuro);}
 .pt-arrow{flex-shrink:0;color:var(--azul);font-size:16px;font-weight:700;}
 /* ===== Destaques/Actualizações ===== */
@@ -230,7 +230,7 @@ footer b{color:var(--azul-escuro);}
 .info-modal{background:#fff;border-radius:16px;max-width:340px;width:100%;padding:20px;text-align:center;}
 .info-modal h3{color:var(--azul-escuro);margin:0 0 10px;font-size:15px;}
 .info-modal p{color:var(--texto-suave);font-size:13px;line-height:1.5;margin:0 0 16px;}
-.info-modal button{background:#a64b00;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:13px;font-weight:700;cursor:pointer;}
+.info-modal button{background:#f28c1c;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:13px;font-weight:700;cursor:pointer;}
 /* ===== Navegação inferior ===== */
 .bottom-nav{display:flex;justify-content:space-around;align-items:stretch;border-top:1px solid var(--borda);}
 .nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:none;border:none;padding:8px 2px 7px;font-size:10.5px;font-weight:600;color:var(--texto-suave);cursor:pointer;}
@@ -241,7 +241,7 @@ footer b{color:var(--azul-escuro);}
 .card-overlay{display:none;position:fixed;inset:0;z-index:100;background:rgba(11,20,35,.55);padding:14px;overflow-y:auto;-webkit-overflow-scrolling:touch;}
 .card-overlay.open{display:flex;align-items:flex-start;justify-content:center;}
 .diag-card{background:#fff;border-radius:18px;max-width:540px;width:100%;margin:10px auto 30px;overflow:hidden;}
-.card-head{background:#a64b00;color:#fff;padding:14px 16px;text-align:center;font-weight:800;font-size:14px;letter-spacing:.4px;position:relative;}
+.card-head{background:#f28c1c;color:#fff;padding:14px 16px;text-align:center;font-weight:800;font-size:14px;letter-spacing:.4px;position:relative;}
 .card-head .close-x{position:absolute;right:10px;top:8px;background:rgba(255,255,255,.18);border:none;color:#fff;width:28px;height:28px;border-radius:50%;font-size:15px;cursor:pointer;}
 .card-sec{padding:14px 16px;border-top:1px dashed var(--borda);}
 .card-sec:first-of-type{border-top:none;}
@@ -258,7 +258,7 @@ footer b{color:var(--azul-escuro);}
 .card-band .clear-sec-btn{font-size:11px;font-weight:600;color:var(--vermelho);background:#fbe4e8;border:none;border-radius:8px;padding:4px 10px;cursor:pointer;}
 .card-actions{display:flex;gap:8px;padding:14px 16px 18px;flex-wrap:wrap;}
 .card-actions button{flex:1;border:none;border-radius:12px;padding:12px 10px;font-size:13px;font-weight:700;cursor:pointer;min-width:80px;}
-.card-actions .save-btn{background:#a64b00;color:#fff;}
+.card-actions .save-btn{background:#f28c1c;color:#fff;}
 .card-actions .close-btn{background:#e7ecf4;color:var(--azul-escuro);}
 .card-actions .clear-btn{background:#fbe4e8;color:var(--vermelho);}
 .card-saved-msg{text-align:center;font-size:11px;color:#000000;font-weight:700;height:14px;margin-top:-4px;}
@@ -302,7 +302,7 @@ footer b{color:var(--azul-escuro);}
 .calc-field input, .calc-field select{width:100%;padding:10px 12px;border:1px solid var(--borda);border-radius:10px;font-size:14px;background:#fff;color:var(--texto);box-sizing:border-box;}
 .calc-row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .calc-actions{display:flex;gap:8px;margin-top:4px;}
-.calc-btn{flex:1;background:#a64b00;color:#fff;border:none;border-radius:10px;padding:11px;font-size:13.5px;font-weight:800;cursor:pointer;transition:transform .12s ease;}
+.calc-btn{flex:1;background:#f28c1c;color:#fff;border:none;border-radius:10px;padding:11px;font-size:13.5px;font-weight:800;cursor:pointer;transition:transform .12s ease;}
 .calc-btn:active{transform:scale(.97);}
 .calc-btn.ghost{background:#e7ecf4;color:var(--azul-escuro);}
 .calc-result{margin-top:12px;padding:14px;border-radius:12px;background:#e7ecf4;border:1px solid #d9d9d9;text-align:center;display:none;}
@@ -398,7 +398,7 @@ footer b{color:var(--azul-escuro);}
 .fs-bio{font-size:12px;color:var(--texto-suave);line-height:1.55;margin:10px 0 4px;}
 .fs-actions{display:flex;gap:8px;margin-top:14px;}
 .fs-btn{flex:1;border:none;border-radius:10px;padding:10px 10px;font-size:12.5px;font-weight:700;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;}
-.fs-btn.primary{background:#a64b00;color:#fff;}
+.fs-btn.primary{background:#f28c1c;color:#fff;}
 .fs-btn:active{transform:scale(.97);}
 @media (max-width:360px){
 .tool-grid{grid-template-columns:1fr 1fr;gap:8px;}
@@ -431,12 +431,12 @@ footer b{color:var(--azul-escuro);}
 .ce-tag.diag{background:#e7ecf4;color:var(--azul-escuro);}
 /* ===== Biblioteca — secção PDF ===== */
 .pdf-viewer-card{background:var(--card);border:1px solid var(--borda);border-radius:14px;margin:10px;overflow:hidden;}
-.pdf-viewer-header{background:#a64b00;padding:16px 18px;color:#fff;}
+.pdf-viewer-header{background:#f28c1c;padding:16px 18px;color:#fff;}
 .pdf-viewer-header h3{margin:0 0 4px;font-size:15px;}
 .pdf-viewer-header p{margin:0;font-size:12px;opacity:.85;}
 .pdf-btns{display:flex;gap:10px;padding:14px 16px;border-bottom:1px solid var(--borda);}
 .pdf-btn{flex:1;padding:10px 14px;border-radius:10px;border:none;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;}
-.pdf-btn.primary{background:#a64b00;color:#fff;}
+.pdf-btn.primary{background:#f28c1c;color:#fff;}
 .pdf-btn.secondary{background:#e7ecf4;color:var(--azul-escuro);}
 .pdf-embed-wrap{display:none;padding:0;}
 .pdf-embed-wrap.open{display:block;}
@@ -449,7 +449,7 @@ footer b{color:var(--azul-escuro);}
 /* ===== Processo de Enfermagem do Adulto (Formulário) ===== */
 .proc-form{padding:12px;}
 .proc-section{background:var(--card);border:1px solid var(--borda);border-radius:14px;margin-bottom:14px;overflow:hidden;}
-.proc-section-head{background:#a64b00;padding:14px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;}
+.proc-section-head{background:#f28c1c;padding:14px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;}
 .proc-section-head span.ps-num{background:rgba(255,255,255,.25);color:#fff;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
 .proc-section-head h3{color:#fff;margin:0;font-size:14px;flex:1;}
 .proc-section-head .ps-chev{color:rgba(255,255,255,.7);font-size:13px;transition:transform .2s;}
@@ -506,7 +506,7 @@ main{padding-left:24px;padding-right:24px;}
 .fs-btn:hover{opacity:.92;}
 }
 /* ===== Títulos das secções — mesmo azul dos cards/botão, com relevo ===== */
-.section-title{background:#a64b00;color:#fff;border:1px solid rgba(255,255,255,.16);}
+.section-title{background:#f28c1c;color:#fff;border:1px solid rgba(255,255,255,.16);}
 /* ===== Topo (título + banner) e barra de pesquisa — mesmo azul, com relevo ===== */
 header{background:transparent;}
 .brand img{box-shadow:none;}
@@ -587,9 +587,9 @@ html, body, #app, .view{background:#FFFFFF;}
 .home-card, .tool-card, .quiz-q, .med-card, .placeholder, .calc-panel, .acc, .domain, .classe, .process-trail, #view-processo, .proc-img-card, .pt-step, .process-image-card, .pdf-viewer-card, .proc-section, .card-sec, .ce-card, .diag-card, .scale-opt, .gallery-item, .info-modal, .founder-splash-card{background:#FFFFFF;}
 .diag-item:active, .drawer-links li button:active{background:#F5F6FA;}
 /* ===== Títulos de secção: azul carregado com relevo (igual ao botão de menu) ===== */
-.section-title, .section-title.section-title-center{background:#a64b00;color:#fff;border:1px solid rgba(255,255,255,.16);}
+.section-title, .section-title.section-title-center{background:#f28c1c;color:#fff;border:1px solid rgba(255,255,255,.16);}
 /* ===== NANDA, Casos Clínicos, Testes, Flashcards, Simulações: TÍTULOS em azul carregado com relevo ===== */
-#view-diagnosticos .domain-head, #view-casos-clinicos .acc-head, #view-aprendizagem .acc-head, #view-aprendizagem .flash-front, #view-aprendizagem .quiz-q .qn{background:#a64b00;color:#fff;border-color:rgba(255,255,255,.16);}
+#view-diagnosticos .domain-head, #view-casos-clinicos .acc-head, #view-aprendizagem .acc-head, #view-aprendizagem .flash-front, #view-aprendizagem .quiz-q .qn{background:#f28c1c;color:#fff;border-color:rgba(255,255,255,.16);}
 #view-diagnosticos .domain-head .title, #view-diagnosticos .domain-head .count, #view-diagnosticos .domain-head .chev, #view-casos-clinicos .a-title, #view-casos-clinicos .a-sub, #view-casos-clinicos .a-chev, #view-aprendizagem .acc-head .a-title, #view-aprendizagem .acc-head .a-sub, #view-aprendizagem .acc-head .a-chev, #view-aprendizagem .flash-front{color:#fff;}
 #view-diagnosticos .domain-head .count, #view-casos-clinicos .a-sub, #view-aprendizagem .acc-head .a-sub{opacity:.85;}
 #view-aprendizagem .quiz-q{padding:0 14px 14px;overflow:hidden;}
@@ -617,18 +617,18 @@ header{background:transparent;}
 #view-casos-clinicos .a-sub, #view-aprendizagem .acc-head .a-sub{color:var(--texto-suave);opacity:1;}
 #view-casos-clinicos .a-chev, #view-aprendizagem .acc-head .a-chev{color:var(--azul-escuro);}
 /* Abas do Modo Estudante (Casos Clínicos · Testes · Flashcards · Simulação): azul carregado */
-#view-aprendizagem .study-tab{background:#a64b00;color:#fff;border:1px solid rgba(255,255,255,.16);opacity:.82;}
+#view-aprendizagem .study-tab{background:#f28c1c;color:#fff;border:1px solid rgba(255,255,255,.16);opacity:.82;}
 #view-aprendizagem .study-tab.active{opacity:1;border:2px solid #AEBBD3;}
 /* Seletor interno de testes: azul não carregado */
 #view-aprendizagem #testeSelector .study-tab{background:var(--lbg);color:var(--azul-escuro);border:1px solid #AEBBD3;opacity:1;}
 #view-aprendizagem #testeSelector .study-tab.active{background:var(--lbg2);border:2px solid var(--azul);}
 /* ===== AJUSTES FINAIS DE COR ===== */
 /* Azul carregado com relevo: botões de ação do Modo Estudante, flashcards, Simulação, NANDA, Início, splash */
-#view-aprendizagem .calc-btn, #view-aprendizagem .calc-btn.ghost, #view-aprendizagem .flash-front, #view-aprendizagem #pane-sim .acc-head, #view-diagnosticos .edition-tab, #view-diagnosticos .edition-tab.active, .back-btn, #view-diagnosticos .back-btn, .fs-btn.primary, .fs-btn.download{background:#a64b00;color:#fff;border:1px solid rgba(255,255,255,.16);}
+#view-aprendizagem .calc-btn, #view-aprendizagem .calc-btn.ghost, #view-aprendizagem .flash-front, #view-aprendizagem #pane-sim .acc-head, #view-diagnosticos .edition-tab, #view-diagnosticos .edition-tab.active, .back-btn, #view-diagnosticos .back-btn, .fs-btn.primary, .fs-btn.download{background:#f28c1c;color:#fff;border:1px solid rgba(255,255,255,.16);}
 #view-aprendizagem .flash-back{background:#0b1a33;color:#fff;border:1px solid rgba(255,255,255,.16);}
 #view-aprendizagem .flash-front{border-left:1px solid rgba(255,255,255,.16);}
 #view-aprendizagem #pane-sim .acc-head .a-title, #view-aprendizagem #pane-sim .acc-head .a-sub, #view-aprendizagem #pane-sim .acc-head .a-chev{color:#fff;}
-.back-btn{background:#a64b00 !important;color:#fff !important;border:1px solid rgba(255,255,255,.16) !important;}
+.back-btn{background:#f28c1c !important;color:#fff !important;border:1px solid rgba(255,255,255,.16) !important;}
 /* Azul não carregado: cards de Ferramentas/calculadoras/escalas e botões-lista (Biblioteca e restantes listas) */
 .home-card, .tool-card, #view-processo .home-card{background:#e7ecf4;border:1px solid #AEBBD3;border-left:4px solid #f7a23b;}
 .acc-head{background:#e7ecf4;}
@@ -654,7 +654,7 @@ header{background:transparent;}
 .proc-img-card:active{transform:translateY(3px) scale(.97);}
 /* ===== Botões do Manual (Visualizar / Baixar) em relevo ===== */
 #pdf-buttons-manual button, .pdf-btn{border-radius:12px !important;transition:transform .12s ease,box-shadow .12s ease;}
-#pdf-buttons-manual button:first-child{background:#a64b00 !important;color:#fff !important;border:1px solid rgba(255,255,255,.16) !important;}
+#pdf-buttons-manual button:first-child{background:#f28c1c !important;color:#fff !important;border:1px solid rgba(255,255,255,.16) !important;}
 #pdf-buttons-manual button:last-child{background:#000000 !important;color:#fff !important;border:1px solid rgba(255,255,255,.14) !important;}
 #pdf-buttons-manual button:active{transform:translateY(2px);}
 /* ===== Card do rodapé em relevo 3D ===== */
@@ -687,14 +687,14 @@ header{background:transparent;}
 .nav-btn{border-radius:12px;margin:4px 3px;transition:background .15s ease,box-shadow .15s ease;}
 .nav-btn.active{background:#FFE3BD;box-shadow:none;}
 /* --- Botões inline (PDF/Word/Gastrite/LNME/Formulário): mesma paleta, sem verde e sem cinzento solto --- */
-button[onclick^="openLibraryPdf("],button[onclick^="openLibraryWord("],button[onclick^="openGastriteViewer"],button[onclick^="showView('proc-form')"]{background:#a64b00 !important;color:#fff !important;border:1px solid rgba(255,255,255,.16) !important;}
+button[onclick^="openLibraryPdf("],button[onclick^="openLibraryWord("],button[onclick^="openGastriteViewer"],button[onclick^="showView('proc-form')"]{background:#f28c1c !important;color:#fff !important;border:1px solid rgba(255,255,255,.16) !important;}
 button[onclick^="downloadLibraryPdf("],button[onclick^="downloadLibraryWord("],button[onclick^="downloadGastrite"]{background:#000000 !important;color:#fff !important;border:1px solid rgba(255,255,255,.14) !important;}
 button[onclick^="openLibraryPdfAtPage"]{border:1px solid rgba(255,255,255,.16) !important;border-radius:12px !important;}
 .fs-btn.download{color:#fff !important;}
 /* --- Consistência de cor: ligações de e-mail vermelhas passam a azul --- */
 a[href^="mailto"]{color:var(--azul) !important;}
 /* ===== Aviso (toast) ===== */
-#appToast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);max-width:88%;padding:12px 18px;border-radius:14px;background:#a64b00;color:#fff;font-size:13px;font-weight:600;text-align:center;opacity:0;pointer-events:none;z-index:9999;transition:opacity .25s ease,transform .25s ease;}
+#appToast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);max-width:88%;padding:12px 18px;border-radius:14px;background:#f28c1c;color:#fff;font-size:13px;font-weight:600;text-align:center;opacity:0;pointer-events:none;z-index:9999;transition:opacity .25s ease,transform .25s ease;}
 #appToast.show{opacity:1;transform:translate(-50%,0);}
 /* ===== Acessibilidade: foco visível e contraste ===== */
 :focus-visible{outline:3px solid #f7a23b;outline-offset:2px;}
@@ -791,7 +791,7 @@ header{padding:9px 12px 8px;}
 .global-footer b{color:var(--premium-navy);}
 .bottom-fixed{max-width:560px;}
 .bottom-nav{background:rgba(255,255,255,.96);border-top:1px solid var(--premium-line);box-shadow:none;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
-.nav-btn{color:#566480;padding:9px 2px 8px;}
+.nav-btn{color:#78869A;padding:9px 2px 8px;}
 .nav-btn.active{color:var(--premium-blue);font-weight:800;}
 .nav-btn.active svg{stroke:var(--premium-blue);}
 .drawer-overlay{background:rgba(3,12,30,.58);backdrop-filter:blur(4px);}
@@ -900,7 +900,7 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
 .gs-empty{background:#fff;border:1px dashed var(--borda);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--texto-suave);text-align:center;}
 /* ===== Barra do formulário do Processo ===== */
 .proc-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 12px 6px;}
-.proc-toolbar button{border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:700;background:#a64b00;color:#fff;cursor:pointer;}
+.proc-toolbar button{border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:700;background:#f28c1c;color:#fff;cursor:pointer;}
 .proc-toolbar button.ghost{background:#e7ecf4;color:var(--azul-escuro);border:1px solid var(--borda);}
 .proc-toolbar button:active{transform:scale(.97);}
 .proc-toolbar #procSaveMsg{font-size:12px;font-weight:700;color:var(--azul-escuro);}
@@ -952,10 +952,10 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
 
 <div class="top-fixed">
   <header class="sbb-hd">
-    <div class="sbb-logo-row"><a class="sbb-logo" href="/" onclick="showView('home');return false;"><img class="sbb-logo-img" src="img/c6e9e7a901.webp" alt="ENCORP" width="267" height="300"></a><div class="sbb-title"><b class="notranslate" translate="no">ENCORP</b><span>Enciclopédia de Enfermagem,</span><span>Conhecimento, Orientação,</span><span>Recursos e Prática</span></div><div class="head-right"><div class="lang-pick" data-lang-pick></div><button class="menu-btn" id="menuBtn" aria-label="Menu" onclick="openMenu()">
+    <div class="sbb-logo-row"><a class="sbb-logo" href="/" onclick="showView('home');return false;"><img class="sbb-logo-img" src="img/c6e9e7a901.webp" alt="ENCORP" width="267" height="300"></a><div class="sbb-title"><b>ENCORP</b><span>Enciclopédia de Enfermagem, Conhecimento, Orientação, Recursos e Prática</span></div><div class="head-right"><div class="lang-switch" role="group" aria-label="Idioma / Language"><button type="button" data-lang="pt" aria-pressed="true" onclick="setLang('pt')">PT</button><button type="button" data-lang="en" aria-pressed="false" onclick="setLang('en')">EN</button></div><button class="menu-btn" id="menuBtn" aria-label="Menu" onclick="openMenu()">
         <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
       </button></div></div>
-    <nav class="sbb-nav" aria-label="Principal"><div class="sbb-nav-in"><button type="button" onclick="showView('home')">Início</button><button type="button" onclick="showView('ferramentas')">Ferramentas</button><button type="button" onclick="showView('diagnosticos')">Diagnósticos</button><button type="button" onclick="showView('aprendizagem')">Aprender</button><button type="button" onclick="showView('cursos')">Cursos</button><button type="button" onclick="showView('biblioteca')">Biblioteca</button></div></nav>
+    <nav class="sbb-nav" aria-label="Principal"><div class="sbb-nav-in"><button type="button" onclick="showView('home')">Início</button><button type="button" onclick="showView('processo')">Processo de Enfermagem</button><button type="button" onclick="showView('biblioteca')">Biblioteca</button><button type="button" onclick="showView('sobre')">Sobre</button><button type="button" onclick="showView('apoiar')">Apoiar</button></div></nav>
   </header>
   </div><!-- /top-fixed -->
 
@@ -967,26 +967,26 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
       </div>
       <ul class="drawer-links">
         <li><button onclick="showView('home');closeMenu()"><span class="dot-marker"></span>Início<span class="dchev">›</span></button></li>
-        <li><button onclick="showView('ferramentas');closeMenu()"><span class="dot-marker"></span>Ferramentas<span class="dchev">›</span></button></li>
-        <li><button onclick="showView('diagnosticos');closeMenu()"><span class="dot-marker"></span>Diagnósticos<span class="dchev">›</span></button></li>
-        <li><button onclick="showView('aprendizagem');closeMenu()"><span class="dot-marker"></span>Aprender<span class="dchev">›</span></button></li>
-        <li><button onclick="showView('cursos');closeMenu()"><span class="dot-marker"></span>Cursos<span class="dchev">›</span></button></li>
+        <li><button onclick="showView('processo');closeMenu()"><span class="dot-marker"></span>Processo de Enfermagem<span class="dchev">›</span></button></li>
         <li><button onclick="showView('biblioteca');closeMenu()"><span class="dot-marker"></span>Biblioteca<span class="dchev">›</span></button></li>
         <li><button onclick="ecPrintSection()"><span class="dot-marker"></span>Imprimir esta secção<span class="dchev">›</span></button></li>
       </ul>
-      <nav class="drawer-legal" aria-label="Informação"><a href="/pesquisa.html">Pesquisar</a><a href="/sobre.html">Sobre</a><a href="/privacidade.html">Privacidade</a><a href="/termos.html">Termos</a><a href="/aviso-medico.html">Aviso médico</a><a href="/cookies.html">Cookies</a><a href="/rss.html">RSS</a></nav>
-      <div class="drawer-lang"><span>Idioma / Language</span><div class="lang-pick" data-lang-pick></div></div>
+      <nav class="drawer-legal" aria-label="Informação"><a href="/pesquisa.html">Pesquisar</a><a href="/sobre.html">Sobre</a><a href="#" onclick="showView('apoiar');closeMenu();return false;">Apoiar</a><a href="/privacidade.html">Privacidade</a><a href="/termos.html">Termos</a><a href="/aviso-medico.html">Aviso médico</a><a href="/cookies.html">Cookies</a><a href="/rss.html">RSS</a></nav>
+      <div class="drawer-lang"><span>Idioma / Language</span><div class="lang-switch" role="group" aria-label="Idioma / Language"><button type="button" data-lang="pt" aria-pressed="true" onclick="setLang('pt')">PT</button><button type="button" data-lang="en" aria-pressed="false" onclick="setLang('en')">EN</button></div></div>
     </div>
   </div>
 
   
 
 <div class="view" id="view-home">
-  <div class="enc-intro"><p>Este sistema abrange conteúdos científicos, procedimentos de enfermagem, palestras, testes, farmacologia, estudos de caso e actualidades de saúde.</p></div>
-  <div class="searchbar" id="ecHomeSearch">
+
+
+  <div class="searchbar" style="margin:14px 12px 4px;">
     <input id="searchInputGlobal" type="text" placeholder="O que procura em enfermagem?" autocomplete="off" onkeydown="if(event.key==='Enter') runGlobalSearch()">
     <button class="clear" id="clearBtnGlobal" onclick="document.getElementById('searchInputGlobal').value='';this.classList.remove('show');">✕</button><button type="button" class="sbb-search-btn" onclick="runGlobalSearch()" aria-label="Pesquisar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
   </div>
+
+  <div class="enc-intro"><p>Este sistema abrange conteúdos científicos de referência, procedimentos e técnicas de enfermagem, o Processo de Enfermagem e os diagnósticos NANDA-I, escalas e protocolos clínicos, farmacologia e medicamentos essenciais, casos clínicos, cursos com video-aulas, palestras e testes com correção imediata, além de uma biblioteca de manuais e PDFs e de dicas e actualidades de saúde. Tudo reunido num só lugar, para apoiar o estudo, a prática profissional e a orientação de estudantes, enfermeiros e cuidadores.</p></div>
   <div class="section-title">Áreas de estudo</div>
   <div class="proc-img-list quick-strip">
     <button type="button" class="proc-img-card" onclick="showView('avaliacao')" aria-label="Avaliação"><img src="img/c4b569e547.webp" alt="Avaliação"></button>
@@ -1071,7 +1071,7 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
 .ec-car .ec-nc-im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;margin:0;-webkit-user-drag:none;pointer-events:none}
 .ec-car .ec-nc-im img.l{inset:auto;top:50%;left:50%;width:56px;height:56px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;object-fit:contain}
 .ec-car .ec-nc-b{display:flex;flex-direction:column;gap:6px;padding:12px 14px 14px;flex:1;min-width:0}
-.ec-car .ec-nc-k{font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#9a4a00}
+.ec-car .ec-nc-k{font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#b5640a}
 .ec-car .ec-nc-t{font-weight:800;font-size:16px;line-height:1.3;color:#0b1a33;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .ec-car .ec-nc-s{font-size:13.5px;line-height:1.45;color:#4a5a73;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .ec-car .ec-nc-m{font-size:12px;color:#5b6b85;margin-top:auto}
@@ -1094,14 +1094,14 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
   <!--EC:CURSOS--><div class="sbb-courses"><a class="sbb-course" href="/cursos/elaboracao-de-monografias.html"><small>Investigação Científica em Enfermagem</small><b>Elaboração de Monografias em Enfermagem: Da Pesquisa Científica à Defesa</b><span>Intermédio · 8 horas · 6 aulas · 375MZN</span></a><a class="sbb-course" href="/cursos/estabilizacao-de-pacientes.html"><small>Urgência</small><b>Estabilização de pacientes</b><span>Intermédio · 6 horas · 5 aulas · Gratuito</span></a></div><!--/EC:CURSOS-->
   <div class="sbb-edu-btns"><button type="button" class="sbb-btn" onclick="showView('cursos')">Acessar todos os cursos</button><button type="button" class="sbb-btn" onclick="showView('biblioteca')">Acessar a biblioteca</button></div>
 
-  <div class="section-title">Vídeos do nosso canal</div>
-  <div class="ec-video">
+  <div class="section-title">Vídeo Tutorial</div>
+  <div style="margin:0 12px 16px;position:relative;overflow:hidden;border-radius:12px;background:#000;">
     <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
       <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:12px;" src="https://www.youtube.com/embed/p23Gz9h2VvE?si=xRdRcmK6Hln3EvKL&controls=1&rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 
-  <div class="ec-video-link"><a class="yt-open" href="https://youtu.be/p23Gz9h2VvE?si=xRdRcmK6Hln3EvKL" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a></div>
+  <div style="margin:-8px 12px 16px;text-align:center;"><a class="yt-open" href="https://youtu.be/p23Gz9h2VvE?si=xRdRcmK6Hln3EvKL" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a></div>
 
   <!-- Modal de Vídeo YouTube -->
   <div id="youtubeModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:1000;align-items:center;justify-content:center;padding:12px;" onclick="if(event.target===this) closeYoutubeModal();">
@@ -1121,7 +1121,7 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
       <a href="https://tiktok.com/@alcarteloficialmoz" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><g transform="translate(1.6 1.6) scale(.867)"><path fill="#25F4EE" transform="translate(-.9 -.7)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07"/><path fill="#FE2C55" transform="translate(.9 .7)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07"/><path fill="#000" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07"/></g></svg></a>
       <a href="https://www.facebook.com/share/1JdcLoJ9BZ/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><circle cx="12" cy="12" r="11.9" fill="#fff"/><path fill="#1877F2" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036 27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/></svg></a>
     </div>
-    <div class="sbb-cols"><div><h4>Sobre</h4><a href="#" onclick="showView('sobre');return false;">Quem somos</a><a href="#" onclick="showView('ajuda');return false;">Ajuda</a><a href="#" onclick="showView('apoiar');return false;">Apoiar</a><a href="/pesquisa.html">Pesquisar</a><a href="https://chat.whatsapp.com/I7UtavaVRQn5kJ1H0GYZUU?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer">Nossa comunidade</a></div><div><h4>Ferramentas</h4><a href="#" onclick="showView('calculadora');return false;">Calculadoras</a><a href="#" onclick="showView('medicamentos');return false;">Medicamentos</a><a href="#" onclick="showView('escalas');return false;">Escalas clínicas</a><a href="#" onclick="showView('exames');return false;">Exames laboratoriais</a><a href="#" onclick="showView('urgencia');return false;">Urgência e emergência</a></div><div><h4>Estudo</h4><a href="#" onclick="showView('processo');return false;">Processo de Enfermagem</a><a href="#" onclick="showView('diagnosticos');return false;">Diagnósticos</a><a href="#" onclick="showView('biblioteca');return false;">Biblioteca</a><a href="#" onclick="showView('casos-clinicos');return false;">Casos clínicos</a><a href="#" onclick="showView('cursos');return false;">Cursos</a></div><div><h4>Legal</h4><a href="#" onclick="showView('privacidade');return false;">Privacidade</a><a href="#" onclick="showView('termos');return false;">Termos</a><a href="#" onclick="showView('aviso-medico');return false;">Aviso médico</a><a href="#" onclick="showView('cookies');return false;">Cookies</a><a href="#" onclick="showView('rss');return false;">RSS</a></div></div></div><div class="sbb-wa"><a class="wa-float" href="https://chat.whatsapp.com/I7UtavaVRQn5kJ1H0GYZUU?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer" aria-label="Entrar no grupo de WhatsApp do ENCORP" title="Grupo de WhatsApp do ENCORP"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3.6A12.3 12.3 0 0 0 5.4 22.1L3.7 28.3l6.4-1.7A12.3 12.3 0 1 0 16 3.6Z" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><path d="M11.7 9.9c-.5.5-.9 1.2-.8 2.1.4 2.3 2.5 5 4.7 6.6 1.6 1.2 3 1.8 4.2 1.5.8-.2 1.4-.8 1.5-1.7l-2.4-1.7-1.4 1.1c-1.3-.5-3.1-2.2-3.9-3.8l1.1-1.3-1.5-2.7Z" fill="#fff"/></svg></a><p>Nossa comunidade no WhatsApp</p></div><div class="sbb-footer-note">Desenvolvido por <b>Karlyon Enterprise S.A.</b> · Alcartel Digital Vision · Beira, Moçambique</div></footer>
+    <div class="sbb-cols"><div><h4>Sobre</h4><a href="#" onclick="showView('sobre');return false;">Quem somos</a><a href="#" onclick="showView('ajuda');return false;">Ajuda</a><a href="#" onclick="showView('apoiar');return false;">Apoiar</a><a href="/pesquisa.html">Pesquisar</a></div><div><h4>Ferramentas</h4><a href="#" onclick="showView('calculadora');return false;">Calculadoras</a><a href="#" onclick="showView('medicamentos');return false;">Medicamentos</a><a href="#" onclick="showView('escalas');return false;">Escalas clínicas</a><a href="#" onclick="showView('exames');return false;">Exames laboratoriais</a><a href="#" onclick="showView('urgencia');return false;">Urgência e emergência</a></div><div><h4>Estudo</h4><a href="#" onclick="showView('processo');return false;">Processo de Enfermagem</a><a href="#" onclick="showView('diagnosticos');return false;">Diagnósticos</a><a href="#" onclick="showView('biblioteca');return false;">Biblioteca</a><a href="#" onclick="showView('casos-clinicos');return false;">Casos clínicos</a><a href="#" onclick="showView('cursos');return false;">Cursos</a></div><div><h4>Legal</h4><a href="#" onclick="showView('privacidade');return false;">Privacidade</a><a href="#" onclick="showView('termos');return false;">Termos</a><a href="#" onclick="showView('aviso-medico');return false;">Aviso médico</a><a href="#" onclick="showView('cookies');return false;">Cookies</a><a href="#" onclick="showView('rss');return false;">RSS</a></div></div></div><div class="sbb-footer-note">Desenvolvido por <b>Karlyon Enterprise S.A.</b> · Alcartel Digital Vision · Beira, Moçambique</div></footer>
 
   </div><div class="view" id="view-ferramentas">
 
@@ -2009,7 +2009,7 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
   <div class="section-title">Alterar a sua escolha</div>
   <div style="margin:0 12px 14px;padding:16px;background:#fff;border:1px solid var(--borda);border-radius:12px;font-size:12.5px;color:var(--texto);line-height:1.7;">
     <p style="margin:0 0 10px;">Pode mudar de ideias quando quiser. A versão offline não usa cookies de medição nem de publicidade.</p>
-    <button type="button" style="display:inline-block;background:#a64b00;color:#fff;border:0;border-radius:10px;padding:10px 16px;font-weight:700;font-size:12.5px;text-decoration:none;cursor:pointer;margin:4px 8px 4px 0;" onclick="if(window.ecCookies){ecCookies()}else{showToast('A versão offline não usa cookies de medição nem de publicidade.')}">Alterar preferências de cookies</button>
+    <button type="button" style="display:inline-block;background:#f28c1c;color:#fff;border:0;border-radius:10px;padding:10px 16px;font-weight:700;font-size:12.5px;text-decoration:none;cursor:pointer;margin:4px 8px 4px 0;" onclick="if(window.ecCookies){ecCookies()}else{showToast('A versão offline não usa cookies de medição nem de publicidade.')}">Alterar preferências de cookies</button>
     <a href="#" style="display:inline-block;background:#fff;color:#0b1a33;border:1px solid var(--borda);border-radius:10px;padding:10px 16px;font-weight:700;font-size:12.5px;text-decoration:none;cursor:pointer;margin:4px 8px 4px 0;" onclick="showView('privacidade');return false;">Política de Privacidade</a>
   </div>
 </div><div class="view" id="view-rss">
@@ -2025,7 +2025,7 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
     <p style="margin:0 0 8px;">1. Copie o endereço do feed;</p>
     <p style="margin:0 0 8px;">2. Abra o seu leitor de feeds e escolha «Adicionar feed» (ou «Subscrever»);</p>
     <p style="margin:0 0 12px;">3. Cole o endereço e confirme.</p>
-    <a href="/feed.xml" style="display:inline-block;background:#a64b00;color:#fff;border:0;border-radius:10px;padding:10px 16px;font-weight:700;font-size:12.5px;text-decoration:none;cursor:pointer;margin:4px 8px 4px 0;" onclick="if(!/^https?:$/.test(location.protocol)){showToast('O feed RSS só está disponível na versão online.');return false;}">Abrir o feed</a>
+    <a href="/feed.xml" style="display:inline-block;background:#f28c1c;color:#fff;border:0;border-radius:10px;padding:10px 16px;font-weight:700;font-size:12.5px;text-decoration:none;cursor:pointer;margin:4px 8px 4px 0;" onclick="if(!/^https?:$/.test(location.protocol)){showToast('O feed RSS só está disponível na versão online.');return false;}">Abrir o feed</a>
     <button type="button" style="display:inline-block;background:#fff;color:#0b1a33;border:1px solid var(--borda);border-radius:10px;padding:10px 16px;font-weight:700;font-size:12.5px;text-decoration:none;cursor:pointer;margin:4px 8px 4px 0;" onclick="if(/^https?:$/.test(location.protocol)){try{navigator.clipboard.writeText(location.origin+'/feed.xml');showToast('Endereço do feed copiado.')}catch(e){}}else{showToast('O feed RSS só está disponível na versão online.')}">Copiar endereço</button>
   </div>
   <div class="section-title">Prefere ler na app?</div>
@@ -2338,7 +2338,7 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
   <div style="margin:0 12px 14px;padding:16px;background:#fff;border:1px solid var(--borda);border-radius:12px;font-size:12.5px;color:var(--texto);line-height:1.7;">
     <p style="margin:0 0 10px;"><b>Funcionamento offline:</b> depois de instalada e aberta uma vez com internet, a aplicação funciona sem ligação. Apenas o vídeo do YouTube, as ligações a redes sociais e o visualizador de documentos Word precisam de internet.</p>
     <p style="margin:0 0 10px;"><b>Armazenamento:</b> os dados locais ficam no armazenamento do navegador, <b>sem encriptação adicional</b> feita pela aplicação. Quem tiver acesso ao seu dispositivo desbloqueado pode vê-los. Pode apagá-los com o botão «Limpar» ou limpando os dados do site no navegador.</p>
-    <p style="margin:0;"><b>Serviços de terceiros:</b> ao reproduzir o vídeo incorporado, o YouTube (Google) pode tratar dados de acordo com a sua própria política. O visualizador de Word carrega uma biblioteca do serviço cdnjs (Cloudflare) quando é aberto. Estas ligações só ocorrem quando o utilizador as aciona. A tradução automática da página usa o Google Tradutor, que só é carregado quando escolhe um idioma diferente do português.</p>
+    <p style="margin:0;"><b>Serviços de terceiros:</b> ao reproduzir o vídeo incorporado, o YouTube (Google) pode tratar dados de acordo com a sua própria política. O visualizador de Word carrega uma biblioteca do serviço cdnjs (Cloudflare) quando é aberto. Estas ligações só ocorrem quando o utilizador as aciona.</p>
   </div>
 
   <!-- Partilha de Dados -->
@@ -2484,7 +2484,6 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
   </nav>
 
   </div><!-- /bottom-fixed -->
-<div class="sbb-wa sbb-wa-global"><a class="wa-float" href="https://chat.whatsapp.com/I7UtavaVRQn5kJ1H0GYZUU?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer" aria-label="Entrar no grupo de WhatsApp do ENCORP" title="Grupo de WhatsApp do ENCORP"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3.6A12.3 12.3 0 0 0 5.4 22.1L3.7 28.3l6.4-1.7A12.3 12.3 0 1 0 16 3.6Z" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><path d="M11.7 9.9c-.5.5-.9 1.2-.8 2.1.4 2.3 2.5 5 4.7 6.6 1.6 1.2 3 1.8 4.2 1.5.8-.2 1.4-.8 1.5-1.7l-2.4-1.7-1.4 1.1c-1.3-.5-3.1-2.2-3.9-3.8l1.1-1.3-1.5-2.7Z" fill="#fff"/></svg></a><p>Nossa comunidade no WhatsApp</p></div>
 
 <!-- ===== Card de apresentação do fundador (splash inicial, 15s) ===== -->
   <div class="founder-splash-overlay" id="founderSplash">
@@ -2541,7 +2540,7 @@ input[type="text"],input[type="search"]{text-overflow:ellipsis;}
 <style id="ec-tema-favicon">
 /* ===== Tema sério — cores dos favicons: azul-marinho, azul e vermelho sobre branco ===== */
 :root{
-  --azul-escuro:#0b1a33;--azul:#a64b00;--azul-claro:#f7a23b;--vermelho:#c8202f;--vermelho-esc:#9e1a26;
+  --azul-escuro:#0b1a33;--azul:#f28c1c;--azul-claro:#f7a23b;--vermelho:#c8202f;--vermelho-esc:#9e1a26;
   --dourado-esc:#0b1a33;--bg:#fbfaf7;--card:#FFFFFF;--texto:#0f2547;--texto-suave:#3a4a68;
   --borda:#dfe6f0;--lb-borda:#AEBBD3;--lb-acc:#f7a23b;--lbg:#e7ecf4;--lbg2:#E1E6EF;
   --premium-bg:#fbfaf7;--premium-line:#D9DFEB;--premium-navy:#0b1a33;--premium-blue:#f28c1c;
@@ -2581,7 +2580,7 @@ img,video,iframe,table{max-width:100%}
 .apoio-emola{margin-top:14px;padding:14px;background:#e7ecf4;border:1px solid var(--borda);border-radius:10px;text-align:center}
 .apoio-lbl{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--azul-escuro)}
 .apoio-num{font-size:22px;font-weight:800;letter-spacing:.5px;color:var(--azul-escuro);margin:4px 0 10px}
-.apoio-copy{background:#a64b00;color:#fff;border:0;border-radius:999px;padding:9px 20px;font-weight:700;font-size:13px;cursor:pointer}
+.apoio-copy{background:#f28c1c;color:#fff;border:0;border-radius:999px;padding:9px 20px;font-weight:700;font-size:13px;cursor:pointer}
 .apoio-contactos{margin:0 12px 20px;display:grid;gap:10px}
 .apoio-contactos a{display:flex;flex-direction:column;gap:2px;padding:13px 16px;background:#fff;border:1px solid var(--borda);border-radius:12px;text-decoration:none;color:var(--azul-escuro)}
 .apoio-contactos span{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
@@ -2617,7 +2616,7 @@ p,li,.info-box,.alert-box{text-align:justify}
 }
 .section-title,.section-title.section-title-center{text-align:center!important}
 .proc-section-head h3,.proc-section-head span.ps-chev,.ec-titulo-pagina,.ec-titulo-pagina *{color:#0b1a33!important}
-.proc-section-head span.ps-num{background:#a64b00 !important;color:#fff !important}
+.proc-section-head span.ps-num{background:#f28c1c!important;color:#fff!important}
 .proc-section{border-radius:14px}
 .proc-section-head{border-radius:14px 14px 0 0!important}
 </style>
@@ -2626,9 +2625,9 @@ p,li,.info-box,.alert-box{text-align:justify}
 .founder-splash-card{max-width:400px!important;max-height:92vh;max-height:92dvh;overflow-y:auto;padding:0!important;text-align:left!important;border-radius:18px!important;-webkit-overflow-scrolling:touch}
 .founder-splash-card .fs-head{background:#f28c1c;padding:22px 16px 16px;text-align:center}
 .founder-splash-card .fs-photo{width:84px;height:126px;margin:0 auto 10px;border:3px solid #fff;border-radius:14px;box-shadow:none}
-.founder-splash-card .fs-name{color:#0b1a33!important;font-size:16px;letter-spacing:.4px}
-.founder-splash-card .fs-role{color:#0b1a33!important;font-size:12.5px;margin-top:4px}
-.founder-splash-card .fs-role2{color:rgba(11,26,51,.9);font-size:11px;margin-top:3px;line-height:1.4}
+.founder-splash-card .fs-name{color:#fff!important;font-size:16px;letter-spacing:.4px}
+.founder-splash-card .fs-role{color:#fff!important;font-size:12.5px;margin-top:4px}
+.founder-splash-card .fs-role2{color:rgba(255,255,255,.8);font-size:11px;margin-top:3px;line-height:1.4}
 .founder-splash-card .fs-close{z-index:2;background:rgba(255,255,255,.92)}
 .fs-body{padding:14px 16px 16px}
 .fs-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
@@ -2654,5 +2653,6 @@ p,li,.info-box,.alert-box{text-align:justify}
 <script defer src="/js/nucleo/titulos-das-seccoes.js"></script>
 <script defer src="/js/modulos/leitor-pdf.js"></script><script defer src="/js/nucleo/configuracao-app.js"></script><script defer src="/js/pwa/convite-instalacao.js"></script><script src="/js/site/site.js" defer></script><script src="/js/nucleo/ligacoes-profundas.js" defer></script><script defer src="/js/interface/cartoes-animados.js"></script>
 <script defer src="/js/modulos/caso-perguntas.js"></script>
+<a class="wa-float" href="https://chat.whatsapp.com/I7UtavaVRQn5kJ1H0GYZUU?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer" aria-label="Entrar no grupo de WhatsApp do ENCORP" title="Grupo de WhatsApp do ENCORP"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3.6A12.3 12.3 0 0 0 5.4 22.1L3.7 28.3l6.4-1.7A12.3 12.3 0 1 0 16 3.6Z" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><path d="M11.7 9.9c-.5.5-.9 1.2-.8 2.1.4 2.3 2.5 5 4.7 6.6 1.6 1.2 3 1.8 4.2 1.5.8-.2 1.4-.8 1.5-1.7l-2.4-1.7-1.4 1.1c-1.3-.5-3.1-2.2-3.9-3.8l1.1-1.3-1.5-2.7Z" fill="#fff"/></svg></a>
 </body>
 </html>

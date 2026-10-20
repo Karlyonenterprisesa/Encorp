@@ -61,11 +61,6 @@ function md(src) {
     if (h && L.length === 1) { const n = Math.min(h[1].length + 1, 6); return `<h${n}>${inline(h[2])}</h${n}>`; }
     if (L.every((l) => /^\s*[-*]\s+/.test(l))) return `<ul>${L.map((l) => `<li>${inline(l.replace(/^\s*[-*]\s+/, ''))}</li>`).join('')}</ul>`;
     if (L.every((l) => /^\s*\d+[.)]\s+/.test(l))) return `<ol>${L.map((l) => `<li>${inline(l.replace(/^\s*\d+[.)]\s+/, ''))}</li>`).join('')}</ol>`;
-    if (L.length >= 2 && L.every((l) => /^\s*\|/.test(l))) {   /* tabela markdown: 1.ª linha = cabeçalho; a linha |---| é opcional */
-      const cel = (l) => l.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
-      const lin = L.map(cel).filter((r) => !r.every((c) => /^:?-{2,}:?$/.test(c)));
-      return `<div class="ec-tabela"><table><thead><tr>${lin[0].map((c) => `<th>${inline(c)}</th>`).join('')}</tr></thead><tbody>${lin.slice(1).map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
-    }
     if (L.every((l) => /^>\s?/.test(l))) return `<blockquote>${L.map((l) => inline(l.replace(/^>\s?/, ''))).join('<br>')}</blockquote>`;
     return `<p>${L.map(inline).join('<br>')}</p>`;
   }).join('\n');
@@ -99,8 +94,8 @@ for (const tipo of Object.keys(TIPOS)) {
       preco: d.preco || '', link_inscricao: d.link_inscricao || '', modo: d.modo === 'progressivo' ? 'progressivo' : 'livre', permitirDownload: d.permitir_download !== false, ordem: Number(d.ordem) || 0, aprovacao: Math.min(100, Math.max(1, Number(d.aprovacao) || 50)),
       notaMinima: Math.min(100, Math.max(1, Number(d.nota_minima) || 70)), tentativas: Number.isInteger(Number(d.tentativas)) && d.tentativas !== '' && d.tentativas !== null && d.tentativas !== undefined ? Math.max(0, Number(d.tentativas)) : 3, esperaMinutos: Number.isFinite(Number(d.espera_minutos)) && d.espera_minutos !== '' && d.espera_minutos != null ? Math.max(0, Number(d.espera_minutos)) : 30, sequencial: d.sequencial !== false,
       aulas: (Array.isArray(d.aulas) ? d.aulas : []).filter((a) => a && a.titulo).map((a, n) => ({ titulo: a.titulo, youtube: ytId(a.youtube), video: String(a.video || ''), duracao: a.duracao || '', resumo: a.resumo || '', ordem: n + 1,
-        conteudo: String(a.conteudo || ''), videoObrig: a.video_obrigatorio !== false, videoMin: Number(a.duracao_video) > 0 ? Number(a.duracao_video) : 0, permitirPptx: a.permitir_pptx !== false,
-        slides: (Array.isArray(a.slides) ? a.slides : []).filter((s) => s && (s.titulo || s.texto)).map((s) => ({ titulo: String(s.titulo || ''), texto: String(s.texto || ''), imagem: String(s.imagem || ''), tipo: String(s.tipo || 'conteudo'), notas: String(s.notas || ''), tempo: Number(s.tempo) > 0 ? Math.round(Number(s.tempo)) : 0 })),
+        conteudo: String(a.conteudo || ''), videoObrig: a.video_obrigatorio === true, permitirPptx: a.permitir_pptx !== false,
+        slides: (Array.isArray(a.slides) ? a.slides : []).filter((s) => s && (s.titulo || s.texto)).map((s) => ({ titulo: String(s.titulo || ''), texto: String(s.texto || ''), imagem: String(s.imagem || '') })),
         teste: a.teste && Array.isArray(a.teste.perguntas) && a.teste.perguntas.length ? { notaMinima: Math.min(100, Math.max(0, Number(a.teste.nota_minima) || 0)), tentativas: a.teste.tentativas === '' || a.teste.tentativas == null ? undefined : Math.max(0, Number(a.teste.tentativas)), perguntas: a.teste.perguntas.map((q) => ({ pergunta: String(q.pergunta || ''), opcoes: (Array.isArray(q.opcoes) ? q.opcoes : []).map(String).filter(Boolean), correta: Number(q.correta) || 0, explicacao: String(q.explicacao || '') })) } : null })),
       perguntas: (Array.isArray(d.perguntas) ? d.perguntas : []).map((q) => ({ pergunta: String(q.pergunta || ''), opcoes: (Array.isArray(q.opcoes) ? q.opcoes : []).map(String).filter(Boolean), correta: Number(q.correta) || 1, explicacao: String(q.explicacao || '') }))
         .filter((q) => q.pergunta && q.opcoes.length >= 2 && q.correta >= 1 && q.correta <= q.opcoes.length),
@@ -177,7 +172,7 @@ function head({ titulo, desc, path, img, tipoOg = 'website', ld, extraCss = '', 
   const url = SITE + path, t = (`${titulo} | ENCORP`.length <= 68 ? `${titulo} | ENCORP` : titulo), im = img || SITE + '/og-image.jpg';
   return `<!DOCTYPE html><html lang="pt-MZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>${esc(t)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${robots}"><link rel="canonical" href="${esc(url)}"><meta property="og:site_name" content="ENCORP"><meta property="og:locale" content="pt_MZ"><meta property="og:type" content="${tipoOg}"><meta property="og:title" content="${esc(t)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${esc(url)}"><meta property="og:image" content="${esc(im)}"><meta property="og:image:alt" content="${esc(titulo)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(t)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${esc(im)}"><meta name="theme-color" content="#0b1a33"><meta name="color-scheme" content="light"><link rel="icon" href="/favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2"><link rel="manifest" href="/manifest.json"><link rel="alternate" type="application/rss+xml" title="ENCORP" href="/feed.xml">${ld ? `<script type="application/ld+json">${jsonSafe(ld)}</script>` : ''}<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"><style>${CSS}${extraCss}</style><link rel="stylesheet" href="/css/sbb.css"></head>`;
 }
-const page = (h, main) => `${h}<body>${HEADER}<main>${main}</main>${FOOTER}<script src="/js/nucleo/internacionalizacao.js" defer></script><script src="/js/site/site.js" defer></script></body></html>`;
+const page = (h, main) => `${h}<body>${HEADER}<main>${main}</main>${FOOTER}<script src="/js/site/site.js" defer></script></body></html>`;
 const share = (url, titulo) => `<div class="ec-share" aria-label="Partilhar"><button type="button" data-share data-title="${esc(titulo)}" data-url="${esc(url)}">Partilhar</button><a class="wa" href="https://wa.me/?text=${enc(titulo + ' ' + url)}" target="_blank" rel="noopener">WhatsApp</a><a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=${enc(url)}" target="_blank" rel="noopener">Facebook</a><a class="tg" href="https://t.me/share/url?url=${enc(url)}&text=${enc(titulo)}" target="_blank" rel="noopener">Telegram</a><a href="https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(titulo)}" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=${enc(titulo)}&body=${enc(url)}">Email</a><button type="button" data-copy data-url="${esc(url)}">Copiar link</button></div>`;
 
 const hero = `<div class="hero"><img src="/og-image.jpg" alt="ENCORP — Mais conhecimento, melhor cuidado" width="1200" height="630" decoding="async"></div>`;
@@ -374,13 +369,6 @@ const blocoHome = `<style>${read('templates/dicas-home.css')}</style><div class=
 
 /* ---------- cabeçalho e rodapé únicos (templates/) em todas as páginas ---------- */
 /* ---------- PowerPoint por aula, gerado dos slides do CMS (api/_dados/slides/<curso>/aula-N.pptx; privado, servido pela API só a quem tem a aula desbloqueada) ---------- */
-/* tempo mínimo (segundos) que o estudante tem de ficar em cada slide antes de avançar: campo «tempo» do CMS, ou calculado
-   pelas palavras (cerca de 2 palavras por segundo para estudar, mais 8 s de base), entre 10 e 120 s. Imposto pela API. */
-const tempoSlide = (sl) => {
-  if (sl.tempo > 0) return Math.min(600, Math.max(3, sl.tempo));
-  const palavras = String(sl.titulo + ' ' + sl.texto).replace(/[|>#*`\-]/g, ' ').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
-  return Math.min(120, Math.max(10, Math.round(8 + palavras / 2.2)));
-};
 const PPTX = new Set();
 {
   let PptxGenJS = null;
@@ -395,8 +383,7 @@ const PPTX = new Set();
       for (let k = 0; k < it.aulas.length; k++) {
         const a = it.aulas[k]; if (!a.slides.length) continue;
         mkdirSync(R(dir), { recursive: true });
-        const avisos = await gerarPptx(PptxGenJS, { curso: it.titulo, aula: a, n: k + 1, total: it.aulas.length, notaMinima: it.notaMinima, raiz: R('.'), destino: R(`${dir}/aula-${k + 1}.pptx`) });
-        for (const v of avisos || []) console.warn('PowerPoint:', it.titulo + ',', v);
+        await gerarPptx(PptxGenJS, { curso: it.titulo, aula: a, n: k + 1, total: it.aulas.length, notaMinima: it.notaMinima, raiz: R('.'), destino: R(`${dir}/aula-${k + 1}.pptx`) });
         PPTX.add(`${it.slug}/${k + 1}`); n++;
       }
     }
@@ -411,8 +398,8 @@ const PPTX = new Set();
     if (it.tipo !== 'cursos' || it.modo !== 'progressivo' || !it.aulas.length) continue;
     priv[it.slug] = { titulo: it.titulo, notaMinima: it.notaMinima, tentativas: it.tentativas, esperaMinutos: it.esperaMinutos, sequencial: it.sequencial,
       aulas: it.aulas.map((a) => ({ titulo: a.titulo, resumo: a.resumo, duracao: a.duracao, html: md(a.conteudo),
-        slides: a.slides.map((s) => ({ titulo: s.titulo, html: md(s.texto), imagem: s.imagem, tipo: s.tipo, min: tempoSlide(s) })),
-        video: { youtube: a.youtube, ficheiro: a.video, obrigatorio: a.videoObrig, minutos: a.videoMin }, pptx: a.permitirPptx && PPTX.has(`${it.slug}/${a.ordem}`),
+        slides: a.slides.map((s) => ({ titulo: s.titulo, html: md(s.texto), imagem: s.imagem })),
+        video: { youtube: a.youtube, ficheiro: a.video, obrigatorio: a.videoObrig }, pptx: a.permitirPptx && PPTX.has(`${it.slug}/${a.ordem}`),
         teste: a.teste ? { notaMinima: a.teste.notaMinima, tentativas: a.teste.tentativas, perguntas: a.teste.perguntas } : null })) };
   }
   mkdirSync(R('api/_dados'), { recursive: true });
@@ -427,7 +414,7 @@ const PAGINAS = walk('').filter((x) => !['index.html', '404.html'].includes(x) &
   let n = 0;
   for (const f of [...PAGINAS, '404.html']) {
     const s = read(f);
-    const mh = s.match(/<body>(<header>[\s\S]*?<\/header>)/), mf = s.match(/(<footer>[\s\S]*<\/footer>(?:<a class="wa-float"[\s\S]*?<\/a>)?)(?=<script src="\/js\/(?:nucleo\/internacionalizacao|site\/site)\.js")/);
+    const mh = s.match(/<body>(<header>[\s\S]*?<\/header>)/), mf = s.match(/(<footer>[\s\S]*<\/footer>)(?=<script src="\/js\/site\/site\.js")/);
     if (!mh || !mf) continue;
     const t = s.replace(mh[1], () => H).replace(mf[1], () => F);
     if (t !== s) { write(f, t); n++; }
