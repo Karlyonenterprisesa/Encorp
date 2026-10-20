@@ -1,15 +1,15 @@
 {
   "titulo": "Sinais vitais e interpretação",
   "data": "2026-10-13",
-  "resumo": "Medir correctamente a temperatura, pulso, respiração, tensão arterial e saturação, e interpretar os valores.",
+  "resumo": "Curso gratuito para iniciantes: medir temperatura, pulso, respiração, saturação e tensão arterial com boa técnica, interpretar os valores e saber quando alertar.",
   "imagem": "",
   "nivel": "Iniciante",
-  "area": "Avaliação",
+  "area": "Avaliação Clínica",
   "duracao": "4 horas",
   "instrutor": "Equipa ENCORP",
-  "preco": "",
+  "preco": "Gratuito",
   "link_inscricao": "",
-  "corpo": "## Programa\n\n1. Temperatura: locais e técnicas de medição\n2. Pulso: frequência, ritmo e amplitude\n3. Frequência respiratória\n4. Tensão arterial: técnica e erros comuns\n5. Saturação periférica de oxigénio (SpO₂)\n6. Dor como quinto sinal vital\n7. Interpretar: valores de referência, tendências e quando alertar\n\nVeja [valores de referência no adulto](/avaliacao/sinais-vitais-valores-de-referencia-adulto.html) e a calculadora de [conversão de temperatura](/ferramentas/calculadoras/conversoes/conversao-temperatura.html).",
+  "corpo": "## Sobre o curso\n\nOs sinais vitais são a base da avaliação do doente. Neste curso aprende a medi-los com técnica correcta, a conhecer os valores de referência do adulto e a interpretá-los em conjunto e ao longo do tempo, para perceber quando um doente precisa de atenção e quando alertar a equipa.\n\n### Objectivos\n\nAo terminar o curso, o estudante será capaz de:\n\n* medir a **temperatura** e o **pulso** com técnica correcta e registar os valores;\n* contar a **frequência respiratória** e usar o **oxímetro de pulso**, conhecendo as suas limitações;\n* medir a **tensão arterial**, escolher a braçadeira certa e evitar os erros mais comuns;\n* **interpretar** os sinais vitais em conjunto, reconhecer os sinais de alerta e saber **quando e como alertar**;\n* fazer um **registo** correcto.\n\n### Para quem é\n\nEstudantes de enfermagem e de outras áreas da saúde, e profissionais que querem rever a técnica. É de nível iniciante e não exige conhecimentos prévios.\n\n### Como estudar\n\nO curso é **gratuito** e funciona por aulas, pela ordem certa:\n\n1. Crie a sua conta de estudante (ou entre) e toque em **Iniciar curso**.\n2. Leia os **slides** da aula, do primeiro ao último.\n3. No fim da leitura, faça o **teste da aula**: 10 perguntas, nota mínima de 70%, até 3 tentativas seguidas (se esgotar, espere 30 minutos e tente de novo).\n4. Com 70% ou mais, a aula fica concluída e a **aula seguinte abre**.\n5. Ao concluir a última aula, o curso fica concluído.\n\nPode voltar a qualquer aula já concluída para rever a matéria.\n\n### Programa\n\n1. **Temperatura e pulso** — locais e técnica de medição; frequência, ritmo e amplitude do pulso.\n2. **Respiração e saturação** — contagem da frequência respiratória e uso do oxímetro de pulso.\n3. **Tensão arterial** — técnica, escolha da braçadeira e erros comuns.\n4. **Interpretar e alertar** — valores de referência, tendências e quando alertar a equipa.\n\nVeja também os [valores de referência no adulto](/avaliacao/sinais-vitais-valores-de-referencia-adulto.html) e a calculadora de [conversão de temperatura](/ferramentas/calculadoras/conversoes/conversao-temperatura.html).\n\n### Nota importante\n\nConteúdo de apoio à aprendizagem. Os valores de referência e as indicações para alertar devem ser sempre confirmados pelos protocolos da sua unidade de saúde.\n\n### Programa das aulas\n\n1. **Temperatura e pulso** — Locais e técnica de medição da temperatura; frequência, ritmo e amplitude do pulso.\n2. **Respiração e saturação** — Contagem da frequência respiratória e utilização do oxímetro de pulso.\n3. **Tensão arterial** — Técnica de medição, escolha da braçadeira e erros comuns.\n4. **Interpretar e alertar** — Valores de referência, tendências e quando alertar a equipa.\n\n### Como funciona\n\n* **Gratuito**: o curso não tem custo. Crie uma conta de estudante para guardar o seu progresso.\n* **Aula a aula**: em cada aula lê o conteúdo, vê todos os slides e só depois abre o teste.\n* **Teste no fim de cada aula**: 10 perguntas, com nota mínima de 70% para aprovar. Tem até 3 tentativas seguidas e, se não passar, volta a tentar após 30 minutos de revisão.\n* **Por ordem**: a aula seguinte abre quando é aprovado no teste da anterior. Ao concluir as 4 aulas, termina o curso.\n",
   "aulas": [
     {
       "titulo": "Temperatura e pulso",
@@ -577,7 +577,12 @@
     }
   ],
   "etiquetas": [
-    "Avaliação"
+    "Avaliação",
+    "Sinais vitais",
+    "Temperatura",
+    "Pulso",
+    "Tensão arterial",
+    "Saturação de oxigénio"
   ],
   "publicado": true,
   "modo": "progressivo",

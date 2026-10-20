@@ -1,15 +1,15 @@
 {
   "titulo": "Primeiros socorros",
   "data": "2026-10-13",
-  "resumo": "Reconhecer emergências e prestar os primeiros cuidados até à chegada de ajuda diferenciada.",
+  "resumo": "Curso gratuito para iniciantes: avaliar a cena, pedir ajuda, fazer suporte básico de vida, controlar hemorragias e actuar em fracturas, convulsões e hipoglicemia.",
   "imagem": "",
   "nivel": "Iniciante",
-  "area": "Urgência",
+  "area": "Urgência e Emergência",
   "duracao": "5 horas",
   "instrutor": "Equipa ENCORP",
-  "preco": "",
+  "preco": "Gratuito",
   "link_inscricao": "",
-  "corpo": "## Programa\n\n1. Avaliar a cena e garantir a segurança\n2. Pedir ajuda e activar o socorro\n3. Reanimação cardiopulmonar básica e obstrução da via aérea\n4. Hemorragias, feridas e queimaduras\n5. Fracturas, entorses e imobilização\n6. Convulsões, desmaio, hipoglicemia e AVC\n7. Intoxicações e picadas\n\nConsulte também as páginas de [Urgência e emergência](/urgencias/).",
+  "corpo": "## Sobre o curso\n\nEste curso ensina o que fazer nos primeiros minutos de uma emergência, até chegar ajuda diferenciada. Parte da segurança de quem socorre, passa pela reanimação e pelos problemas mais frequentes (hemorragias, queimaduras, fracturas, convulsões, desmaio e hipoglicemia) e termina em cada aula com um teste.\n\n### Objectivos\n\nAo terminar o curso, o estudante será capaz de:\n\n* garantir a **segurança da cena**, avaliar a vítima e **pedir ajuda** de forma correcta;\n* fazer **suporte básico de vida** no adulto: compressões, ventilações e uso do desfibrilhador externo automático (DEA);\n* controlar uma **hemorragia**, cuidar de feridas e prestar os primeiros cuidados em **queimaduras**;\n* reconhecer a suspeita de **fractura** e imobilizar com segurança;\n* actuar perante uma **convulsão**, um **desmaio** e a **hipoglicemia**.\n\n### Para quem é\n\nPara todos: estudantes de enfermagem, profissionais de saúde e pessoas sem formação na área. É de nível iniciante e não exige conhecimentos prévios.\n\n### Como estudar\n\nO curso é **gratuito** e funciona por aulas, pela ordem certa:\n\n1. Crie a sua conta de estudante (ou entre) e toque em **Iniciar curso**.\n2. Leia os **slides** da aula, do primeiro ao último.\n3. No fim da leitura, faça o **teste da aula**: 10 perguntas, nota mínima de 70%, até 3 tentativas seguidas (se esgotar, espere 30 minutos e tente de novo).\n4. Com 70% ou mais, a aula fica concluída e a **aula seguinte abre**.\n5. Ao concluir a última aula, o curso fica concluído.\n\nPode voltar a qualquer aula já concluída para rever a matéria.\n\n### Programa\n\n1. **Avaliar a cena e pedir ajuda** — segurança da cena, avaliação da vítima e activação do socorro.\n2. **Suporte básico de vida** — compressões torácicas, ventilações e DEA.\n3. **Hemorragias, feridas e queimaduras** — controlo da hemorragia, cuidados às feridas e primeiros cuidados nas queimaduras.\n4. **Fracturas e imobilização** — sinais de fractura, como imobilizar e vigilância.\n5. **Convulsões, desmaio e hipoglicemia** — como reconhecer e como agir em cada uma.\n\nPara outras emergências, consulte as páginas de [Urgência e emergência](/urgencias/).\n\n### Nota importante\n\nConteúdo de apoio à aprendizagem. Perante uma emergência real, peça sempre ajuda diferenciada. Este curso não substitui a formação prática de primeiros socorros.\n\n### Programa das aulas\n\n1. **Avaliar a cena e pedir ajuda** — Segurança da cena, avaliação da vítima e activação do socorro.\n2. **Suporte básico de vida** — Compressões torácicas, ventilações e uso do desfibrilhador externo automático.\n3. **Hemorragias, feridas e queimaduras** — Controlo de hemorragia, cuidados a feridas e primeiros cuidados nas queimaduras.\n4. **Fracturas e imobilização** — Reconhecer suspeita de fractura e imobilizar com segurança.\n5. **Convulsões, desmaio e hipoglicemia** — Actuação perante convulsões, perda de consciência e baixa de açúcar no sangue.\n\n### Como funciona\n\n* **Gratuito**: o curso não tem custo. Crie uma conta de estudante para guardar o seu progresso.\n* **Aula a aula**: em cada aula lê o conteúdo, vê todos os slides e só depois abre o teste.\n* **Teste no fim de cada aula**: 10 perguntas, com nota mínima de 70% para aprovar. Tem até 3 tentativas seguidas e, se não passar, volta a tentar após 30 minutos de revisão.\n* **Por ordem**: a aula seguinte abre quando é aprovado no teste da anterior. Ao concluir as 5 aulas, termina o curso.\n",
   "aulas": [
     {
       "titulo": "Avaliar a cena e pedir ajuda",
@@ -698,7 +698,13 @@
     }
   ],
   "etiquetas": [
-    "Urgência"
+    "Urgência",
+    "Primeiros socorros",
+    "Suporte básico de vida",
+    "Hemorragias",
+    "Queimaduras",
+    "Fracturas",
+    "Convulsões"
   ],
   "publicado": true,
   "modo": "progressivo",
