@@ -164,12 +164,12 @@
     box.appendChild(el('h4', '', r.aprovado ? 'Aprovado' : 'Não aprovado'));
     box.appendChild(aviso('Pontuação: ' + r.pontuacao + ' de ' + r.total + ' (' + r.percentagem + '%). Nota mínima: ' + r.notaMinima + '%.', r.aprovado ? 'ec-ok-msg' : 'ec-msg'));
     var ol = el('ol', 'ec-corr');
-    r.correcao.forEach(function (c, k) {
+    (r.correcao || []).forEach(function (c, k) {   // só vem preenchida quando aprovado
       var li = el('li', c.certa ? 'certa' : 'errada'); li.appendChild(el('b', '', t.perguntas[k].pergunta)); li.appendChild(el('span', '', c.certa ? ' ✔ Certa' : ' ✘ Errada'));
       if (c.explicacao || c.correta) li.appendChild(el('p', 'meta', (c.correta ? 'Resposta certa: ' + c.correta + '. ' : '') + (c.explicacao || '')));
       ol.appendChild(li);
     });
-    box.appendChild(ol);
+    if (r.correcao) box.appendChild(ol);
     if (r.aprovado) {
       var prox = i + 1 < estado.aulas.length, b = el('button', 'btn', prox ? 'Aula seguinte ›' : 'Ver o curso'); b.type = 'button';
       b.onclick = function () { if (prox) abrir(i + 1); else lista(); }; box.appendChild(b);

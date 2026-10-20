@@ -1,4 +1,4 @@
-/* Enfermeiro Corporativo — ligações profundas para a app.
+/* ENCORP — ligações profundas para a app.
    As páginas públicas abrem a app já na secção certa:
    /?v=escalas&i=1  ·  /?v=calculadora&calc=cMed  ·  /?v=diagnosticos&d=Dor%20aguda  ·  /?v=medicamentos */
 (function () {

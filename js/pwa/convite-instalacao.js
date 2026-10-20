@@ -1,4 +1,4 @@
-/* Enfermeiro Corporativo — convite flutuante de instalação (PWA).
+/* ENCORP — convite flutuante de instalação (PWA).
    Regras:
    - aparece durante 15 s e volta a aparecer de 5 em 5 minutos (início a início);
    - não aparece se a app já estiver instalada/aberta como app, ou se o utilizador dispensou o convite;
@@ -59,7 +59,7 @@
     d.id = 'ecInstall'; d.setAttribute('role', 'region'); d.setAttribute('aria-label', 'Instalar a aplicação');
     var sub = isIOS && !deferred ? 'Adicione ao ecrã principal e use como app.' : 'Abre mais depressa e funciona sem ligação.';
     d.innerHTML = '<div class="r"><img src="/android-chrome-192x192.png" alt="" width="44" height="44">' +
-      '<div class="t"><b>Instalar Enfermeiro Corporativo</b><span class="s">' + sub + '</span></div>' +
+      '<div class="t"><b>Instalar ENCORP</b><span class="s">' + sub + '</span></div>' +
       '<button type="button" class="go" data-a="go">' + (isIOS && !deferred ? 'Como instalar' : 'Instalar') + '</button>' +
       '<button type="button" class="x" data-a="x" aria-label="Dispensar convite">×</button></div>' +
       '<div class="bar" style="animation-duration:' + CFG.showMs + 'ms"></div>';

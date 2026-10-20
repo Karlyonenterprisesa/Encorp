@@ -1,4 +1,3 @@
-// === calculator.js ===
 // ===== calculator.js — Calculadoras de Enfermagem (calculadora.html) =====
 
 function openCalc(id){

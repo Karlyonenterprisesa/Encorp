@@ -23,11 +23,11 @@
     var fE = el('form'), fR = el('form'); fR.hidden = true; fE.noValidate = fR.noValidate = false;
 
     var u = campo('Nome de utilizador', 'ec-u', 'text', { autocomplete: 'username', autocapitalize: 'none', maxlength: '40' });
-    var c = campo('Código de acesso (4 dígitos)', 'ec-c', 'password', { inputmode: 'numeric', pattern: '\\d{4}', maxlength: '4', autocomplete: 'current-password' });
+    var c = campo('Código de acesso (4 a 6 dígitos)', 'ec-c', 'password', { inputmode: 'numeric', pattern: '\\d{4,6}', maxlength: '6', autocomplete: 'current-password' });
     var sE = el('button', 'btn', 'Entrar'); sE.type = 'submit'; fE.appendChild(u.w); fE.appendChild(c.w); fE.appendChild(sE);
 
     var n = campo('O seu nome', 'ec-n', 'text', { autocomplete: 'name', minlength: '2', maxlength: '60' });
-    var aviso = el('p', 'meta', 'Ao criar a conta recebe um número de estudante, um nome de utilizador e um código de 4 dígitos. O código só aparece uma vez.');
+    var aviso = el('p', 'meta', 'Ao criar a conta recebe um número de estudante, um nome de utilizador e um código de 6 dígitos. O código só aparece uma vez.');
     var sR = el('button', 'btn', 'Criar conta'); sR.type = 'submit'; fR.appendChild(n.w); fR.appendChild(aviso); fR.appendChild(sR);
 
     function mostra(r) { bE.className = r ? 'on' : ''; bR.className = r ? '' : 'on'; fE.hidden = r; fR.hidden = !r; msg.textContent = ''; }

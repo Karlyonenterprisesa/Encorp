@@ -54,7 +54,7 @@
         <div class="acc open">
           <div class="acc-head" style="cursor:default;"><div class="a-icon" style="background:#e7ecf4;color:var(--azul-escuro);">${ICON_PROC}</div><div class="a-txt"><div class="a-title">Simulação clínica</div><div class="a-sub">Escolha um caso para simular o processo de enfermagem completo</div></div></div>
           <div class="acc-body" style="max-height:2000px;"><div class="acc-in">
-            <p>Percorra a <b>Avaliação → Diagnóstico → Resultados (NOC) → Intervenções (NIC)</b> de um caso clínico real, com feedback imediato em cada etapa.</p>
+            <p>Percorra a <b>Avaliação → Diagnóstico → Intervenções (NIC) → Resultados (NOC)</b> de um caso clínico real, com feedback imediato em cada etapa.</p>
             <div class="search-mini" style="margin:10px 0;">
               <select id="simCasoSelect" style="width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--borda);font-size:13px;background:#fff;color:var(--texto);"></select>
             </div>
@@ -95,10 +95,10 @@ function renderCasosEstudo(){
           <p>${c.raciocinio}</p>
           <b style="display:block;margin-top:8px;color:var(--azul-escuro);font-size:12.5px;">Diagnósticos de Enfermagem</b>
           <ul style="font-size:12.5px;margin:6px 0 10px;">${c.diagnosticos.map(d=>`<li>${d}</li>`).join('')}</ul>
-          <b style="display:block;color:var(--azul-escuro);font-size:12.5px;">Resultados Esperados (NOC)</b>
-          <ul style="font-size:12.5px;margin:6px 0 10px;">${c.noc.map(n=>`<li>${n}</li>`).join('')}</ul>
           <b style="display:block;color:var(--azul-escuro);font-size:12.5px;">Intervenções de Enfermagem (NIC)</b>
-          <ul style="font-size:12.5px;margin:6px 0 0;">${c.nic.map(k=>`<li>${k}</li>`).join('')}</ul>
+          <ul style="font-size:12.5px;margin:6px 0 10px;">${c.nic.map(k=>`<li>${k}</li>`).join('')}</ul>
+          <b style="display:block;color:var(--azul-escuro);font-size:12.5px;">Resultados Esperados (NOC)</b>
+          <ul style="font-size:12.5px;margin:6px 0 0;">${c.noc.map(n=>`<li>${n}</li>`).join('')}</ul>
         </div>
       </div></div>
     </div>`).join('');
@@ -193,7 +193,7 @@ function simIniciar(){
   document.getElementById('simIntro').style.display = 'none';
   simRenderStep();
 }
-const SIM_ROTULOS = ['Diagnóstico de Enfermagem','Resultado Esperado (NOC)','Intervenção de Enfermagem (NIC)'];
+const SIM_ROTULOS = ['Diagnóstico de Enfermagem','Intervenção de Enfermagem (NIC)','Resultado Esperado (NOC)'];
 function simRenderStep(){
   const caso = CASOS_ESTUDO[SIM.casoIdx];
   const runner = document.getElementById('simRunner');
@@ -208,10 +208,10 @@ function simRenderStep(){
           <div class="quiz-score show" style="margin:0 0 12px;">Resultado da simulação: ${SIM.acertos} / 3 etapas correctas</div>
           <b style="display:block;color:var(--azul-escuro);font-size:12.5px;">Diagnósticos de Enfermagem (caso completo)</b>
           <ul style="font-size:12.5px;margin:6px 0 10px;">${caso.diagnosticos.map(d=>`<li>${d}</li>`).join('')}</ul>
-          <b style="display:block;color:var(--azul-escuro);font-size:12.5px;">Resultados Esperados (NOC)</b>
-          <ul style="font-size:12.5px;margin:6px 0 10px;">${caso.noc.map(n=>`<li>${n}</li>`).join('')}</ul>
           <b style="display:block;color:var(--azul-escuro);font-size:12.5px;">Intervenções de Enfermagem (NIC)</b>
-          <ul style="font-size:12.5px;margin:6px 0 0;">${caso.nic.map(k=>`<li>${k}</li>`).join('')}</ul>
+          <ul style="font-size:12.5px;margin:6px 0 10px;">${caso.nic.map(k=>`<li>${k}</li>`).join('')}</ul>
+          <b style="display:block;color:var(--azul-escuro);font-size:12.5px;">Resultados Esperados (NOC)</b>
+          <ul style="font-size:12.5px;margin:6px 0 0;">${caso.noc.map(n=>`<li>${n}</li>`).join('')}</ul>
           <div class="calc-actions" style="margin-top:14px;">
             <button class="calc-btn" onclick="simVoltarSelecao()">Simular outro caso</button>
             <button class="calc-btn ghost" onclick="simIniciar()">Repetir este caso</button>
