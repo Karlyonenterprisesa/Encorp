@@ -11,19 +11,78 @@
       "video_obrigatorio": false,
       "duracao": "1 hora",
       "resumo": "Tema, problema, objectivos e justificativa de um projecto.",
-      "conteudo": "Um bom projecto começa por uma **pergunta de pesquisa** clara e viável, com objectivos que a respondam.",
+      "conteudo": "Um bom projecto começa por uma **pergunta de pesquisa** clara e viável, com objectivos que a respondam. Nesta aula aprende a passar de um tema amplo a um problema delimitado, a escrever objectivos e justificativa, e a planear o trabalho e a ética.",
       "slides": [
         {
+          "titulo": "O que vai aprender nesta aula",
+          "texto": "No final desta aula será capaz de:\n\n- Escolher e delimitar um tema de pesquisa em enfermagem\n- Formular o problema e a pergunta de pesquisa\n- Redigir o objectivo geral e os objectivos específicos\n- Escrever uma justificativa científica, académica e social\n- Planear o cronograma e prever as exigências éticas",
+          "tipo": "objetivos"
+        },
+        {
+          "titulo": "O que é um projecto de pesquisa",
+          "texto": "O projecto é o **plano da monografia**: diz o que vai estudar, porquê, como e quando. Escreve-se antes de recolher dados e orienta todo o trabalho.\n\n> Um projecto bem feito poupa meses: quem sabe o que procura não se perde pelo caminho.\n\n- É avaliado pelo orientador e, muitas vezes, por um comité de ética\n- Pode (e deve) ser ajustado, mas sem mudar a pergunta a meio"
+        },
+        {
+          "titulo": "As peças do projecto",
+          "texto": "1. Tema: a área geral de interesse\n2. Problema: a pergunta que a pesquisa quer responder\n3. Objectivos: o que pretende alcançar\n4. Justificativa: porque é importante estudar\n5. Metodologia: como vai responder à pergunta\n6. Cronograma: quando faz cada etapa",
+          "tipo": "fluxo"
+        },
+        {
           "titulo": "Do tema ao problema",
-          "texto": "- Tema: área geral de interesse\n- Delimite no espaço, no tempo e na população\n- Problema: pergunta que a pesquisa quer responder\n- Verifique se é viável e relevante"
+          "texto": "| Tema amplo | Tema delimitado | Problema |\n|---|---|---|\n| Infecção hospitalar | Higiene das mãos dos enfermeiros da enfermaria de cirurgia de um hospital, em 2026 | Qual é a adesão dos enfermeiros à higiene das mãos nos 5 momentos recomendados? |\n\n- Delimite no **espaço** (onde), no **tempo** (quando) e na **população** (quem)\n- Um tema demasiado amplo não se consegue estudar em poucos meses"
         },
         {
-          "titulo": "Objectivos e justificativa",
-          "texto": "- Objectivo geral: o que pretende alcançar\n- Objectivos específicos: passos mensuráveis, com verbo no infinitivo\n- Justificativa: porque o estudo é importante\n- Hipótese, quando aplicável"
+          "titulo": "Um bom tema: cinco perguntas",
+          "texto": "- **Viável?** Há tempo, recursos e acesso aos participantes?\n- **Interessante?** Motiva o autor e o orientador?\n- **Novo ou pertinente?** Acrescenta algo ao que já se sabe?\n- **Ético?** Protege as pessoas envolvidas?\n- **Relevante?** Importa para a enfermagem e para a saúde?\n\n> Se uma resposta for «não», ajuste o tema antes de avançar."
         },
         {
-          "titulo": "Cronograma e ética",
-          "texto": "- Planeie etapas e prazos realistas\n- Preveja recursos e custos\n- Estudos com pessoas exigem aprovação ética\n- Consentimento informado e confidencialidade"
+          "titulo": "A pergunta de pesquisa",
+          "texto": "Em questões clínicas, a estrutura **PICO** ajuda a formular a pergunta:\n\n| Letra | Significa | Exemplo |\n|---|---|---|\n| P | População | Adultos com hipertensão |\n| I | Intervenção | Educação em saúde feita por enfermeiros |\n| C | Comparação | Cuidados habituais |\n| O | Resultado (*outcome*) | Controlo da tensão arterial |\n\n> **Pergunta:** em adultos com hipertensão, a educação em saúde feita por enfermeiros, comparada com os cuidados habituais, melhora o controlo da tensão arterial?"
+        },
+        {
+          "titulo": "Objectivo geral e específicos",
+          "texto": "| Objectivo | Função | Verbos habituais |\n|---|---|---|\n| Geral | Responde à pergunta no seu todo (um só) | Avaliar, analisar, determinar |\n| Específicos | Passos mensuráveis para chegar ao geral (3 a 5) | Identificar, descrever, comparar, medir |\n\n- **Exemplo de geral:** avaliar a adesão dos enfermeiros à higiene das mãos\n- **Exemplo de específico:** identificar a proporção de oportunidades em que a higiene das mãos foi feita\n\n> Evite verbos vagos como «conhecer» ou «saber»: não se medem."
+        },
+        {
+          "titulo": "Justificativa",
+          "texto": "Responde à pergunta: **porque é que este estudo importa?**\n\n- **Científica:** que lacuna do conhecimento preenche?\n- **Académica:** que competência de investigação desenvolve no autor?\n- **Social:** que benefício pode trazer aos doentes, às famílias e aos serviços?\n- Use dados e referências, e não apenas opiniões\n\n> Hipótese: em estudos que comparam ou relacionam variáveis, formule a resposta esperada. Nos estudos descritivos pode não haver hipótese."
+        },
+        {
+          "titulo": "Cronograma e custos",
+          "texto": "| Mês | Actividade |\n|---|---|\n| 1 | Escolha do tema e do orientador |\n| 2 | Revisão bibliográfica e projecto |\n| 3 | Aprovação ética e autorizações |\n| 4 a 5 | Recolha de dados |\n| 6 | Análise dos dados |\n| 7 | Redacção e revisão |\n| 8 | Entrega e defesa |\n\n> Deixe folga: a aprovação ética e as autorizações costumam demorar mais do que se espera. Preveja também os custos (impressão, transporte, internet)."
+        },
+        {
+          "titulo": "Ética no projecto",
+          "texto": "- Estudos com pessoas exigem **aprovação ética** e autorização da instituição\n- **Consentimento informado:** o participante sabe do que se trata e pode desistir\n- **Confidencialidade:** nenhum dado permite identificar o participante\n- Risco mínimo e benefício claro\n- Princípios da Declaração de Helsínquia: respeito, beneficência e justiça\n\n> Confirme com a sua instituição qual é o comité de ética e que documentos pede."
+        },
+        {
+          "titulo": "Caso prático: de «diabetes» a um problema",
+          "texto": "Uma estudante diz: «Quero fazer a monografia sobre **diabetes**.»\n\n> **Pense antes de avançar:** o tema é viável? Como o delimitaria no espaço, no tempo e na população? Que pergunta de pesquisa formularia?",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Caso prático: resolução",
+          "texto": "- Tema delimitado: **adesão ao tratamento** em adultos com diabetes tipo 2 seguidos no centro de saúde X, em 2026\n- Problema: que factores se associam à má adesão ao tratamento nestes doentes?\n- Objectivo geral: analisar os factores associados à adesão ao tratamento\n- Específicos: caracterizar os doentes; medir a adesão; identificar factores associados\n\n> Repare como a pergunta passou a ter **lugar, tempo e população**.",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Erros frequentes",
+          "texto": "- Tema demasiado amplo para o tempo disponível\n- Objectivos que não respondem à pergunta\n- Muitos objectivos específicos (mais de cinco)\n- Justificativa feita só de opinião, sem dados\n- Esquecer a aprovação ética e o tempo que demora\n- Mudar a pergunta a meio da recolha de dados"
+        },
+        {
+          "titulo": "Pontos-chave",
+          "texto": "- O projecto é o plano da monografia\n- Delimite o tema no espaço, no tempo e na população\n- A pergunta orienta tudo; use PICO em questões clínicas\n- Um objectivo geral e 3 a 5 específicos, com verbos mensuráveis\n- Justifique com dados: científica, académica e social\n- Estudos com pessoas exigem aprovação ética e consentimento",
+          "tipo": "pontos-chave"
+        },
+        {
+          "titulo": "Para reflectir",
+          "texto": "Discuta com um colega ou com o seu orientador:\n\n- Qual é o problema da sua prática que gostaria de resolver com uma pesquisa?\n- Que obstáculos reais (tempo, acesso, custos) pode encontrar?\n- Quem precisa de autorizar o seu estudo na sua instituição?",
+          "tipo": "reflexao"
+        },
+        {
+          "titulo": "Para aprofundar",
+          "texto": "Recursos para a sua pesquisa:\n\n- [SciELO: artigos científicos em português](https://www.scielo.org/)\n- [PubMed: base de dados de saúde](https://pubmed.ncbi.nlm.nih.gov/)\n- [Declaração de Helsínquia (Associação Médica Mundial)](https://www.wma.net/)",
+          "tipo": "leitura"
         }
       ],
       "teste": {
@@ -148,19 +207,77 @@
       "video_obrigatorio": false,
       "duracao": "1 hora",
       "resumo": "Partes pré-textuais, textuais e pós-textuais.",
-      "conteudo": "Uma monografia tem três grandes blocos: **pré-textual**, **textual** e **pós-textual**.",
+      "conteudo": "Uma monografia tem três grandes blocos: **pré-textual**, **textual** e **pós-textual**. Nesta aula aprende o que vai em cada bloco, como escrever o resumo, a introdução e a conclusão, e como manter um fio condutor do problema à conclusão.",
       "slides": [
         {
-          "titulo": "Pré-textual",
-          "texto": "- Capa e folha de rosto\n- Dedicatória e agradecimentos (opcionais)\n- Resumo e palavras-chave\n- Listas e sumário"
+          "titulo": "O que vai aprender nesta aula",
+          "texto": "No final desta aula será capaz de:\n\n- Identificar os elementos pré-textuais, textuais e pós-textuais\n- Escrever uma introdução com os seus cinco componentes\n- Organizar o desenvolvimento (revisão, método, resultados e discussão)\n- Redigir uma conclusão que responde aos objectivos\n- Distinguir apêndices de anexos e escrever um resumo",
+          "tipo": "objetivos"
         },
         {
-          "titulo": "Textual",
-          "texto": "- Introdução: tema, problema, objectivos e justificativa\n- Desenvolvimento: revisão da literatura, metodologia, resultados e discussão\n- Conclusão: responde aos objectivos"
+          "titulo": "Os três blocos da monografia",
+          "texto": "1. Pré-textual: tudo o que vem antes do texto principal\n2. Textual: introdução, desenvolvimento e conclusão\n3. Pós-textual: o que complementa e comprova o texto",
+          "tipo": "fluxo",
+          "notas": "Mostre uma monografia real e peça aos formandos que identifiquem cada bloco."
         },
         {
-          "titulo": "Pós-textual",
-          "texto": "- Referências\n- Apêndices (produzidos pelo autor)\n- Anexos (documentos de terceiros)\n- Siga o modelo exigido pela sua instituição"
+          "titulo": "Elementos pré-textuais",
+          "texto": "| Elemento | Obrigatório? |\n|---|---|\n| Capa | Sim |\n| Folha de rosto | Sim |\n| Dedicatória, agradecimentos, epígrafe | Opcionais |\n| Resumo e palavras-chave | Sim |\n| Listas (tabelas, figuras, abreviaturas) | Opcionais |\n| Sumário | Sim |\n\n> Este é o modelo habitual (ABNT). A sua instituição pode pedir outros elementos ou outra ordem: siga sempre o regulamento."
+        },
+        {
+          "titulo": "Como escrever o resumo",
+          "texto": "Um resumo é um texto corrido, num só parágrafo, que se lê sem o resto do trabalho. Inclui:\n\n1. Contexto e problema, numa frase\n2. Objectivo\n3. Método: tipo de estudo, participantes, instrumentos\n4. Principais resultados\n5. Conclusão\n\n- Acrescente 3 a 5 **palavras-chave**\n- Escreva-o **no fim**, quando já sabe o que concluiu"
+        },
+        {
+          "titulo": "A introdução",
+          "texto": "A introdução apresenta o trabalho e convence o leitor de que vale a pena ler.\n\n1. Contextualização do tema\n2. Problema e pergunta de pesquisa\n3. Objectivos geral e específicos\n4. Justificativa\n5. Organização do trabalho, em poucas linhas\n\n> Não é um resumo dos resultados: não adiante conclusões."
+        },
+        {
+          "titulo": "O desenvolvimento",
+          "texto": "| Parte | O que contém |\n|---|---|\n| Revisão da literatura | O que já se sabe sobre o tema, organizado por assuntos |\n| Metodologia | Tipo de estudo, local, população e amostra, instrumentos, análise, ética |\n| Resultados | O que encontrou, apresentado com clareza (tabelas, gráficos), sem interpretar |\n| Discussão | O que os resultados significam, comparados com a literatura |\n\n> Resultados descrevem; discussão interpreta. Não misture as duas partes."
+        },
+        {
+          "titulo": "A conclusão",
+          "texto": "- Responde, um a um, aos **objectivos** propostos\n- Resume os principais achados em poucas linhas\n- Indica as limitações do estudo\n- Apresenta recomendações para a prática e para novas pesquisas\n\n> **Atenção:** a conclusão não traz dados novos nem repete a introdução. Se o objectivo era «identificar» e conclui «eficácia», há uma incoerência."
+        },
+        {
+          "titulo": "Elementos pós-textuais",
+          "texto": "| Elemento | O que é |\n|---|---|\n| Referências | Lista de todas as obras citadas no texto |\n| Apêndice | Material produzido **pelo autor** (questionário, guião de entrevista) |\n| Anexo | Documento **de terceiros** (autorização, protocolo, norma) |\n\n- Cada apêndice e cada anexo tem letra e título\n- Tudo o que é citado no texto está nas referências, e vice-versa"
+        },
+        {
+          "titulo": "Um fio condutor do início ao fim",
+          "texto": "1. Problema: a pergunta que se quer responder\n2. Objectivos: o que se faz para a responder\n3. Método: como se faz\n4. Resultados: o que se encontrou\n5. Conclusão: a resposta à pergunta",
+          "tipo": "fluxo",
+          "notas": "Esta é a ideia mais importante da aula: a monografia é coerente quando cada parte responde à anterior."
+        },
+        {
+          "titulo": "Caso prático: onde está a incoerência?",
+          "texto": "Um estudante entrega a monografia com este objectivo geral: «**Identificar** o nível de conhecimento dos enfermeiros sobre higiene das mãos». A conclusão diz: «Provou-se que o programa de formação **reduziu** as infecções.»\n\n> **Pense antes de avançar:** que problemas encontra?",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Caso prático: resolução",
+          "texto": "- O objectivo era **descrever conhecimento**; a conclusão fala de **eficácia** de um programa, que nunca foi avaliado\n- A conclusão apresenta um resultado (infecções) que não consta dos objectivos nem do método\n- Correcção: a conclusão deve responder ao objectivo («o nível de conhecimento foi…») e propor, como recomendação, estudar o efeito de um programa",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Erros frequentes",
+          "texto": "- Conclusão que não responde aos objectivos\n- Resultados misturados com discussão\n- Apêndices e anexos trocados\n- Referências em falta, ou obras na lista que não foram citadas\n- Resumo escrito antes de terminar o trabalho\n- Ignorar o modelo exigido pela instituição"
+        },
+        {
+          "titulo": "Pontos-chave",
+          "texto": "- Três blocos: pré-textual, textual, pós-textual\n- A introdução tem cinco componentes\n- Resultados descrevem; a discussão interpreta\n- A conclusão responde aos objectivos, sem dados novos\n- Apêndice é do autor; anexo é de terceiros\n- Mantenha o fio condutor: problema, objectivos, método, resultados, conclusão",
+          "tipo": "pontos-chave"
+        },
+        {
+          "titulo": "Para reflectir",
+          "texto": "Discuta com um colega ou com o seu orientador:\n\n- O modelo da sua instituição tem alguma diferença em relação ao que viu hoje?\n- Como verificaria que a sua conclusão responde mesmo a cada objectivo?\n- Que material deve ir em apêndice no seu estudo?",
+          "tipo": "reflexao"
+        },
+        {
+          "titulo": "Para aprofundar",
+          "texto": "Recursos para a sua pesquisa:\n\n- [SciELO: artigos científicos em português](https://www.scielo.org/)\n- [PubMed: base de dados de saúde](https://pubmed.ncbi.nlm.nih.gov/)\n- [Elaboração de monografias: página do curso no ENCORP](/cursos/elaboracao-de-monografias.html)",
+          "tipo": "leitura"
         }
       ],
       "teste": {
@@ -285,19 +402,65 @@
       "video_obrigatorio": false,
       "duracao": "1 hora",
       "resumo": "Normas de apresentação e citação de fontes.",
-      "conteudo": "Citar correctamente evita o **plágio** e dá credibilidade ao trabalho.",
+      "conteudo": "Citar correctamente evita o **plágio** e dá credibilidade ao trabalho. Nesta aula aprende as regras de formatação, os tipos de citação, os principais estilos de referência (Vancouver, APA e ABNT) e como proteger a integridade académica.",
       "slides": [
         {
-          "titulo": "Formatação",
-          "texto": "- Siga as normas da instituição (margens, letra, espaçamento)\n- Numere as páginas e títulos de forma consistente\n- Legende tabelas e figuras\n- Reveja ortografia e coerência"
+          "titulo": "O que vai aprender nesta aula",
+          "texto": "No final desta aula será capaz de:\n\n- Aplicar as regras de formatação exigidas pela instituição\n- Fazer citações directas, indirectas e de citação de citação\n- Distinguir os estilos Vancouver, APA e ABNT\n- Escrever uma referência de artigo científico\n- Reconhecer e evitar o plágio",
+          "tipo": "objetivos"
         },
         {
-          "titulo": "Citações",
-          "texto": "- Toda a ideia de outro autor deve ser citada\n- Citação directa: entre aspas, com página\n- Citação indirecta: paráfrase com a fonte\n- Copiar sem indicar é plágio"
+          "titulo": "Formatação: siga a sua instituição",
+          "texto": "| Elemento | Exemplo habitual (ABNT) |\n|---|---|\n| Papel | A4 |\n| Margens | Esquerda e superior 3 cm; direita e inferior 2 cm |\n| Letra | Times New Roman ou Arial, tamanho 12 |\n| Espaçamento | 1,5 entre linhas no texto |\n| Citações longas | Recuo de 4 cm, letra 10, espaçamento simples |\n| Numeração | Páginas a partir da introdução |\n\n> Estes são valores de exemplo. **Prevalece o regulamento da sua instituição.**"
         },
         {
-          "titulo": "Estilos de referência",
-          "texto": "- Vancouver: numérico, muito usado em saúde\n- APA: autor e data\n- ABNT: usado em muitas instituições de língua portuguesa\n- Use sempre o exigido e seja consistente"
+          "titulo": "Tabelas, figuras e títulos",
+          "texto": "- Numere e dê título a todas as tabelas e figuras\n- Indique sempre a **fonte** (mesmo que seja «dados do estudo»)\n- Refira-se a cada uma no texto, antes de ela aparecer\n- Use hierarquia clara nos títulos e subtítulos, com a mesma formatação em todo o trabalho\n- Reveja ortografia, pontuação e coerência antes de entregar"
+        },
+        {
+          "titulo": "Citações: três formas",
+          "texto": "| Tipo | Como se faz | Exemplo |\n|---|---|---|\n| Directa | Palavras do autor, entre aspas, com página | «A higiene das mãos salva vidas» (SILVA, 2020, p. 15) |\n| Indirecta | Ideias do autor, escritas por si, com a fonte | A higiene das mãos reduz infecções (SILVA, 2020) |\n| De citação (apud) | Obra a que não teve acesso, citada por outra | (SOUSA, 2010 apud SILVA, 2020) |\n\n> Toda a ideia que não é sua tem de ter fonte, mesmo parafraseada."
+        },
+        {
+          "titulo": "Três estilos de referência",
+          "texto": "| Estilo | No texto | Lista final |\n|---|---|---|\n| Vancouver | Número: (1) ou [1] | Por ordem de citação |\n| APA | Autor e ano: (Silva, 2020) | Ordem alfabética |\n| ABNT | Autor e ano: (SILVA, 2020) | Ordem alfabética |\n\n> Vancouver é muito usado em saúde. Use sempre o estilo **exigido** pela sua instituição e seja consistente."
+        },
+        {
+          "titulo": "Referência de um artigo científico",
+          "texto": "- **Vancouver:** Apelido AB, Apelido CD. Título do artigo. Abrev Revista. 2023;12(3):45-52.\n- **APA:** Apelido, A. B., & Apelido, C. D. (2023). Título do artigo. *Nome da Revista*, 12(3), 45–52.\n- **ABNT:** APELIDO, A. B.; APELIDO, C. D. Título do artigo. **Nome da Revista**, v. 12, n. 3, p. 45-52, 2023.\n\n> Os dados são os mesmos (autores, título, revista, ano, volume, número, páginas); muda a ordem e a pontuação."
+        },
+        {
+          "titulo": "Plágio e integridade académica",
+          "texto": "- Copiar texto sem aspas e sem fonte\n- «Parafrasear» só trocando algumas palavras\n- Usar ideias de outros sem os citar\n- **Autoplágio:** reutilizar o seu próprio trabalho sem o dizer\n- Inventar dados ou referências\n\n> **Como evitar:** anote a fonte enquanto lê, reescreva com as suas palavras, use um gestor de referências e verifique o trabalho com o software de similaridade da instituição, se existir."
+        },
+        {
+          "titulo": "Caso prático: isto é plágio?",
+          "texto": "Frase original de um artigo (exemplo): «A higiene das mãos reduz as infecções associadas aos cuidados de saúde.»\n\nTexto da estudante, sem referência: «A lavagem das mãos diminui as infecções relacionadas com os cuidados de saúde.»\n\n> **Pense antes de avançar:** a estudante cometeu plágio? O que devia ter feito?",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Caso prático: resolução",
+          "texto": "- **Sim.** Trocar algumas palavras não é paráfrase: a ideia e a estrutura são as do autor\n- Deve citar a fonte, mesmo escrevendo com as suas palavras: «A higiene das mãos diminui as infecções (SILVA, 2020).»\n- Se usar a frase exacta, deve pô-la entre aspas e indicar a página\n- Melhor ainda: leia, feche o artigo e escreva o que **compreendeu**, depois cite",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Erros frequentes",
+          "texto": "- Misturar estilos de referência no mesmo trabalho\n- Citar no texto e esquecer a lista final (ou o contrário)\n- Colar referências de sites sem verificar os dados\n- Citar fontes que não leu\n- Copiar parágrafos «só para depois reescrever» e esquecer a fonte\n- Formatar à última hora, sem rever o regulamento"
+        },
+        {
+          "titulo": "Pontos-chave",
+          "texto": "- A formatação segue o regulamento da instituição\n- Cite toda a ideia que não é sua\n- Directa: aspas e página; indirecta: paráfrase com fonte\n- Vancouver (numérico), APA e ABNT (autor e ano)\n- Seja consistente num único estilo\n- Plágio inclui paráfrase mal feita e autoplágio",
+          "tipo": "pontos-chave"
+        },
+        {
+          "titulo": "Para reflectir",
+          "texto": "Discuta com um colega ou com o seu orientador:\n\n- Que estilo de referência exige a sua instituição e onde está o guia?\n- Como organizará as suas leituras para não perder as fontes?\n- Já deparou com uma situação de cópia? Como foi tratada?",
+          "tipo": "reflexao"
+        },
+        {
+          "titulo": "Para aprofundar",
+          "texto": "Ferramentas úteis:\n\n- [Zotero: gestor de referências gratuito](https://www.zotero.org/)\n- [ICMJE: recomendações para publicação (Vancouver)](https://www.icmje.org/)\n- [SciELO: artigos científicos em português](https://www.scielo.org/)",
+          "tipo": "leitura"
         }
       ],
       "teste": {
@@ -422,19 +585,70 @@
       "video_obrigatorio": false,
       "duracao": "1 hora",
       "resumo": "Quando e como fazer um estudo de caso.",
-      "conteudo": "O **estudo de caso** analisa em profundidade um ou poucos casos em contexto real.",
+      "conteudo": "O **estudo de caso** analisa em profundidade um ou poucos casos em contexto real. Nesta aula aprende quando e como o fazer, como estruturar o relatório com o processo de enfermagem e como proteger a identidade do doente.",
       "slides": [
         {
-          "titulo": "Características",
-          "texto": "- Foco em profundidade, não em generalização estatística\n- Um ou poucos casos bem delimitados\n- Várias fontes de dados\n- Descrição rica do contexto"
+          "titulo": "O que vai aprender nesta aula",
+          "texto": "No final desta aula será capaz de:\n\n- Explicar o que é um estudo de caso e quando o escolher\n- Distinguir os tipos de estudo de caso\n- Aplicar os passos para o realizar\n- Estruturar o relatório com o processo de enfermagem\n- Proteger a identidade e os dados clínicos do doente",
+          "tipo": "objetivos"
         },
         {
-          "titulo": "Passos",
-          "texto": "- Defina a pergunta e o caso\n- Seleccione o caso com critérios claros\n- Recolha dados (entrevista, registos, observação)\n- Analise e descreva os achados"
+          "titulo": "O que é um estudo de caso",
+          "texto": "Estuda **em profundidade** um caso (um doente, uma família, um serviço) ou poucos casos, no seu contexto real.\n\n- Foco em compreender, não em generalizar estatisticamente\n- Várias fontes de dados sobre o mesmo caso\n- Descrição rica do contexto e da evolução\n- Muito usado em enfermagem para ligar teoria e prática\n\n> Pergunta típica: **como** e **porquê** aconteceu isto neste caso?"
         },
         {
-          "titulo": "Ética",
-          "texto": "- Consentimento informado\n- Anonimato e confidencialidade\n- Dados clínicos protegidos\n- Autorização da instituição"
+          "titulo": "Quando usar (e quando não)",
+          "texto": "| Use quando | Evite quando |\n|---|---|\n| Quer compreender um fenómeno em profundidade | Quer medir a frequência de um problema numa população |\n| O caso é raro, complexo ou exemplar | Precisa de comparar grupos grandes |\n| A pergunta é «como» ou «porquê» | Quer provar que uma intervenção funciona |"
+        },
+        {
+          "titulo": "Tipos de estudo de caso",
+          "texto": "| Critério | Tipos |\n|---|---|\n| Número de casos | Caso único ou casos múltiplos |\n| Objectivo | Descritivo, exploratório ou explicativo |\n| Unidade de análise | Doente, família, equipa, serviço |\n\n> Na monografia de enfermagem é frequente o estudo de **um doente** com o seu plano de cuidados."
+        },
+        {
+          "titulo": "Os passos do estudo de caso",
+          "texto": "1. Pergunta: defina o que quer compreender\n2. Selecção: escolha o caso com critérios claros\n3. Dados: entrevista, registos clínicos, observação\n4. Análise: organize e interprete os dados\n5. Discussão: compare com a literatura\n6. Relatório: descreva o caso e as conclusões",
+          "tipo": "fluxo"
+        },
+        {
+          "titulo": "Fontes de dados e triangulação",
+          "texto": "- **Entrevista** ao doente e à família\n- **Registos clínicos** e exames\n- **Observação** directa dos cuidados\n- **Documentos** do serviço (protocolos, escalas aplicadas)\n- **Triangulação:** cruzar várias fontes para confirmar os achados\n\n> Registe a data e a fonte de cada informação: ajuda a análise e a defender o trabalho."
+        },
+        {
+          "titulo": "Estrutura do relatório do caso",
+          "texto": "| Parte | Conteúdo |\n|---|---|\n| Identificação | Dados anónimos (idade, sexo, motivo da admissão) |\n| História | Doença actual, antecedentes, contexto social |\n| Avaliação | Exame físico, sinais vitais, resultados |\n| Diagnósticos de enfermagem | Problemas identificados |\n| Planeamento e intervenções | Objectivos e cuidados prestados |\n| Evolução e avaliação | Resposta aos cuidados |\n| Discussão | Comparação com a literatura |"
+        },
+        {
+          "titulo": "Ética e anonimato",
+          "texto": "- **Consentimento informado** do doente ou do responsável\n- **Autorização** da instituição e do serviço\n- Troque o nome por um código ou iniciais; omita morada e contactos\n- Evite datas exactas e outros dados que identifiquem a pessoa\n- Guarde os dados clínicos em local seguro e descarte-os no fim\n\n> Mesmo sem o nome, uma história muito específica pode identificar o doente numa comunidade pequena."
+        },
+        {
+          "titulo": "Caso prático: proteger a identidade",
+          "texto": "Uma estudante quer estudar um doente de 54 anos, da aldeia X, internado desde o dia 3 de Março com uma úlcera de pressão. Quer escrever o nome completo e a morada «para ficar mais real».\n\n> **Pense antes de avançar:** o que deve mudar? Que autorizações precisa?",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Caso prático: resolução",
+          "texto": "- Use um código («Doente A») e não o nome nem a morada\n- Escreva «homem de 50 a 55 anos, de zona rural», em vez da aldeia e da idade exacta\n- Escreva «internado há três semanas», em vez da data exacta\n- Obtenha o **consentimento** do doente e a **autorização** do serviço e da instituição\n- Guarde as notas em local seguro",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Erros frequentes",
+          "texto": "- Descrever o caso sem pergunta de pesquisa\n- Misturar o que é dado com o que é interpretação\n- Revelar dados que identificam o doente\n- Usar uma só fonte de informação\n- Não comparar com a literatura\n- Concluir que o resultado vale para todos os doentes"
+        },
+        {
+          "titulo": "Pontos-chave",
+          "texto": "- O estudo de caso é profundidade, não generalização\n- Responde a perguntas de «como» e «porquê»\n- Segue passos claros: pergunta, selecção, dados, análise, relatório\n- Use várias fontes e cruze-as (triangulação)\n- Estruture o relatório com o processo de enfermagem\n- Consentimento, anonimato e autorização são obrigatórios",
+          "tipo": "pontos-chave"
+        },
+        {
+          "titulo": "Para reflectir",
+          "texto": "Discuta com um colega ou com o seu orientador:\n\n- Que caso do seu estágio daria um bom estudo? Porquê?\n- Como pediria o consentimento a um doente com medo?\n- Como garantiria o anonimato numa comunidade pequena?",
+          "tipo": "reflexao"
+        },
+        {
+          "titulo": "Para aprofundar",
+          "texto": "Consulte no ENCORP:\n\n- [Processo de enfermagem](/processo-enfermagem/)\n- [Diagnósticos de enfermagem](/diagnosticos/)\n- [Escalas clínicas](/escalas/)",
+          "tipo": "leitura"
         }
       ],
       "teste": {
@@ -559,19 +773,77 @@
       "video_obrigatorio": false,
       "duracao": "1 hora",
       "resumo": "Recolha de dados no contexto real.",
-      "conteudo": "No **estudo de campo** os dados são recolhidos no contexto real, com instrumentos como questionários, entrevistas ou observação.",
+      "conteudo": "No **estudo de campo** os dados são recolhidos no contexto real, com instrumentos como questionários, entrevistas ou observação. Nesta aula aprende a planear, a escolher a amostra e o instrumento, a recolher com ética e a analisar e apresentar os resultados.",
       "slides": [
         {
-          "titulo": "Planear",
-          "texto": "- Defina a população e a amostra\n- Escolha o instrumento\n- Teste o instrumento num pequeno grupo (pré-teste)\n- Obtenha as autorizações"
+          "titulo": "O que vai aprender nesta aula",
+          "texto": "No final desta aula será capaz de:\n\n- Distinguir abordagem quantitativa e qualitativa\n- Definir população e amostra e escolher o método de amostragem\n- Construir e testar um instrumento de recolha de dados\n- Recolher dados com ética e de forma padronizada\n- Analisar e apresentar os resultados com tabelas e gráficos",
+          "tipo": "objetivos"
         },
         {
-          "titulo": "Recolher",
-          "texto": "- Explique o objectivo e peça consentimento\n- Aplique o instrumento de forma padronizada\n- Garanta anonimato\n- Registe os dados com cuidado"
+          "titulo": "O que é um estudo de campo",
+          "texto": "Recolhe dados **no local onde o fenómeno acontece** (serviço, comunidade, escola), junto das pessoas envolvidas.\n\n- Pode usar questionários, entrevistas, observação ou checklists\n- Pode ser descritivo, comparativo ou explicativo\n- Os dados são **primários**: recolhidos por si\n\n> Exemplo: aplicar um questionário a enfermeiros de uma enfermaria para avaliar a prática da higiene das mãos."
         },
         {
-          "titulo": "Analisar",
-          "texto": "- Organize os dados\n- Use estatística descritiva ou análise de conteúdo\n- Apresente em tabelas e gráficos claros\n- Discuta à luz da literatura"
+          "titulo": "Quantitativo ou qualitativo?",
+          "texto": "| | Quantitativo | Qualitativo |\n|---|---|---|\n| Pergunta | Quantos? Com que frequência? | Como? Porquê? Que significado? |\n| Dados | Números | Palavras, relatos |\n| Instrumento | Questionário fechado, checklist | Entrevista, grupo focal, observação |\n| Análise | Estatística | Análise de conteúdo |\n| Amostra | Maior | Menor, escolhida por critérios |\n\n- É possível combinar as duas abordagens (métodos mistos)"
+        },
+        {
+          "titulo": "População e amostra",
+          "texto": "- **População:** todas as pessoas que interessam ao estudo (por exemplo, os 60 enfermeiros do hospital)\n- **Amostra:** o grupo que realmente participa\n- **Critérios de inclusão:** quem pode participar\n- **Critérios de exclusão:** quem fica de fora (por exemplo, em férias ou em formação)\n\n| Tipo de amostra | Como se escolhe |\n|---|---|\n| Aleatória simples | Sorteio entre todos |\n| Estratificada | Sorteio dentro de cada grupo (por serviço, por exemplo) |\n| Por conveniência | Quem está disponível |\n| Intencional | Quem tem a experiência que o estudo procura |"
+        },
+        {
+          "titulo": "Escolher o instrumento",
+          "texto": "| Instrumento | Quando usar |\n|---|---|\n| Questionário | Muitas pessoas, perguntas padronizadas |\n| Entrevista | Compreender experiências e opiniões em profundidade |\n| Observação | Ver o que as pessoas **fazem** (e não apenas o que dizem) |\n| Checklist | Verificar passos de um procedimento |\n\n> Escolha o instrumento pela **pergunta de pesquisa**, e não pela comodidade."
+        },
+        {
+          "titulo": "Construir um questionário",
+          "texto": "- Uma ideia por pergunta; linguagem simples e sem termos ambíguos\n- Comece pelos dados gerais e deixe as perguntas sensíveis para o fim\n- Perguntas fechadas (fáceis de analisar) e algumas abertas\n- Opções de resposta completas e que não se sobrepõem\n- Instruções claras e tempo de resposta curto\n\n> Evite perguntas que sugerem a resposta («Concorda que a higiene das mãos é fundamental?»)."
+        },
+        {
+          "titulo": "Pré-teste e autorizações",
+          "texto": "1. Aplique o instrumento a um pequeno grupo semelhante (**pré-teste**)\n2. Veja onde houve dúvidas e quanto tempo demorou\n3. Corrija as perguntas\n4. Obtenha as autorizações da instituição e do comité de ética\n5. Só depois comece a recolha\n\n> Os participantes do pré-teste não entram na amostra final."
+        },
+        {
+          "titulo": "Recolher com ética",
+          "texto": "- Explique o objectivo e peça o **consentimento informado**\n- Diga que a participação é voluntária e que pode desistir\n- Aplique o instrumento da **mesma forma** a todos\n- Garanta o **anonimato**: não peça o nome e não identifique serviços pequenos\n- Guarde os dados em local seguro"
+        },
+        {
+          "titulo": "Analisar os dados",
+          "texto": "**Quantitativos**\n\n- Organize numa folha de cálculo\n- Estatística descritiva: frequências, percentagens, média\n\n**Qualitativos**\n\n- Transcreva e leia várias vezes\n- Agrupe por temas e categorias (análise de conteúdo)\n- Ilustre com excertos curtos e anónimos\n\n> Discuta sempre os resultados à luz da literatura."
+        },
+        {
+          "titulo": "Apresentar resultados",
+          "texto": "- Use **tabelas** para valores exactos e **gráficos** para comparar\n- Dê número e título a cada uma, e indique a fonte\n- Escreva um pequeno texto a descrever o que a tabela mostra\n- Percentagem = (casos ÷ total) × 100\n\n> **Exemplo:** de 40 enfermeiros inquiridos, 28 fazem a higiene das mãos antes de contactar o doente: 28 ÷ 40 × 100 = **70%**."
+        },
+        {
+          "titulo": "Caso prático: organizar os resultados",
+          "texto": "Num estudo com 40 enfermeiros, 28 disseram que fazem a higiene das mãos antes do contacto com o doente e 12 disseram que nem sempre.\n\n> **Pense antes de avançar:** construa uma tabela com frequência absoluta (n) e percentagem (%). Que frase escreveria por baixo?",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Caso prático: resolução",
+          "texto": "| Resposta | n | % |\n|---|---|---|\n| Fazem sempre | 28 | 70,0 |\n| Nem sempre | 12 | 30,0 |\n| Total | 40 | 100,0 |\n\n- Texto: «Dos 40 enfermeiros, 28 (70,0%) referiram fazer a higiene das mãos antes do contacto com o doente.»\n\n> Atenção: este resultado é **auto-relatado**. Para saber o que as pessoas fazem de facto, seria preciso observar.",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Erros frequentes",
+          "texto": "- Questionário comprido e confuso\n- Não fazer o pré-teste\n- Amostra demasiado pequena para o que se quer concluir\n- Perguntar o nome ou dados que identificam o participante\n- Apresentar tabelas e gráficos sem os explicar\n- Tirar conclusões que os dados não permitem"
+        },
+        {
+          "titulo": "Pontos-chave",
+          "texto": "- Estudo de campo: dados recolhidos no contexto real\n- Quantitativo mede; qualitativo compreende\n- Defina população, amostra e critérios de inclusão e exclusão\n- Escolha o instrumento pela pergunta de pesquisa\n- Pré-teste, consentimento e anonimato são obrigatórios\n- Analise com estatística descritiva ou análise de conteúdo",
+          "tipo": "pontos-chave"
+        },
+        {
+          "titulo": "Para reflectir",
+          "texto": "Discuta com um colega ou com o seu orientador:\n\n- Que instrumento responde melhor à sua pergunta de pesquisa?\n- Que dificuldades práticas poderá ter na recolha de dados?\n- Como explicará o seu estudo a quem tem pouco tempo ou desconfiança?",
+          "tipo": "reflexao"
+        },
+        {
+          "titulo": "Para aprofundar",
+          "texto": "Recursos para a sua pesquisa:\n\n- [Declaração de Helsínquia (Associação Médica Mundial)](https://www.wma.net/)\n- [SciELO: artigos científicos em português](https://www.scielo.org/)\n- [Elaboração de monografias: página do curso no ENCORP](/cursos/elaboracao-de-monografias.html)",
+          "tipo": "leitura"
         }
       ],
       "teste": {
@@ -696,19 +968,80 @@
       "video_obrigatorio": false,
       "duracao": "1 hora",
       "resumo": "Pesquisar, seleccionar e sintetizar literatura científica.",
-      "conteudo": "A **revisão bibliográfica** baseia-se em fontes científicas já publicadas, seleccionadas com critérios claros.",
+      "conteudo": "A **revisão bibliográfica** baseia-se em fontes científicas já publicadas, seleccionadas com critérios claros. Nesta aula aprende os tipos de revisão, como pesquisar nas bases de dados, como seleccionar e avaliar os artigos e como sintetizar a literatura.",
       "slides": [
         {
-          "titulo": "Pesquisar",
-          "texto": "- Bases de dados: PubMed, SciELO, LILACS, entre outras\n- Defina palavras-chave e use operadores AND, OR e NOT\n- Registe a estratégia de pesquisa\n- Prefira fontes recentes e fiáveis"
+          "titulo": "O que vai aprender nesta aula",
+          "texto": "No final desta aula será capaz de:\n\n- Distinguir os principais tipos de revisão\n- Construir uma estratégia de pesquisa com palavras-chave e operadores\n- Escolher bases de dados adequadas\n- Definir critérios de inclusão e exclusão e registar a selecção\n- Sintetizar os artigos por temas e identificar lacunas",
+          "tipo": "objetivos"
         },
         {
-          "titulo": "Seleccionar",
-          "texto": "- Critérios de inclusão e exclusão\n- Leia título e resumo, depois o texto completo\n- Elimine duplicados\n- Avalie a qualidade e a relevância"
+          "titulo": "Tipos de revisão",
+          "texto": "| Tipo | Característica |\n|---|---|\n| Narrativa | Panorama de um tema, sem método rígido de pesquisa |\n| Sistemática | Pergunta definida, pesquisa e selecção rigorosas e reprodutíveis |\n| Integrativa | Reúne estudos de métodos diferentes sobre o mesmo tema |\n| De escopo | Mapeia o que existe sobre um assunto amplo |\n\n> Na monografia, a revisão costuma ser narrativa ou integrativa; a sistemática exige mais tempo e, em geral, mais de um revisor."
         },
         {
-          "titulo": "Sintetizar",
-          "texto": "- Organize por temas e não artigo a artigo\n- Compare resultados e identifique lacunas\n- Parafraseie e cite sempre\n- Termine ligando a literatura ao seu problema"
+          "titulo": "Os passos da revisão",
+          "texto": "1. Pergunta: defina o que quer saber\n2. Pesquisa: bases de dados e palavras-chave\n3. Selecção: critérios de inclusão e exclusão\n4. Extracção: retire os dados de cada artigo\n5. Qualidade: avalie a fiabilidade dos estudos\n6. Síntese: organize por temas e conclua",
+          "tipo": "fluxo"
+        },
+        {
+          "titulo": "Bases de dados",
+          "texto": "| Base | Foco |\n|---|---|\n| PubMed / MEDLINE | Ciências da saúde (internacional) |\n| SciELO | Revistas científicas ibero-americanas, texto completo |\n| LILACS / BVS | Saúde na América Latina e Caraíbas |\n| CINAHL | Enfermagem e saúde aliada |\n| Cochrane Library | Revisões sistemáticas e ensaios clínicos |\n| Google Académico | Complementar, útil para encontrar texto completo |\n\n- Registe a base, a data e a estratégia usada em cada pesquisa"
+        },
+        {
+          "titulo": "Palavras-chave e operadores",
+          "texto": "| Operador | Efeito | Exemplo |\n|---|---|---|\n| AND | Restringe: todos os termos | higiene das mãos AND enfermagem |\n| OR | Amplia: um ou outro (sinónimos) | «lavagem das mãos» OR «higiene das mãos» |\n| NOT | Exclui um termo | infecção NOT viral |\n\n- Use **aspas** para expressões exactas e * para variações (enferm*)\n- Procure os termos oficiais nos descritores (DeCS em português, MeSH em inglês)\n\n> Exemplo: («higiene das mãos» OR «lavagem das mãos») AND enfermagem AND «infecção hospitalar»"
+        },
+        {
+          "titulo": "Critérios de inclusão e exclusão",
+          "texto": "| Critério | Incluir | Excluir |\n|---|---|---|\n| Período | Últimos 10 anos (2016 a 2026) | Anteriores, salvo clássicos |\n| Idioma | Português, inglês, espanhol | Outros idiomas |\n| Tipo | Estudos originais e revisões | Cartas, resumos de congresso |\n| Assunto | Responde à pergunta de pesquisa | Fora do tema |\n| Acesso | Texto completo disponível | Só resumo |\n\n> Defina os critérios **antes** de pesquisar, para não escolher só o que lhe convém."
+        },
+        {
+          "titulo": "Registar a selecção",
+          "texto": "1. 220: artigos encontrados nas bases de dados\n2. 180: depois de retirar os duplicados\n3. 60: depois de ler título e resumo\n4. 25: depois de ler o texto completo\n5. 12: artigos incluídos na revisão",
+          "tipo": "fluxo",
+          "notas": "Os números são um exemplo. Explique que o fluxograma (PRISMA) mostra a transparência da selecção."
+        },
+        {
+          "titulo": "Avaliar a qualidade",
+          "texto": "Nem todos os estudos valem o mesmo. Do **mais forte** para o mais fraco, para perguntas sobre intervenções:\n\n1. Revisões sistemáticas\n2. Ensaios clínicos aleatorizados\n3. Estudos de coorte\n4. Estudos de caso-controlo\n5. Séries e relatos de caso\n6. Opinião de especialistas\n\n> Pergunte sempre: a revista é fiável? Os métodos estão descritos? Os autores declaram conflitos de interesse?"
+        },
+        {
+          "titulo": "Matriz de síntese",
+          "texto": "Uma tabela ajuda a comparar os estudos:\n\n| Autor/ano | Objectivo | Método | Resultado principal | Relevância |\n|---|---|---|---|---|\n| Autor A, 2021 | Avaliar adesão | Observação, 120 enfermeiros | Adesão de 55% | Alta |\n| Autor B, 2022 | Avaliar formação | Antes e depois, 40 enfermeiros | Melhora após formação | Alta |\n\n> Preencha uma linha por artigo, logo depois de o ler."
+        },
+        {
+          "titulo": "Escrever a revisão",
+          "texto": "- Organize por **temas**, não artigo a artigo\n- Compare resultados: o que concorda e o que discorda\n- Identifique **lacunas**: o que ainda não se sabe\n- Parafraseie e **cite sempre**\n- Termine a ligar a literatura ao seu problema de pesquisa\n\n> Estrutura de cada parágrafo: ideia principal, o que dizem os estudos, comparação, ligação ao seu tema."
+        },
+        {
+          "titulo": "Caso prático: construir a pesquisa",
+          "texto": "Pergunta: «Que intervenções aumentam a adesão dos enfermeiros à higiene das mãos?»\n\n> **Pense antes de avançar:** que palavras-chave e operadores usaria? Que critérios de inclusão e exclusão definiria?",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Caso prático: resolução",
+          "texto": "- Conceitos: higiene das mãos, enfermeiros, adesão, intervenção\n- Pesquisa: («higiene das mãos» OR «lavagem das mãos») AND (enfermeir* OR «profissionais de saúde») AND (adesão OR conformidade)\n- Incluir: estudos originais e revisões, 2016 a 2026, em português, inglês ou espanhol, com texto completo\n- Excluir: cartas, resumos de congresso e estudos fora do contexto hospitalar\n- Registe tudo: base, data, termos e número de resultados",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Erros frequentes",
+          "texto": "- Pesquisar sem definir antes a pergunta e os critérios\n- Usar uma só base de dados\n- Descrever os artigos um a um, sem os comparar\n- Citar só os resumos, sem ler o texto completo\n- Usar fontes antigas ou pouco fiáveis (blogues, páginas sem autor)\n- Não registar a estratégia de pesquisa"
+        },
+        {
+          "titulo": "Pontos-chave",
+          "texto": "- A revisão segue uma pergunta e critérios definidos antes\n- AND restringe, OR amplia, NOT exclui\n- Use várias bases de dados e registe a pesquisa\n- Avalie a qualidade e a fiabilidade das fontes\n- Sintetize por temas e identifique lacunas\n- Parafraseie e cite sempre",
+          "tipo": "pontos-chave"
+        },
+        {
+          "titulo": "Para reflectir",
+          "texto": "Discuta com um colega ou com o seu orientador:\n\n- Que bases de dados tem à disposição na sua instituição?\n- Como saberá que já pesquisou o suficiente?\n- Como organizará as leituras para não perder as fontes?",
+          "tipo": "reflexao"
+        },
+        {
+          "titulo": "Para aprofundar",
+          "texto": "Recursos para a sua pesquisa:\n\n- [PubMed: base de dados de saúde](https://pubmed.ncbi.nlm.nih.gov/)\n- [SciELO: artigos científicos em português](https://www.scielo.org/)\n- [Zotero: gestor de referências gratuito](https://www.zotero.org/)",
+          "tipo": "leitura"
         }
       ],
       "teste": {
@@ -842,7 +1175,7 @@
     "Metodologia Científica",
     "Pesquisa"
   ],
-  "modo": "livre",
+  "modo": "progressivo",
   "nota_minima": 70,
   "tentativas": 3,
   "espera_minutos": 30,

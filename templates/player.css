@@ -22,3 +22,23 @@
 .ec-op{display:block;padding:8px 4px;min-height:32px;cursor:pointer}
 .ec-corr{padding-left:20px;text-align:left}.ec-corr li{margin:10px 0}.ec-corr .certa span{color:#14532d;font-weight:700}.ec-corr .errada span{color:#9b1c1c;font-weight:700}
 #ec-curso .vid{position:relative;aspect-ratio:16/9;width:100%}#ec-curso .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px}
+/* slides enriquecidos: tabelas, caixas de destaque e tipos de slide */
+.ec-slide-tipo{margin:0 0 4px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8a4300}
+.ec-slide blockquote{margin:10px 0;padding:10px 14px;background:#eaf1ff;border-left:4px solid #0148e0;border-radius:6px}
+.ec-slide .ec-tabela{overflow-x:auto;margin:10px 0}.ec-slide table{border-collapse:collapse;width:100%;font-size:14px}
+.ec-slide th{background:#0148e0;color:#fff;text-align:left}.ec-slide th,.ec-slide td{border:1px solid #d5deee;padding:6px 8px;vertical-align:top}
+.ec-slide tbody tr:nth-child(even){background:#f3f7ff}
+.ec-slide-caso{background:#fff8ee;border-color:#f6ddb8;border-left:5px solid #f28c1c}
+.ec-slide-pontos-chave{background:#0b1a33;border-color:#0b1a33;color:#fff}.ec-slide-pontos-chave h5{color:#fff}
+.ec-slide-objetivos{background:#f2faf5;border-color:#cfe9da}
+
+/* cronómetro dos slides, vídeo e correcção do teste (cores com contraste suficiente) */
+.ec-slide-tempo,.ec-slide-barra{height:6px;background:#dbe4f3;border-radius:99px;overflow:hidden;margin:10px 0}
+.ec-slide-tempo span,.ec-slide-barra span{display:block;height:100%;width:0;background:#f28c1c;border-radius:99px}.ec-slide-barra span{background:#0148e0;transition:width .3s}
+.ec-bloqueado{opacity:1;background:#f3f6fb;border:1px dashed #9aa9c2;border-radius:12px;padding:12px 16px}
+.ec-video-estado{font-weight:600;color:#24344f}
+#ec-curso .ec-slide-nav button:disabled,#ec-curso .ec-slide-nav .btn:disabled{background:#dbe4f3;color:#24344f;border:1px solid #9aa9c2;opacity:1}
+#ec-curso{padding-bottom:96px}   /* espaço para o botão flutuante do WhatsApp não tapar os botões */
+.ec-corr .certa{border-left:4px solid #14532d;background:#e7f6ec;padding:8px 12px;border-radius:6px;list-style-position:inside}
+.ec-corr .errada{border-left:4px solid #9b1c1c;background:#fdeaea;padding:8px 12px;border-radius:6px;list-style-position:inside}
+.ec-corr li,.ec-corr li b{color:#0b1a33}.ec-contagem{font-weight:600}

@@ -18,19 +18,75 @@
       "video_obrigatorio": false,
       "duracao": "1 hora",
       "resumo": "Sequência e prioridades da avaliação do doente crítico.",
-      "conteudo": "A abordagem **ABCDE** organiza a avaliação por prioridades: o que mata mais depressa avalia-se e trata-se primeiro.",
+      "conteudo": "A abordagem **ABCDE** organiza a avaliação por prioridades: o que mata mais depressa avalia-se e trata-se primeiro. Nesta aula aprende a sequência, os sinais de alerta de cada letra, como comunicar e como reavaliar, e aplica-a a um caso clínico.",
       "slides": [
         {
-          "titulo": "A e B: via aérea e respiração",
-          "texto": "- A: via aérea permeável? Fala, ruídos, obstrução\n- B: frequência respiratória, esforço, saturação, simetria do tórax\n- Resolva cada problema antes de passar à letra seguinte"
+          "titulo": "O que vai aprender nesta aula",
+          "texto": "No final desta aula será capaz de:\n\n- Explicar porque é que o ABCDE ordena a avaliação por prioridades de vida\n- Aplicar a sequência A, B, C, D, E a um doente crítico\n- Reconhecer os sinais de alerta de cada letra\n- Decidir quando pedir ajuda e comunicar de forma estruturada\n- Reavaliar o doente depois de cada intervenção",
+          "tipo": "objetivos",
+          "notas": "Peça aos formandos que digam, com palavras suas, o que esperam aprender. Sublinhe que o ABCDE se aplica a qualquer doente grave, seja qual for a causa."
         },
         {
-          "titulo": "C e D: circulação e défice neurológico",
-          "texto": "- C: pulso, tensão arterial, perfusão, hemorragias\n- D: estado de consciência (por exemplo, escala AVPU), pupilas e glicemia\n- Reavalie sempre que o doente mudar"
+          "titulo": "Porquê uma abordagem sistemática",
+          "texto": "O doente crítico morre, em regra, por falência da **via aérea, da respiração ou da circulação**. O ABCDE dá a todos os profissionais a mesma ordem de trabalho, qualquer que seja o diagnóstico.\n\n- Trata primeiro o que mata mais depressa\n- Evita ser distraído pelo problema mais visível (por exemplo, uma fractura) e esquecer a via aérea\n- Cria uma linguagem comum na equipa\n- Com mais pessoas, avalia-se e trata-se ao mesmo tempo\n\n> **Regra de ouro:** não passe à letra seguinte sem resolver (ou pedir ajuda para resolver) o problema da letra em que está."
+        },
+        {
+          "titulo": "A sequência ABCDE",
+          "texto": "1. A: Via aérea (Airway). Está livre e segura?\n2. B: Respiração (Breathing). Ventila e oxigena bem?\n3. C: Circulação (Circulation). Há perfusão suficiente?\n4. D: Défice neurológico (Disability). Qual o estado de consciência?\n5. E: Exposição (Exposure). O que não vi por estar vestido?",
+          "tipo": "fluxo",
+          "notas": "Use as palavras-chave de cada letra. Repita a sequência em voz alta com os formandos até ficar automática."
+        },
+        {
+          "titulo": "A: via aérea",
+          "texto": "| Sinal | O que sugere | Primeira acção |\n|---|---|---|\n| Fala normalmente | Via aérea livre (por agora) | Continuar a avaliar |\n| Estridor | Obstrução parcial alta | Pedir ajuda urgente, oxigénio |\n| Gorgolejo | Líquido ou secreções | Aspirar |\n| Ronco | Língua ou tecidos moles | Abrir a via aérea |\n| Silêncio com muito esforço | Obstrução completa | Emergência: pedir ajuda já |\n\n> Abra a via aérea com extensão da cabeça e elevação do queixo. Se suspeita de lesão da coluna cervical, use a elevação da mandíbula.",
+          "notas": "Faça a pergunta mais simples: o doente consegue falar? Se responde com frases completas, a via aérea está livre naquele momento, mas deve ser reavaliada."
+        },
+        {
+          "titulo": "B: respiração",
+          "texto": "| Parâmetro | Referência no adulto | Sinal de alerta |\n|---|---|---|\n| Frequência respiratória | 12 a 20 por minuto | 8 ou menos, ou 25 ou mais |\n| Saturação de O₂ (SpO₂) | 94 a 98% | 91% ou menos |\n| Esforço | Respiração calma | Músculos acessórios, tiragem, fala só palavras soltas |\n| Tórax | Expansão simétrica | Assimetria, movimento paradoxal |\n\n> **Atenção:** a frequência respiratória é dos sinais que se alteram mais cedo e dos que mais se esquecem de contar. Conte durante um minuto inteiro."
+        },
+        {
+          "titulo": "C: circulação",
+          "texto": "| Parâmetro | Normal no adulto | Alerta |\n|---|---|---|\n| Pulso | 60 a 100 por minuto | Abaixo de 40 ou acima de 130 |\n| Tensão arterial sistólica | Acima de 100 mmHg | 90 mmHg ou menos |\n| Enchimento capilar | 2 segundos ou menos | Mais de 2 segundos |\n| Pele | Quente e seca | Fria e pegajosa |\n| Diurese | 0,5 mL/kg/h ou mais | Menos de 0,5 mL/kg/h |\n\n- Hemorragia externa: **compressão directa** imediata\n- Colha sangue, obtenha acesso venoso e monitorize"
+        },
+        {
+          "titulo": "D: défice neurológico",
+          "texto": "A escala **AVPU** é a forma mais rápida de classificar a consciência:\n\n| Letra | Significado | Exemplo |\n|---|---|---|\n| A | Alerta | Olhos abertos, orientado |\n| V | Responde à voz | Abre os olhos quando chamado |\n| P | Responde à dor | Só reage a estímulo doloroso |\n| U | Não responde | Sem qualquer resposta |\n\n- Observe as **pupilas**: tamanho, simetria e reacção à luz\n- Meça a **glicemia capilar**: abaixo de 4 mmol/L (cerca de 70 mg/dL) trate de acordo com o protocolo\n\n> Qualquer alteração da consciência exige glicemia: é uma causa rápida e reversível."
         },
         {
           "titulo": "E: exposição e reavaliação",
-          "texto": "- E: despir para examinar, preservando dignidade e temperatura\n- Evite a hipotermia\n- Reavalie de forma sistemática depois de cada intervenção\n- Peça ajuda cedo"
+          "texto": "- Dispa o doente para examinar a pele, as costas e as zonas escondidas: lesões, rash, edemas, sangramento oculto\n- Meça a **temperatura**\n- Preserve a dignidade: cubra o doente assim que acabar de examinar\n- Evite a **hipotermia**: cobertor, ambiente aquecido, fluidos a temperatura adequada\n- Em trauma, rode o doente em bloco (*log roll*), com ajuda\n\n> **Reavalie sempre** depois de cada intervenção e sempre que o doente mudar. Em caso de dúvida, volte ao A."
+        },
+        {
+          "titulo": "Caso clínico: homem de 58 anos com falta de ar",
+          "texto": "Dá entrada um homem de 58 anos com dificuldade em respirar há 2 horas. Está sonolento mas responde quando o chamam.\n\n- Frequência respiratória: 30 por minuto\n- SpO₂ em ar ambiente: 86%\n- Pulso: 124 por minuto\n- Tensão arterial: 88/54 mmHg\n- Temperatura: 38,9 °C; glicemia capilar: 6,2 mmol/L\n\n> **Pense antes de avançar:** qual é a prioridade? Que letras estão alteradas? O que faria em cada uma?",
+          "tipo": "caso",
+          "notas": "Dê 2 minutos de discussão em pequenos grupos antes de passar ao slide seguinte."
+        },
+        {
+          "titulo": "Caso clínico: resolução",
+          "texto": "- **A:** fala, via aérea livre por agora; vigiar\n- **B:** FR 30 e SpO₂ 86%: oxigénio por máscara com reservatório conforme protocolo, posição semi-sentada, pedir ajuda\n- **C:** pulso 124 e TA 88/54: sinais de **choque**; acesso venoso, colheitas e fluidos conforme prescrição\n- **D:** responde à voz (V); glicemia normal\n- **E:** febre sugere infecção; despir e procurar o foco\n\n> A combinação de febre, taquipneia, taquicardia e hipotensão levanta a suspeita de **sépsis**: chamar o médico de imediato e administrar tratamento prescrito sem atraso.",
+          "tipo": "caso",
+          "notas": "Compare as respostas dos grupos com esta resolução. Sublinhe que o doente piora se esperarmos pelo diagnóstico: tratamos por prioridades."
+        },
+        {
+          "titulo": "Erros frequentes",
+          "texto": "- Passar à letra seguinte sem resolver a anterior\n- Olhar só para os números do monitor e não para o doente\n- Não reavaliar depois de uma intervenção\n- Demorar a pedir ajuda\n- Esquecer a glicemia em doentes com alteração da consciência\n- Deixar o doente despido e a arrefecer"
+        },
+        {
+          "titulo": "Pontos-chave",
+          "texto": "- O ABCDE trata primeiro o que mata mais depressa\n- Resolva cada letra antes de passar à seguinte\n- A frequência respiratória é um sinal precoce de agravamento\n- AVPU, pupilas e glicemia avaliam o D\n- Evite a hipotermia e preserve a dignidade em E\n- Reavalie sempre e peça ajuda cedo",
+          "tipo": "pontos-chave"
+        },
+        {
+          "titulo": "Para reflectir",
+          "texto": "Discuta com um colega ou com o seu orientador:\n\n- Em que situações da sua prática o ABCDE teria mudado a ordem em que agiu?\n- Como comunicaria este doente ao médico em 30 segundos?\n- Que material deve estar sempre pronto para tratar problemas de A, B e C?",
+          "tipo": "reflexao"
+        },
+        {
+          "titulo": "Para aprofundar",
+          "texto": "Consulte no ENCORP:\n\n- [Avaliação primária ABCDE](/avaliacao/avaliacao-primaria-abcde.html)\n- [Sinais vitais: valores de referência no adulto](/avaliacao/sinais-vitais-valores-de-referencia-adulto.html)\n- [Escala de Coma de Glasgow](/escalas/escala-de-coma-de-glasgow-ecg.html)",
+          "tipo": "leitura"
         }
       ],
       "teste": {
@@ -155,19 +211,69 @@
       "video_obrigatorio": false,
       "duracao": "1 hora",
       "resumo": "Indicações, dispositivos e alvos de saturação.",
-      "conteudo": "O oxigénio é um **medicamento**: tem indicação, dose e alvo. Dar de mais pode ser tão mau como dar de menos em alguns doentes.",
+      "conteudo": "O oxigénio é um **medicamento**: tem indicação, dose e alvo. Dar de mais pode ser tão mau como dar de menos em alguns doentes. Nesta aula aprende quando dar, que dispositivo escolher, como administrar com segurança e como reavaliar.",
       "slides": [
         {
-          "titulo": "Quando e quanto",
-          "texto": "- Indicado na hipoxemia, de acordo com prescrição ou protocolo\n- Alvo habitual no adulto: SpO₂ de 94 a 98%\n- Doentes com risco de insuficiência respiratória hipercápnica (por exemplo, DPOC): alvo de 88 a 92%\n- Registe sempre o dispositivo e o fluxo"
+          "titulo": "O que vai aprender nesta aula",
+          "texto": "No final desta aula será capaz de:\n\n- Reconhecer os sinais de hipoxemia e as indicações para oxigénio\n- Definir o alvo de saturação adequado a cada doente\n- Escolher o dispositivo e o fluxo conforme a gravidade\n- Administrar oxigénio com segurança e registar correctamente\n- Reavaliar a resposta e identificar sinais de que não está a resultar",
+          "tipo": "objetivos"
         },
         {
-          "titulo": "Dispositivos",
-          "texto": "- Cânula nasal: fluxos baixos, cerca de 1 a 4 L/min\n- Máscara simples: fluxos moderados\n- Máscara com reservatório: fluxos altos, cerca de 10 a 15 L/min\n- Humidificação conforme protocolo"
+          "titulo": "O oxigénio é um medicamento",
+          "texto": "Como qualquer medicamento, o oxigénio tem **indicação, dose, via e alvo**, e deve ser prescrito ou administrado segundo protocolo.\n\n- **Hipoxemia:** pouco oxigénio no sangue arterial (SpO₂ baixa)\n- **Hipóxia:** oxigénio insuficiente nos tecidos (pode existir com SpO₂ normal, por exemplo na anemia grave ou no choque)\n- Em emergência, dá-se oxigénio a doente grave e **ajusta-se depois** ao alvo\n- Excesso de oxigénio pode ser prejudicial em alguns doentes\n\n> **Princípio:** dar a menor quantidade que atinge o alvo, e reavaliar."
+        },
+        {
+          "titulo": "Reconhecer a hipoxemia",
+          "texto": "- Taquipneia e uso dos músculos acessórios\n- Taquicardia\n- Agitação, confusão ou sonolência\n- Cianose (sinal tardio)\n- SpO₂ abaixo do alvo\n\n> **Atenção:** a oximetria pode enganar. Mãos frias, má perfusão, unhas pintadas e movimento dão leituras falsas. Na intoxicação por monóxido de carbono a SpO₂ pode parecer normal. Valorize sempre o aspecto do doente."
+        },
+        {
+          "titulo": "Alvos de saturação",
+          "texto": "| Doente | Alvo de SpO₂ |\n|---|---|\n| Adulto sem risco de retenção de CO₂ | 94 a 98% |\n| Adulto com DPOC ou outro risco de retenção de CO₂ | 88 a 92% (conforme prescrição) |\n| Criança, grávida ou situação especial | Siga o protocolo específico |\n\n> **Atenção:** em doentes com DPOC, oxigénio em excesso pode aumentar o CO₂ no sangue e causar sonolência. Use dispositivo controlado e vigie o estado de consciência."
+        },
+        {
+          "titulo": "Dispositivos de administração",
+          "texto": "| Dispositivo | Fluxo | Concentração aproximada | Quando |\n|---|---|---|---|\n| Cânula nasal | 1 a 4 L/min | 24 a 36% | Hipoxemia ligeira, doente colaborante |\n| Máscara simples | 5 a 10 L/min | 40 a 60% | Hipoxemia moderada |\n| Máscara com reservatório | 10 a 15 L/min | 60 a 90% | Emergência, hipoxemia grave |\n| Máscara de Venturi | Segundo a válvula | 24 a 60%, fixa | Concentração controlada (DPOC) |\n\n- Máscara simples: fluxo mínimo de 5 L/min, para não reinalar CO₂\n- Máscara com reservatório: o reservatório tem de estar cheio"
+        },
+        {
+          "titulo": "Como administrar",
+          "texto": "1. Confirme a prescrição ou o protocolo e explique ao doente\n2. Verifique a fonte (cilindro ou concentrador), o fluxómetro e as ligações\n3. Escolha o dispositivo e ajuste o fluxo\n4. Coloque o doente em posição semi-sentada, se possível\n5. Reavalie SpO₂, frequência respiratória e consciência passados alguns minutos\n6. Registe o dispositivo, o fluxo, a SpO₂ e a hora"
         },
         {
           "titulo": "Segurança",
-          "texto": "- Oxigénio favorece a combustão: sem chamas nem tabaco\n- Verifique o fluxómetro e as ligações\n- Reavalie a saturação e a respiração após cada ajuste\n- Se o doente piorar, alerte a equipa"
+          "texto": "- O oxigénio favorece a combustão: **sem chamas, sem tabaco, sem faíscas**\n- Cilindros bem fixos, em posição vertical; confirme a pressão restante\n- **Nunca** use óleo, gordura ou vaselina nas válvulas e ligações\n- Tubagens sem dobras; verifique a pele atrás das orelhas e no nariz\n- Use hidratante à base de água nos lábios, não vaselina\n\n> Em caso de dúvida sobre o fluxo ou o equipamento, pare e peça ajuda."
+        },
+        {
+          "titulo": "Quando o oxigénio não resulta",
+          "texto": "- SpO₂ não sobe ou volta a descer\n- Frequência respiratória a aumentar, fadiga, respiração superficial\n- Sonolência ou confusão nova, sobretudo se tem DPOC\n- Cianose ou suores frios\n\n> **Acção:** volte a avaliar o ABCDE, peça ajuda médica de imediato e prepare-se para suporte ventilatório. Oxigénio não trata a causa: procure e trate o motivo da hipoxemia."
+        },
+        {
+          "titulo": "Caso clínico: mulher de 67 anos com DPOC",
+          "texto": "Mulher de 67 anos com DPOC conhecida, com tosse, expectoração e falta de ar há 3 dias. Está alerta e fala em frases curtas.\n\n- SpO₂ em ar ambiente: 82%\n- Frequência respiratória: 26 por minuto\n- Pulso: 112 por minuto; tensão arterial: 130/80 mmHg\n\n> **Pense antes de avançar:** deve dar oxigénio? Que alvo e que dispositivo escolheria?",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Caso clínico: resolução",
+          "texto": "- Há **hipoxemia importante**: deve receber oxigénio já\n- O alvo é **88 a 92%** por ter DPOC\n- Dispositivo: máscara de Venturi de baixa concentração (24 a 28%) ou cânula nasal a 1 a 2 L/min, ajustando ao alvo\n- Reavalie SpO₂ e consciência passados poucos minutos\n- Vigie sonolência (sinal de retenção de CO₂) e peça avaliação médica\n\n> Objectivo: corrigir a hipoxemia **sem** ultrapassar o alvo.",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Erros frequentes",
+          "texto": "- Dar oxigénio sem prescrição ou sem protocolo, fora da emergência\n- Usar o mesmo fluxo para todos os doentes\n- Ignorar o alvo mais baixo em doentes com DPOC\n- Fiar-se só no número do oxímetro\n- Esquecer de reavaliar e de registar\n- Usar a máscara com reservatório vazio"
+        },
+        {
+          "titulo": "Pontos-chave",
+          "texto": "- O oxigénio é um medicamento: indicação, dose, alvo\n- Alvo habitual no adulto: 94 a 98%; com risco de retenção de CO₂: 88 a 92%\n- O dispositivo depende da gravidade e do alvo\n- Sem chamas, sem óleo nem gordura nas ligações\n- Reavalie SpO₂, respiração e consciência\n- Se não resulta, volte ao ABCDE e peça ajuda",
+          "tipo": "pontos-chave"
+        },
+        {
+          "titulo": "Para reflectir",
+          "texto": "Discuta com um colega ou com o seu orientador:\n\n- Que dispositivos de oxigénio existem no seu serviço e como se confirma o fluxo?\n- Como explicaria a um doente porque é que não pode fumar junto ao oxigénio?\n- Que sinais o fariam suspeitar de retenção de CO₂ num doente com DPOC?",
+          "tipo": "reflexao"
+        },
+        {
+          "titulo": "Para aprofundar",
+          "texto": "Consulte no ENCORP:\n\n- [Avaliação primária ABCDE](/avaliacao/avaliacao-primaria-abcde.html)\n- [Sinais vitais: valores de referência no adulto](/avaliacao/sinais-vitais-valores-de-referencia-adulto.html)\n- [NEWS2: escala de alerta precoce](/escalas/news2-national-early-warning-score.html)",
+          "tipo": "leitura"
         }
       ],
       "teste": {
@@ -292,19 +398,70 @@
       "video_obrigatorio": false,
       "duracao": "1 hora",
       "resumo": "Escolha de cateter, cuidados e administração de fluidos.",
-      "conteudo": "O acesso venoso periférico permite medicamentos e fluidos. A técnica **asséptica** e a vigilância previnem complicações.",
+      "conteudo": "O acesso venoso periférico permite medicamentos e fluidos. A técnica **asséptica** e a vigilância previnem complicações. Nesta aula aprende a escolher o cateter e o local, a técnica passo a passo, os tipos de fluidos e como vigiar complicações.",
       "slides": [
         {
-          "titulo": "Preparação e técnica",
-          "texto": "- Higiene das mãos e luvas\n- Escolha o local e o calibre adequados\n- Desinfecte a pele e respeite o tempo de secagem\n- Confirme o retorno venoso e fixe o cateter"
+          "titulo": "O que vai aprender nesta aula",
+          "texto": "No final desta aula será capaz de:\n\n- Indicar quando é necessário um acesso venoso periférico\n- Escolher o calibre do cateter e o local de punção\n- Descrever a técnica asséptica, passo a passo\n- Distinguir os tipos de fluidos e calcular o ritmo de gotejamento\n- Reconhecer e tratar as complicações mais comuns",
+          "tipo": "objetivos"
         },
         {
-          "titulo": "Fluidos",
-          "texto": "- Cristaloides (por exemplo, soro fisiológico, Ringer lactato) conforme prescrição\n- Em hipovolemia, administre em bólus prescritos e reavalie após cada um\n- Verifique o rótulo, o prazo e o aspecto\n- Registe volume, hora e resposta do doente"
+          "titulo": "Quando é preciso um acesso venoso",
+          "texto": "- Administrar medicamentos por via endovenosa\n- Repor fluidos (desidratação, hemorragia, choque)\n- Administrar hemoderivados\n- Garantir uma via segura em doentes graves ou com risco de agravamento\n- Em choque ou hemorragia: **dois acessos** de calibre largo\n\n> O acesso venoso central é uma decisão e uma técnica médicas. Em emergência, o acesso periférico é o primeiro passo."
+        },
+        {
+          "titulo": "Escolher o cateter",
+          "texto": "| Calibre | Cor | Fluxo aproximado | Uso habitual |\n|---|---|---|---|\n| 14 G | Laranja | 240 mL/min | Trauma, hemorragia grave |\n| 16 G | Cinzento | 180 mL/min | Choque, cirurgia |\n| 18 G | Verde | 90 mL/min | Fluidos, transfusão |\n| 20 G | Rosa | 60 mL/min | Uso geral no adulto |\n| 22 G | Azul | 35 mL/min | Idosos, veias frágeis, crianças |\n| 24 G | Amarelo | 20 mL/min | Recém-nascidos, veias muito finas |\n\n> Valores aproximados: variam com o fabricante. Use o **menor calibre** que serve a necessidade."
+        },
+        {
+          "titulo": "Escolher o local",
+          "texto": "- Prefira as veias do **antebraço** e do dorso da mão, começando pela zona mais distal\n- Procure uma veia macia, elástica e recta; evite veias duras ou tortuosas\n- Evite a dobra do cotovelo, se houver alternativa, porque o movimento dobra o cateter\n- Evite: membro com fístula arteriovenosa, braço do lado de mastectomia ou linfedema, membro paralisado, pele lesada ou infectada\n- Nos adultos, evite os membros inferiores (risco de trombose)"
+        },
+        {
+          "titulo": "Técnica passo a passo",
+          "texto": "1. Preparar: material à mão e higiene das mãos, luvas\n2. Garrote: cerca de 10 cm acima do local, e escolher a veia\n3. Desinfectar: pele com antisséptico e esperar que seque\n4. Puncionar: bisel para cima, ângulo de 10 a 30°, até ver sangue\n5. Avançar: introduza o cateter, retire a agulha, solte o garrote\n6. Fixar: cobertura estéril, lavar com soro, identificar a data",
+          "tipo": "fluxo",
+          "notas": "Sublinhe: não tocar na pele depois de desinfectar. Soltar o garrote antes de ligar a infusão."
+        },
+        {
+          "titulo": "Tipos de fluidos",
+          "texto": "| Tipo | Exemplos | Uso principal |\n|---|---|---|\n| Cristaloides isotónicos | Soro fisiológico 0,9%, Ringer lactato | Reposição de volume |\n| Soluções glicosadas | Glicose 5% | Fornece água e energia; não repõe volume |\n| Hemoderivados | Concentrado de eritrócitos | Hemorragia grave, por prescrição |\n\n> A escolha do fluido, do volume e do ritmo é uma **prescrição**. Ao enfermeiro cabe administrar com segurança, vigiar e comunicar."
+        },
+        {
+          "titulo": "Administrar com segurança",
+          "texto": "- Confirme: doente, fluido, volume, ritmo, via e prazo de validade\n- Em hipovolemia: bólus prescritos (por exemplo, 250 a 500 mL no adulto) com **reavaliação depois de cada bólus**\n- Cálculo do gotejamento: **gotas/min = volume (mL) × factor de gotas ÷ tempo (min)**\n\n> **Exemplo:** 1000 mL em 8 horas, com equipo de 20 gotas/mL: 1000 × 20 ÷ 480 = cerca de **42 gotas por minuto**."
+        },
+        {
+          "titulo": "Caso clínico: homem de 30 anos com diarreia",
+          "texto": "Homem de 30 anos, com diarreia e vómitos há 3 dias, muito fraco.\n\n- Mucosas secas, olhos encovados\n- Pulso: 128 por minuto; tensão arterial: 85/50 mmHg\n- Enchimento capilar: 4 segundos\n\n> **Pense antes de avançar:** que tipo de acesso e de fluido? Como saberá se está a melhorar?",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Caso clínico: resolução",
+          "texto": "- Sinais de **choque hipovolémico** por desidratação\n- Dois acessos periféricos, de calibre 18 G ou maior\n- Cristaloide em **bólus prescritos**, com reavaliação depois de cada um\n- Melhoria esperada: pulso a descer, tensão a subir, enchimento capilar mais rápido, diurese\n- Vigie sinais de sobrecarga: dificuldade em respirar, crepitações, edemas\n- Colha sangue (ionograma, glicemia) e procure a causa"
         },
         {
           "titulo": "Vigilância e complicações",
-          "texto": "- Infiltração: inchaço, frio, dor no local\n- Flebite: vermelhidão, calor, cordão doloroso\n- Sobrecarga de fluidos: dispneia, edemas\n- Pare e avise a equipa perante sinais de complicação"
+          "texto": "| Complicação | Sinais | O que fazer |\n|---|---|---|\n| Infiltração | Inchaço, frio, dor, fluxo lento | Parar, retirar o cateter, elevar o membro |\n| Flebite | Vermelhidão, calor, cordão doloroso | Retirar o cateter e avisar |\n| Infecção local | Pus, febre | Retirar, avisar, colheitas segundo protocolo |\n| Hematoma | Tumefacção depois da punção | Compressão e novo local |\n| Sobrecarga de fluidos | Dispneia, edemas, crepitações | Reduzir ou parar, sentar o doente, avisar |"
+        },
+        {
+          "titulo": "Erros frequentes",
+          "texto": "- Falhar a higiene das mãos\n- Tocar na pele depois de a desinfectar\n- Não confirmar o retorno venoso e a permeabilidade antes de infundir\n- Não datar o penso nem avaliar o local em cada turno\n- Manter o cateter sem indicação\n- Ignorar a dor referida pelo doente"
+        },
+        {
+          "titulo": "Pontos-chave",
+          "texto": "- Use o menor calibre que serve a necessidade\n- Técnica asséptica: higiene das mãos e antisséptico seco\n- Em choque: dois acessos de calibre largo\n- Fluidos são prescrição; reavalie depois de cada bólus\n- Gotas/min = volume × factor ÷ tempo\n- Vigie o local de punção em todos os turnos",
+          "tipo": "pontos-chave"
+        },
+        {
+          "titulo": "Para reflectir",
+          "texto": "Discuta com um colega ou com o seu orientador:\n\n- Quais são os obstáculos reais à técnica asséptica no seu serviço?\n- Como explicaria a um doente porque é preciso retirar um cateter que ainda funciona?\n- Que sinais o fariam parar uma infusão?",
+          "tipo": "reflexao"
+        },
+        {
+          "titulo": "Para aprofundar",
+          "texto": "Consulte no ENCORP:\n\n- [Água destilada e soro fisiológico 0,9%](/medicamentos/agua-destilada-soro-fisiologico-0-9.html)\n- [Clorexidina 0,5%](/medicamentos/clorexidina-0-5.html)\n- [Álcool etílico 70%](/medicamentos/alcool-etilico-70.html)",
+          "tipo": "leitura"
         }
       ],
       "teste": {
@@ -429,19 +586,72 @@
       "video_obrigatorio": false,
       "duracao": "1 hora",
       "resumo": "Utilizar a escala NEWS2 para identificar o doente que se agrava.",
-      "conteudo": "A **NEWS2** soma pontos de sete parâmetros para alertar precocemente: frequência respiratória, SpO₂, oxigénio suplementar, tensão arterial sistólica, pulso, consciência e temperatura.",
+      "conteudo": "A **NEWS2** soma pontos de sete parâmetros para alertar precocemente: frequência respiratória, SpO₂, oxigénio suplementar, tensão arterial sistólica, pulso, consciência e temperatura. Nesta aula aprende a pontuar, a interpretar o resultado, a escalar com SBAR e os limites da escala.",
       "slides": [
         {
+          "titulo": "O que vai aprender nesta aula",
+          "texto": "No final desta aula será capaz de:\n\n- Explicar para que serve a NEWS2 e quando se usa\n- Medir e pontuar os sete parâmetros\n- Interpretar a pontuação total e decidir a resposta\n- Comunicar o doente em deterioração com SBAR\n- Reconhecer os limites da escala",
+          "tipo": "objetivos"
+        },
+        {
+          "titulo": "O que é a NEWS2",
+          "texto": "A **National Early Warning Score 2** é uma escala de alerta precoce publicada pelo Royal College of Physicians (Reino Unido). Transforma sinais vitais em **uma pontuação** que desencadeia uma resposta.\n\n- Cada parâmetro vale de 0 a 3 pontos\n- A soma indica o risco de deterioração\n- Dá à equipa uma linguagem comum e ritmos de resposta definidos\n- Usa-se em adultos; não é validada em crianças nem na gravidez\n\n> A escala **apoia** o julgamento clínico, não o substitui. A preocupação do profissional ou da família é razão suficiente para chamar ajuda."
+        },
+        {
           "titulo": "Os sete parâmetros",
-          "texto": "- Frequência respiratória\n- Saturação de oxigénio\n- Ar ambiente ou oxigénio suplementar\n- Tensão arterial sistólica\n- Frequência de pulso\n- Nível de consciência\n- Temperatura"
+          "texto": "1. Respiração: frequência respiratória por minuto\n2. Saturação: SpO₂ medida no oxímetro\n3. Ar ou oxigénio: o doente recebe oxigénio?\n4. Tensão: tensão arterial sistólica\n5. Pulso: frequência cardíaca por minuto\n6. Consciência: alerta ou alteração nova (ACVPU)\n7. Temperatura: medida em graus Celsius",
+          "tipo": "fluxo"
+        },
+        {
+          "titulo": "Tabela de pontuação",
+          "texto": "| Parâmetro | 3 | 2 | 1 | 0 | 1 | 2 | 3 |\n|---|---|---|---|---|---|---|---|\n| Respiração | ≤ 8 | | 9–11 | 12–20 | | 21–24 | ≥ 25 |\n| SpO₂ (escala 1) | ≤ 91 | 92–93 | 94–95 | ≥ 96 | | | |\n| Ar / oxigénio | | | | Ar | | O₂ | |\n| TA sistólica | ≤ 90 | 91–100 | 101–110 | 111–219 | | | ≥ 220 |\n| Pulso | ≤ 40 | | 41–50 | 51–90 | 91–110 | 111–130 | ≥ 131 |\n| Consciência | | | | Alerta | | | CVPU |\n| Temperatura | ≤ 35,0 | | 35,1–36,0 | 36,1–38,0 | 38,1–39,0 | ≥ 39,1 | |\n\n> A escala 2 de SpO₂ (alvo 88 a 92%) só é usada por indicação clínica, em doentes com insuficiência respiratória hipercápnica."
+        },
+        {
+          "titulo": "Consciência: ACVPU",
+          "texto": "- **A:** alerta, orientado\n- **C:** confusão nova ou agravada\n- **V:** responde à voz\n- **P:** responde à dor\n- **U:** não responde\n\n> **Atenção:** qualquer valor diferente de «A» vale **3 pontos**. Confusão nova, mesmo num doente que responde, é um sinal de alarme."
         },
         {
           "titulo": "Interpretar a pontuação",
-          "texto": "- Pontuação baixa: continuar a monitorizar na frequência definida\n- Parâmetro isolado com pontuação máxima: avaliação urgente\n- Pontuação intermédia: resposta urgente da equipa\n- Pontuação alta: resposta de emergência\n- Siga os limiares do protocolo da sua instituição"
+          "texto": "| Pontuação | Risco | Resposta |\n|---|---|---|\n| 0 | Baixo | Observações pelo menos de 12 em 12 horas |\n| 1 a 4 | Baixo | Observações de 4 a 6 horas; o enfermeiro decide se aumenta |\n| 3 num só parâmetro | Baixo a médio | Revisão urgente por clínico; observações de hora em hora |\n| 5 a 6 | Médio | Revisão urgente por clínico com competência em doença aguda |\n| 7 ou mais | Alto | Resposta de emergência; monitorização contínua |\n\n> Os ritmos exactos seguem o protocolo da sua instituição."
         },
         {
-          "titulo": "Agir",
-          "texto": "- Aumente a frequência das observações\n- Comunique de forma estruturada\n- Registe valores, hora e a quem avisou\n- A escala apoia o julgamento clínico e não o substitui"
+          "titulo": "Agir: comunicar com SBAR",
+          "texto": "1. S: Situação. Quem sou, qual o doente, a pontuação e o que me preocupa\n2. B: Antecedentes. Motivo da admissão, doenças, medicação, alergias\n3. A: Avaliação. Sinais vitais, ABCDE, o que já fiz\n4. R: Recomendação. O que preciso e em que prazo",
+          "tipo": "fluxo",
+          "notas": "Faça os formandos treinarem a frase de abertura em voz alta: «Estou preocupado com o doente da cama 4; a NEWS2 é 9 e subiu em 2 horas.»"
+        },
+        {
+          "titulo": "Caso clínico: pós-operatório",
+          "texto": "Mulher de 72 anos, 2.º dia depois de cirurgia abdominal. Está acordada e diz que «não se sente bem».\n\n- Frequência respiratória: 22; SpO₂: 93% em ar ambiente\n- Pulso: 112; tensão arterial: 98/60 mmHg\n- Temperatura: 38,4 °C; consciência: alerta\n\n> **Pense antes de avançar:** calcule a pontuação NEWS2 e decida o que fazer.",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Caso clínico: resolução",
+          "texto": "- Respiração 22: **2** · SpO₂ 93: **2** · Ar ambiente: **0**\n- Tensão 98: **2** · Pulso 112: **2** · Alerta: **0** · Temperatura 38,4: **1**\n- **Total: 9**, risco alto: resposta de emergência\n\n> Mesmo acordada e a falar, a doente está a deteriorar. Avise o médico de imediato com SBAR, repita o ABCDE, ponha oxigénio e acesso venoso e inicie monitorização contínua. Pense em sépsis, hemorragia e complicações da cirurgia.",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Limites da NEWS2",
+          "texto": "- Não se aplica a crianças nem a grávidas\n- Doentes com beta-bloqueadores podem não ter taquicardia\n- Jovens e atletas compensam durante muito tempo e deterioram depressa\n- Em hipercapnia, a escala 1 de SpO₂ pode levar a excesso de oxigénio\n- Uma pontuação baixa **não exclui** preocupação clínica"
+        },
+        {
+          "titulo": "Erros frequentes",
+          "texto": "- Medir os sinais vitais e não os registar\n- Não somar a pontuação\n- Atrasar o pedido de ajuda por esperar «mais uma medição»\n- Não aumentar a frequência das observações\n- Usar a escala 2 de SpO₂ sem indicação clínica\n- Esquecer a confusão nova"
+        },
+        {
+          "titulo": "Pontos-chave",
+          "texto": "- A NEWS2 soma 7 parâmetros, de 0 a 3 pontos cada\n- Qualquer parâmetro com 3 pontos exige revisão urgente\n- 5 a 6: resposta urgente; 7 ou mais: emergência\n- Confusão nova vale 3 pontos\n- Comunique com SBAR e registe a quem avisou\n- A escala apoia o julgamento clínico, não o substitui",
+          "tipo": "pontos-chave"
+        },
+        {
+          "titulo": "Para reflectir",
+          "texto": "Discuta com um colega ou com o seu orientador:\n\n- Já viu um doente deteriorar «sem avisar»? Que sinais precoces se perderam?\n- Como pediria ajuda se achasse que ninguém o ia levar a sério?\n- Que ritmo de observações é realista no seu serviço?",
+          "tipo": "reflexao"
+        },
+        {
+          "titulo": "Para aprofundar",
+          "texto": "Consulte no ENCORP:\n\n- [NEWS2: escala de alerta precoce](/escalas/news2-national-early-warning-score.html)\n- [Sinais vitais: valores de referência no adulto](/avaliacao/sinais-vitais-valores-de-referencia-adulto.html)\n- [Avaliação primária ABCDE](/avaliacao/avaliacao-primaria-abcde.html)",
+          "tipo": "leitura"
         }
       ],
       "teste": {
@@ -566,19 +776,75 @@
       "video_obrigatorio": false,
       "duracao": "1 hora",
       "resumo": "Reconhecer e abordar os tipos de choque.",
-      "conteudo": "O **choque** é uma falência circulatória que não entrega oxigénio suficiente aos tecidos. Reconhecê-lo cedo e tratar a causa salva vidas.",
+      "conteudo": "O **choque** é uma falência circulatória que não entrega oxigénio suficiente aos tecidos. Reconhecê-lo cedo e tratar a causa salva vidas. Nesta aula aprende os tipos de choque, os sinais, as primeiras acções e três situações frequentes: hemorragia, sépsis e anafilaxia.",
       "slides": [
         {
-          "titulo": "Tipos de choque",
-          "texto": "- Hipovolémico: perda de volume (hemorragia, desidratação)\n- Cardiogénico: falência da bomba\n- Distributivo: vasodilatação (séptico, anafiláctico)\n- Obstrutivo: obstáculo à circulação (por exemplo, tamponamento, embolia)"
+          "titulo": "O que vai aprender nesta aula",
+          "texto": "No final desta aula será capaz de:\n\n- Definir choque e explicar porque a hipotensão é um sinal tardio\n- Distinguir os quatro tipos de choque\n- Reconhecer os sinais gerais e as pistas de cada tipo\n- Aplicar as primeiras acções, em sequência\n- Reconhecer hemorragia grave, sépsis e anafilaxia",
+          "tipo": "objetivos"
         },
         {
-          "titulo": "Sinais",
-          "texto": "- Taquicardia e taquipneia\n- Hipotensão (pode surgir tarde)\n- Pele fria e pegajosa, ou quente e vermelha em alguns casos\n- Enchimento capilar lento, oligúria e alteração da consciência"
+          "titulo": "O que é o choque",
+          "texto": "O choque é um estado de **perfusão insuficiente**: o sangue não leva oxigénio suficiente aos órgãos. Se não for corrigido, as células sofrem, os órgãos falham e o doente morre.\n\n- A causa pode ser falta de volume, falha da bomba, vasodilatação ou obstrução\n- Não é sinónimo de tensão arterial baixa\n- Quanto mais cedo se reconhece e se trata a causa, melhor o resultado\n\n> A tensão arterial pode manter-se normal durante muito tempo, porque o corpo compensa. Quando cai, o choque já está avançado."
+        },
+        {
+          "titulo": "Os quatro tipos de choque",
+          "texto": "| Tipo | Mecanismo | Exemplos |\n|---|---|---|\n| Hipovolémico | Perda de volume | Hemorragia, desidratação, queimaduras |\n| Cardiogénico | Falência da bomba | Enfarte, arritmia, insuficiência cardíaca |\n| Distributivo | Vasodilatação | Sépsis, anafilaxia, lesão medular |\n| Obstrutivo | Obstrução ao fluxo | Pneumotórax hipertensivo, tamponamento, embolia pulmonar |"
+        },
+        {
+          "titulo": "Sinais gerais de choque",
+          "texto": "- Taquicardia e taquipneia\n- Pele fria e pegajosa (ou quente e vermelha no choque séptico inicial)\n- Enchimento capilar superior a 2 segundos\n- Agitação, confusão ou sonolência\n- Diurese baixa (menos de 0,5 mL/kg/h)\n- Hipotensão: sinal **tardio**\n\n> Jovens, crianças e grávidas compensam durante muito tempo e depois descompensam depressa. Não espere pela hipotensão."
+        },
+        {
+          "titulo": "Pistas para identificar o tipo",
+          "texto": "| Tipo | Pistas |\n|---|---|\n| Hipovolémico | Pele pálida e fria, veias do pescoço colapsadas, perda visível ou história de vómitos e diarreia |\n| Cardiogénico | Dor no peito, crepitações nos pulmões, veias do pescoço distendidas |\n| Séptico | Febre, foco de infecção, pele quente e vermelha ao início |\n| Anafilático | Urticária, inchaço da face, sibilos ou estridor depois de exposição |\n| Obstrutivo | Dispneia súbita, trauma torácico, assimetria dos sons respiratórios |"
         },
         {
           "titulo": "Primeiras acções",
-          "texto": "- ABCDE, oxigénio se indicado e monitorização\n- Acesso venoso e fluidos conforme prescrição e causa\n- Tratar a causa: parar hemorragia, antibióticos, adrenalina em anafilaxia\n- Alertar a equipa de emergência e reavaliar"
+          "texto": "1. Pedir ajuda: avise o médico e a equipa de emergência\n2. Oxigénio: se indicado, e monitorização contínua\n3. Acesso venoso: dois acessos, e colheitas de sangue\n4. Fluidos e fármacos: segundo a causa e a prescrição\n5. Tratar a causa: parar a hemorragia, antibiótico, adrenalina, drenagem",
+          "tipo": "fluxo",
+          "notas": "Sublinhe que, em qualquer tipo de choque, a primeira acção é pedir ajuda e a segunda é o ABCDE."
+        },
+        {
+          "titulo": "Choque hemorrágico: classes",
+          "texto": "| Classe | Perda de sangue | Pulso | Tensão arterial |\n|---|---|---|---|\n| I | Até 15% (< 750 mL) | Normal | Normal |\n| II | 15 a 30% (750 a 1500 mL) | 100 a 120 | Normal |\n| III | 30 a 40% (1500 a 2000 mL) | 120 a 140 | Baixa |\n| IV | Mais de 40% (> 2000 mL) | Mais de 140 | Muito baixa |\n\n- Controle a hemorragia externa com **compressão directa**\n- Previna a hipotermia: aumenta a mortalidade\n\n> Valores para um adulto de 70 kg; mudam com a idade, a medicação e as doenças prévias."
+        },
+        {
+          "titulo": "Sépsis e choque séptico",
+          "texto": "**Sépsis** é a disfunção de órgãos causada por uma resposta anormal do corpo a uma infecção.\n\n- Suspeite perante infecção com febre ou hipotermia, taquicardia, taquipneia, confusão ou hipotensão\n- Aja **na primeira hora**: avise o médico, colha hemoculturas e lactato, administre o antibiótico prescrito sem atraso e fluidos prescritos\n- Monitorize a diurese e reavalie com frequência\n\n> Cada hora de atraso no antibiótico aumenta o risco de morte no choque séptico."
+        },
+        {
+          "titulo": "Anafilaxia",
+          "texto": "Reacção alérgica grave, de início rápido, com compromisso da via aérea, da respiração ou da circulação.\n\n- Retire o agente causador, se possível, e peça ajuda\n- **Adrenalina intramuscular** na face externa da coxa, segundo o protocolo (dose habitual no adulto: 0,5 mg, isto é, 0,5 mL da solução de 1 mg/mL)\n- Oxigénio em alto fluxo; deite o doente com as pernas elevadas (sente-o se tiver dificuldade em respirar)\n- Fluidos em bólus prescritos; repita a adrenalina passados 5 minutos se não melhorar"
+        },
+        {
+          "titulo": "Caso clínico: acidente de mota",
+          "texto": "Rapaz de 22 anos, vítima de acidente de mota há 30 minutos. Está pálido, ansioso e com dor abdominal.\n\n- Pulso: 130 por minuto; tensão arterial: 90/60 mmHg\n- Frequência respiratória: 28 por minuto\n- Pele fria e suada; ferida aberta na coxa a sangrar\n\n> **Pense antes de avançar:** que tipo de choque? Quais são as primeiras acções?",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Caso clínico: resolução",
+          "texto": "- **Choque hemorrágico**, pelo menos classe III (pulso acima de 120 e tensão a baixar)\n- Peça ajuda e avise a cirurgia; compressão directa da hemorragia da coxa\n- Oxigénio, dois acessos de calibre largo, colheitas (incluindo grupo sanguíneo)\n- Fluidos e hemoderivados segundo a prescrição, com reavaliação frequente\n- Cubra o doente e evite a hipotermia\n\n> A hemorragia interna (abdómen) só se resolve com tratamento definitivo: **não atrase a transferência** para cirurgia.",
+          "tipo": "caso"
+        },
+        {
+          "titulo": "Erros frequentes",
+          "texto": "- Esperar pela hipotensão para actuar\n- Dar fluidos sem reavaliar depois de cada bólus\n- Esquecer o controlo da hemorragia externa\n- Deixar o doente a arrefecer\n- Tratar só os sinais e não procurar a causa\n- Demorar a pedir ajuda"
+        },
+        {
+          "titulo": "Pontos-chave",
+          "texto": "- O choque é perfusão insuficiente; a hipotensão é tardia\n- Quatro tipos: hipovolémico, cardiogénico, distributivo, obstrutivo\n- Primeiro, peça ajuda; depois ABCDE\n- Controle a hemorragia com compressão directa\n- Sépsis: aja na primeira hora\n- Anafilaxia: adrenalina intramuscular sem demora",
+          "tipo": "pontos-chave"
+        },
+        {
+          "titulo": "Para reflectir",
+          "texto": "Discuta com um colega ou com o seu orientador:\n\n- Que doentes do seu serviço têm mais risco de choque?\n- Que material de emergência deve estar sempre completo e onde está?\n- Como explicaria à família que o doente está em choque?",
+          "tipo": "reflexao"
+        },
+        {
+          "titulo": "Para aprofundar",
+          "texto": "Consulte no ENCORP:\n\n- [Avaliação primária ABCDE](/avaliacao/avaliacao-primaria-abcde.html)\n- [NEWS2: escala de alerta precoce](/escalas/news2-national-early-warning-score.html)\n- [Sinais vitais: valores de referência no adulto](/avaliacao/sinais-vitais-valores-de-referencia-adulto.html)",
+          "tipo": "leitura"
         }
       ],
       "teste": {

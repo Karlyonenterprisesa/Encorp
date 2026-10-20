@@ -5,7 +5,7 @@
 .ec-cc-im::before{content:attr(data-ic);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:44px;opacity:.85}
 .ec-cc-im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;margin:0;background:#0b1a33}
 .ec-cc-b{display:flex;flex-direction:column;gap:8px;padding:14px 16px 16px;flex:1}
-.ec-cc-k{font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#b5640a}
+.ec-cc-k{font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#9a4a00}
 .ec-cc h3{margin:0;font-size:17px;line-height:1.3;color:#0b1a33;text-align:left}
 .ec-cc h3 a{color:inherit;text-decoration:none}
 .ec-cc h3 a:hover{text-decoration:underline}
