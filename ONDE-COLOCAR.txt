@@ -1,13 +1,99 @@
-ENCORP — ficheiros modificados e onde colocar no repositório (substituir; "NOVO" = criar)
-
-js/pwa/botao-instalar.js        NOVO   -> js/pwa/botao-instalar.js
-js/interface/wa-rodape.js              -> js/interface/wa-rodape.js   (correção do botão WhatsApp, entrega anterior)
-css/sbb.css                            -> css/sbb.css
-index.html                             -> index.html
-sobre.html                             -> sobre.html
-sw.js                                  -> sw.js
-dicas/index.html                       -> dicas/index.html
-dicas/febre-e-malaria.html             -> dicas/febre-e-malaria.html
-dicas/hidratacao-sinais-de-alerta.html -> dicas/hidratacao-sinais-de-alerta.html
-dicas/higiene-das-maos-5-momentos.html -> dicas/higiene-das-maos-5-momentos.html
-dicas/reconhecer-um-avc.html           -> dicas/reconhecer-um-avc.html
+{
+  "id": "/",
+  "name": "ENCORP",
+  "short_name": "Enf. Corporativo",
+  "description": "ENCORP: Enciclopédia de Enfermagem, Conhecimento, Orientação, Recursos e Prática. Abrange conteúdos científicos, procedimentos, palestras, testes, farmacologia e actualidades de saúde.",
+  "lang": "pt-MZ",
+  "dir": "ltr",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0b1a33",
+  "categories": [
+    "education",
+    "medical"
+  ],
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ferramentas",
+      "url": "/ferramentas/",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Diagnósticos",
+      "url": "/diagnosticos/",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Aprender",
+      "url": "/aprender/",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Cursos",
+      "url": "/cursos/",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://encorp.vercel.app/manifest.json"
+    }
+  ],
+  "prefer_related_applications": false,
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}

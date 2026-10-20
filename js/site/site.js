@@ -1,67 +1,151 @@
-/*EC:CFG*/window.EC_CFG={"adsenseClient":"ca-pub-5846610296337932","gaId":""};/*/EC:CFG*/
-/* ENCORP — consentimento de cookies (Google Consent Mode v2) + partilha. Sem dependências. */
+/* ENCORP — convite flutuante de instalação (PWA).
+   Regras:
+   - aparece 30 s depois de abrir a página, durante 15 s, e volta a aparecer de 10 em 10 minutos (início a início);
+   - não aparece depois de a app estar instalada/aberta como app; fechar o convite (×) só o esconde até à próxima vez;
+   - Chrome/Edge/Android: usa o evento «beforeinstallprompt» (o navegador decide se a app é instalável);
+   - iOS: não existe esse evento, por isso mostra as instruções «Partilhar → Adicionar ao ecrã principal»;
+   - navegadores sem instalação (ex.: Firefox no computador): não mostra nada;
+   - o momento da próxima aparição é guardado, para não repetir o convite a cada página que se abre. */
 (function () {
-  var KEY = 'ec_consent';
-  function gt() { window.dataLayer = window.dataLayer || []; window.dataLayer.push(arguments); }
-  gt('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied' });
-  var C = window.EC_CFG || {};
-  function lib(src) { if (document.querySelector('script[src="' + src + '"]')) return; var e = document.createElement('script'); e.async = true; e.src = src; if (src.indexOf('googlesyndication') > -1) e.crossOrigin = 'anonymous'; document.head.appendChild(e); }
-  function load(v) {
-    if (v !== 'all') return;
-    if (/^ca-pub-\d+$/.test(C.adsenseClient || '')) lib('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + C.adsenseClient);
-    if (/^G-[A-Z0-9]+$/.test(C.gaId || '')) { lib('https://www.googletagmanager.com/gtag/js?id=' + C.gaId); if (!window.__ecGa) { window.__ecGa = 1; gt('js', new Date()); gt('config', C.gaId, { anonymize_ip: true }); } }
-  }
-  function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
-  function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
-  function apply(v) {
-    var s = v === 'all' ? 'granted' : 'denied';
-    gt('consent', 'update', { ad_storage: s, ad_user_data: s, ad_personalization: s, analytics_storage: s });
-    load(v);
-  }
+  'use strict';
+  if (window.__ecInstallInit) return;
+  window.__ecInstallInit = true;
 
-  var css = '#ec-ck{position:fixed;left:10px;right:10px;bottom:10px;z-index:2147483000;max-width:560px;margin:0 auto;background:#fff;color:#0f2547;border:1px solid #ffd9a8;border-top:4px solid #e8a317;border-radius:14px;padding:14px 16px;box-shadow:none;font:13.5px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}' +
-    '#ec-ck b{color:#0b1a33;font-size:14.5px}#ec-ck p{margin:6px 0 10px}#ec-ck a{color:#c76a00}' +
-    '#ec-ck .r{display:flex;gap:8px;flex-wrap:wrap}#ec-ck button{flex:1 1 140px;border:0;border-radius:10px;padding:10px 12px;font:700 13.5px system-ui,sans-serif;cursor:pointer}' +
-    '#ec-ck .y{background:#c76a00;color:#fff}#ec-ck .n{background:#eef3fb;color:#0b1a33;border:1px solid #ffd9a8}' +
-    '.ec-share{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.ec-share a,.ec-share button{display:inline-flex;align-items:center;gap:6px;padding:9px 13px;border-radius:99px;border:1px solid #ffe6c6;background:#fff;color:#0b1a33;font:700 13px system-ui,sans-serif;text-decoration:none;cursor:pointer}' +
-    '.ec-share .wa{background:#25D366;color:#fff;border-color:#25D366}.ec-share .fb{background:#1877F2;color:#fff;border-color:#1877F2}.ec-share .tg{background:#229ED9;color:#fff;border-color:#229ED9}';
-  var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+  var W = window, D = document;
+  var K = { dismissed: 'ec_install_dismissed', installed: 'ec_install_installed', next: 'ec_install_next' };
+  var CFG = { showMs: 15000, everyMs: 10 * 60 * 1000, firstDelayMs: 30000, helpMs: 15000 };
+  if (W.EC_INSTALL_CFG) for (var k in W.EC_INSTALL_CFG) CFG[k] = W.EC_INSTALL_CFG[k];
 
-  function close() { var b = document.getElementById('ec-ck'); if (b) b.remove(); }
-  function choose(v) { set(v); apply(v); close(); }
-  function show() {
-    if (document.getElementById('ec-ck')) return;
-    var d = document.createElement('div'); d.id = 'ec-ck'; d.setAttribute('role', 'dialog'); d.setAttribute('aria-label', 'Cookies');
-    d.innerHTML = '<b>Cookies e privacidade</b><p>Usamos cookies para medir a utilização do site e mostrar anúncios (Google Analytics e Google AdSense). Pode aceitar tudo ou ficar só com o essencial. Veja a <a href="/privacidade.html">Política de Privacidade</a>.</p>' +
-      '<div class="r"><button class="n" type="button" id="ec-no">Só essenciais</button><button class="y" type="button" id="ec-yes">Aceitar tudo</button></div>';
-    document.body.appendChild(d);
-    document.getElementById('ec-yes').onclick = function () { choose('all'); };
-    document.getElementById('ec-no').onclick = function () { choose('essential'); };
+  var deferred = null, el = null, hideT = null, nextT = null, started = false;
+
+  function get(key) { try { return W.localStorage.getItem(key); } catch (e) { return null; } }
+  function set(key, v) { try { W.localStorage.setItem(key, v); } catch (e) { /* modo privado */ } }
+
+  var ua = W.navigator.userAgent || '';
+  var isIOS = /iphone|ipad|ipod/i.test(ua) || (/Macintosh/.test(ua) && W.navigator.maxTouchPoints > 1);
+  function isStandalone() {
+    var mm = W.matchMedia;
+    return (mm && (mm('(display-mode: standalone)').matches || mm('(display-mode: fullscreen)').matches || mm('(display-mode: minimal-ui)').matches)) || W.navigator.standalone === true;
   }
-  window.ecCookies = function () { var b = document.getElementById('ec-ck'); if (b) b.remove(); show(); };
+  function externalUrl() { return String(W.EC_APP_URL || '').trim(); }
+  var isAndroid = /android/i.test(ua);
+  function finished() { return !!(get(K.installed) || isStandalone()); }
+  function eligible() { return !finished() && !!(deferred || isIOS || isAndroid || externalUrl()); }
 
-  function init() {
-    var v = get();
-    if (v) apply(v); else show();
-    document.addEventListener('click', function (e) {
-      var t = e.target.closest && e.target.closest('[data-share],[data-copy],[data-cookies]');
-      if (!t) return;
-      var url = t.getAttribute('data-url') || location.href, title = t.getAttribute('data-title') || document.title;
-      if (t.hasAttribute('data-cookies')) { e.preventDefault(); window.ecCookies(); }
-      else if (t.hasAttribute('data-share')) {
-        if (navigator.share) { e.preventDefault(); navigator.share({ title: title, url: url }).catch(function () {}); }
-      } else if (t.hasAttribute('data-copy')) {
-        e.preventDefault();
-        var done = function () { var o = t.textContent; t.textContent = 'Link copiado ✓'; setTimeout(function () { t.textContent = o; }, 1800); };
-        if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, done); else { prompt('Copie o link:', url); }
-      }
+  /* ---------- aspecto ---------- */
+  var css = '#ecInstall{position:fixed;left:12px;right:12px;bottom:calc(var(--ec-install-bottom,16px) + env(safe-area-inset-bottom,0px));z-index:140;max-width:420px;margin:0 auto;' +
+    'background:#fff;color:#0b1a33;border:1px solid #dfe6f0;border-left:4px solid #e8a317;border-radius:16px;box-shadow:none;padding:12px 12px 14px;font:14px/1.35 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;' +
+    'transform:translateY(24px);opacity:0;transition:transform .25s ease,opacity .25s ease;overflow:hidden}' +
+    '#ecInstall.on{transform:none;opacity:1}' +
+    '#ecInstall .r{display:flex;align-items:center;gap:10px}' +
+    '#ecInstall img{width:44px;height:44px;border-radius:12px;flex:none;background:#fff}' +
+    '#ecInstall .t{flex:1;min-width:0}#ecInstall b{display:block;font-size:14.5px}#ecInstall span.s{display:block;font-size:12.5px;color:#5b6b85;margin-top:1px}' +
+    '#ecInstall button{font:inherit;cursor:pointer;border:0;border-radius:10px}' +
+    '#ecInstall .go{background:#f28c1c;color:#fff;font-weight:700;padding:9px 14px;white-space:nowrap}' +
+    '#ecInstall .x{background:transparent;color:#5b6b85;font-size:20px;line-height:1;padding:6px 8px;align-self:flex-start}' +
+    '#ecInstall .help{margin:10px 0 0;padding:9px 10px;background:#e7ecf4;border-radius:10px;font-size:13px}' +
+    '#ecInstall .bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:#e8a317;transform-origin:left;transform:scaleX(1)}' +
+    '#ecInstall.on .bar{animation:ecInstBar linear forwards}' +
+    '@keyframes ecInstBar{to{transform:scaleX(0)}}' +
+    '@media (prefers-reduced-motion:reduce){#ecInstall{transition:none}#ecInstall.on .bar{animation:none;display:none}}' +
+    '@media print{#ecInstall{display:none}}';
+
+  function build() {
+    if (!D.getElementById('ecInstallCss')) {
+      var st = D.createElement('style'); st.id = 'ecInstallCss'; st.textContent = css; D.head.appendChild(st);
+    }
+    var hasNav = !!D.getElementById('bottomNav');
+    D.documentElement.style.setProperty('--ec-install-bottom', hasNav ? '88px' : '16px');
+    var d = D.createElement('div');
+    d.id = 'ecInstall'; d.setAttribute('role', 'region'); d.setAttribute('aria-label', 'Instalar a aplicação');
+    var manual = !deferred && (isIOS || isAndroid);
+    var sub = manual ? 'Adicione ao ecrã principal e use como app.' : 'Abre mais depressa e funciona sem ligação.';
+    d.innerHTML = '<div class="r"><img src="/android-chrome-192x192.png" alt="" width="44" height="44">' +
+      '<div class="t"><b>Instalar ENCORP</b><span class="s">' + sub + '</span></div>' +
+      '<button type="button" class="go" data-a="go">' + (manual ? 'Como instalar' : 'Instalar') + '</button>' +
+      '<button type="button" class="x" data-a="x" aria-label="Dispensar convite">×</button></div>' +
+      '<div class="bar" style="animation-duration:' + CFG.showMs + 'ms"></div>';
+    d.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button[data-a]'); if (!b) return;
+      if (b.dataset.a === 'x') hide(false); else install();
     });
+    return d;
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
-})();
 
-/* Convite de instalação (PWA): carregado em todas as páginas, uma só vez. */
-(function () {
-  if (window.__ecInstallInit || document.querySelector('script[src*="convite-instalacao"]')) return;
-  var s = document.createElement('script'); s.src = '/js/pwa/convite-instalacao.js'; s.defer = true; document.head.appendChild(s);
+  /* ---------- mostrar / esconder ---------- */
+  function show() {
+    if (el || !eligible()) return;
+    el = build(); D.body.appendChild(el);
+    void el.offsetWidth; el.classList.add('on');
+    clearTimeout(hideT); hideT = setTimeout(function () { hide(false); }, CFG.showMs);
+    set(K.next, String(Date.now() + CFG.everyMs));
+    schedule(CFG.everyMs);
+  }
+  function hide(dismiss) {
+    clearTimeout(hideT);
+    if (dismiss) { set(K.dismissed, '1'); clearTimeout(nextT); }
+    if (!el) return;
+    var e = el; el = null; e.classList.remove('on');
+    setTimeout(function () { if (e.parentNode) e.parentNode.removeChild(e); }, 300);
+  }
+  function blocked() {
+    var sp = D.getElementById('founderSplash');                    // não competir com o cartão de boas-vindas
+    return D.hidden || (sp && sp.classList.contains('open')) || !!D.getElementById('ec-ck');   // nem sobre o aviso de cookies
+  }
+  function tryShow() {
+    if (!eligible()) return;
+    if (blocked()) { nextT = setTimeout(tryShow, 2000); return; }
+    show();
+  }
+  function schedule(ms) { clearTimeout(nextT); nextT = setTimeout(tryShow, Math.max(0, ms)); }
+  function firstSchedule() {
+    if (started) return; started = true;
+    var due = Number(get(K.next)) || 0, now = Date.now();
+    schedule(due > now ? due - now : CFG.firstDelayMs);
+  }
+
+  /* ---------- instalar ---------- */
+  function install() {
+    if (deferred) {
+      var d = deferred; deferred = null; hide(false);
+      try {
+        d.prompt();
+        d.userChoice.then(function (c) { if (c && c.outcome === 'accepted') set(K.installed, '1'); }).catch(function () {});
+      } catch (e) { /* o navegador recusou o prompt: tenta na próxima vez */ }
+    } else if (isIOS || isAndroid) {
+      var box = el && el.querySelector('.help');
+      if (!box && el) {
+        box = D.createElement('div'); box.className = 'help';
+        box.innerHTML = isIOS
+          ? '1. Toque em <b>Partilhar</b> (□↑) na barra do navegador.<br>2. Escolha <b>Adicionar ao ecrã principal</b>.<br>3. Toque em <b>Adicionar</b>.'
+          : '1. Abra o menu do navegador (<b>⋮</b>).<br>2. Toque em <b>Instalar aplicação</b> (ou <b>Adicionar ao ecrã principal</b>).<br>3. Confirme em <b>Instalar</b>.';
+        el.appendChild(box);
+        clearTimeout(hideT); hideT = setTimeout(function () { hide(false); }, CFG.helpMs);
+        var bar = el.querySelector('.bar'); if (bar) bar.style.display = 'none';
+      }
+    } else if (externalUrl()) {
+      hide(false); W.open(externalUrl(), '_blank', 'noopener');
+    }
+  }
+
+  /* ---------- eventos do navegador ---------- */
+  W.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault(); deferred = e;
+    if (!finished()) firstSchedule();
+  });
+  W.addEventListener('appinstalled', function () {
+    set(K.installed, '1'); deferred = null; clearTimeout(nextT); hide(false);
+  });
+  D.addEventListener('visibilitychange', function () {
+    if (!D.hidden && started && !el && eligible() && !nextT) schedule(1000);
+  });
+  try {                                                             // Chrome Android: detecta a app já instalada
+    if (W.navigator.getInstalledRelatedApps) W.navigator.getInstalledRelatedApps().then(function (l) {
+      if (l && l.length) { set(K.installed, '1'); clearTimeout(nextT); hide(false); }
+    }).catch(function () {});
+  } catch (e) { /* sem suporte */ }
+
+  if (!finished() && (isIOS || isAndroid || externalUrl())) firstSchedule();
+
+  W.ECInstall = { show: show, hide: hide, state: function () { return { eligible: eligible(), visible: !!el, hasPrompt: !!deferred }; }, reset: function () { try { W.localStorage.removeItem(K.dismissed); W.localStorage.removeItem(K.installed); W.localStorage.removeItem(K.next); } catch (e) {} } };
 })();
