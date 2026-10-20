@@ -318,3 +318,33 @@ img,video,iframe,svg{max-width:100%}
 @media(max-width:359px){.nav-btn{font-size:9.5px!important;margin:4px 1px!important;padding:8px 0 7px!important;letter-spacing:-.1px}.nav-btn svg{width:18px;height:18px}}
 @media(max-width:420px){.nav-btn{font-size:9.8px!important;margin:4px 1px!important;padding:8px 0 7px!important;letter-spacing:-.15px;white-space:nowrap}.nav-btn svg{width:19px;height:19px}}
 .sbb-footer .sbb-cols h4{text-align:left!important}
+
+/* ---------- Dicas de saúde: imagens em todos os ecrãs e tamanhos a acompanhar o ecrã ---------- */
+.ec-dicas img.l{object-fit:contain;background:#fff}
+.ec-dicas .hero img.l{width:140px;height:auto;margin:16px auto;border:0;border-radius:0;box-shadow:none}
+.ec-car .ec-nc-im{min-height:140px}
+@media(max-width:400px){
+  .ec-dicas{font-size:15px;padding-left:12px;padding-right:12px}
+  .ec-dicas h1{font-size:14.5px}
+  .ec-dicas .lead{font-size:15.5px}
+  .ec-car .ec-nc{flex-basis:clamp(236px,82vw,300px)}
+  .ec-car .ec-nc-t{font-size:15px}
+  .ec-car .ec-nc-s{font-size:12.5px}
+}
+@media(min-width:900px){
+  .ec-dicas-lista{max-width:900px}
+  .ec-car .ec-nc{flex-basis:340px}
+  .ec-car .ec-nc-t{font-size:18px}
+  .ec-car .ec-nc-s{font-size:14.5px}
+  .ec-car .ec-nc-k,.ec-car .ec-nc-m,.ec-car .ec-nc-go{font-size:13px}
+}
+@media(min-width:1200px){
+  .ec-dicas-lista{max-width:1000px}
+  .ec-car .ec-nc{flex-basis:380px}
+  .ec-car .ec-nc-t{font-size:19px}
+  .ec-car .ec-nc-s{font-size:15.5px}
+}
+@media(min-width:1920px){
+  .ec-dicas-lista{max-width:1100px}
+  .ec-car .ec-nc{flex-basis:420px}
+}
