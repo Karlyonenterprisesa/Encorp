@@ -257,3 +257,64 @@ body:has(.bottom-nav) .wa-float{bottom:calc(88px + env(safe-area-inset-bottom,0p
 @media(min-width:900px){.sbb-title b{font-size:26px;letter-spacing:2px}.sbb-title span{font-size:13px;margin-top:3px}}
 .enc-intro{margin-top:10px}
 .enc-intro p{font-size:13.5px;line-height:1.6;margin-top:0}
+
+/* ---------- Cartão «Sobre o sistema» ---------- */
+.about-splash-overlay{display:none;position:fixed;inset:0;z-index:150;background:rgba(6,20,40,.6);align-items:center;justify-content:center;padding:14px}
+.about-splash-overlay.open{display:flex}
+.about-splash-card{position:relative;background:#fff;border:1px solid var(--borda,#AEBBD3);border-radius:18px;width:100%;max-width:420px;max-height:92vh;max-height:92dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:26px 20px 20px;text-align:center;animation:fs-pop .25s ease}
+.about-splash-card .fs-close{position:absolute;top:10px;right:10px;z-index:2}
+.about-splash-card .as-logo{display:block;margin:0 auto 8px;height:84px;width:auto}
+.about-splash-card .as-title{margin:0;font-size:24px;font-weight:900;letter-spacing:2px;color:var(--sbb-navy,#0b1a33);line-height:1.15}
+.about-splash-card .as-sub{margin-top:4px;font-size:12.5px;font-weight:700;line-height:1.35;color:var(--sbb-navy,#0b1a33)}
+.about-splash-card .as-text{margin:12px 0 16px;font-size:13.5px;line-height:1.6;color:#34455f;text-align:center;hyphens:none}
+@media(min-width:900px){.about-splash-overlay{padding:0}.about-splash-card{max-height:calc(92vh / 1.15)}}
+@media(min-width:1200px){.about-splash-card{max-height:calc(92vh / 1.25)}}
+@media(min-width:1600px){.about-splash-card{max-height:calc(92vh / 1.5)}}
+
+/* ---------- WhatsApp: esconde-se sobre o rodapé no telemóvel ---------- */
+.wa-float{transition:opacity .2s ease,visibility .2s ease}
+.wa-float.wa-hide{opacity:0;visibility:hidden;pointer-events:none;animation:none}
+@media(max-width:899px){.wa-float{width:52px;height:52px;right:14px;bottom:calc(16px + env(safe-area-inset-bottom,0px))}.wa-float svg{width:30px;height:30px}}
+
+/* ---------- Ecrãs: telemóvel, tablet, portátil, computador, TV e futura app Android ---------- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{overflow-x:hidden}
+img,video,iframe,svg{max-width:100%}
+#app .top-fixed header.sbb-hd{padding-left:env(safe-area-inset-left,0px)!important;padding-right:env(safe-area-inset-right,0px)!important}
+.wa-float{right:calc(14px + env(safe-area-inset-right,0px))}
+@media(min-width:1920px){html{zoom:1.75}.founder-splash-card,.about-splash-card{max-height:calc(92vh / 1.75)!important}}
+@media(min-width:2560px){html{zoom:2.3}.founder-splash-card,.about-splash-card{max-height:calc(92vh / 2.3)!important}}
+@media(min-width:3600px){html{zoom:3.2}.founder-splash-card,.about-splash-card{max-height:calc(92vh / 3.2)!important}}
+@media(max-height:520px) and (orientation:landscape){.founder-splash-card,.about-splash-card{max-height:96vh!important}.wa-float{width:46px;height:46px;bottom:10px}}
+@media(max-width:359px){.sbb-title b{font-size:14px}.sbb-title span{font-size:7px}}
+
+/* ---------- Telemóvel e tablet: menu das páginas sem cortes + rodapé em 2 colunas arrumadas ---------- */
+@media(max-width:899px){
+  body > header nav{flex-wrap:wrap;justify-content:center;overflow:visible;padding:6px 6px;gap:0 2px}
+  body > header nav a{padding:10px 11px!important;font-size:12px!important;letter-spacing:.2px}
+  body > header .sbb-logo{padding:14px 16px}
+  body > header .sbb-logo img{height:54px}
+  .sbb-ft,.sbb-footer-in{padding:28px 16px 6px}
+  .sbb-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 18px}
+  .sbb-cols h4{font-size:13.5px;margin-bottom:8px;overflow-wrap:anywhere}
+  .sbb-cols a{font-size:13.5px;padding:5px 0;overflow-wrap:anywhere;hyphens:auto}
+  .sbb-ft-note,.sbb-footer-note{padding:14px 16px 28px;font-size:12px}
+  body > footer{border-top-width:32px}
+  .sbb-footer-bar{height:32px}
+  main{padding-left:16px;padding-right:16px;box-sizing:border-box}
+  main table{display:block;max-width:100%;overflow-x:auto}
+  main pre,main code{white-space:pre-wrap;overflow-wrap:anywhere}
+}
+@media(max-width:400px){
+  body > header nav a{padding:9px 9px!important;font-size:11.5px!important}
+  .sbb-cols{gap:22px 12px}
+  .sbb-cols a{font-size:13px}
+}
+@media(max-width:320px){.sbb-cols{grid-template-columns:1fr}}
+/* tablet largo e portátil pequeno: 4 colunas só a partir de 900px (já definido); entre 600 e 899 fica em 2 */
+/* barra inferior sem cortes em ecrãs muito estreitos */
+.bottom-nav{width:100%;box-sizing:border-box}
+.nav-btn{min-width:0}
+@media(max-width:359px){.nav-btn{font-size:9.5px!important;margin:4px 1px!important;padding:8px 0 7px!important;letter-spacing:-.1px}.nav-btn svg{width:18px;height:18px}}
+@media(max-width:420px){.nav-btn{font-size:9.8px!important;margin:4px 1px!important;padding:8px 0 7px!important;letter-spacing:-.15px;white-space:nowrap}.nav-btn svg{width:19px;height:19px}}
+.sbb-footer .sbb-cols h4{text-align:left!important}
