@@ -21,6 +21,26 @@ function clearCalc(id){
   panel.querySelectorAll('.calc-result').forEach(r=>r.classList.remove('show'));
 }
 
+
+/* «Limpar» das calculadoras com vários blocos no mesmo painel (IMC, SC, Glasgow, conversões, balanço):
+   limpa só o bloco do botão carregado — do título (h4) anterior ao seguinte. */
+function clearBloco(btn){
+  var a = btn && btn.closest ? btn.closest('.calc-actions') : null;
+  if(!a) return;
+  var nos = [], n = a.previousElementSibling;
+  while(n && n.tagName !== 'H4'){ nos.push(n); n = n.previousElementSibling; }
+  n = a.nextElementSibling;
+  while(n && n.tagName !== 'H4'){ nos.push(n); n = n.nextElementSibling; }
+  var primeiro = null;
+  nos.forEach(function(e){
+    if(e.matches && e.matches('.calc-result')) e.classList.remove('show');
+    e.querySelectorAll('input').forEach(function(i){ i.value = ''; if(!primeiro) primeiro = i; });
+    e.querySelectorAll('select').forEach(function(x){ x.selectedIndex = 0; });
+    e.querySelectorAll('.calc-result').forEach(function(r){ r.classList.remove('show'); });
+  });
+  if(primeiro) try{ primeiro.focus(); }catch(e){}
+}
+
 function showResult(prefix, value, label, warn){
   const box = document.getElementById('res-' + prefix);
   const val = document.getElementById('res-' + prefix + '-val');
