@@ -385,8 +385,10 @@ const PPTX = new Set();
       for (let k = 0; k < it.aulas.length; k++) {
         const a = it.aulas[k]; if (!a.slides.length) continue;
         mkdirSync(R(dir), { recursive: true });
-        await gerarPptx(PptxGenJS, { curso: it.titulo, aula: a, n: k + 1, total: it.aulas.length, notaMinima: it.notaMinima, raiz: R('.'), destino: R(`${dir}/aula-${k + 1}.pptx`) });
-        PPTX.add(`${it.slug}/${k + 1}`); n++;
+        try {   /* um PPTX com problema não deve impedir a publicação do site: avisa e segue (a aula fica sem o botão de PowerPoint) */
+          await gerarPptx(PptxGenJS, { curso: it.titulo, aula: a, n: k + 1, total: it.aulas.length, notaMinima: it.notaMinima, raiz: R('.'), destino: R(`${dir}/aula-${k + 1}.pptx`) });
+          PPTX.add(`${it.slug}/${k + 1}`); n++;
+        } catch (e) { console.warn(`AVISO: PPTX não gerado (${it.slug}, aula ${k + 1}): ${e && e.message ? e.message : e}`); }
       }
     }
     console.log(`PowerPoint: ${n} ficheiros gerados em api/_dados/slides/.`);
