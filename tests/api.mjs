@@ -18,6 +18,7 @@ process.env.KV_REST_API_URL = 'http://localhost:8801'; process.env.KV_REST_API_T
 process.env.SESSION_SECRET = 'x'.repeat(40);
 const DADOS = ROOT + '/api/_dados/cursos.json', DADOS_ORIG = fs.readFileSync(DADOS, 'utf8');
 { const d = JSON.parse(DADOS_ORIG);   // curso sintético só para testar slides cronometrados + vídeo (restaurado no fim)
+  d['estabilizacao-de-pacientes'].sequencial = true;   // os cursos reais são «livres» (sequencial:false); este teste verifica o bloqueio no servidor, por isso força-o só nesta cópia temporária
   d['video-teste'] = { titulo: 'Vídeo teste', notaMinima: 70, tentativas: 3, esperaMinutos: 30, sequencial: true, aulas: [{ titulo: 'A', resumo: '', duracao: '', html: '', slides: [{ titulo: 's1', html: '<p>a</p>', imagem: '', tipo: 'conteudo', min: 3 }, { titulo: 's2', html: '<p>b</p>', imagem: '', tipo: 'conteudo', min: 3 }], video: { youtube: 'abcdefghijk', ficheiro: '', obrigatorio: true, minutos: 0.2 }, teste: null }] };
   fs.writeFileSync(DADOS, JSON.stringify(d)); }
 const aluno = require(ROOT + '/api/aluno.js'), apr = require(ROOT + '/api/aprendizagem.js');
