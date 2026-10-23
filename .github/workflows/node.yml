@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       # Depois de correr `npm install` uma vez e fazer commit do package-lock.json, troque por `npm ci`.
       - run: npm install --no-audit --no-fund
       - run: npm test
