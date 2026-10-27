@@ -81,7 +81,6 @@ collections:
     name: etiquetas
     widget: list
     required: false
-    default: []
   - &id005
     label: Publicado
     name: publicado
@@ -331,7 +330,6 @@ collections:
     name: etiquetas
     widget: list
     required: false
-    default: []
   - label: Publicado
     name: publicado
     widget: boolean
@@ -409,7 +407,6 @@ collections:
     name: etiquetas
     widget: list
     required: false
-    default: []
   - label: Notas da aula
     name: corpo
     widget: markdown
@@ -509,7 +506,6 @@ collections:
     name: etiquetas
     widget: list
     required: false
-    default: []
   - label: Instruções ou notas
     name: corpo
     widget: markdown
