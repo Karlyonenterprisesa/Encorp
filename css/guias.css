@@ -7,3 +7,20 @@ html body .calc-actions .calc-btn,html body .calc-panel .calc-btn,html body butt
 html body .calc-actions .calc-btn.ghost,html body .calc-panel .calc-btn.ghost,html body button.calc-btn.ghost{background:#0b1a33!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
 html body .calc-actions .calc-btn:hover{filter:brightness(1.12)}
 html body .calc-actions .calc-btn:focus-visible{outline:3px solid #f28c1c;outline-offset:2px}
+
+/* ---- Debate de casos clínicos (WhatsApp) ---- */
+.ec-debate{background:linear-gradient(135deg,#0b1a33,#16356b);color:#fff;border-radius:18px;border-bottom:4px solid #e8a317;padding:16px 16px 14px;margin:16px 0 20px;box-shadow:0 8px 22px rgba(11,26,51,.18)}
+.ec-debate .ec-debate-t{margin:0 0 6px;font-size:18px;color:#fff;text-align:left}
+.ec-debate p{margin:0 0 12px;color:#dbe7ff;text-align:left;font-size:15px}
+.ec-debate-btns{display:flex;flex-wrap:wrap;gap:8px}
+.ec-debate-btns button{flex:1 1 210px;min-height:46px;padding:10px 14px;border:0;border-radius:12px;font:700 14.5px/1.2 inherit;cursor:pointer;color:#fff;background:rgba(255,255,255,.16)}
+.ec-debate-btns .d1{background:#25D366;color:#06371b}
+.ec-debate-btns .d2{background:#f28c1c}
+.ec-debate-btns button:hover,.ec-debate-btns button:focus-visible{filter:brightness(1.08)}
+.ec-debate .ec-debate-nota{margin:10px 0 0;font-size:13px;color:#b9c9ea}
+details.ec-resp{margin:20px 0;border:2px solid #e8a317;border-radius:16px;background:#fffaf0;padding:0 14px 6px}
+details.ec-resp>summary{cursor:pointer;font-weight:700;color:#0b1a33;padding:14px 4px;list-style:none}
+details.ec-resp>summary::-webkit-details-marker{display:none}
+details.ec-resp>summary:before{content:"🔒 ";}
+details.ec-resp[open]>summary:before{content:"🔓 ";}
+@media print{.ec-debate{display:none}}
