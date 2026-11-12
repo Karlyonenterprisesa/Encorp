@@ -1,0 +1,7 @@
+node_modules/
+.env
+.env.*
+.vercel/
+.DS_Store
+# Gerados em cada build (build.mjs). Contêm as respostas certas dos testes: nunca no repositório.
+api/_dados/
