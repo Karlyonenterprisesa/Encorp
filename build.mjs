@@ -3,10 +3,12 @@
    hubs de navegação, a zona «Dicas e Actualidades» da página inicial, pesquisa, conteudo.json, feed.xml e sitemap.xml.
    Sem dependências. Node 18+. */
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, unlinkSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, unlinkSync, copyFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
+import { FICHA } from './tools/ficha-curso.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const R = (...p) => join(ROOT, ...p);
@@ -53,16 +55,28 @@ function inline(t) {
   return t;
 }
 function md(src) {
+  /* markdown simples: títulos, listas, citações, TABELAS e parágrafos; um bloco pode misturar vários (ex.: frase + lista) */
   const blocks = String(src || '').replace(/\r/g, '').trim().split(/\n{2,}/).filter(Boolean);
+  const tipo = (l) => (/^\s*#{1,6}\s+/.test(l) ? 'h' : /^\s*[-*]\s+/.test(l) ? 'ul' : /^\s*\d+[.)]\s+/.test(l) ? 'ol' : /^>\s?/.test(l) ? 'q' : /^\s*\|/.test(l) ? 'tb' : 'p');
+  const cels = (l) => l.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
   return blocks.map((b) => {
-    const L = b.split('\n');
     if (/^\s*</.test(b)) return b;                                   // HTML escrito no editor passa tal e qual
-    const h = b.match(/^(#{1,6})\s+(.*)$/);
-    if (h && L.length === 1) { const n = Math.min(h[1].length + 1, 6); return `<h${n}>${inline(h[2])}</h${n}>`; }
-    if (L.every((l) => /^\s*[-*]\s+/.test(l))) return `<ul>${L.map((l) => `<li>${inline(l.replace(/^\s*[-*]\s+/, ''))}</li>`).join('')}</ul>`;
-    if (L.every((l) => /^\s*\d+[.)]\s+/.test(l))) return `<ol>${L.map((l) => `<li>${inline(l.replace(/^\s*\d+[.)]\s+/, ''))}</li>`).join('')}</ol>`;
-    if (L.every((l) => /^>\s?/.test(l))) return `<blockquote>${L.map((l) => inline(l.replace(/^>\s?/, ''))).join('<br>')}</blockquote>`;
-    return `<p>${L.map(inline).join('<br>')}</p>`;
+    const L = b.split('\n'), out = [];
+    for (let i = 0; i < L.length;) {
+      const t = tipo(L[i]); let j = i + 1;
+      if (t !== 'h') while (j < L.length && tipo(L[j]) === t) j++;
+      const g = L.slice(i, j); i = j;
+      if (t === 'h') { const h = g[0].match(/^\s*(#{1,6})\s+(.*)$/), n = Math.min(h[1].length + 1, 6); out.push(`<h${n}>${inline(h[2])}</h${n}>`); }
+      else if (t === 'ul') out.push(`<ul>${g.map((l) => `<li>${inline(l.replace(/^\s*[-*]\s+/, ''))}</li>`).join('')}</ul>`);
+      else if (t === 'ol') out.push(`<ol>${g.map((l) => `<li>${inline(l.replace(/^\s*\d+[.)]\s+/, ''))}</li>`).join('')}</ol>`);
+      else if (t === 'q') out.push(`<blockquote>${g.map((l) => inline(l.replace(/^>\s?/, ''))).join('<br>')}</blockquote>`);
+      else if (t === 'tb') {
+        const linhas = g.map(cels).filter((r) => !r.every((c) => /^:?-{2,}:?$/.test(c)));
+        const [cab, ...resto] = linhas;
+        out.push(`<table><thead><tr>${cab.map((c) => `<th>${inline(c)}</th>`).join('')}</tr></thead><tbody>${resto.map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>`);
+      } else out.push(`<p>${g.map(inline).join('<br>')}</p>`);
+    }
+    return out.join('\n');
   }).join('\n');
 }
 const site = existsSync(R('conteudo/site.json')) ? JSON.parse(read('conteudo/site.json')) : {};
@@ -173,7 +187,33 @@ function head({ titulo, desc, path, img, tipoOg = 'website', ld, extraCss = '', 
   return `<!DOCTYPE html><html lang="pt-MZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>${esc(t)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${robots}"><link rel="canonical" href="${esc(url)}"><meta property="og:site_name" content="ENCORP"><meta property="og:locale" content="pt_MZ"><meta property="og:type" content="${tipoOg}"><meta property="og:title" content="${esc(t)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${esc(url)}"><meta property="og:image" content="${esc(im)}"><meta property="og:image:alt" content="${esc(titulo)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(t)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${esc(im)}"><meta name="theme-color" content="#0b1a33"><meta name="color-scheme" content="light"><link rel="icon" href="/favicon.ico?v=2" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2"><link rel="manifest" href="/manifest.json"><link rel="alternate" type="application/rss+xml" title="ENCORP" href="/feed.xml">${ld ? `<script type="application/ld+json">${jsonSafe(ld)}</script>` : ''}<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"><style>${CSS}${extraCss}</style><link rel="stylesheet" href="/css/sbb.css"></head>`;
 }
 const page = (h, main) => `${h}<body>${HEADER}<main>${main}</main>${FOOTER}<script src="/js/site/site.js" defer></script></body></html>`;
-const share = (url, titulo) => `<div class="ec-share" aria-label="Partilhar"><button type="button" data-share data-title="${esc(titulo)}" data-url="${esc(url)}">Partilhar</button><a class="wa" href="https://wa.me/?text=${enc(titulo + ' ' + url)}" target="_blank" rel="noopener">WhatsApp</a><a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=${enc(url)}" target="_blank" rel="noopener">Facebook</a><a class="tg" href="https://t.me/share/url?url=${enc(url)}&text=${enc(titulo)}" target="_blank" rel="noopener">Telegram</a><a href="https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(titulo)}" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:?subject=${enc(titulo)}&body=${enc(url)}">Email</a><button type="button" data-copy data-url="${esc(url)}">Copiar link</button></div>`;
+/* ---------- botões de partilha: ícones originais das redes (WhatsApp, Facebook, Telegram, X, LinkedIn, Instagram), email, copiar e partilha nativa ---------- */
+const BRAND = {
+  wa: 'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z',
+  fb: 'M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z',
+  tg: 'M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z',
+  x: 'M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z',
+  li: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z',
+  ig: 'M7.03.084c-1.277.06-2.149.264-2.91.563a5.9 5.9 0 0 0-2.124 1.388 5.9 5.9 0 0 0-1.38 2.127C.321 4.926.12 5.8.064 7.076s-.069 1.688-.063 4.947.021 3.667.083 4.947c.061 1.277.264 2.149.563 2.911.308.789.72 1.457 1.388 2.123a5.9 5.9 0 0 0 2.129 1.38c.763.295 1.636.496 2.913.552 1.278.056 1.689.069 4.947.063s3.668-.021 4.947-.082c1.28-.06 2.147-.265 2.91-.563a5.9 5.9 0 0 0 2.123-1.388 5.9 5.9 0 0 0 1.38-2.129c.295-.763.496-1.636.551-2.912.056-1.28.07-1.69.063-4.948-.006-3.258-.02-3.667-.081-4.947-.06-1.28-.264-2.148-.564-2.911a5.9 5.9 0 0 0-1.387-2.123 5.86 5.86 0 0 0-2.128-1.38C19.074.322 18.202.12 16.924.066 15.647.009 15.236-.006 11.977 0S8.31.021 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.7 3.7 0 0 1-1.382-.895 3.7 3.7 0 0 1-.9-1.378c-.165-.423-.363-1.058-.417-2.228-.06-1.264-.072-1.644-.08-4.848-.006-3.204.006-3.583.061-4.848.05-1.169.246-1.805.408-2.228.216-.561.477-.96.895-1.382a3.7 3.7 0 0 1 1.379-.9c.423-.165 1.057-.361 2.227-.417 1.265-.06 1.644-.072 4.848-.08 3.203-.006 3.583.006 4.85.062 1.168.05 1.804.244 2.227.408.56.216.96.475 1.382.895s.681.817.9 1.378c.165.422.362 1.056.417 2.227.06 1.265.074 1.645.08 4.848.005 3.203-.006 3.583-.061 4.848-.051 1.17-.245 1.805-.408 2.23-.216.56-.477.96-.896 1.38a3.7 3.7 0 0 1-1.378.9c-.422.165-1.058.362-2.226.418-1.266.06-1.645.072-4.85.079s-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 1 0 1.437-1.442 1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024 6.162 6.162 0 0 0-12.323.024M8 12.008A4 4 0 1 1 12.008 16 4 4 0 0 1 8 12.008',
+};
+const brandSvg = (k) => `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${BRAND[k]}"/></svg>`;
+const ST = (inner) => `<svg class="st" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${inner}</svg>`;
+const ICO_SHARE = ST('<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/>');
+const ICO_MAIL = ST('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>');
+const ICO_LINK = ST('<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>');
+const share = (url, titulo) => {
+  const a = (cls, nome, href, ico) => `<a class="${cls}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${nome}" title="${nome}">${ico}</a>`;
+  const dd = `data-title="${esc(titulo)}" data-url="${esc(url)}"`;
+  return `<div class="ec-share" data-v="2" role="group" aria-label="Partilhar"><button type="button" class="nat" data-share ${dd} aria-label="Partilhar" title="Partilhar">${ICO_SHARE}</button>`
+    + a('wa', 'WhatsApp', `https://wa.me/?text=${enc(titulo + ' ' + url)}`, brandSvg('wa'))
+    + a('fb', 'Facebook', `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`, brandSvg('fb'))
+    + `<button type="button" class="ig" data-ig ${dd} aria-label="Instagram (copia o link)" title="Instagram (copia o link)">${brandSvg('ig')}</button>`
+    + a('tg', 'Telegram', `https://t.me/share/url?url=${enc(url)}&text=${enc(titulo)}`, brandSvg('tg'))
+    + a('x', 'X', `https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(titulo)}`, brandSvg('x'))
+    + a('li', 'LinkedIn', `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`, brandSvg('li'))
+    + `<a class="em" href="mailto:?subject=${enc(titulo)}&body=${enc(url)}" aria-label="Email" title="Email">${ICO_MAIL}</a>`
+    + `<button type="button" class="cp" data-copy ${dd} aria-label="Copiar link" title="Copiar link">${ICO_LINK}</button></div>`;
+};
 
 const hero = `<div class="hero"><img src="/og-image.jpg" alt="ENCORP — Mais conhecimento, melhor cuidado" width="1200" height="630" decoding="async"></div>`;
 const EDU_CSS = read('templates/educacao.css');
@@ -185,22 +225,24 @@ function paginaEducacao(it, url) {
   const capa = it.imagem && !it.youtube && !it.video ? `<p><img src="${esc(it.imagem)}" alt="${esc(it.titulo)}" loading="lazy" decoding="async"></p>` : '';
   const cta = `<div class="cta"><b>Quer continuar a aprender?</b><br><a class="btn" href="/cursos/">Ver cursos, aulas e testes</a><a class="btn alt" href="/">Abrir a app</a></div>`;
   const ldBase = { '@context': 'https://schema.org', inLanguage: 'pt-MZ', url, ...(it.og ? { image: it.og } : {}), provider: { '@type': 'Organization', name: 'ENCORP', url: SITE + '/' } };
+  if (it.tipo === 'cursos') ldBase.provider = [ldBase.provider, { '@type': 'Organization', name: FICHA.instituicao, alternateName: FICHA.instituicaoLema }];
   let main = '', ld, extraCss = EDU_CSS, extraJs = '';
   if (it.tipo === 'cursos') {
     const aulas = aulasDe(it), testes = testesDe(it);
     const gratis = !it.preco;
     const insc = it.link_inscricao ? `<p><a class="btn" href="${esc(safeUrl(it.link_inscricao))}" target="_blank" rel="noopener">Inscrever-se / pedir informações</a></p>`
       : (!gratis && site.contactEmail) ? `<p><a class="btn" href="mailto:${esc(site.contactEmail)}?subject=${enc('Curso: ' + it.titulo)}">Pedir informações</a></p>` : '';
-    const pills = [it.nivel, it.area, it.duracao, it.instrutor && 'Formador: ' + it.instrutor].filter(Boolean).map((x) => `<span class="pill">${esc(x)}</span>`).join('') + `<span class="pill${it.preco ? '' : ' free'}">${esc(it.preco || 'Gratuito')}</span>`;
+    const pills = [it.nivel, it.area, it.duracao, 'CPD'].filter(Boolean).map((x) => `<span class="pill">${esc(x)}</span>`).join('') + `<span class="pill${it.preco ? '' : ' free'}">${esc(it.preco || 'Gratuito')}</span>`;
     const lista = aulas.length ? `<h2>Aulas (${aulas.length})</h2><ol class="aulas">${aulas.map((a, n) => `<li class="aula"><b>${n + 1}. ${esc(a.titulo)}</b>${a.duracao ? ` <span class="meta">· ${esc(a.duracao)}</span>` : ''}${a.resumo ? `<p>${esc(a.resumo)}</p>` : ''}${a.item ? `<a class="btn" href="${esc(a.item.url)}">Abrir aula</a>` : a.youtube ? `<button type="button" class="btn" data-yt="${esc(a.youtube)}">▶ Ver aula</button>` : a.video ? `<button type="button" class="btn" data-vid="${esc(a.video)}">▶ Ver aula</button>` : ''}</li>`).join('')}</ol>` : '';
     const lt = testes.length ? `<h2>Testes deste curso</h2>${testes.map(cardLista).join('')}` : '';
     const prog = it.modo === 'progressivo' && it.aulas.length > 0;
     const playerHtml = `<h2 id="aulas">Aulas (${it.aulas.length})</h2><div id="ec-curso" data-curso="${esc(it.slug)}" data-src="/cursos/dados/${esc(it.slug)}.json"><ol class="aulas">${it.aulas.map((a, n) => `<li class="aula"><b>${n + 1}. ${esc(a.titulo)}</b>${a.duracao ? ` <span class="meta">· ${esc(a.duracao)}</span>` : ''}${a.resumo ? `<p>${esc(a.resumo)}</p>` : ''}</li>`).join('')}</ol><p class="meta">Curso gratuito e livre: sem conta e sem palavra-passe. Cada aula tem slides${it.aulas.some((a) => a.youtube || a.video) ? ', vídeo' : ''} e um teste de 10 perguntas (nota mínima ${it.notaMinima}%).</p><noscript><p>O estudo do curso precisa de JavaScript.</p></noscript></div>`;
+const ficha = `<aside class="ec-ficha" aria-label="Ficha do curso"><div class="ec-ficha-logos"><img src="/${FICHA.logoInstituicao}" alt="Logótipo da ${esc(FICHA.instituicao)}" width="72" height="72" loading="lazy"><img src="/${FICHA.logoFormadora}" alt="Logótipo do ${esc(FICHA.entidadeFormadora)}" width="64" height="72" loading="lazy"></div><dl><div><dt>Instituição</dt><dd><b>${esc(FICHA.instituicao)}</b> (${esc(FICHA.instituicaoLema)})</dd></div><div><dt>Entidade formadora</dt><dd><b>${esc(FICHA.entidadeFormadora)}</b></dd></div><div><dt>Tipo de formação</dt><dd>${esc(FICHA.tipo)}: ${esc(FICHA.natureza.toLowerCase())}</dd></div><div><dt>Coordenador</dt><dd>${esc(FICHA.coordenador)}</dd></div></dl></aside>`;
     const iniciar = prog ? `<p class="ec-iniciar-p"><a class="btn ec-iniciar" href="#aulas" data-iniciar>▶ Iniciar curso</a></p>` : '';
-    main = `<p class="meta"><a href="/cursos/">Cursos</a> · ${fmtData(it.data)}</p><h1>${esc(it.titulo)}</h1><p class="lead">${esc(it.resumo)}</p><p>${pills}</p>${iniciar}${insc}${capa}<article>${md(it.corpo)}</article>${prog ? playerHtml : lista}${lt}${insc}${share(url, it.titulo)}${tags}${cta}`;
+    main = `<p class="meta"><a href="/cursos/">Cursos</a> · ${fmtData(it.data)}</p><h1>${esc(it.titulo)}</h1><p class="lead">${esc(it.resumo)}</p><p>${pills}</p>${ficha}${iniciar}${insc}${capa}<article>${md(it.corpo)}</article>${prog ? playerHtml : lista}${lt}${insc}${share(url, it.titulo)}${tags}${cta}`;
     ld = { ...ldBase, '@type': 'Course', name: it.titulo, description: it.resumo };
     extraJs = '<script src="/js/site/video-aulas.js" defer></script>';
-    if (prog) { extraCss += PLAYER_CSS; extraJs += '<script src="/js/site/curso-player.js" defer></script>'; }
+    if (prog) { extraCss += PLAYER_CSS; extraJs += '<script src="/js/modulos/leitor-pdf.js" defer></script><script src="/js/site/curso-player.js" defer></script>'; }
   } else if (it.tipo === 'videoaulas') {
     const pdf = it.ficheiro ? `<p><a class="btn" href="${esc(it.ficheiro)}" target="_blank" rel="noopener">Material de apoio (PDF)</a></p>` : '';
     const video = player(it, it.titulo) || '<p>Vídeo indisponível.</p>';
@@ -285,7 +327,9 @@ hub({ path: '/ferramentas/', titulo: 'Ferramentas de enfermagem', desc: 'Calcula
 const CATS = [['medicamentos', 'Medicamentos e diluições', 'Diluição, concentração e equivalência de soluções.'], ['doses', 'Doses', 'Dose em mL a administrar e dose por peso (mg/kg).'], ['infusoes', 'Infusões e balanço hídrico', 'Gotejamento e balanço hídrico das 24 horas.'], ['conversoes', 'Conversões', 'Peso, temperatura, massa e volume em gotas.'], ['outras', 'Outras calculadoras', 'IMC e superfície corporal.']];
 hub({ path: '/ferramentas/calculadoras/', titulo: 'Calculadoras de enfermagem', crumbs: [FER], desc: 'Calculadoras de medicamentos, doses, infusões, conversões e outras, organizadas por categoria. Funcionam no telemóvel e no computador.',
   body: '<div class="notice"><b>Apoio ao cálculo.</b> Confirme sempre com o protocolo da instituição e com dupla verificação. <a href="/aviso-medico.html">Aviso médico</a></div>' + CATS.map(([d, t]) => `<h2><a href="/ferramentas/calculadoras/${d}/">${esc(t)}</a></h2>${cardsDir('ferramentas/calculadoras/' + d)}`).join('') });
-for (const [d, t, ds] of CATS) hub({ path: `/ferramentas/calculadoras/${d}/`, titulo: t, crumbs: [FER, CAL], desc: ds, body: cardsDir('ferramentas/calculadoras/' + d) });
+const CATS_DESC = { medicamentos: 'Diluição de medicamentos e equivalência de soluções: calcule a concentração final e converta entre soluções no telemóvel, mesmo sem internet.', outras: 'Calculadora de IMC (classificação da OMS) e de superfície corporal (fórmula de Mosteller) para enfermagem; funcionam no telemóvel, mesmo sem internet.' };
+const CATS_TXT = { medicamentos: '<p>Estas calculadoras ajudam a preparar soluções: a de diluição calcula a concentração obtida ao diluir um medicamento e a de equivalência de soluções converte entre concentrações e volumes. Introduza os valores indicados na prescrição, confira o resultado e valide sempre com o protocolo da instituição e com dupla verificação antes de administrar.</p><p>Depois de abertas uma vez com internet, as calculadoras ficam disponíveis no telemóvel mesmo sem ligação.</p>', outras: '<p>O índice de massa corporal (IMC) relaciona o peso com a altura e é classificado segundo a OMS; a superfície corporal, calculada pela fórmula de Mosteller, é usada em cálculos de dose e de balanço em que o tamanho do doente conta. Introduza o peso em quilogramas e a altura em metros ou centímetros.</p><p>Depois de abertas uma vez com internet, as calculadoras ficam disponíveis no telemóvel mesmo sem ligação.</p>' };
+for (const [d, t, ds] of CATS) hub({ path: `/ferramentas/calculadoras/${d}/`, titulo: t, crumbs: [FER, CAL], desc: CATS_DESC[d] || ds, body: (CATS_TXT[d] || '') + cardsDir('ferramentas/calculadoras/' + d) });
 
 hub({ path: '/processo-enfermagem/', titulo: 'Processo de enfermagem', crumbs: [APR], desc: 'O processo de enfermagem em cinco etapas, por ordem: avaliação, diagnóstico, planeamento, implementação e avaliação final.',
   body: AVISO + '<ol class="etapas">' + [
@@ -372,7 +416,10 @@ const blocoHome = `<style>${read('templates/dicas-home.css')}</style><div class=
 /* ---------- cabeçalho e rodapé únicos (templates/) em todas as páginas ---------- */
 /* ---------- PowerPoint por aula, gerado dos slides do CMS (api/_dados/slides/<curso>/aula-N.pptx; privado, servido pela API só a quem tem a aula desbloqueada) ---------- */
 const PPTX = new Set();
+const SLIDES_HASH = {};   /* «curso/aula» → impressão digital do conteúdo e do gerador: diz se o PDF pré-gerado ainda corresponde ao PowerPoint */
+const lerJson = (f) => { try { return JSON.parse(readFileSync(R(f), 'utf8')); } catch { return {}; } };
 {
+  const GERADOR = createHash('sha1').update(read('tools/gerar-pptx.mjs')).update(read('tools/ficha-curso.mjs')).digest('hex').slice(0, 12);
   let PptxGenJS = null;
   try { PptxGenJS = createRequire(import.meta.url)('pptxgenjs'); } catch (e) { console.warn('pptxgenjs não está instalado: os PPTX não foram gerados (npm install).'); }
   if (PptxGenJS) {
@@ -382,16 +429,24 @@ const PPTX = new Set();
       if (it.tipo !== 'cursos') continue;
       const dir = `api/_dados/slides/${it.slug}`;
       for (const f of (existsSync(R(dir)) ? readdirSync(R(dir)) : [])) unlinkSync(R(`${dir}/${f}`));   /* aulas apagadas no CMS deixam de ter ficheiro */
+      const pub = `cursos/slides/${it.slug}`;   /* cópia pública (cursos gratuitos): o leitor abre o PDF e oferece o .pptx para baixar */
+      for (const f of (existsSync(R(pub)) ? readdirSync(R(pub)) : [])) { const m = f.match(/^aula-(\d+)\.(pptx|pdf)$/); if (!m || +m[1] > it.aulas.length) unlinkSync(R(`${pub}/${f}`)); }
       for (let k = 0; k < it.aulas.length; k++) {
         const a = it.aulas[k]; if (!a.slides.length) continue;
         mkdirSync(R(dir), { recursive: true });
         try {   /* um PPTX com problema não deve impedir a publicação do site: avisa e segue (a aula fica sem o botão de PowerPoint) */
           await gerarPptx(PptxGenJS, { curso: it.titulo, aula: a, n: k + 1, total: it.aulas.length, notaMinima: it.notaMinima, raiz: R('.'), destino: R(`${dir}/aula-${k + 1}.pptx`) });
           PPTX.add(`${it.slug}/${k + 1}`); n++;
+          if (a.permitirPptx !== false) {
+            mkdirSync(R(pub), { recursive: true });
+            copyFileSync(R(`${dir}/aula-${k + 1}.pptx`), R(`${pub}/aula-${k + 1}.pptx`));
+            SLIDES_HASH[`${it.slug}/${k + 1}`] = createHash('sha1').update(GERADOR).update(JSON.stringify([it.titulo, k + 1, it.aulas.length, a.titulo, a.resumo, a.duracao, a.conteudo, a.slides, a.teste && a.teste.notaMinima, it.notaMinima])).digest('hex').slice(0, 12);
+          }
         } catch (e) { console.warn(`AVISO: PPTX não gerado (${it.slug}, aula ${k + 1}): ${e && e.message ? e.message : e}`); }
       }
     }
-    console.log(`PowerPoint: ${n} ficheiros gerados em api/_dados/slides/.`);
+    write('cursos/slides/hashes.json', JSON.stringify(SLIDES_HASH, null, 1));
+    console.log(`PowerPoint: ${n} ficheiros gerados em api/_dados/slides/ e cópia pública em cursos/slides/.`);
   }
 }
 
@@ -418,7 +473,10 @@ const PPTX = new Set();
   let n = 0;
   for (const it of itens) {
     if (it.tipo !== 'cursos' || it.modo !== 'progressivo' || !it.aulas.length) continue;
-    const pub = { slug: it.slug, titulo: it.titulo, notaMinima: it.notaMinima, aulas: it.aulas.map((a) => ({
+    const pdfOk = lerJson('cursos/slides/pdf.json');   /* PDFs pré-gerados (tools/gerar-pdf-slides.mjs); só aparecem se ainda corresponderem aos slides */
+    const pub = { slug: it.slug, titulo: it.titulo, notaMinima: it.notaMinima, aulas: it.aulas.map((a, k) => ({
+      pptx: SLIDES_HASH[`${it.slug}/${k + 1}`] ? `/cursos/slides/${it.slug}/aula-${k + 1}.pptx` : null,
+      pdf: SLIDES_HASH[`${it.slug}/${k + 1}`] && pdfOk[`${it.slug}/${k + 1}`] === SLIDES_HASH[`${it.slug}/${k + 1}`] && existsSync(R(`cursos/slides/${it.slug}/aula-${k + 1}.pdf`)) ? `/cursos/slides/${it.slug}/aula-${k + 1}.pdf` : null,
       titulo: a.titulo, resumo: a.resumo, duracao: a.duracao, html: md(a.conteudo),
       slides: a.slides.map((s) => ({ titulo: s.titulo, html: md(s.texto), imagem: s.imagem, tipo: s.tipo })),
       video: a.youtube || a.video ? { youtube: a.youtube, ficheiro: a.video } : null,
@@ -542,11 +600,48 @@ write('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xm
     console.log(`AdSense ${cfg.adsenseClient}: meta de verificação em ${m} páginas.`);
   }
 }
-/* ---------- sw.js: nova versão de cache em cada publicação; acrescenta pesquisa ao núcleo ---------- */
+/* ---------- partilha uniforme (ícones) em TODAS as páginas: o endereço partilhado é sempre o canónico da própria página ---------- */
+{
+  let n = 0;
+  for (const f of ['index.html', '404.html', ...PAGINAS]) {
+    if (!existsSync(R(f))) continue;
+    const s = read(f);
+    if (!s.includes('class="ec-share"')) continue;
+    const canon = unesc((s.match(/<link rel="canonical" href="([^"]*)"/) || [])[1] || '');
+    const t = s.replace(/<div class="ec-share"[^>]*>[\s\S]*?<\/div>/g, (m) => {
+      const ti = (m.match(/data-title="([^"]*)"/) || [])[1], u = canon || unesc((m.match(/data-url="([^"]*)"/) || [])[1] || '');
+      return ti && u ? share(u, unesc(ti)) : m;
+    });
+    if (t !== s) { write(f, t); n++; }
+  }
+  console.log(`Partilha: ícones uniformes em ${n} páginas.`);
+}
+/* ---------- extras em todas as páginas públicas: estilos + partilha/contador + convite de instalação intermitente ---------- */
+{
+  const LINK = '<link rel="stylesheet" href="/css/extras.css">';
+  const SC = '<script src="/js/site/extras.js" defer></script><script src="/js/pwa/botao-instalar.js" defer></script>';
+  let n = 0;
+  for (const f of ['index.html', '404.html', ...PAGINAS]) {
+    if (!existsSync(R(f)) || f.startsWith('conta/') || f === 'offline.html') continue;
+    const s = read(f); let t = s;
+    if (!t.includes('/css/extras.css')) t = t.replace('</head>', LINK + '</head>');
+    if (!t.includes('/js/site/extras.js')) t = t.replace('</body>', SC + '</body>');
+    if (t !== s) { write(f, t); n++; }
+  }
+  console.log(`Extras (partilha, contador, convite de instalação): ${n} páginas.`);
+}
+/* ---------- sw.js: só as FERRAMENTAS funcionam offline; lista e versão do cache geradas aqui ---------- */
 if (existsSync(R('sw.js'))) {
+  const pagTools = PAGINAS.filter((f) => f.startsWith('ferramentas/')).map(urlDe);
+  const ativos = new Set(['/manifest.json', '/favicon.ico', '/favicon-32x32.png', '/favicon-16x16.png', '/apple-touch-icon.png', '/icon-192.png', '/icon-512.png']);
+  for (const f of PAGINAS.filter((x) => x.startsWith('ferramentas/'))) {
+    for (const m of read(f).matchAll(/(?:src|href)="(\/[^"#?]*\.(?:js|css|webp|png|svg|jpg|ico))(?:\?[^"]*)?"/g)) ativos.add(m[1]);
+  }
+  const tools = [...new Set([...pagTools, ...ativos])].sort();
   let sw = read('sw.js');
   sw = sw.replace(/const CACHE = "[^"]*";/, `const CACHE = "ec-${Date.now().toString(36)}";`);
-  if (!sw.includes("'search-index.json'")) sw = sw.replace("'conteudo.json',", "'conteudo.json', 'search-index.json', 'pesquisa.html',");
+  sw = sw.replace(/\/\*EC:TOOLS\*\/[\s\S]*?\/\*\/EC:TOOLS\*\//, () => `/*EC:TOOLS*/const TOOLS = ${JSON.stringify(tools)};/*/EC:TOOLS*/`);
   write('sw.js', sw);
+  console.log(`Offline: ${pagTools.length} páginas de ferramentas + ${tools.length - pagTools.length} ficheiros em cache.`);
 }
 console.log(`Build ok: ${itens.length} itens (${destaques.length} dicas na home).`);

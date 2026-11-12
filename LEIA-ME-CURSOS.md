@@ -30,3 +30,20 @@ No CMS, em cada aula do curso, cole o **link do YouTube** (ou carregue um MP4). 
 | Estabilização de pacientes | 6 (era 5) | 87 |
 | Elaboração de monografias | 7 (era 6) | 108 |
 Cada aula tem exactamente 10 perguntas (o build valida). As respostas certas estão agora repartidas por A, B, C e D e o leitor baralha perguntas e opções em cada tentativa.
+
+## Ficha institucional e slides (actualização)
+- **Dados comuns a todos os cursos** (Karlyon Enterprise S.A., entidade formadora ENCORP, tipo CPD, coordenador, logótipos) estão em `tools/ficha-curso.mjs`. Alterar aí muda a ficha da página do curso e a capa de todos os PowerPoint.
+- **Logótipos** em `img/logos/karlyon.png` e `img/logos/encorp.png`.
+- **Slides (.pptx)** seguem o modelo «Aula EC4»: capa verde-azulada com logótipos, faixa de título, rodapé cinzento, Arial. Um slide pode ter o campo opcional `fonte` (citação no rodapé, ex.: «(Brunner & Suddarth, 2010)»).
+- **Capas**: `uploads/cursos/capa-primeiros-socorros.jpg` e `capa-sinais-vitais.jpg`.
+
+## Leitor PowerPoint (actualização)
+- Os slides (.pptx) usam agora as cores do site (azul-marinho #0b1a33, dourado #e8a317, castanho #a64b00). O leitor de curso, o leitor de PDF e os slides têm o mesmo desenho.
+- Em cada aula há **«Ler em PowerPoint»** (abre o PDF do .pptx no leitor integrado, na página do slide actual) e **«Baixar .pptx»**.
+- Os .pptx públicos ficam em `cursos/slides/<curso>/aula-N.pptx` (gerados pelo `node build.mjs`).
+- Os PDF dos slides são gerados no seu computador (a Vercel não tem LibreOffice):
+  1. `node build.mjs`
+  2. `node tools/gerar-pdf-slides.mjs` (requer o LibreOffice; converte só as aulas que mudaram)
+  3. `node build.mjs` outra vez e enviar para o GitHub `cursos/slides/` e `cursos/dados/`
+- Se os slides mudarem no CMS e o PDF não for refeito, o botão «Ler em PowerPoint» desaparece sozinho (o PDF desactualizado nunca é mostrado); a leitura no ecrã e o .pptx continuam a funcionar.
+- O `md()` do build passou a suportar tabelas e blocos mistos (frase + lista).
