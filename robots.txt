@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /conta/
+Disallow: /api/
+
+User-agent: Mediapartners-Google
+Allow: /
+
+Sitemap: https://encorp.vercel.app/sitemap.xml

@@ -1,0 +1,8 @@
+LISTA-DE-FICHEIROS-MODIFICADOS.txt
+build.mjs
+conteudo/cursos/2026-10-13-elaboracao-de-monografias.json
+conteudo/cursos/2026-10-13-estabilizacao-de-pacientes.json
+conteudo/cursos/2026-10-13-primeiros-socorros.json
+conteudo/cursos/2026-10-13-sinais-vitais-e-interpretacao.json
+css/sbb.css
+js/site/curso-player.js

@@ -1,0 +1,34 @@
+/* Leitor único (js/site/leitor.js): usa as cores e a letra do próprio site */
+.ecr{position:relative;display:flex;flex-direction:column;margin:16px 0;background:var(--sbb-soft,#eef3fb);border:1px solid var(--sbb-line,#dfe6f0);border-radius:16px;overflow:hidden;box-shadow:0 6px 22px rgba(11,26,51,.08);color:var(--sbb-text,#0f2547);font-family:Outfit,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;outline:0}
+.ecr:focus-visible{box-shadow:0 0 0 3px rgba(1,72,224,.35)}
+.ecr-barra{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--sbb-navy,#0b1a33);color:#fff}
+.ecr-tit{flex:1;min-width:0;font-family:inherit;font-weight:700;font-size:14px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ecr-pag{flex:none;padding:5px 10px;border-radius:99px;background:rgba(255,255,255,.14);font-family:inherit;font-weight:700;font-size:12px;line-height:1;letter-spacing:.02em}
+.ecr-fer{display:flex;gap:6px;flex:none}
+.ecr-b{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:38px;height:38px;padding:0 9px;border:0;border-radius:10px;background:rgba(255,255,255,.1);color:#fff;cursor:pointer;text-decoration:none;font-family:inherit;font-weight:700;font-size:13px;line-height:1;-webkit-tap-highlight-color:transparent;transition:background .15s}
+.ecr-b:hover,.ecr-b:focus-visible{background:var(--sbb-blue,#0148E0);outline:0}
+.ecr-b svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ecr-ppt{background:#f28c1c;color:#0b1a33}.ecr-ppt:hover,.ecr-ppt:focus-visible{background:#ffa43f}
+.ecr-palco{position:relative;flex:1;display:flex;align-items:center;justify-content:center;min-height:240px;padding:4px}
+.ecr-slides .ecr-palco{aspect-ratio:16/9;max-height:78vh;cursor:pointer;background:var(--sbb-soft,#eef3fb)}
+.ecr-doc .ecr-palco{display:block;height:72vh;overflow:auto;padding:12px;text-align:center;-webkit-overflow-scrolling:touch}
+.ecr-cv{display:block;margin:0 auto;max-width:100%;background:#fff;border-radius:6px;box-shadow:0 2px 14px rgba(11,26,51,.18)}
+.ecr-pg{margin:0 auto 12px;background:#fff;border-radius:6px;box-shadow:0 2px 14px rgba(11,26,51,.14)}
+.ecr-pg .ecr-cv{box-shadow:none;border-radius:6px}
+.ecr-seta{position:absolute;top:50%;z-index:2;width:44px;height:44px;margin-top:-10px;border:0;border-radius:50%;background:rgba(11,26,51,.78);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:.0;transition:opacity .2s,background .15s}
+.ecr:hover .ecr-seta,.ecr:focus-within .ecr-seta,.ecr-fs .ecr-seta{opacity:1}
+@media(hover:none){.ecr-seta{opacity:.85}}
+.ecr-seta:hover{background:var(--sbb-blue,#0148E0)}.ecr-seta:disabled{opacity:0!important;pointer-events:none}
+.ecr-seta svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.ecr-seta-a{left:10px}.ecr-seta-s{right:10px}
+.ecr-prog{height:5px;background:var(--sbb-line,#dfe6f0)}.ecr-prog i{display:block;height:100%;width:0;background:#f28c1c;transition:width .25s}
+.ecr-estado{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:30px 16px;text-align:center;color:var(--sbb-muted,#5b6b85);font-size:14px}
+.ecr-estado p{margin:0}
+.ecr-roda{width:34px;height:34px;border-radius:50%;border:3px solid var(--sbb-line,#dfe6f0);border-top-color:var(--sbb-blue,#0148E0);animation:ecrg .8s linear infinite}
+@keyframes ecrg{to{transform:rotate(360deg)}}
+.ecr:fullscreen{border-radius:0;border:0;background:#0b1a33}.ecr:fullscreen .ecr-palco{aspect-ratio:auto;max-height:none;height:calc(100vh - 62px);background:#0b1a33}.ecr:fullscreen .ecr-cv{box-shadow:none}
+.ecr:-webkit-full-screen{border-radius:0;border:0;background:#0b1a33}.ecr:-webkit-full-screen .ecr-palco{aspect-ratio:auto;max-height:none;height:calc(100vh - 62px);background:#0b1a33}
+.ecr-fs{position:fixed;inset:0;z-index:2147483000;margin:0;border-radius:0}.ecr-fs .ecr-palco{aspect-ratio:auto;max-height:none;height:calc(100vh - 62px)}
+@media(max-width:560px){.ecr-barra{flex-wrap:wrap}.ecr-tit{flex-basis:100%;order:-1}.ecr-ppt span{display:none}.ecr-doc .ecr-palco{height:62vh}.ecr-z{display:none}}
+@media(prefers-reduced-motion:reduce){.ecr-roda{animation:none}.ecr-prog i,.ecr-seta{transition:none}}
+.ecr-acoes{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
