@@ -1,0 +1,124 @@
+{
+  "titulo": "Teste: noções de monografia",
+  "data": "2026-10-13",
+  "resumo": "Estrutura e conceitos básicos de um trabalho de fim de curso.",
+  "curso": "elaboracao-de-monografias",
+  "nivel": "Iniciante",
+  "aprovacao": 60,
+  "imagem": "",
+  "perguntas": [
+    {
+      "pergunta": "Qual a parte da monografia que apresenta o problema e os objectivos?",
+      "opcoes": [
+        "Resumo apenas",
+        "Introdução",
+        "Anexos",
+        "Agradecimentos"
+      ],
+      "correta": 2,
+      "explicacao": "A introdução contextualiza o tema, o problema e os objectivos."
+    },
+    {
+      "pergunta": "Uma revisão bibliográfica baseia-se em:",
+      "opcoes": [
+        "Opinião pessoal",
+        "Fontes científicas já publicadas",
+        "Apenas entrevistas",
+        "Imagens"
+      ],
+      "correta": 2,
+      "explicacao": "Reúne e sintetiza literatura científica existente."
+    },
+    {
+      "pergunta": "O estudo de caso caracteriza-se por:",
+      "opcoes": [
+        "Analisar em profundidade um ou poucos casos",
+        "Inquirir milhares de pessoas",
+        "Não ter método",
+        "Dispensar ética"
+      ],
+      "correta": 1,
+      "explicacao": "Foca-se no aprofundamento de um caso ou poucos casos."
+    },
+    {
+      "pergunta": "Num estudo de campo, os dados são recolhidos:",
+      "opcoes": [
+        "Só em bibliotecas",
+        "No contexto real, com instrumentos como questionários",
+        "Só por dedução",
+        "Sem consentimento"
+      ],
+      "correta": 2,
+      "explicacao": "Recolha no terreno, com instrumentos definidos e consentimento informado."
+    },
+    {
+      "pergunta": "As referências bibliográficas servem para:",
+      "opcoes": [
+        "Enfeitar o trabalho",
+        "Identificar as fontes citadas",
+        "Aumentar páginas",
+        "Substituir a conclusão"
+      ],
+      "correta": 2,
+      "explicacao": "Permitem identificar e verificar as fontes usadas."
+    },
+    {
+      "pergunta": "A secção que descreve os métodos e procedimentos do estudo chama-se:",
+      "opcoes": [
+        "Metodologia",
+        "Dedicatória",
+        "Anexos",
+        "Índice"
+      ],
+      "correta": 1,
+      "explicacao": "A metodologia descreve tipo de estudo, amostra, instrumentos e análise."
+    },
+    {
+      "pergunta": "Qual é a função das conclusões?",
+      "opcoes": [
+        "Apresentar uma nova revisão de literatura",
+        "Responder aos objectivos com base nos resultados",
+        "Listar os agradecimentos",
+        "Descrever o orçamento"
+      ],
+      "correta": 2,
+      "explicacao": "As conclusões respondem aos objectivos e sintetizam os achados."
+    },
+    {
+      "pergunta": "Citar uma ideia de outro autor sem o indicar é:",
+      "opcoes": [
+        "Aceitável em trabalhos académicos",
+        "Plágio",
+        "Obrigatório",
+        "Uma forma de resumo"
+      ],
+      "correta": 2,
+      "explicacao": "É plágio e constitui falta grave em trabalhos académicos."
+    },
+    {
+      "pergunta": "O resumo (abstract) de uma monografia deve:",
+      "opcoes": [
+        "Ser o capítulo mais longo",
+        "Sintetizar objectivo, método, resultados e conclusão",
+        "Substituir a introdução",
+        "Conter apenas a bibliografia"
+      ],
+      "correta": 2,
+      "explicacao": "É uma síntese curta de todo o trabalho."
+    },
+    {
+      "pergunta": "Os anexos servem para:",
+      "opcoes": [
+        "Substituir os resultados",
+        "Incluir material de apoio, como o instrumento de recolha de dados",
+        "Fazer a conclusão",
+        "Citar autores"
+      ],
+      "correta": 2,
+      "explicacao": "Os anexos reúnem documentos complementares, como questionários e autorizações."
+    }
+  ],
+  "etiquetas": [],
+  "corpo": "",
+  "publicado": true
+}

@@ -1,0 +1,124 @@
+{
+  "titulo": "Teste: sinais vitais no adulto",
+  "data": "2026-10-13",
+  "resumo": "Valores de referência e interpretação básica dos sinais vitais.",
+  "curso": "sinais-vitais-e-interpretacao",
+  "nivel": "Iniciante",
+  "aprovacao": 60,
+  "imagem": "",
+  "perguntas": [
+    {
+      "pergunta": "Qual é a frequência respiratória normal de um adulto em repouso?",
+      "opcoes": [
+        "4 a 8 rpm",
+        "12 a 20 rpm",
+        "25 a 35 rpm",
+        "40 a 50 rpm"
+      ],
+      "correta": 2,
+      "explicacao": "Em repouso, o adulto respira cerca de 12 a 20 vezes por minuto."
+    },
+    {
+      "pergunta": "Qual é a frequência cardíaca normal de um adulto em repouso?",
+      "opcoes": [
+        "30 a 50 bpm",
+        "60 a 100 bpm",
+        "110 a 140 bpm",
+        "150 a 180 bpm"
+      ],
+      "correta": 2,
+      "explicacao": "A referência habitual é 60 a 100 batimentos por minuto."
+    },
+    {
+      "pergunta": "Uma saturação periférica persistentemente abaixo de 90% em ar ambiente sugere:",
+      "opcoes": [
+        "Valor normal",
+        "Hipoxemia que exige avaliação urgente",
+        "Hipertensão",
+        "Desidratação ligeira"
+      ],
+      "correta": 2,
+      "explicacao": "Valores baixos de SpO₂ sugerem oxigenação insuficiente e devem ser avaliados de imediato."
+    },
+    {
+      "pergunta": "Temperatura axilar de 38,5 °C num adulto corresponde a:",
+      "opcoes": [
+        "Hipotermia",
+        "Normotermia",
+        "Febre",
+        "Hipotensão"
+      ],
+      "correta": 3,
+      "explicacao": "Valores acima de cerca de 37,5–38 °C são considerados febre."
+    },
+    {
+      "pergunta": "Uma tensão arterial de 90/60 mmHg num doente com tonturas e pele fria deve levar a:",
+      "opcoes": [
+        "Ignorar, é normal",
+        "Alertar a equipa e reavaliar de imediato",
+        "Dar uma refeição pesada",
+        "Medir apenas no dia seguinte"
+      ],
+      "correta": 2,
+      "explicacao": "Hipotensão com sintomas pode indicar choque: alerte e reavalie."
+    },
+    {
+      "pergunta": "Qual é o valor de temperatura considerado hipotermia?",
+      "opcoes": [
+        "Abaixo de 35,0 °C",
+        "36,5 °C",
+        "37,5 °C",
+        "38,0 °C"
+      ],
+      "correta": 1,
+      "explicacao": "Temperatura inferior a 35,0 °C."
+    },
+    {
+      "pergunta": "Qual é a tensão arterial normal de referência num adulto?",
+      "opcoes": [
+        "Abaixo de 120/80 mmHg",
+        "150/95 mmHg",
+        "170/100 mmHg",
+        "Abaixo de 70/40 mmHg"
+      ],
+      "correta": 1,
+      "explicacao": "Abaixo de 120/80 mmHg."
+    },
+    {
+      "pergunta": "A taquicardia no adulto define-se como frequência:",
+      "opcoes": [
+        "Acima de 100 bpm",
+        "Entre 60 e 100 bpm",
+        "Abaixo de 60 bpm",
+        "Igual a zero"
+      ],
+      "correta": 1,
+      "explicacao": "Acima de 100 batimentos por minuto em repouso."
+    },
+    {
+      "pergunta": "Um valor isolado de tensão arterial elevada:",
+      "opcoes": [
+        "Confirma sempre hipertensão",
+        "Deve ser repetido e confirmado",
+        "Dispensa nova medição",
+        "Indica sempre emergência"
+      ],
+      "correta": 2,
+      "explicacao": "A hipertensão exige confirmação em medições repetidas."
+    },
+    {
+      "pergunta": "Ao registar a SpO₂ deve indicar-se:",
+      "opcoes": [
+        "Se o doente está em ar ambiente ou com oxigénio",
+        "A cor da roupa",
+        "O nome do oxímetro",
+        "O peso"
+      ],
+      "correta": 1,
+      "explicacao": "O contexto de oxigénio suplementar muda a interpretação."
+    }
+  ],
+  "etiquetas": [],
+  "corpo": "",
+  "publicado": true
+}
