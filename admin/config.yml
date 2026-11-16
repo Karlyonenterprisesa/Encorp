@@ -1,0 +1,624 @@
+# ENCORP — Decap CMS com login GitHub (OAuth via /api/auth e /api/callback na Vercel)
+# Colecções: Dicas e Actualidades (home), Biblioteca (PDF), Cursos, Video-aulas, Testes e Definições.
+# Variáveis na Vercel: GITHUB_CLIENT_ID e GITHUB_CLIENT_SECRET (ver LEIA-ME-CMS.md)
+
+backend:
+  name: github
+  repo: karlyonenterprisesa/encorp
+  branch: main
+  base_url: https://encorp.vercel.app
+  auth_endpoint: api/auth
+locale: pt
+media_folder: uploads
+public_folder: /uploads
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
+site_url: https://encorp.vercel.app
+display_url: https://encorp.vercel.app
+collections:
+- name: dicas
+  label: Dicas e Actualidades de Saúde
+  label_singular: Publicação
+  folder: conteudo/dicas
+  create: true
+  extension: json
+  format: json
+  identifier_field: titulo
+  slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+  editor:
+    preview: false
+  media_folder: /uploads/dicas
+  public_folder: /uploads/dicas
+  fields:
+  - &id001
+    label: Título
+    name: titulo
+    widget: string
+  - &id002
+    label: Data
+    name: data
+    widget: datetime
+    date_format: YYYY-MM-DD
+    time_format: false
+    format: YYYY-MM-DD
+  - label: Tipo
+    name: categoria
+    widget: select
+    options:
+    - Dica
+    - Artigo
+    - Notícia
+    default: Dica
+  - label: Resumo (aparece no Google, máx. 160 letras)
+    name: resumo
+    widget: text
+    hint: Uma ou duas frases. Aparece no cartão da página inicial.
+  - &id003
+    label: Imagem de capa
+    name: imagem
+    widget: image
+    required: false
+  - label: Autor
+    name: autor
+    widget: string
+    required: false
+  - label: Texto
+    name: corpo
+    widget: markdown
+    required: false
+  - label: 'Nome da fonte (obrigatório em notícias; ex.: OMS, Ministério da Saúde)'
+    name: fonte
+    widget: string
+    required: false
+  - label: Link da fonte original
+    name: fonte_url
+    widget: string
+    required: false
+  - &id004
+    label: Etiquetas
+    name: etiquetas
+    widget: list
+    required: false
+  - &id005
+    label: Publicado
+    name: publicado
+    widget: boolean
+    default: true
+    hint: Desligue para esconder sem apagar.
+  summary: '{{categoria}} · {{titulo}}'
+- name: biblioteca
+  label: Biblioteca (documentos PDF)
+  label_singular: Documento
+  folder: conteudo/biblioteca
+  create: true
+  extension: json
+  format: json
+  identifier_field: titulo
+  slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+  editor:
+    preview: false
+  media_folder: /uploads/biblioteca
+  public_folder: /uploads/biblioteca
+  fields:
+  - *id001
+  - *id002
+  - label: Categoria
+    name: categoria
+    widget: select
+    options:
+    - Manual
+    - Lista de medicamentos
+    - Processo de enfermagem
+    - Ficha
+    - Protocolo
+    - Outro
+    default: Manual
+  - label: Resumo (aparece no Google, máx. 160 letras)
+    name: resumo
+    widget: text
+    hint: O que o documento contém.
+  - label: Ficheiro PDF (só PDF)
+    name: ficheiro
+    widget: file
+    hint: Apenas ficheiros .pdf. Outros formatos são ignorados pelo site.
+  - *id003
+  - label: Descrição
+    name: corpo
+    widget: markdown
+    required: false
+  - *id004
+  - *id005
+  summary: '{{categoria}} · {{titulo}}'
+- name: cursos
+  label: Cursos
+  label_singular: Curso
+  folder: conteudo/cursos
+  create: true
+  extension: json
+  format: json
+  identifier_field: titulo
+  slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+  editor:
+    preview: false
+  summary: '{{titulo}} · {{nivel}}'
+  fields:
+  - label: Título do curso
+    name: titulo
+    widget: string
+  - label: Data
+    name: data
+    widget: datetime
+    date_format: YYYY-MM-DD
+    time_format: false
+    format: YYYY-MM-DD
+  - label: Resumo (aparece no Google, máx. 160 letras)
+    name: resumo
+    widget: text
+    hint: Uma ou duas frases a explicar o curso.
+  - label: Imagem de capa
+    name: imagem
+    widget: image
+    required: false
+  - label: Nível
+    name: nivel
+    widget: select
+    options:
+    - Iniciante
+    - Intermédio
+    - Avançado
+    default: Iniciante
+    required: false
+  - label: 'Área (ex.: Urgência, Cuidados básicos)'
+    name: area
+    widget: string
+    required: false
+  - label: 'Duração total (ex.: 6 horas)'
+    name: duracao
+    widget: string
+    required: false
+  - label: Formador / instrutor
+    name: instrutor
+    widget: string
+    required: false
+  - label: 'Preço (deixe vazio se for gratuito; ex.: 1500 MT)'
+    name: preco
+    widget: string
+    required: false
+  - label: Link de inscrição ou contacto
+    name: link_inscricao
+    widget: string
+    required: false
+    hint: 'Ex.: link do WhatsApp (https://wa.me/258…), formulário ou email (mailto:…). Aparece no botão «Inscrever-se».'
+  - label: Descrição e programa do curso
+    name: corpo
+    widget: markdown
+    required: false
+  - label: Modo do curso
+    name: modo
+    widget: select
+    options:
+    - {label: 'Livre (aberto a todos, sem conta)', value: livre}
+    - {label: 'Progressivo (conta de estudante, aulas por ordem, testes)', value: progressivo}
+    default: livre
+    required: false
+    hint: No modo progressivo cada aula pode ter conteúdo, slides, vídeo-resumo e um teste de 10 perguntas, corrigido no servidor.
+  - label: Nota mínima de aprovação (%) — modo progressivo
+    name: nota_minima
+    widget: number
+    value_type: int
+    min: 1
+    max: 100
+    default: 70
+    required: false
+  - label: Tentativas seguidas permitidas por teste (0 = ilimitadas)
+    name: tentativas
+    widget: number
+    value_type: int
+    min: 0
+    default: 3
+    required: false
+  - label: Espera, em minutos, depois de esgotar as tentativas
+    name: espera_minutos
+    widget: number
+    value_type: int
+    min: 0
+    default: 30
+    required: false
+  - label: Aulas por ordem (só abre a seguinte depois de aprovar a anterior)
+    name: sequencial
+    widget: boolean
+    default: true
+    required: false
+  - label: Aulas deste curso (vídeos)
+    name: aulas
+    widget: list
+    required: false
+    summary: '{{fields.titulo}}'
+    hint: Adicione aqui as aulas em vídeo, pela ordem. Para aulas com página própria, use a secção «Video-aulas» e escolha este curso.
+    fields:
+    - label: Título da aula
+      name: titulo
+      widget: string
+    - label: Link do YouTube
+      name: youtube
+      widget: string
+      required: false
+    - label: OU carregar o vídeo (ficheiro MP4)
+      name: video
+      widget: file
+      required: false
+      hint: Use só se não tiver link do YouTube. Formato MP4 (H.264), de preferência até 20–25 MB. Para vídeos longos, use o YouTube.
+    - label: 'Duração (ex.: 12 min)'
+      name: duracao
+      widget: string
+      required: false
+    - label: Resumo da aula
+      name: resumo
+      widget: text
+      required: false
+    - label: Conteúdo escrito da aula (modo progressivo)
+      name: conteudo
+      widget: markdown
+      required: false
+    - label: Slides de aprendizagem (modo progressivo)
+      name: slides
+      widget: list
+      required: false
+      summary: '{{fields.titulo}}'
+      hint: O estudante tem de ver todos os slides, pela ordem, antes do teste. O PowerPoint (.pptx) desta aula é gerado sozinho a partir destes slides em cada publicação.
+      fields:
+      - {label: Título do slide, name: titulo, widget: string}
+      - {label: Texto do slide, name: texto, widget: markdown, required: false}
+      - label: Tipo de slide
+        name: tipo
+        widget: select
+        default: conteudo
+        required: false
+        options:
+        - {label: Conteúdo, value: conteudo}
+        - {label: Objectivos da aula, value: objetivos}
+        - {label: Sequência (passos em cartões), value: fluxo}
+        - {label: Caso clínico, value: caso}
+        - {label: Pontos-chave, value: pontos-chave}
+        - {label: Resumo, value: resumo}
+        - {label: Para reflectir, value: reflexao}
+        - {label: Para aprofundar (ligações), value: leitura}
+        hint: 'Decide o desenho no PowerPoint e no leitor. Texto: listas com «-» ou «1.», «> » para caixa de destaque (comece por «Atenção» para alerta), tabelas com «| a | b |», «**negrito**».'
+      - {label: Notas do orador (só no PowerPoint), name: notas, widget: text, required: false}
+      - {label: 'Tempo mínimo neste slide (segundos) — vazio = calculado pelo nº de palavras', name: tempo, widget: number, value_type: int, min: 3, max: 600, required: false, hint: 'O estudante só pode avançar depois deste tempo (imposto pelo servidor). Por defeito: cerca de 2 palavras por segundo + 8 s, entre 10 e 120 s.'}
+      - {label: Imagem do slide, name: imagem, widget: image, required: false}
+    - label: Permitir descarregar os slides em PowerPoint
+      name: permitir_pptx
+      widget: boolean
+      default: true
+      required: false
+      hint: O ficheiro .pptx é criado automaticamente a partir dos slides e só fica disponível para o estudante com a aula desbloqueada.
+    - label: Vídeo-resumo obrigatório antes do teste
+      name: video_obrigatorio
+      widget: boolean
+      default: true
+      required: false
+      hint: 'Ordem da aula: slides → vídeo-resumo → teste. O vídeo só abre depois dos slides e o teste só abre depois de o estudante ver 90% do vídeo a tocar (tempo real, sem saltar). Sem vídeo, esta opção não bloqueia a aula.'
+    - label: Duração do vídeo-resumo (minutos)
+      name: duracao_video
+      widget: number
+      value_type: float
+      min: 0.5
+      required: false
+      hint: 'Recomendado: dá ao servidor a duração certa para exigir 90% do vídeo (ex.: 4.5). Se ficar vazio, usa a duração indicada pelo leitor de vídeo.'
+    - label: Teste da aula (modo progressivo)
+      name: teste
+      widget: object
+      required: false
+      fields:
+      - {label: Nota mínima desta aula (%) — vazio = a do curso, name: nota_minima, widget: number, value_type: int, min: 1, max: 100, required: false}
+      - {label: Tentativas seguidas desta aula (vazio = as do curso), name: tentativas, widget: number, value_type: int, min: 0, required: false}
+      - label: Perguntas (EXACTAMENTE 10)
+        name: perguntas
+        widget: list
+        min: 10
+        max: 10
+        summary: '{{fields.pergunta}}'
+        fields:
+        - {label: Pergunta, name: pergunta, widget: text}
+        - {label: Opções de resposta (use «Adicionar» para cada opção), name: opcoes, widget: list, min: 2, max: 6}
+        - {label: Número da opção correcta (1 = a primeira da lista), name: correta, widget: number, value_type: int, min: 1, max: 6, default: 1}
+        - {label: Explicação (só aparece depois de aprovar), name: explicacao, widget: text, required: false}
+  - label: Etiquetas
+    name: etiquetas
+    widget: list
+    required: false
+  - label: Publicado
+    name: publicado
+    widget: boolean
+    default: true
+    hint: Desligue para esconder sem apagar.
+  media_folder: /uploads/cursos
+  public_folder: /uploads/cursos
+- name: videoaulas
+  label: Video-aulas
+  label_singular: Video-aula
+  folder: conteudo/videoaulas
+  create: true
+  extension: json
+  format: json
+  identifier_field: titulo
+  slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+  editor:
+    preview: false
+  fields:
+  - label: Título da aula
+    name: titulo
+    widget: string
+  - label: Data
+    name: data
+    widget: datetime
+    date_format: YYYY-MM-DD
+    time_format: false
+    format: YYYY-MM-DD
+  - label: Resumo (aparece no Google, máx. 160 letras)
+    name: resumo
+    widget: text
+    hint: Uma ou duas frases a explicar a aula.
+  - label: Link do YouTube
+    name: youtube
+    widget: string
+    required: false
+    hint: Cole o link normal (youtube.com/watch… ou youtu.be/…). O vídeo toca dentro do site.
+  - label: OU carregar o vídeo (ficheiro MP4)
+    name: video
+    widget: file
+    required: false
+    hint: Use só se não tiver link do YouTube. Formato MP4 (H.264), de preferência até 20–25 MB. Para vídeos longos, use o YouTube.
+  - label: Curso (opcional)
+    name: curso
+    widget: relation
+    collection: cursos
+    search_fields:
+    - titulo
+    value_field: '{{slug}}'
+    display_fields:
+    - titulo
+    required: false
+    hint: Se escolher um curso, esta aula aparece na lista de aulas dele.
+  - label: 'Anatomia: mostrar esta aula na página de um sistema (opcional)'
+    name: sistema
+    widget: select
+    required: false
+    hint: Escolha o sistema do corpo humano onde o vídeo deve aparecer, na secção «Video-aulas» da página de Anatomia. Deixe vazio se não for de anatomia.
+    options:
+    - { label: 'Sistema cardiovascular', value: 'sistema-cardiovascular' }
+    - { label: 'Sistema digestório', value: 'sistema-digestorio' }
+    - { label: 'Sistema endócrino', value: 'sistema-endocrino' }
+    - { label: 'Sistema esquelético', value: 'sistema-esqueletico' }
+    - { label: 'Sistema imunológico', value: 'sistema-imunologico' }
+    - { label: 'Sistema linfático', value: 'sistema-linfatico' }
+    - { label: 'Sistema muscular', value: 'sistema-muscular' }
+    - { label: 'Sistema nervoso', value: 'sistema-nervoso' }
+    - { label: 'Sistema reprodutor feminino', value: 'sistema-reprodutor-feminino' }
+    - { label: 'Sistema respiratório', value: 'sistema-respiratorio' }
+    - { label: 'Sistema sensorial', value: 'sistema-sensorial' }
+    - { label: 'Sistema tegumentar', value: 'sistema-tegumentar' }
+    - { label: 'Sistema urinário', value: 'sistema-urinario' }
+  - label: Ordem dentro do curso (1, 2, 3…)
+    name: ordem
+    widget: number
+    value_type: int
+    min: 1
+    default: 1
+    required: false
+  - label: 'Duração (ex.: 12 min)'
+    name: duracao
+    widget: string
+    required: false
+  - label: Imagem de capa
+    name: imagem
+    widget: image
+    required: false
+    hint: Se vazio, usa a miniatura do YouTube. Para vídeo MP4 carregado, é a imagem mostrada antes de tocar.
+  - label: Material de apoio (PDF, opcional)
+    name: ficheiro
+    widget: file
+    required: false
+  - label: Etiquetas
+    name: etiquetas
+    widget: list
+    required: false
+  - label: Notas da aula
+    name: corpo
+    widget: markdown
+    required: false
+  - label: Publicado
+    name: publicado
+    widget: boolean
+    default: true
+    hint: Desligue para esconder sem apagar.
+  media_folder: /uploads/videoaulas
+  public_folder: /uploads/videoaulas
+- name: testes
+  label: Testes
+  label_singular: Teste
+  folder: conteudo/testes
+  create: true
+  extension: json
+  format: json
+  identifier_field: titulo
+  slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+  editor:
+    preview: false
+  fields:
+  - label: Título do teste
+    name: titulo
+    widget: string
+  - label: Data
+    name: data
+    widget: datetime
+    date_format: YYYY-MM-DD
+    time_format: false
+    format: YYYY-MM-DD
+  - label: Resumo (aparece no Google, máx. 160 letras)
+    name: resumo
+    widget: text
+    hint: O que o teste avalia.
+  - label: Curso (opcional)
+    name: curso
+    widget: relation
+    collection: cursos
+    search_fields:
+    - titulo
+    value_field: '{{slug}}'
+    display_fields:
+    - titulo
+    required: false
+    hint: Se escolher um curso, o teste aparece na página dele.
+  - label: Nível
+    name: nivel
+    widget: select
+    options:
+    - Iniciante
+    - Intermédio
+    - Avançado
+    default: Iniciante
+    required: false
+  - label: Nota mínima para aprovação (%)
+    name: aprovacao
+    widget: number
+    value_type: int
+    min: 1
+    max: 100
+    default: 50
+    required: false
+  - label: Imagem de capa
+    name: imagem
+    widget: image
+    required: false
+  - label: Perguntas
+    name: perguntas
+    widget: list
+    summary: '{{fields.pergunta}}'
+    min: 10
+    max: 10
+    hint: O teste tem de ter EXACTAMENTE 10 perguntas. Cada pergunta tem 2 a 6 opções e uma só resposta correta.
+    fields:
+    - label: Pergunta
+      name: pergunta
+      widget: text
+    - label: Opções de resposta (use «Adicionar» para cada opção)
+      name: opcoes
+      widget: list
+      min: 2
+      max: 6
+    - label: Número da opção correta (1 = a primeira da lista)
+      name: correta
+      widget: number
+      value_type: int
+      min: 1
+      max: 6
+      default: 1
+    - label: Explicação (aparece depois de corrigir)
+      name: explicacao
+      widget: text
+      required: false
+  - label: Etiquetas
+    name: etiquetas
+    widget: list
+    required: false
+  - label: Instruções ou notas
+    name: corpo
+    widget: markdown
+    required: false
+  - label: Publicado
+    name: publicado
+    widget: boolean
+    default: true
+    hint: Desligue para esconder sem apagar.
+  media_folder: /uploads/testes
+  public_folder: /uploads/testes
+- name: definicoes
+  label: Definições do site
+  files:
+  - name: site
+    label: Endereço e anúncios
+    file: conteudo/site.json
+    format: json
+    fields:
+    - label: 'Endereço do site (ex.: https://encorp.vercel.app)'
+      name: siteUrl
+      widget: string
+      required: false
+    - label: Link externo para descarregar a app (opcional; usado no convite de instalação quando o navegador não suporta instalação directa)
+      name: appDownloadUrl
+      widget: string
+      required: false
+    - label: Google AdSense — ID do editor (ca-pub-…)
+      name: adsenseClient
+      widget: string
+      required: false
+    - label: Google AdSense — ID do bloco de anúncio
+      name: adsenseSlot
+      widget: string
+      required: false
+    - label: Google Analytics 4 — ID de medição (G-XXXXXXXXXX)
+      name: gaId
+      widget: string
+      required: false
+    - label: Google Search Console — código de verificação (só o valor de content)
+      name: googleVerification
+      widget: string
+      required: false
+    - label: Bing Webmaster — código de verificação
+      name: bingVerification
+      widget: string
+      required: false
+    - label: Facebook App ID (opcional)
+      name: facebookAppId
+      widget: string
+      required: false
+    - label: 'X/Twitter (ex.: @seu_utilizador)'
+      name: twitterHandle
+      widget: string
+      required: false
+    - label: Email de contacto
+      name: contactEmail
+      widget: string
+      required: false
+    - label: Telefone / WhatsApp
+      name: contactPhone
+      widget: string
+      required: false
+    - label: Facebook (link da página)
+      name: facebook
+      widget: string
+      required: false
+    - label: Instagram (link)
+      name: instagram
+      widget: string
+      required: false
+    - label: YouTube (link do canal)
+      name: youtube
+      widget: string
+      required: false
+    - label: TikTok (link)
+      name: tiktok
+      widget: string
+      required: false
+    - label: X/Twitter (link)
+      name: x
+      widget: string
+      required: false
+    - label: LinkedIn (link)
+      name: linkedin
+      widget: string
+      required: false
+    - label: Canal/grupo de WhatsApp (link)
+      name: whatsappCanal
+      widget: string
+      required: false
+    - label: Mostrar no Google TODAS as páginas de diagnósticos NANDA-I
+      name: indexarTodosDiagnosticos
+      widget: boolean
+      default: false
+      required: false
+      hint: 'Desligado (recomendado): só os diagnósticos com sugestões NIC/NOC específicas são indexados; os restantes ficam acessíveis mas escondidos do Google, para não parecerem conteúdo repetido.'
