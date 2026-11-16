@@ -1,1 +1,0 @@
-showView('home');
