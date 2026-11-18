@@ -20,3 +20,8 @@
 
 ## Ainda por fazer (não depende do código)
 Domínio próprio; email profissional; enriquecer medicamentos/processo de enfermagem; substituir imagens de terceiros (hotlink) por imagens próprias.
+
+## Cartão «Apoiar» (js/pwa/cartao-apoio.js)
+- Aparece de 5 em 5 minutos, fica 7 segundos e desaparece (com barra de contagem e botão ✕). O 1.º aparece aos 2 min 30 s, para não coincidir com o convite de instalação.
+- Não aparece em /apoiar, /admin, /conta, com o separador em segundo plano nem com o convite de instalação aberto. Depois de tocar em «Apoiar», não volta durante 7 dias.
+- Tempos editáveis no topo do ficheiro (PRIMEIRO, INTERVALO, VISIVEL).

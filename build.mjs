@@ -641,6 +641,7 @@ write('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xm
     const s = read(f); let t = s;
     if (!t.includes('/css/extras.css')) t = t.replace('</head>', LINK + '</head>');
     if (!t.includes('/js/site/extras.js')) t = t.replace('</body>', SC + '</body>');
+    if (!t.includes('/js/pwa/cartao-apoio.js')) t = t.replace('</body>', '<script src="/js/pwa/cartao-apoio.js" defer></script></body>');
     if (t !== s) { write(f, t); n++; }
   }
   console.log(`Extras (partilha, contador, convite de instalação): ${n} páginas.`);

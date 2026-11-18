@@ -67,3 +67,6 @@ Limites do ficheiro carregado: fica guardado no GitHub (que bloqueia ficheiros a
 ## Indexação dos diagnósticos (Search Console: «Detetada/Rastreada – atualmente não indexada»)
 - `conteudo/site.json` → `indexarTodosDiagnosticos: false`: os diagnósticos **sem sugestões NIC/NOC específicas** (139) ficam online mas com `noindex` e fora do sitemap, para o Google concentrar o rastreio nas páginas completas (151).
 - Quando enriquecer essas páginas, volte a pôr `true` ou deixe o build indexá-las automaticamente (passam a ter sugestões e deixam de ser «finas»).
+
+## Menu «Anatomia: Video-aulas» (CMS)
+No menu do CMS há agora **Anatomia: Video-aulas → Nova**: escolha o **sistema** (obrigatório), cole o link do YouTube (ou carregue um MP4), escreva título e resumo e clique em **Publicar**. O vídeo aparece na página desse sistema, em «Video-aulas», e também na lista geral de video-aulas. Estas aulas ficam guardadas na mesma pasta (`conteudo/videoaulas`) com `categoria: anatomia`.
