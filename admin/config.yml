@@ -437,6 +437,105 @@ collections:
     hint: Desligue para esconder sem apagar.
   media_folder: /uploads/videoaulas
   public_folder: /uploads/videoaulas
+- name: anatomia_videos
+  label: 'Anatomia: Video-aulas'
+  label_singular: Video-aula de anatomia
+  description: Video-aulas de anatomia. Escolha o sistema do corpo humano e o vídeo aparece na página desse sistema, na secção «Video-aulas».
+  folder: conteudo/videoaulas
+  create: true
+  extension: json
+  format: json
+  identifier_field: titulo
+  filter:
+    field: categoria
+    value: anatomia
+  slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+  editor:
+    preview: false
+  fields:
+  - label: Título da aula
+    name: titulo
+    widget: string
+  - label: Data
+    name: data
+    widget: datetime
+    date_format: YYYY-MM-DD
+    time_format: false
+    format: YYYY-MM-DD
+  - label: Sistema do corpo humano (onde o vídeo aparece)
+    name: sistema
+    widget: select
+    required: true
+    hint: 'Obrigatório: o vídeo aparece na página de Anatomia deste sistema.'
+    options:
+    - label: Sistema cardiovascular
+      value: sistema-cardiovascular
+    - label: Sistema digestório
+      value: sistema-digestorio
+    - label: Sistema endócrino
+      value: sistema-endocrino
+    - label: Sistema esquelético
+      value: sistema-esqueletico
+    - label: Sistema imunológico
+      value: sistema-imunologico
+    - label: Sistema linfático
+      value: sistema-linfatico
+    - label: Sistema muscular
+      value: sistema-muscular
+    - label: Sistema nervoso
+      value: sistema-nervoso
+    - label: Sistema reprodutor feminino
+      value: sistema-reprodutor-feminino
+    - label: Sistema respiratório
+      value: sistema-respiratorio
+    - label: Sistema sensorial
+      value: sistema-sensorial
+    - label: Sistema tegumentar
+      value: sistema-tegumentar
+    - label: Sistema urinário
+      value: sistema-urinario
+  - label: Resumo (aparece no Google, máx. 160 letras)
+    name: resumo
+    widget: text
+    hint: Uma ou duas frases a explicar a aula.
+  - label: Link do YouTube
+    name: youtube
+    widget: string
+    required: false
+    hint: Cole o link normal (youtube.com/watch… ou youtu.be/…). O vídeo toca dentro do site.
+  - label: OU carregar o vídeo (ficheiro MP4)
+    name: video
+    widget: file
+    required: false
+    hint: Use só se não tiver link do YouTube. Formato MP4 (H.264), de preferência até 20–25 MB. Para vídeos longos, use o YouTube.
+  - label: 'Duração (ex.: 12 min)'
+    name: duracao
+    widget: string
+    required: false
+  - label: Imagem de capa
+    name: imagem
+    widget: image
+    required: false
+    hint: Se vazio, usa a miniatura do YouTube. Para vídeo MP4 carregado, é a imagem mostrada antes de tocar.
+  - label: Etiquetas
+    name: etiquetas
+    widget: list
+    required: false
+  - label: Notas da aula
+    name: corpo
+    widget: markdown
+    required: false
+  - label: Publicado
+    name: publicado
+    widget: boolean
+    default: true
+    hint: Desligue para esconder sem apagar.
+  - label: Categoria
+    name: categoria
+    widget: hidden
+    default: anatomia
+  media_folder: /uploads/videoaulas
+  public_folder: /uploads/videoaulas
 - name: testes
   label: Testes
   label_singular: Teste
